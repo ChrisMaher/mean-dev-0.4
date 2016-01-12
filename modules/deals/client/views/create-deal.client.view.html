@@ -1,0 +1,212 @@
+<div class="col-sm-12" id="below-navbar">
+
+  <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
+    <li role="presentation" class="active"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> New Deal </a>
+    </li>
+  </ul>
+
+</div>
+
+<section data-ng-controller="DealsController as dealsCTRL">
+  <div class="body-content">
+    <!--<div class="page-header">-->
+
+    <!--</div>-->
+    <div class="col-sm-12 create-body">
+
+
+      <div class="col-md-12">
+
+
+        <div class="col-md-6">
+
+          <form class="form-horizontal" name="createDealForm">
+
+
+            <div class="form-group new-deal-form">
+              <label class="control-label" for="title">Title</label>
+
+              <div class="controls">
+                <input type="text" data-ng-model="dealsCTRL.title" id="title" class="form-control">
+
+                <div class="sub-label">Enter the Title of the Deal.</div>
+              </div>
+            </div>
+
+            <div class="form-group new-deal-form">
+              <label class="control-label" for="link">Link</label>
+
+              <div class="controls">
+                <input type="url" data-ng-model="dealsCTRL.link" id="link" class="form-control">
+
+                <div class="sub-label">Enter the Link to the Deal.</div>
+              </div>
+            </div>
+
+            <div class="form-group  new-deal-form">
+              <label class="control-label" for="details">DETAILS</label>
+
+              <div class="controls">
+                                    <textarea data-ng-model="dealsCTRL.details" id="details" class="form-control"
+                                              rows="6"
+                                              placeholder="Please enter in your own words why this is a good deal and try to avoid copy and paste of Marketing material.
+
+Also note that this is a family website so please avoid using bad language or insults. Thank You."></textarea>
+
+              </div>
+            </div>
+
+            <div class="form-group  new-deal-form">
+              <label class="control-label" for="retailer">RETAILER</label>
+
+              <div class="controls">
+                <input type="text" data-ng-model="dealsCTRL.retailer" id="retailer" class="form-control"
+                       placeholder="">
+
+                <div class="sub-label">Enter the Retailer of the Deal.</div>
+              </div>
+            </div>
+
+            <div class="form-group  new-deal-form">
+              <label class="control-label" for="price">PRICE</label>
+
+              <div class="controls">
+                <input type="Number" data-ng-model="dealsCTRL.price" id="price" class="form-control"
+                       placeholder="0">
+
+                <div class="sub-label">Enter the Price of the Deal.</div>
+              </div>
+            </div>
+
+            <div data-ng-show="error" class="text-danger">
+              <strong data-ng-bind="error"></strong>
+            </div>
+
+          </form>
+        </div>
+
+
+        <div class="col-md-6 create-deal-image-upload new-deal-form">
+
+
+          <div class="col-md-7 create-deal-image-detais">
+
+            <label class="control-label" for="urlimage">IMAGE UPLOAD</label>
+
+            <div class="text-center form-group" ng-hide="uploaderProduct.queue.length">
+          <span class="btn btn-default btn-file">
+              Select Image <input type="file" nv-file-select uploader="uploaderProduct">
+          </span>
+            </div></br>
+            <div class="text-center form-group" ng-show="uploaderProduct.queue.length">
+              <button class="btn btn-primary" ng-click="uploadProductPicture();">Upload</button>
+              <button class="btn btn-default" ng-click="cancelProductUpload();">Delete</button>
+            </div>
+            <div ng-show="success" class="text-center text-success">
+              <strong>Upload Successful</strong>
+            </div>
+            <div ng-show="error" class="text-center text-danger">
+              <strong ng-bind="error"></strong>
+            </div>
+
+            <label class="control-label" for="urlimage" ng-hide="uploaderProduct.queue.length">IMAGE URL</label>
+
+            <div class="controls" ng-hide="uploaderProduct.queue.length">
+              <input type="url" data-ng-model="dealsCTRL.urlimage" id="urlimage" class="form-control"
+                     placeholder="Image URL" required>
+
+              <div class="sub-label">Manually enter an image URL.</div>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-5 create-deal-image-preview"></br></br>
+
+              <img ng-src="{{productImageURL}}"  class="img-thumbnail product-upload-picture">
+
+          </div>
+
+          <div class="col-md-12">
+
+            <div class="form-group  new-deal-form">
+              <label class="control-label" for="tags">TAGS</label>
+
+              <div class="controls">
+                <input type="text" data-ng-model="dealsCTRL.tags" id="tags" class="form-control"
+                       placeholder="">
+
+                <div class="sub-label">Enter tags separated by commas</div>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-lg-6">
+                <div class="form-group  new-deal-form">
+                  <label class="control-label" for="startdate">Start Date</label>
+
+                  <div class="controls">
+                    <input type="date" data-ng-model="dealsCTRL.startdate" id="startdate"
+                           class="form-control"
+                           placeholder="">
+
+                    <div class="sub-label">Enter Starting Date of the Deal</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+
+                <div class="form-group  new-deal-form">
+                  <label class="control-label" for="enddate">End Date</label>
+
+                  <div class="controls">
+                    <input type="date" data-ng-model="dealsCTRL.enddate" id="enddate"
+                           class="form-control"
+                           placeholder="">
+
+                    <div class="sub-label">Enter End Date of the Deal</div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+            <!-- /.row -->
+
+
+            </br></br>
+
+            <div class="form-group buttons-cancel-submit">
+              <button class="btn btn-default " ng-click="cancel()">Cancel</button>
+              <button class="btn btn-success " ng-click="dealsCTRL.create(); ok();"
+                      ng-disabled="createDealForm.$invalid">Save Details
+              </button>
+            </div>
+
+
+            </fieldset>
+
+            </form>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+
