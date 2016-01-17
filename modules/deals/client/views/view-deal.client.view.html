@@ -67,7 +67,12 @@
                                 data-ng-bind="deal.title +' (&euro;'+  deal.price +' @ '+  deal.retailer+')'"></h4>
                         </div>
 
-                        <div class="col-lg-12 single-middle-product-details"><p>{{deal.details}}</p></div>
+                        <div class="col-lg-12 single-middle-product-details">
+
+                          <!--<p>{{deal.details}}</p>-->
+                          <text-angular ta-toolbar="[[]]" ng-bind-html="deal.details"></text-angular>
+
+                        </div>
 
                         <div class="col-lg-12 single-middle-post-details">
 

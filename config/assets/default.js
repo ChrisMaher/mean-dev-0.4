@@ -16,14 +16,21 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
         'public/lib/angular-utils-pagination/dirPagination.js',
-        'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+        'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+        'public/lib/textAngular/dist/textAngular-rangy.min.js',
+        'public/lib/textAngular/dist/textAngular-sanitize.js',
+        'public/lib/textAngular/dist/textAngularSetup.js',
+        'public/lib/textAngular/dist/textAngular.js',
+        'public/lib/angular-wysiwyg/dist/angular-wysiwyg.js',
+        'public/lib/angular-wysiwyg/dist/bootstrap-colorpicker-module.js'
 
 
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']
     },
     css: [
-      'modules/*/client/css/*.css'
+      'modules/*/client/css/*.css',
+        'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
     ],
     less: [
       'modules/*/client/less/*.less'
