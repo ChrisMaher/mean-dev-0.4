@@ -12,7 +12,7 @@
 
 </div>
 <section data-ng-controller="DealsController" data-ng-init="findOne()">
-    <section data-ng-controller="HomeController">
+    <!--<section data-ng-controller="HomeController">-->
 
 
         <div class="col-lg-9 main-deals">
@@ -40,12 +40,11 @@
 
                         <div class="left-box-two">
 
-                            <div class="btn-group-vertical hot-cold-buttons" role="group"
-                                 aria-label="Vertical button group">
-                                <button type="button" class="btn btn-danger  vote-up-button"><i
-                                        class="glyphicon glyphicon-arrow-up"></i> Hot</button>
-                                <button type="button" class="btn btn-default"><i
-                                        class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+                            <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
+
+                                <button ng-click="upVote(deal._id)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+                                <button ng-click="downVote(deal._id)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+
                             </div>
 
                         </div>
@@ -303,6 +302,6 @@
         <!--</div>-->
         </div>
 
-    </section>
+    <!--</section>-->
 </section>
 </section>

@@ -105,18 +105,25 @@
 
                             <div class="col-md-7 create-deal-image-detais">
 
+                              <div class="manual-upload" ng-show="dealsCTRL.urlimage.length === undefined">
+
                               <label class="control-label" for="urlimage">IMAGE UPLOAD</label>
 
-                              <div class="text-center form-group" ng-hide="uploaderProduct.queue.length">
+                              <div class="text-center form-group controls" ng-hide="uploaderProduct.queue.length">
                             <span class="btn btn-default btn-file">
                                 Select Image <input type="file" nv-file-select uploader="uploaderProduct">
+
                             </span>
-                              </div></br>
+                              </div>
+
+                              <div class="sub-label"> Upload an image of product.</div></br>
 
                               <div class="text-center form-group" ng-show="uploaderProduct.queue.length">
                                 <button class="btn btn-primary" ng-click="uploadProductPicture();">Upload</button>
                                 <button class="btn btn-default" ng-click="cancelProductUpload();">Delete</button>
                               </div>
+
+
 
                               <div ng-show="success" class="text-center text-success">
                                 <strong>Upload Successful</strong>
@@ -125,13 +132,19 @@
                                 <strong ng-bind="error"></strong>
                               </div>
 
+                              </div>
+
+                              <div class="add-image-link">
+
                               <label class="control-label" for="urlimage" ng-hide="uploaderProduct.queue.length">IMAGE URL</label>
 
                               <div class="controls" ng-hide="uploaderProduct.queue.length">
                                 <input type="url" data-ng-model="dealsCTRL.urlimage" id="urlimage" class="form-control"
-                                       placeholder="Image URL" required>
+                                       placeholder="Image URL" ng-change="blankPhoto()" required>
 
                                 <div class="sub-label">Manually enter an image URL.</div>
+
+                              </div>
 
                               </div>
 

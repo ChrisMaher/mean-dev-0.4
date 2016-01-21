@@ -130,38 +130,32 @@ exports.countDealsToday = function (req, res) {
         });
 };
 
-
-/**
- * Up Vote
- */
-exports.voteUp = function (id) {
-
-    //$scope.deals._id[index].votes += 1;
-    console.log(id);
-
-    Deal.where('_id', id).update(
-        {$inc: {votes: 1}},
-
-        function (err, count) {
-        });
-
-};
-
-/**
- * Down Vote
- */
-exports.voteDown = function (id) {
-
-    //$scope.deals._id[index].votes += 1;
-    console.log(id);
-
-    Deal.where('_id', id).update(
-        {inc: {votes: -1}},
-
-        function (err, count) {
-        });
-
-};
+///**
+// * Check If Voted
+// */
+//exports.dealByIdAndVoter = function(req, res) {
+//    Deal.count({
+//
+//            $where: function () {
+//
+//
+//
+//            }
+//
+//    },
+//        function(err, dealByIdAndVoter) {
+//            if (err) {
+//                return res.status(400).send({
+//                    message: errorHandler.getErrorMessage(err)
+//                });
+//            } else {
+//                console.log(dealByIdAndVoter);
+//                var data = {};
+//                data.count = dealByIdAndVoter;
+//                res.json(data);
+//            }
+//        });
+//};
 
 ///**
 // * List of Comments
@@ -186,7 +180,6 @@ exports.voteDown = function (id) {
  * Deal middleware
  */
 exports.dealByID = function (req, res, next, id) {
-
 
     Deal.findById(id).populate('user', 'displayName').exec(function (err, deal) {
         if (err) return next(err);

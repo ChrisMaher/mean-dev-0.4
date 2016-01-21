@@ -81,6 +81,10 @@ var DealSchema = new Schema({
         type: Number,
         default: '0'
     },
+    voters: [{
+        type: Schema.ObjectId,
+        ref: 'User'
+    }],
     created: {
         type: Date,
         default: Date.now
@@ -89,6 +93,7 @@ var DealSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     }
+
 });
 
 mongoose.model('Deal', DealSchema);

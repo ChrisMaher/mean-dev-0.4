@@ -36,6 +36,60 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
 
         };
 
+        // upVoteDeal
+        $scope.upVote = function (id) {
+
+            alert(id);
+            $scope.deal.votes = $scope.deal.votes+1;
+
+            var deal = $scope.deal;
+
+            deal.$update(function() {
+                $location.path('deals/' + deal._id);
+            }, function(errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+
+
+        };
+
+
+        // downVoteDeal
+        $scope.downVote = function (id) {
+
+            //alert(id);
+            $scope.deal.votes = $scope.deal.votes-1;
+
+            var deal = $scope.deal;
+
+            deal.$update(function() {
+                $location.path('deals/' + deal._id);
+            }, function(errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+
+
+        };
+
+        $scope.$watch('dealsCTRL.urlimage', function(newVal, oldVal){
+            console.log("Search was changed to:"+newVal);
+
+            if(newVal !== undefined){
+                $scope.productImageURL = newVal;
+
+
+            }else{
+                $scope.productImageURL = 'http://placehold.it/122x122?text=no+image';
+            }
+
+            //if(newVal.toString().length < 0){
+            //    $scope.productImageURL = newVal;
+            //}else{
+            //    $scope.productImageURL = 'http://placehold.it/122x122?text=no+image';
+            //}
+
+        });
+
         // Called after the user selected a new picture file
         $scope.uploaderProduct.onAfterAddingFile = function (fileItem) {
 
@@ -156,6 +210,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
 
         // Update existing Deal
         $scope.update = function() {
+
             var deal = $scope.deal;
 
             deal.$update(function() {
@@ -163,11 +218,13 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
+
         };
 
         // Find a list of Deals
         $scope.find = function() {
             $scope.deals = Deals.query();
+
         };
 
         $scope.sort = function(keyname){
@@ -181,6 +238,15 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
                 dealId: $stateParams.dealId
             });
         };
+
+
+
+
+
+
+
+
+
     }
 ]);
 
