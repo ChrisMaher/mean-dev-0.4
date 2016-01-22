@@ -8,10 +8,10 @@ module.exports = {
   },
   port: process.env.PORT || 8443,
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds047365.mongolab.com:47365/heroku_ngfkft7g',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds031339.mongolab.com:31339/deals',
     options: {
-      user: 'heroku_6tx306sk',
-      pass: 'remlc7u2l9khqo1ge0dv94gtip'
+      user: 'mongo',
+      pass: 'mongo'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
