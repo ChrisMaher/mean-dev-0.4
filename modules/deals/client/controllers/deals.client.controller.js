@@ -9,6 +9,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
         $scope.productImageURL = 'http://placehold.it/122x122?text=no+image';
         $scope.imageURL1 = '';
 
+
         // Create file uploader instance
         $scope.uploaderProduct = new FileUploader({
             url: 'api/deals/picture'
@@ -39,7 +40,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
         // upVoteDeal
         $scope.upVote = function (id) {
 
-            alert(id);
+            //alert(id);
             $scope.deal.votes = $scope.deal.votes+1;
 
             var deal = $scope.deal;
@@ -52,6 +53,29 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
 
 
         };
+
+
+        $scope.upVoteHome = function(deal) {
+
+            deal.votes++;
+            deal.$update(function() {
+                //$location.path('deals/' + deal._id);
+            }, function(errorResponse) {
+                // rollback votes on fail also
+                $scope.error = errorResponse.data.message;
+            });
+        }
+
+        $scope.downVoteHome = function(deal) {
+
+            deal.votes--;
+            deal.$update(function() {
+                //$location.path('deals/' + deal._id);
+            }, function(errorResponse) {
+                // rollback votes on fail also
+                $scope.error = errorResponse.data.message;
+            });
+        }
 
 
         // downVoteDeal
@@ -223,6 +247,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
 
         // Find a list of Deals
         $scope.find = function() {
+
             $scope.deals = Deals.query();
 
         };
