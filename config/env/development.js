@@ -6,8 +6,8 @@ module.exports = {
   db: {
     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds047365.mongolab.com:47365/heroku_ngfkft7g',
     options: {
-      user: 'heroku_mcpnqsq4',
-      pass: 'q1i9b1rpscjcj2pouafkju1t5g'
+      user: 'heroku_6tx306sk',
+      pass: 'remlc7u2l9khqo1ge0dv94gtip'
     },
     // Enable mongoose debug mode
     debug: process.env.MONGODB_DEBUG || false
