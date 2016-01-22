@@ -64,7 +64,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
                 // rollback votes on fail also
                 $scope.error = errorResponse.data.message;
             });
-        }
+        };
 
         $scope.downVoteHome = function(deal) {
 
@@ -75,7 +75,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
                 // rollback votes on fail also
                 $scope.error = errorResponse.data.message;
             });
-        }
+        };
 
 
         // downVoteDeal
