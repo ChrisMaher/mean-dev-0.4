@@ -10,7 +10,7 @@ Thumbs.db
 .nodemonignore
 .sass-cache/
 node_modules/
-public/lib/
+#public/lib/
 app/tests/coverage/
 .bower-*/
 .idea/
@@ -18,10 +18,10 @@ coverage/
 
 # MEAN.js app and assets
 # ======================
-    uploads
-    modules/users/client/img/profile/uploads
-    config/env/local.js
-    *.pem
+#    uploads
+#    modules/users/client/img/profile/uploads
+#    config/env/local.js
+#    *.pem
 
 # Ignoring MEAN.JS's gh-pages branch for documenation
 _site/
