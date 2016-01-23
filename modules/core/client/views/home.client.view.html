@@ -99,8 +99,11 @@ Spotlight Box
 
                 <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
 
-                  <button ng-click="upVoteHome(deal)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
-                  <button ng-click="downVoteHome(deal)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+                  <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+                  <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+
+                  <button ng-show="authentication.user" ng-click="upVoteHome(deal)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+                  <button ng-show="authentication.user" ng-click="downVoteHome(deal)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
 
                 </div>
 

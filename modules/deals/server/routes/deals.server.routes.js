@@ -8,8 +8,6 @@ var dealsPolicy = require('../policies/deals.server.policy'),
 
 module.exports = function (app) {
 
-
-
   // Deals collection routes
   app.route('/deals').all(dealsPolicy.isAllowed)
       .get(deals.list)

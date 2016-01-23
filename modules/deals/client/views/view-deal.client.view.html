@@ -34,7 +34,6 @@
 
                             <h3 class="list-group-item-heading" data-ng-bind="deal.votes"></h3>
 
-
                         </div>
 
 
@@ -42,8 +41,13 @@
 
                             <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
 
-                                <button ng-click="upVote(deal._id)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
-                                <button ng-click="downVote(deal._id)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+
+
+                              <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+                              <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+
+                              <button ng-show="authentication.user" ng-click="upVote(deal._id)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+                              <button ng-show="authentication.user" ng-click="downVote(deal._id)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
 
                             </div>
 

@@ -4,20 +4,8 @@
  * Module dependencies.
  */
 
-//title: this.title,
-//details: this.details,
-//retailer: this.retailer,
-//price: this.price,
-//image: this.image,
-//urlimage: this.urlimage,
-//tags: this.tags,
-//startdate: this.startdate,
-//enddate: this.enddate
-
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
-
-
 
 /**
  * Deal Schema
@@ -79,9 +67,13 @@ var DealSchema = new Schema({
     },
     votes: {
         type: Number,
-        default: '0'
+        default: '1'
     },
-    voters: [{
+    upVoters: [{
+        type: Schema.ObjectId,
+        ref: 'User'
+    }],
+    downVoters: [{
         type: Schema.ObjectId,
         ref: 'User'
     }],

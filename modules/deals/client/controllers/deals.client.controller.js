@@ -44,6 +44,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
             $scope.deal.votes = $scope.deal.votes+1;
 
             var deal = $scope.deal;
+            deal.voters.push(user);
 
             deal.$update(function() {
                 $location.path('deals/' + deal._id);
@@ -55,26 +56,135 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
         };
 
 
+        //$scope.upVoteHome = function(deal) {
+        //
+        //    if($scope.votedDeal != null){
+        //
+        //        // User has voted already.
+        //
+        //    }else{
+        //
+        //        deal.votes++;
+        //        deal.voters.push(user);
+        //        deal.$update(function() {
+        //            //$location.path('deals/' + deal._id);
+        //        }, function(errorResponse) {
+        //            // rollback votes on fail also
+        //            $scope.error = errorResponse.data.message;
+        //        });
+        //
+        //    }
+        //
+        //
+        //
+        //};
+
+        // Upvote if user hasnt upvoted already
+
+        //$scope.upVoteHome = function(deal) {
+        //
+        //    var hasVoted = deal.upVoters.filter(function (voter) {
+        //            return voter.ref == $scope.loggedInUser;
+        //        }).length > 0;
+        //
+        //    // If a downvote exists remove it , else do nothing
+        //
+        //    if (!hasVoted) {
+        //
+        //        deal.votes++;
+        //        deal.upVoters.push(user);
+        //        deal.$update(function () {
+        //            //$location.path('deals/' + deal._id);
+        //        }, function (errorResponse) {
+        //            // rollback votes on fail also
+        //            $scope.error = errorResponse.data.message;
+        //        });
+        //
+        //    }
+        //};
+
+        // Upvote if user hasnt upvoted already
+
         $scope.upVoteHome = function(deal) {
 
-            deal.votes++;
-            deal.$update(function() {
+            var hasVoted = deal.upVoters.filter(function (voter) {
+                    return voter.ref == $scope.loggedInUser;
+                }).length > 0;
+
+            // If a downvote exists remove it , else do nothing
+
+            if (!hasVoted) {
+
+                deal.votes++;
+                deal.upVoters.push(user);
+
+            }
+
+            // Check if there is a downVote to remove
+
+            var hasVoted = deal.downVoters.filter(function (voter) {
+                    return voter.ref == $scope.loggedInUser;
+                }).length > 0;
+
+            if (hasVoted) {
+
+                for(var i = deal.downVoters.length - 1; i >= 0; i--) {
+
+                    if(deal.downVoters[i] === user._id) {
+                        deal.downVoters.splice(i, 1);
+                    }
+                }
+            }
+
+            deal.$update(function () {
                 //$location.path('deals/' + deal._id);
-            }, function(errorResponse) {
+            }, function (errorResponse) {
                 // rollback votes on fail also
                 $scope.error = errorResponse.data.message;
             });
+
         };
 
         $scope.downVoteHome = function(deal) {
 
-            deal.votes--;
-            deal.$update(function() {
+
+            var hasVoted = deal.downVoters.filter(function (voter) {
+                    return voter.ref == $scope.loggedInUser;
+                }).length > 0;
+
+            // If a upvote exists remove it , else do nothing
+
+            if (!hasVoted) {
+
+                deal.votes--;
+                deal.downVoters.push(user);
+
+
+            }
+
+            // Check if there is a upVote to remove
+
+            var hasVoted = deal.upVoters.filter(function (voter) {
+                    return voter.ref == $scope.loggedInUser;
+                }).length > 0;
+
+            if (hasVoted) {
+
+                for(var i = deal.upVoters.length - 1; i >= 0; i--) {
+
+                    if(deal.upVoters[i] === user._id) {
+                        deal.upVoters.splice(i, 1);
+                    }
+                }
+            }
+
+            deal.$update(function () {
                 //$location.path('deals/' + deal._id);
-            }, function(errorResponse) {
+            }, function (errorResponse) {
                 // rollback votes on fail also
                 $scope.error = errorResponse.data.message;
             });
+
         };
 
 
@@ -85,6 +195,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
             $scope.deal.votes = $scope.deal.votes-1;
 
             var deal = $scope.deal;
+            deal.voters.pull(user);
 
             deal.$update(function() {
                 $location.path('deals/' + deal._id);
@@ -263,10 +374,6 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
                 dealId: $stateParams.dealId
             });
         };
-
-
-
-
 
 
 
