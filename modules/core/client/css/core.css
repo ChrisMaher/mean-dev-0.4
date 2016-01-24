@@ -931,6 +931,8 @@ body {
 .vote-up-button{
 
     margin-bottom: 5px;
+    border-top-right-radius: 4px !important;
+    border-top-left-radius: 4px !important;
 
 }
 
@@ -1393,6 +1395,13 @@ colorpicker-alpha,
     content: " ";
     border-top-width: 0;
     border-bottom-color: #fff;
+}
+
+.hot-cold-buttons .btn:focus,.btn:active {
+    outline: none !important;
+}
+.form-group{
+    margin-bottom: 0px;
 }
 
 

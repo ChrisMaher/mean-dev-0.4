@@ -32,7 +32,7 @@
 
                         <div class="left-box-one">
 
-                            <h3 class="list-group-item-heading" data-ng-bind="deal.votes"></h3>
+                            <h1 class="list-group-item-heading" data-ng-bind="deal.votes"></h1>
 
                         </div>
 
@@ -46,8 +46,8 @@
                               <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
                               <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
 
-                              <button ng-show="authentication.user" ng-click="upVote(deal._id)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
-                              <button ng-show="authentication.user" ng-click="downVote(deal._id)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+                              <button ng-show="authentication.user" ng-click="upVoteHome(deal)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+                              <button ng-show="authentication.user" ng-click="downVoteHome(deal)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
 
                             </div>
 
@@ -231,6 +231,10 @@
                     <div class="alert alert-warning text-center" data-ng-hide="!comments.$resolved || comments.length">
                         No Comments yet, why don't you <a href="/#!/comments/create">write one</a>?
                     </div>
+
+                  <div ng-show="error" class="text-danger">
+                    <strong ng-bind="error"></strong>
+                  </div>
 
 
                 </section>

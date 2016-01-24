@@ -2,6 +2,7 @@
 
   <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
     <li role="presentation" class="active"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> New Deal </a>
+    <li role="presentation" ><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> New Coupon </a>
     </li>
   </ul>
 
@@ -20,24 +21,28 @@
 
         <div class="col-md-6">
 
-          <form class="form-horizontal" name="createDealForm">
+          <form name="createDealForm" class="form-horizontal"  novalidate>
+            <fieldset>
 
+            <div class="form-group new-deal-form" show-errors>
 
-            <div class="form-group new-deal-form">
               <label class="control-label" for="title">Title</label>
 
-              <div class="controls">
-                <input type="text" data-ng-model="dealsCTRL.title" id="title" class="form-control">
+              <div ng-show="error" class="text-danger">
+                <strong ng-bind="error"></strong>
+              </div>
 
+              <div class="controls" ng-class="{ 'has-error' : createDealForm.title.$invalid && submitted}">
+                <input name="title" type="text" data-ng-model="dealsCTRL.title" id="title" class="form-control" required>
                 <div class="sub-label">Enter the Title of the Deal.</div>
               </div>
             </div>
 
-            <div class="form-group new-deal-form">
+            <div class="form-group new-deal-form" >
               <label class="control-label" for="link">Link</label>
 
-              <div class="controls">
-                <input type="url" data-ng-model="dealsCTRL.link" id="link" class="form-control">
+              <div class="controls" ng-class="{ 'has-error' : createDealForm.link.$invalid && submitted}">
+                <input name="link" type="url" data-ng-model="dealsCTRL.link" id="link" class="form-control" required>
 
                 <div class="sub-label">Enter the Link to the Deal.</div>
               </div>
@@ -57,9 +62,9 @@
                  <div >
 
                    <text-angular ta-toolbar="[['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'],
-                              ['insertLink']]"  id="details" name="dealsCTRL.details" data-ng-model="dealsCTRL.details">
+                              ['insertLink']]"  id="details" name="details" data-ng-model="dealsCTRL.details">
 
-                   </text-angular>
+                   </text-angular >
 
                  </div>
 
@@ -70,12 +75,11 @@
 
                               </div>
 
-                              <div class="form-group  new-deal-form">
+                              <div class="form-group  new-deal-form" >
                                 <label class="control-label" for="retailer">RETAILER</label>
 
-                                <div class="controls">
-                                  <input type="text" data-ng-model="dealsCTRL.retailer" id="retailer" class="form-control"
-                                         placeholder="">
+                                <div class="controls" ng-class="{ 'has-error' : createDealForm.retailer.$invalid && submitted}">
+                                  <input name="retailer" type="text" data-ng-model="dealsCTRL.retailer" id="retailer" class="form-control" required>
 
                                   <div class="sub-label">Enter the Retailer of the Deal.</div>
                                 </div>
@@ -84,9 +88,8 @@
                               <div class="form-group  new-deal-form">
                                 <label class="control-label" for="price">PRICE</label>
 
-                                <div class="controls">
-                                  <input type="Number" data-ng-model="dealsCTRL.price" id="price" class="form-control"
-                                         placeholder="0">
+                                <div class="controls" ng-class="{ 'has-error' : createDealForm.price.$invalid && submitted}">
+                                  <input name="price" type="Number" data-ng-model="dealsCTRL.price" id="price" class="form-control" placeholder="0" required>
 
                                   <div class="sub-label">Enter the Price of the Deal.</div>
                                 </div>
@@ -213,9 +216,7 @@
 
             <div class="form-group buttons-cancel-submit">
               <button class="btn btn-default " ng-click="cancel()">Cancel</button>
-              <button class="btn btn-success " ng-click="dealsCTRL.create(); ok();"
-                      ng-disabled="createDealForm.$invalid">Save Details
-              </button>
+              <button type="submit" class="btn btn-success " ng-click="dealsCTRL.create(); ok(); submitForm(userForm.$valid)" >Save Details </button>
             </div>
 
 

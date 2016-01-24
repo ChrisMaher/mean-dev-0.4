@@ -25,7 +25,6 @@ var DealSchema = new Schema({
     details: {
         type: String,
         default: 'NA',
-        required: 'Please fill Deal Details',
         trim: true
     },
     retailer: {

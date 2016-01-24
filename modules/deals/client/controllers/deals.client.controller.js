@@ -9,6 +9,17 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
         $scope.productImageURL = 'http://placehold.it/122x122?text=no+image';
         $scope.imageURL1 = '';
 
+        $scope.submitForm = function(isValid) {
+
+            $scope.submitted = true;
+
+            // check to make sure the form is completely valid
+            if (isValid) {
+                //alert('Saving submitted');
+            }
+
+        };
+
 
         // Create file uploader instance
         $scope.uploaderProduct = new FileUploader({
@@ -37,23 +48,23 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
 
         };
 
-        // upVoteDeal
-        $scope.upVote = function (id) {
-
-            //alert(id);
-            $scope.deal.votes = $scope.deal.votes+1;
-
-            var deal = $scope.deal;
-            deal.voters.push(user);
-
-            deal.$update(function() {
-                $location.path('deals/' + deal._id);
-            }, function(errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-
-
-        };
+        //// upVoteDeal
+        //$scope.upVote = function (id) {
+        //
+        //    //alert(id);
+        //    $scope.deal.votes = $scope.deal.votes+1;
+        //
+        //    var deal = $scope.deal;
+        //    deal.voters.push($scope.user);
+        //
+        //    deal.$update(function() {
+        //        $location.path('deals/' + deal._id);
+        //    }, function(errorResponse) {
+        //        $scope.error = errorResponse.data.message;
+        //    });
+        //
+        //
+        //};
 
 
         //$scope.upVoteHome = function(deal) {
@@ -108,7 +119,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
         $scope.upVoteHome = function(deal) {
 
             var hasVoted = deal.upVoters.filter(function (voter) {
-                    return voter.ref == $scope.loggedInUser;
+                    return voter.ref === $scope.loggedInUser;
                 }).length > 0;
 
             // If a downvote exists remove it , else do nothing
@@ -116,21 +127,21 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
             if (!hasVoted) {
 
                 deal.votes++;
-                deal.upVoters.push(user);
+                deal.upVoters.push($scope.user);
 
             }
 
             // Check if there is a downVote to remove
 
-            var hasVoted = deal.downVoters.filter(function (voter) {
-                    return voter.ref == $scope.loggedInUser;
+            var hasVoted3 = deal.downVoters.filter(function (voter) {
+                    return voter.ref === $scope.loggedInUser;
                 }).length > 0;
 
-            if (hasVoted) {
+            if (hasVoted3) {
 
                 for(var i = deal.downVoters.length - 1; i >= 0; i--) {
 
-                    if(deal.downVoters[i] === user._id) {
+                    if(deal.downVoters[i] === $scope.user._id) {
                         deal.downVoters.splice(i, 1);
                     }
                 }
@@ -149,7 +160,7 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
 
 
             var hasVoted = deal.downVoters.filter(function (voter) {
-                    return voter.ref == $scope.loggedInUser;
+                    return voter.ref === $scope.loggedInUser;
                 }).length > 0;
 
             // If a upvote exists remove it , else do nothing
@@ -157,22 +168,22 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
             if (!hasVoted) {
 
                 deal.votes--;
-                deal.downVoters.push(user);
+                deal.downVoters.push($scope.user);
 
 
             }
 
             // Check if there is a upVote to remove
 
-            var hasVoted = deal.upVoters.filter(function (voter) {
-                    return voter.ref == $scope.loggedInUser;
+            var hasVoted2 = deal.upVoters.filter(function (voter) {
+                    return voter.ref === $scope.loggedInUser;
                 }).length > 0;
 
-            if (hasVoted) {
+            if (hasVoted2) {
 
                 for(var i = deal.upVoters.length - 1; i >= 0; i--) {
 
-                    if(deal.upVoters[i] === user._id) {
+                    if(deal.upVoters[i] === $scope.user._id) {
                         deal.upVoters.splice(i, 1);
                     }
                 }
@@ -188,23 +199,22 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
         };
 
 
-        // downVoteDeal
-        $scope.downVote = function (id) {
-
-            //alert(id);
-            $scope.deal.votes = $scope.deal.votes-1;
-
-            var deal = $scope.deal;
-            deal.voters.pull(user);
-
-            deal.$update(function() {
-                $location.path('deals/' + deal._id);
-            }, function(errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-
-
-        };
+        //// downVoteDeal
+        //$scope.downVote = function (id) {
+        //
+        //    //alert(id);
+        //    $scope.deal.votes = $scope.deal.votes-1;
+        //
+        //    var deal = $scope.deal;
+        //
+        //    deal.$update(function() {
+        //        $location.path('deals/' + deal._id);
+        //    }, function(errorResponse) {
+        //        $scope.error = errorResponse.data.message;
+        //    });
+        //
+        //
+        //};
 
         $scope.$watch('dealsCTRL.urlimage', function(newVal, oldVal){
             console.log("Search was changed to:"+newVal);
