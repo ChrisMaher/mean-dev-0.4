@@ -28,8 +28,6 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
             // Redirect after save
             post.$save(function(response) {
 
-                $location.reload;
-
                 // Clear form fields
                 $scope.name = '';
                 $scope.details = '';
