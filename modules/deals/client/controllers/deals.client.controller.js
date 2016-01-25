@@ -8,6 +8,8 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
         $scope.user = Authentication.user;
         $scope.productImageURL = 'http://placehold.it/122x122?text=no+image';
         $scope.imageURL1 = '';
+        $scope.hottestsorted = true;
+        $scope.newestsorted = true;
 
         $scope.submitForm = function(isValid) {
 
@@ -16,6 +18,18 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
             // check to make sure the form is completely valid
             if (isValid) {
                 //alert('Saving submitted');
+            }
+
+        };
+
+        $scope.hottest = function() {
+
+            alert(123);
+
+            if($scope.hottestsorted === false){
+                $scope.hottestsorted = true;
+            }else{
+                $scope.hottestsorted = false;
             }
 
         };

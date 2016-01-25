@@ -12,12 +12,11 @@ Spotlight Box
 
   <div class="col-sm-12" id="below-navbar">
 
-    <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
-      <li role="presentation" class="active"><a href="#" ng-click="orderByField='votes'; reverseSort = !reverseSort"><i
-        class="glyphicon glyphicon-thumbs-up"></i> Hottest </a>
+    <ul class="nav nav-tabs img-rounded" id="hottest-tabs" >
+      <li role="presentation" class="active"><a href="#" ng-click="orderByField='votes'; reverseSort = !reverseSort;"><i class="glyphicon glyphicon-thumbs-up"></i> Hottest </a>
       </li>
 
-      <li role="presentation"><a href="#" ng-click="orderByField='created'; reverseSort = !reverseSort"><i
+      <li role="presentation"><a href="#" ng-click="orderByField='created'; reverseSort = !reverseSort" ng-class="{ 'active' : newestsorted}"><i
         class="glyphicon glyphicon-arrow-up"></i> Newest </a></li>
 
       <li class="dropdown" dropdown>

@@ -100,6 +100,26 @@ body {
     border-bottom-left-radius: 10px;
 
 }
+
+.main-deals-view{
+
+    min-height: 2165px;
+    /*border: #000000 1px solid;*/
+    padding: 15px;
+    background-color: #FFFFFF;
+    border-top: #dddddd 1px solid;
+    border-bottom: #dddddd 1px solid;
+    border-left: #dddddd 1px solid;
+
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-topleft: 10px;
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+
 .right-column{
 
     min-height: 2165px;
@@ -153,6 +173,21 @@ body {
     /*padding: 10px;*/
     height: 200px;
     margin-bottom: 10px;
+
+}
+
+.comments-list .list-group-item{
+
+    /*padding: 10px;*/
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    max-height: 800px;
+
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 
 }
 
@@ -888,14 +923,10 @@ body {
 
 .comment-box-single{
 
-    min-height: 100px;
-    margin: 10px;
+    /*min-height: 100px;*/
+    /*margin: 10px;*/
 
-    -moz-border-radius-bottomright: 5px;
-    -moz-border-radius-topright: 5px;
 
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
 
 }
 
@@ -1403,6 +1434,25 @@ colorpicker-alpha,
 .form-group{
     margin-bottom: 0px;
 }
+
+.comment-profile-image{
+
+    width: 100px;
+    height: 100px;
+    /*opacity: 0.8;*/
+    border-radius: 100%;
+    margin-top: 10px;
+
+}
+
+.comments-section{
+
+    margin-right: 15px;
+    margin-left: 15px;
+
+}
+
+
 
 
 

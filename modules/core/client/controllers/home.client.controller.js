@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Deals', 'Users',
-  function ($scope, Authentication, Deals, Users) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Deals', 'Users', 'Posts',
+  function ($scope, Authentication, Deals, Users, Posts) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
@@ -12,16 +12,8 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       $scope.numOfUsers = Users.countUsers();
       $scope.numOfUsersToday = Users.countUsersToday();
 
-      //$scope.numOfComments = Comments.countComments();
-      //$scope.numOfCommentsToday = Comments.countCommentsToday();
-
-
-
-
-
-
-
-
+      $scope.numOfPosts = Posts.countPosts();
+      $scope.numOfPostsToday = Posts.countPostsToday();
 
 
   }

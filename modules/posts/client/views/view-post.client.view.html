@@ -6,18 +6,18 @@
     </ul>
 
     <ul class="nav nav-tabs " id="submit-tabs">
-        <li role="presentation"><a href="/deals/create"><i class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
+        <li role="presentation"><a href="/posts/create"><i class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
     </ul>
 
 
 </div>
-<section data-ng-controller="DealsController" data-ng-init="findOne()">
+<section data-ng-controller="PostsController" data-ng-init="findOne()">
     <!--<section data-ng-controller="HomeController">-->
 
 
-        <div class="col-lg-9 main-deals-view">
+        <div class="col-lg-9 main-posts">
 
-            <!--Deals Array Start-->
+            <!--Posts Array Start-->
 
 
             <div class="list-group-home-single">
@@ -27,12 +27,12 @@
 
                     <div class="col-lg-2" id="single-left-box">
 
-                        <!--<div class="left-box-one"><h4 class="list-group-item-heading" data-ng-bind="deal.name"></h4></div>-->
+                        <!--<div class="left-box-one"><h4 class="list-group-item-heading" data-ng-bind="post.name"></h4></div>-->
 
 
                         <div class="left-box-one">
 
-                            <h1 class="list-group-item-heading" data-ng-bind="deal.votes"></h1>
+                            <h1 class="list-group-item-heading" data-ng-bind="post.votes"></h1>
 
                         </div>
 
@@ -46,8 +46,8 @@
                               <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
                               <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
 
-                              <button ng-show="authentication.user" ng-click="upVoteHome(deal)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
-                              <button ng-show="authentication.user" ng-click="downVoteHome(deal)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+                              <button ng-show="authentication.user" ng-click="upVoteHome(post)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+                              <button ng-show="authentication.user" ng-click="downVoteHome(post)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
 
                             </div>
 
@@ -68,31 +68,31 @@
 
 
                         <div class="col-lg-12 single-middle-title"><h4
-                                data-ng-bind="deal.title +' (&euro;'+  deal.price +' @ '+  deal.retailer+')'"></h4>
+                                data-ng-bind="post.title +' (&euro;'+  post.price +' @ '+  post.retailer+')'"></h4>
                         </div>
 
                         <div class="col-lg-12 single-middle-product-details">
 
-                          <!--<p>{{deal.details}}</p>-->
-                          <text-angular ta-toolbar="[[]]" ng-bind-html="deal.details"></text-angular>
+                          <!--<p>{{post.details}}</p>-->
+                          <text-angular ta-toolbar="[[]]" ng-bind-html="post.details"></text-angular>
 
                         </div>
 
                         <div class="col-lg-12 single-middle-post-details">
 
                             <div class="col-lg-6 single-middle-posted-by">Posted By <span class="username"
-                                    data-ng-bind="deal.user.displayName"></span></div>
+                                    data-ng-bind="post.user.displayName"></span></div>
                             <div class="col-lg-6 single-middle-time-of-posting">Posted On <span
-                                    data-ng-bind="deal.created | date:'mediumDate'"></span></div>
+                                    data-ng-bind="post.created | date:'mediumDate'"></span></div>
 
                         </div>
 
 
                         <!--<small class="list-group-item-text">-->
                         <!--Posted on-->
-                        <!--<span data-ng-bind="deal.created | date:'medium'"></span>-->
+                        <!--<span data-ng-bind="post.created | date:'medium'"></span>-->
                         <!--by-->
-                        <!--<span data-ng-bind="deal.user.displayName"></span>-->
+                        <!--<span data-ng-bind="post.user.displayName"></span>-->
                         <!--</small>-->
 
 
@@ -100,9 +100,9 @@
 
                     <div class="col-lg-2" id="single-right-box">
 
-                        <div class="col-md-12 deal-image thumbnail"><img src="{{deal.image}}" width="120" height="120"/>
+                        <div class="col-md-12 post-image thumbnail"><img src="{{post.image}}" width="120" height="120"/>
                         </div>
-                        <div class="col-md-12 deal-link link-button"><a href="{{deal.link}}" target="_blank">
+                        <div class="col-md-12 post-link link-button"><a href="{{post.link}}" target="_blank">
                             <button class="btn btn-success">Save Me</button>
                         </a></div>
 
@@ -114,116 +114,139 @@
 
             </div>
 
-            <!-- Comments Section Start -->
+            <!-- Posts Section Start -->
 
-            <div class="comments-box-under-deal">
+            <div class="posts-box-under-post">
 
 
                 <section data-ng-controller="PostsController" data-ng-init="find()">
 
-                    <h3>New Comment</h3>
+                    <h3>New Post</h3>
 
-                    <div class="row comments-section">
+                    <div class="col-md-12">
                         <form class="form-horizontal" data-ng-submit="create()" novalidate>
                             <fieldset>
 
 
                                 <div class="form-group">
 
-                                    <!--<label class="control-label" for="details">Comment</label>-->
+                                    <!--<label class="control-label" for="details">Post</label>-->
                                     <!--<div class="controls">-->
                                     <!--<input type="text" data-ng-model="details" id="details" class="form-control"-->
-                                    <!--placeholder="Comment" required>-->
+                                    <!--placeholder="Post" required>-->
 
                                     <!--</div>-->
 
-                                    <!--<label class="control-label" for="details">Comment:</label>-->
-
-                                    <!--<textarea class="form-control" data-ng-model="details" rows="5" id="details">Comment.....</textarea>-->
-
-                                  <text-angular ta-toolbar="[['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'],
-                              ['insertLink']]"  id="details" name="details" data-ng-model="details">
-
-                                  </text-angular >
+                                    <!--<label class="control-label" for="details">Post:</label>-->
+                                    <textarea class="form-control" data-ng-model="details" rows="5" id="details">Post.....</textarea>
 
                                 </div>
 
 
                                 <div class="col-lg-7">
                                     <div class="form-group">
-                                        <!--<button type="submit" class="btn btn-default">Post Comment</button>-->
-                                       <input class="btn btn-default"  type="submit" value="Submit Comment" onClick="document.location.reload(true)">
+                                        <button type="submit" class="btn btn-default">Post Post</button>
                                     </div>
-
+                                    <div data-ng-show="error" class="text-danger">
+                                        <strong data-ng-bind="error"></strong>
+                                    </div>
                                 </div>
+
+                                <div class="col-lg-5">
+                                    <div class="form-group">
+                                        <dir-pagination-controls boundary-links="true"
+                                                                 on-page-change="pageChangeHandler(newPageNumber)"
+                                                                 template-url="dirPagination.tpl.html">
+
+                                        </dir-pagination-controls>
+                                    </div>
+                                </div>
+
 
                             </fieldset>
                         </form>
                     </div>
 
-                    <h3>Comments</h3>
+                    <h3>Posts</h3>
 
-                    <div class="list-group comments-list">
+                    <div class="list-group">
 
-                        <!--<a data-ng-repeat=" in comments" data-ng-href="#!/comments/{{comment._id}}" class="list-group-item">-->
+                        <!--<a data-ng-repeat=" in posts" data-ng-href="#!/posts/{{post._id}}" class="list-group-item">-->
 
-                        <!--<a data-ng-repeat="comment in comments | filter:{ dealId: deal._id} " class="list-group-item comment-box-single">-->
+                        <!--<a data-ng-repeat="post in posts | filter:{ postId: post._id} " class="list-group-item post-box-single">-->
 
-                        <div dir-paginate="post in posts|filter:{ dealId: deal._id}|itemsPerPage:5"
-                             class="list-group-item comment-box-single">
+                        <div dir-paginate="post in posts|filter:{ postId: post._id}|itemsPerPage:12"
+                             class="list-group-item post-box-single"
+                        ">
 
-                        <div class="col-sm-12 outer-comment-box">
-                            <div class="col-sm-2 comment-box-left">
+                        <div class="col-sm-12 outer-post-box">
+                            <div class="col-sm-2 post-box-left">
 
-
-
-                              <img ng-src="{{post.user.profileImageURL}}" alt="{{post.user.displayName}}" class="comment-profile-image" />
-
+                                Avatar
 
                             </div>
-                            <div class="col-sm-9  comment-box-middle">
+                            <div class="col-sm-10  post-box-middle">
 
-                                <div class="col-sm-12  comment-box-middle-top">
+                                <div class="col-sm-12  post-box-middle-top">
 
+                                    <small class="list-group-item-text">
+                                        Post : <span data-ng-bind="post.details"></span>
 
-                                  <text-angular ta-toolbar="[[]]" ng-bind-html="post.details"></text-angular>
+                                    </small>
+
 
                                 </div>
 
-                                <div class="col-sm-12 comment-box-middle-bottom">
+                                <div class="col-sm-12 post-box-middle-bottom">
 
                                     <small class="list-group-item-text">
-                                      Posted : <span>{{post.created | date}}</span>
+                                        Posted on
+                                        <span data-ng-bind="post.created | date:'medium'"></span>
+                                        by
+                                        <span data-ng-bind="post.user.displayName"></span>
                                     </small>
 
                                 </div>
 
+
                             </div>
+                            <!--<div class="col-sm-2  post-box-right">-->
+
+                            <!--Reply Button</br>-->
+                            <!--Post ID-->
+
+
+                            <!--</div>-->
 
                         </div>
+
+
+                        <!--<h4 class="list-group-item-heading" data-ng-bind="post.name"></h4>-->
 
                         </a>
 
                     </div>
 
-                      <div class="text-center">
-                        <dir-pagination-controls></dir-pagination-controls>
-                      </div>
-
 
                     <div class="alert alert-warning text-center" data-ng-hide="!posts.$resolved || posts.length">
-                        No Comments yet, why don't you write one?
+                        No Posts yet, why don't you <a href="/#!/posts/create">write one</a>?
                     </div>
 
                   <div ng-show="error" class="text-danger">
                     <strong ng-bind="error"></strong>
                   </div>
 
-                    </div>
 
                 </section>
 
+
             </div>
+
+            <!--Posts Array End-->
+
+
+            <!--Posts Array End-->
+
 
         </div>
 
@@ -231,8 +254,6 @@
 
             <div class="col-lg-12 right-column-inner-one">
 
-
-              Other deals from Argos etc
 
             </div>
 
