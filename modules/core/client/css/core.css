@@ -97,6 +97,25 @@ body {
     -moz-border-radius-topleft: 10px;
 
     border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.main-savings{
+
+    height: 2165px;
+    /*border: #000000 1px solid;*/
+    padding: 15px;
+    background-color: #FFFFFF;
+    border-top: #dddddd 1px solid;
+    border-bottom: #dddddd 1px solid;
+    border-left: #dddddd 1px solid;
+
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-topleft: 10px;
+
+    border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 
 }
@@ -169,6 +188,14 @@ body {
 }
 
 .list-group-home-deals .list-group-item{
+
+    /*padding: 10px;*/
+    height: 200px;
+    margin-bottom: 10px;
+
+}
+
+.list-group-home-savings .list-group-item{
 
     /*padding: 10px;*/
     height: 200px;
@@ -325,6 +352,16 @@ body {
 }
 
 .deal-votes > h1{
+
+    height: 50px;
+    width: 120px;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+
+}
+
+.saving-votes > h1{
 
     height: 50px;
     width: 120px;
@@ -496,6 +533,15 @@ body {
 
 }
 
+.create-deal-image-upload-saving{
+
+    /*border: 1px solid #dddddd;*/
+    height: 370px;
+    margin-top: 10px;
+
+
+}
+
 .create-deal-image-detais{
 
     height: 350px;
@@ -532,6 +578,38 @@ body {
     border-bottom: #dddddd 1px solid;
     border-left: #dddddd 1px solid;
     border-right: #dddddd 1px solid;
+
+}
+
+.create-body-saving{
+
+    background-color: #FFFFFF;
+
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-topleft: 10px;
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-topright: 10px;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    border-top: #dddddd 1px solid;
+    border-bottom: #dddddd 1px solid;
+    border-left: #dddddd 1px solid;
+    border-right: #dddddd 1px solid;
+
+    padding-top: 5px;
+    padding-bottom: 10px;
+
+}
+
+.create-body-saving .form-group{
+
+    padding: 10px;
 
 }
 

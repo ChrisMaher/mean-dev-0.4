@@ -30,11 +30,11 @@ var PostSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
-    deal: {
+    saving: {
         type: Schema.ObjectId,
         ref: 'Deal'
     },
-    dealId: {
+    savingId: {
         type: String,
         trim: true
     }

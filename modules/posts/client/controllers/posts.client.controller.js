@@ -32,6 +32,8 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
                 $scope.name = '';
                 $scope.details = '';
 
+                $scope.$apply();
+
 
 
             }, function(errorResponse) {

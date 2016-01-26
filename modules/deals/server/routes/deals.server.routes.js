@@ -8,10 +8,14 @@ var dealsPolicy = require('../policies/deals.server.policy'),
 
 module.exports = function (app) {
 
-  // Deals collection routes
-  app.route('/deals').all(dealsPolicy.isAllowed)
-      .get(deals.list)
-      .post(deals.create);
+  //app.route('/api/deals')
+  //    .get(deals.list);
+  //
+  app.route('/api/deals/picture')
+      .post(deals.changeProductPicture);
+
+  //app.route('/api/deals/:dealId')
+  //    .get(deals.read);
 
   app.route('/deals/dealCount').all()
       .get(deals.countDeals);
@@ -26,18 +30,26 @@ module.exports = function (app) {
       .put(deals.update)
       .delete(deals.delete);
 
+
+  // Deals collection routes
+  app.route('/deals').all(dealsPolicy.isAllowed)
+      .get(deals.list)
+      .post(deals.create);
+
+
+// Deals collection routes
+  app.route('/api/deals').all(dealsPolicy.isAllowed)
+      .get(deals.list)
+      .post(deals.create);
+
+  // Single deal routes
+  app.route('/api/deals/:dealId').all(dealsPolicy.isAllowed)
+      .get(deals.read)
+      .put(deals.update)
+      .delete(deals.delete);
+
   // Finish by binding the deal middleware
   app.param('dealId', deals.dealByID);
-
-  app.route('/api/deals')
-      .get(deals.list);
-
-  app.route('/api/deals/picture')
-      .post(deals.changeProductPicture);
-
-  app.route('/api/deals/:dealId')
-      .get(deals.read);
-
 
 
 };
