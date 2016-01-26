@@ -278,6 +278,10 @@ angular.module('deals').controller('DealsController', ['$scope', '$timeout', '$s
             //// Clear upload buttons
             $scope.cancelProductUpload();
 
+
+
+
+
         };
 
         // Called after the user has failed to uploaded a new picture

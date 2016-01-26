@@ -3,7 +3,8 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
+var
+    mongoose = require('mongoose'),
     fs = require('fs'),
     path = require('path'),
     errorHandler = require('./errors.server.controller'),
@@ -39,6 +40,7 @@ exports.read = function (req, res) {
  * Update a Deal
  */
 exports.update = function (req, res) {
+
     var deal = req.deal;
 
     deal = _.extend(deal, req.body);
