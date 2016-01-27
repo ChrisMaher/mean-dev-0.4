@@ -1,0 +1,294 @@
+<div class="col-sm-12" id="below-navbar">
+
+  <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
+    <li role="presentation" class="active"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Save Me </a>
+    </li>
+  </ul>
+
+  <ul class="nav nav-tabs " id="submit-tabs">
+    <li role="presentation"><a href="/savings/create"><i class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
+  </ul>
+
+
+</div>
+<section data-ng-controller="SavingsController" data-ng-init="findOne()">
+  <!--<section data-ng-controller="HomeController">-->
+
+
+  <div class="col-lg-9 main-deals-view">
+
+    <!--Savings Array Start-->
+
+
+    <div class="list-group-home-single">
+
+
+      <div class="col-lg-12 no-padding-left">
+
+        <div class="col-lg-2" id="single-left-box">
+
+          <!--<div class="left-box-one"><h4 class="list-group-item-heading" data-ng-bind="saving.name"></h4></div>-->
+
+
+          <div class="left-box-one">
+
+            <h1 class="list-group-item-heading" data-ng-bind="saving.votes"></h1>
+
+          </div>
+
+
+          <div class="left-box-two">
+
+            <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
+
+
+
+              <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+              <button ng-hide="authentication.user" ui-sref="authentication.signup" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+
+              <button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button" class="btn btn-danger vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i> Hot</button>
+              <button ng-show="authentication.user" ng-click="downVoteHome(saving)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-arrow-down  vote-down-button"></i> Cold</button>
+
+            </div>
+
+
+          </div>
+
+          <div class="left-box-three" data-ng-show="authentication.user">
+
+            <!-- <button type="button" class="btn-xs btn-warning">Hide</button> -->
+            <button type="button" class="btn-xs btn-danger">Report</button>
+
+          </div>
+
+
+        </div>
+
+        <div class="col-lg-8" id="single-middle-box">
+
+
+          <div class="col-lg-12 single-middle-title"><h4
+            data-ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></h4>
+          </div>
+
+          <div class="col-lg-12 single-middle-product-details">
+
+            <!--<p>{{saving.details}}</p>-->
+            <text-angular ta-toolbar="[[]]" ng-bind-html="saving.details"></text-angular>
+
+          </div>
+
+          <div class="col-lg-12 single-middle-post-details">
+
+            <div class="col-lg-6 single-middle-posted-by">Posted By <span class="username"
+                                                                          data-ng-bind="saving.user.displayName"></span></div>
+            <div class="col-lg-6 single-middle-time-of-posting">Posted On <span
+              data-ng-bind="saving.created | date:'mediumDate'"></span></div>
+
+          </div>
+
+
+          <!--<small class="list-group-item-text">-->
+          <!--Posted on-->
+          <!--<span data-ng-bind="saving.created | date:'medium'"></span>-->
+          <!--by-->
+          <!--<span data-ng-bind="saving.user.displayName"></span>-->
+          <!--</small>-->
+
+
+        </div>
+
+        <div class="col-lg-2" id="single-right-box">
+
+          <div class="col-md-12 deal-image "><img src="{{saving.image}}" width="120" height="120"/>
+          </div>
+          <div class="col-md-12 deal-link link-button"><a href="{{saving.link}}" target="_blank">
+            <button class="btn btn-success">Save Me</button>
+          </a></div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <!-- Comments Section Start -->
+
+    <div class="comments-box-under-deal">
+
+
+      <section data-ng-controller="PostsController" data-ng-init="find()">
+
+        <h3>New Comment</h3>
+
+        <div class="row comments-section">
+          <form class="form-horizontal"  novalidate>
+            <fieldset>
+
+
+              <div class="form-group">
+
+                <!--<label class="control-label" for="details">Comment</label>-->
+                <!--<div class="controls">-->
+                <!--<input type="text" data-ng-model="details" id="details" class="form-control"-->
+                <!--placeholder="Comment" required>-->
+
+                <!--</div>-->
+
+                <!--<label class="control-label" for="details">Comment:</label>-->
+
+                <!--<textarea class="form-control" data-ng-model="details" rows="5" id="details">Comment.....</textarea>-->
+
+                <text-angular ta-toolbar="[['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'],
+                              ['insertLink']]"  id="details" name="details" data-ng-model="details">
+
+                </text-angular >
+
+              </div>
+
+
+              <div class="col-lg-7">
+                <div class="form-group">
+                  <button class="btn btn-default"  type="submit" value="Submit Comment" ng-click="create()">Submit Comment</button>
+                </div>
+
+              </div>
+
+            </fieldset>
+          </form>
+        </div>
+
+        <h3>Comments</h3>
+
+        <div class="list-group comments-list">
+
+          <!--<a data-ng-repeat=" in comments" data-ng-href="#!/comments/{{comment._id}}" class="list-group-item">-->
+
+          <!--<a data-ng-repeat="comment in comments | filter:{ savingId: saving._id} " class="list-group-item comment-box-single">-->
+
+          <div dir-paginate="post in posts|filter:{ savingId: saving._id}|itemsPerPage:5"
+               class="list-group-item comment-box-single">
+
+            <div class="col-sm-12 outer-comment-box">
+              <div class="col-sm-2 comment-box-left">
+
+
+
+                <img ng-src="{{post.user.profileImageURL}}" alt="{{post.user.displayName}}" class="comment-profile-image" />
+
+
+              </div>
+              <div class="col-sm-9  comment-box-middle">
+
+                <div class="col-sm-12  comment-box-middle-top">
+
+
+                  <text-angular ta-toolbar="[[]]" ng-bind-html="post.details"></text-angular>
+
+                </div>
+
+                <div class="col-sm-12 comment-box-middle-bottom">
+
+                  <small class="list-group-item-text">
+                    Posted : <span>{{post.created | date}}</span>
+                  </small>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            </a>
+
+          </div>
+
+          <div class="text-center">
+            <dir-pagination-controls></dir-pagination-controls>
+          </div>
+
+
+          <div class="alert alert-warning text-center" data-ng-hide="!posts.$resolved || posts.length">
+            No Comments yet, why don't you write one?
+          </div>
+
+          <div ng-show="error" class="text-danger">
+            <strong ng-bind="error"></strong>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <div class="col-lg-3 right-column">
+
+    <div class="col-lg-12 right-column-inner-one">
+
+
+      Other savings from Argos etc
+
+    </div>
+
+    <div class="col-lg-12 right-column-inner-two">
+
+
+    </div>
+
+    <div class="col-lg-12 right-column-inner-three">
+
+
+    </div>
+
+
+  </div>
+
+
+  <!--<div class="col-lg-9 ">-->
+
+
+  <!--<div class="text-center">-->
+  <!--<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"-->
+  <!--template-url="dirPagination.tpl.html"></dir-pagination-controls>-->
+  <!--</div>-->
+
+
+  <!--</div>-->
+
+
+  <!--<div class="col-sm-12" id="footer">-->
+  <!--<div class="row">-->
+
+  <!--<div class="margin">-->
+  <!--<div class="col-lg-6" ng-repeat="alert in alerts">-->
+  <!--<div class="row">-->
+  <!--<div class="col-xs-4">-->
+  <!--<h1 class="pull-right">-->
+  <!--<button type="button" class="btn " ng-class="alert.colour">-->
+  <!--<i class="glyphicon " ng-class="alert.icon"></i>-->
+  <!--</button>-->
+  <!--</h1>-->
+  <!--</div>-->
+  <!--<div class="col-xs-8">-->
+  <!--<h1>{{alert.total}}</h1>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--<div class="row">-->
+  <!--<div class="col-xs-8 col-xs-offset-4">-->
+  <!--<span class="text-muted">{{alert.description}}</span>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <!--</div>-->
+  </div>
+
+  <!--</section>-->
+</section>
+</section>

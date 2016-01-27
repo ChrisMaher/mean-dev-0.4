@@ -13,28 +13,26 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
         $scope.create = function() {
             // Create new Comment object
 
-            var post = new Posts ({
+            alert("Create Comment.");
 
+            var post = new Posts ({
 
                 details: this.details,
                 status: this.status,
                 created: this.created,
-                dealId: $scope.deal._id
-
+                savingId: $scope.saving._id
 
             });
-
 
             // Redirect after save
             post.$save(function(response) {
 
+                $location.url('deals/' + $scope.saving._id);
+
+
                 // Clear form fields
                 $scope.name = '';
                 $scope.details = '';
-
-                $scope.$apply();
-
-
 
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;

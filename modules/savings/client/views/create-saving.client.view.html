@@ -1,0 +1,209 @@
+<div class="col-sm-12" id="below-navbar">
+
+  <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
+    <li role="presentation" class="active"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> New Deal </a>
+    <li role="presentation"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> New Coupon </a>
+    </li>
+  </ul>
+
+</div>
+
+<section data-ng-controller="SavingsController as savingsCTRL">
+
+  <div class=" col-sm-12 create-body-saving">
+    <div class="col-md-12">
+
+      <form name="createSavingForm" class="form-horizontal" novalidate>
+
+        <fieldset>
+
+          <div class="row  body-content">
+
+            <div class="col-lg-6 create-saving-left">
+
+              <!-- Title Box Start-->
+
+              <div class="form-group new-deal-form" show-errors>
+                <label for="title">Title</label>
+                <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
+                <div class="sub-label">Enter the Title of the Deal.</div>
+                <div ng-messages="savingForm.savingsCTRL.title.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Saving title is required.</p>
+                </div>
+              </div>
+
+              <!-- Title Box End-->
+
+              <!-- Link Box Start-->
+
+              <div class="form-group new-deal-form" show-errors>
+                <label for="link">Link</label>
+                <input name="link" type="url" ng-model="link" id="link" class="form-control" placeholder="Link" required>
+                <div class="sub-label">Enter the Link to the Deal.</div>
+                <div ng-messages="savingForm.savingsCTRL.link.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Saving link is required.</p>
+                </div>
+              </div>
+
+              <!-- Link Box End-->
+
+              <!-- Details Box Start-->
+
+              <div class="form-group new-deal-form">
+                <label for="details">Details</label>
+                <text-angular ta-toolbar="[['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'],
+                              ['insertLink']]"  id="details" name="details" data-ng-model="details">
+
+                </text-angular >
+              </div>
+
+              <!-- Details Box End-->
+
+              <!-- Retailer Box Start-->
+
+              <div class="form-group new-deal-form" show-errors>
+                <label for="retailer">Retailer</label>
+                <input name="retailer" type="text" ng-model="retailer" id="retailer" class="form-control" placeholder="Retailer" required>
+                <div class="sub-label">Enter the Retailer of the Deal.</div>
+                <div ng-messages="savingForm.savingsCTRL.retailer.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Retailer is required.</p>
+                </div>
+              </div>
+
+              <!-- Retailer Box End-->
+
+              <!-- Price Box Start-->
+
+              <div class="form-group new-deal-form" show-errors>
+                <label for="price">Price</label>
+                <input name="price" type="number" ng-model="price" id="price" class="form-control" placeholder="Price" required>
+                <div class="sub-label">Enter the Price of the Deal.</div>
+                <div ng-messages="savingForm.savingsCTRL.price.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Price is required.</p>
+                </div>
+              </div>
+
+              <!-- Price Box End-->
+
+            </div>
+            <div class="col-lg-6 create-saving-right">
+
+              <!-- uploadImage Box Start-->
+
+              <div class="col-md-12 create-deal-image-upload-saving new-deal-form">
+
+                <div class="col-md-7 create-deal-image-detais">
+
+                  <div class="manual-upload" ng-show="urlimage.length === undefined">
+                    <label class="control-label" for="urlimage">IMAGE UPLOAD</label>
+
+                    <div class="text-center form-group controls" ng-hide="uploaderProductSaving.queue.length">
+                            <span class="btn btn-default btn-file">
+                                Select Image <input type="file" nv-file-select uploader="uploaderProductSaving">
+                            </span>
+                    </div>
+
+                    <div class="sub-label"> Upload an image of product.</div>
+                    </br>
+
+                    <div class="text-center form-group-saving" ng-show="uploaderProductSaving.queue.length">
+
+                      <button class="btn btn-primary" ng-click="uploadProductPictureSaving();">Upload</button>
+                      <button class="btn btn-default" ng-click="cancelProductUploadSaving();">Delete</button>
+
+                    </div>
+
+                    <div ng-show="success" class="text-center text-success">
+                      <strong>Upload Successful</strong>
+                    </div>
+
+                    <div ng-show="error" class="text-center text-danger">
+                      <strong ng-bind="error"></strong>
+                    </div>
+
+                  </div>
+
+                  <div class="add-image-link">
+                    <label class="control-label" for="urlimage" ng-hide="uploaderProductSaving.queue.length">IMAGE URL</label>
+                    <div class="controls" ng-hide="uploaderProductSaving.queue.length">
+                      <input type="url" data-ng-model="urlimage" id="urlimage" class="form-control"
+                             placeholder="Image URL" ng-change="blankPhoto()" required>
+                      <div class="sub-label">Manually enter an image URL.</div>
+
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <div class="col-md-5 create-deal-image-preview"></br></br>
+                  <img ng-src="{{savingImageURL}}" class="img-thumbnail product-upload-picture">
+                </div>
+              </div>
+
+              <!-- uploadImage Box Start-->
+
+              <!-- Tags Box Start-->
+
+              <div class="form-group new-deal-form" show-errors>
+                <label for="tags">Tags</label>
+                <input name="tags" type="text" ng-model="tags" id="tags" class="form-control" placeholder="Tags">
+                <div class="sub-label">Enter tags separated by commas</div>
+                <div ng-messages="savingForm.tags.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Tags are required.</p>
+                </div>
+              </div>
+
+              <!-- Tags Box End-->
+
+              <!--&lt;!&ndash; StartDate Box Start&ndash;&gt;-->
+
+              <!--<div class="form-group" show-errors>-->
+              <!--<label for="price">Title</label>-->
+              <!--<input name="price" type="number" ng-model="price" id="price" class="form-control" placeholder="Price" required>-->
+              <!--<div ng-messages="savingForm.price.$error" role="alert">-->
+              <!--<p class="help-block error-text" ng-message="required">Price is required.</p>-->
+              <!--</div>-->
+              <!--</div>-->
+
+              <!--&lt;!&ndash; StartDate Box End&ndash;&gt;-->
+
+              <!--&lt;!&ndash; EndDate Box Start&ndash;&gt;-->
+
+              <!--<div class="form-group" show-errors>-->
+              <!--<label for="price">Title</label>-->
+              <!--<input name="price" type="number" ng-model="price" id="price" class="form-control" placeholder="Price" required>-->
+              <!--<div ng-messages="savingForm.price.$error" role="alert">-->
+              <!--<p class="help-block error-text" ng-message="required">Price is required.</p>-->
+              <!--</div>-->
+              <!--</div>-->
+
+              <!--&lt;!&ndash; EndDate Box End&ndash;&gt;-->
+
+
+              <!--Submit Button Start-->
+
+
+              <div class="form-group buttons-cancel-submit">
+                <button class="btn btn-default " ng-click="cancel()">Cancel</button>
+                <button type="submit" class="btn btn-success " ng-click="create(); submitForm(createSavingForm.$valid)" >Save Details </button>
+              </div>
+
+              <div ng-show="error" class="text-danger">
+                <strong ng-bind="error"></strong>
+              </div>
+
+              <!--Submit Button End-->
+
+            </div>
+
+          </div>
+
+
+        </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+</section>

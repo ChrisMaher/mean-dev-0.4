@@ -2,7 +2,7 @@
 
 TODO
 
-Comments - Modify Deals Mongoose and Upsert comments
+Comments - Modify Savings Mongoose and Upsert comments
 Spotlight Box
 
 
@@ -53,33 +53,27 @@ Spotlight Box
 
   <section data-ng-controller="SavingsController" data-ng-init="find()">
 
-    <div class="col-lg-9 main-deals">
+    <div class="col-lg-9 main-savings">
 
-      <!--Deals Array Start-->
+      <!--Savings Array Start-->
 
-      <div class="list-group-home-deals">
+      <div class="list-group-home-savings">
 
 
         <!-------      START OF DEAL LIST      -------->
 
-        <!--<div dir-paginate="saving in savings|orderBy:orderByField:reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"-->
-        <!--class="list-group-item">-->
-
-        <!--AAA-->
-
-        <!--</div>-->
-
-        <div dir-paginate="saving in savings|orderBy:orderByField:reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"
-             class="list-group-item">
+        <div
+          dir-paginate="saving in savings|orderBy:orderByField:reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"
+          class="list-group-item">
 
 
           <div class="col-lg-12 no-padding-left">
 
             <div class="col-lg-2 right-box">
 
-              <div class="col-md-12 deal-votes">
+              <div class="col-md-12 saving-votes">
 
-                <h1 ng-bind="saving.votes"></h1>
+                <h1>{{saving.votes}}</h1>
 
               </div>
 
@@ -115,7 +109,6 @@ Spotlight Box
 
               <div class="col-lg-12 middle-title">
 
-                <!--<h4 href="#!/savings/{{saving._id}}" ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></h4>-->
                 <h4><a ng-href="/savings/{{saving._id}}"
                        ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></a>
                 </h4>
@@ -124,67 +117,49 @@ Spotlight Box
 
               <div class="col-lg-12 single-middle-product-details-home">
 
-                <!--<p>{{saving.details}}</p>-->
                 <text-angular ta-toolbar="[[]]" ng-bind-html="saving.details"></text-angular>
 
               </div>
 
               <div class="col-lg-12 middle-post-details">
 
-                <div class="col-lg-6 middle-posted-by">Posted By <span class="username" data-ng-bind="saving.user.displayName"></span>
+                <div class="col-lg-6 middle-posted-by">Posted By <span class="username"
+                                                                       data-ng-bind="saving.user.displayName"></span>
                 </div>
                 <div class="col-lg-6 middle-time-of-posting">Posted On <span
                   data-ng-bind="saving.created | date:'mediumDate'"></span></div>
 
               </div>
-
-
-              <!--<small class="list-group-item-text">-->
-              <!--Posted on-->
-              <!--<span data-ng-bind="saving.created | date:'medium'"></span>-->
-              <!--by-->
-              <!--<span data-ng-bind="saving.user.displayName"></span>-->
-              <!--</small>-->
-
-
             </div>
 
             <div class="col-lg-2" id="right-box">
-
-              <div class="col-md-12 deal-image   centred-image"><img src="{{saving.image}}" width="120" height="120"/>
-
+              <div class="col-md-12 saving-image centred-image"><img src="{{saving.image}}" width="120" height="120"/>
               </div>
 
-              <a data-ng-href="/savings/{{saving._id}}" class="col-md-12 deal-link link-button">
+              <a data-ng-href="/savings/{{saving._id}}" class="col-md-12 saving-link link-button">
                 <button class="btn btn-success"><i class="glyphicon glyphicon-euro"></i> Save</button>
               </a>
 
 
             </div>
-
           </div>
-
-
         </div>
-
-
         <!-------      END OF DEAL LIST      -------->
-
 
       </div>
 
-      <!--Deals Array End-->
+      <!--Savings Array End-->
 
 
       <div class="alert alert-warning text-center" data-ng-hide="!savings.$resolved || savings.length">
-        No Deals yet, why don't you <a href="/#!/savings/create">create one</a>?
+        No Savings yet, why don't you <a href="/#!/savings/create">create one</a>?
       </div>
 
       <div class="text-center">
         <dir-pagination-controls></dir-pagination-controls>
       </div>
 
-      <!--Deals Array End-->
+      <!--Savings Array End-->
 
 
     </div>
