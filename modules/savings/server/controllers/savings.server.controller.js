@@ -123,6 +123,50 @@ exports.savingByID = function (req, res, next, id) {
 };
 
 /**
+ * Count of Deals
+ */
+exports.countSavings = function (req, res) {
+    Saving.count({},
+
+        function (err, savingsCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                var data = {};
+                data.count = savingsCount;
+                res.jsonp(data);
+            }
+        });
+};
+
+/**
+ * Count of Deals Today
+ */
+exports.countSavingsToday = function (req, res) {
+    Saving.count({
+
+            $where: function () {
+                return Date.now() - this._id.getTimestamp() < (24 * 60 * 60 * 1000);
+            }
+
+        },
+
+        function (err, savingsCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                var data = {};
+                data.count = savingsCount;
+                res.jsonp(data);
+            }
+        });
+};
+
+/**
  * Update product picture
  */
 exports.changeProductPictureSaving = function (req, res) {

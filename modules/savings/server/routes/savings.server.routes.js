@@ -22,6 +22,12 @@ module.exports = function (app) {
         .put(savings.update)
         .delete(savings.delete);
 
+    app.route('/savings/savingCount').all()
+        .get(savings.countSavings);
+
+    app.route('/savings/savingCountToday').all()
+        .get(savings.countSavingsToday);
+
 
     // Finish by binding the saving middleware
     app.param('savingId', savings.savingByID);

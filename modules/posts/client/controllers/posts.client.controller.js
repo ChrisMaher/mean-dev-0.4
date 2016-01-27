@@ -13,8 +13,6 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
         $scope.create = function() {
             // Create new Comment object
 
-            alert("Create Comment.");
-
             var post = new Posts ({
 
                 details: this.details,
@@ -27,9 +25,6 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
             // Redirect after save
             post.$save(function(response) {
 
-                $location.url('deals/' + $scope.saving._id);
-
-
                 // Clear form fields
                 $scope.name = '';
                 $scope.details = '';
@@ -37,6 +32,11 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
+        };
+
+        $scope.reload = function()
+        {
+            location.reload();
         };
 
         // Remove existing Comment

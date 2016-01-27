@@ -1,8 +1,8 @@
 <div class="col-sm-12" id="below-navbar">
 
   <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
-    <li role="presentation" class="active"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> New Deal </a>
-    <li role="presentation"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> New Coupon </a>
+    <li role="presentation" class="active"><a href="/savings/create"><i class="glyphicon glyphicon-thumbs-up"></i> New Deal </a>
+    <li role="presentation"><a href="/coupons/create"><i class="glyphicon glyphicon-thumbs-up"></i> New Coupon </a>
     </li>
   </ul>
 
@@ -17,7 +17,7 @@
 
         <fieldset>
 
-          <div class="row  body-content">
+          <div class="row body-content">
 
             <div class="col-lg-6 create-saving-left">
 
@@ -49,13 +49,13 @@
 
               <!-- Details Box Start-->
 
-              <div class="form-group new-deal-form">
                 <label for="details">Details</label>
-                <text-angular ta-toolbar="[['bold','italics'],['justifyLeft', 'justifyCenter', 'justifyRight'],
-                              ['insertLink']]"  id="details" name="details" data-ng-model="details">
+                <div class="form-group new-deal-form">
+                  <text-angular ta-toolbar="[['bold','italics', 'underline', 'strikeThrough'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertLink', 'undo'],['charcount']]"  id="details" name="details" data-ng-model="dealsCTRL.details">
 
-                </text-angular >
-              </div>
+                  </text-angular >
+                </div>
+
 
               <!-- Details Box End-->
 
@@ -77,7 +77,7 @@
               <div class="form-group new-deal-form" show-errors>
                 <label for="price">Price</label>
                 <input name="price" type="number" ng-model="price" id="price" class="form-control" placeholder="Price" required>
-                <div class="sub-label">Enter the Price of the Deal.</div>
+                <div class="sub-label">Enter the Price of the Deal. 0 for no price.</div>
                 <div ng-messages="savingForm.savingsCTRL.price.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Price is required.</p>
                 </div>

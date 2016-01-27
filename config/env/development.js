@@ -25,8 +25,8 @@ module.exports = {
     title: defaultEnvConfig.app.title + ' - Irish Deals & Coupons'
   },
   facebook: {
-    clientID: process.env.FACEBOOK_ID || 'APP_ID',
-    clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+    clientID: process.env.FACEBOOK_ID || '1685832878317344',
+    clientSecret: process.env.FACEBOOK_SECRET || 'bbaa360a1160fc66bb8314e3b91bedf9',
     callbackURL: '/api/auth/facebook/callback'
   },
   twitter: {
@@ -35,8 +35,8 @@ module.exports = {
     callbackURL: '/api/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || 'APP_ID',
-    clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+    clientID: process.env.GOOGLE_ID || '291598201748-l0gl3nnqv0meloe3rko0lhbf81a7410m.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'nyPwNoqPHQnZmXRGyix5wBAd',
     callbackURL: '/api/auth/google/callback'
   },
   linkedin: {

@@ -6,7 +6,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
-        $scope.savingImageURL = 'http://placehold.it/122x122?text=no+image';
+        $scope.savingImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
         $scope.imageURL1 = '';
         $scope.hottestsorted = true;
         $scope.newestsorted = true;
@@ -56,7 +56,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 $scope.savingImageURL = newVal;
 
             }else{
-                $scope.savingImageURL = 'http://placehold.it/122x122?text=no+image';
+                $scope.savingImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
             }
 
         });
@@ -156,7 +156,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 $scope.urlimage = '';
                 $scope.tags = '';
 
-                $scope.user.imageURL  = 'http://placehold.it/122x122?text=no+image';
+                $scope.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
 
 
             }, function (errorResponse) {
