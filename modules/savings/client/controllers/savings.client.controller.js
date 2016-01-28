@@ -155,7 +155,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
             saving.$save(function (response) {
 
                 alert("1 " + $scope.user.imageURL);
-                $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png'
+                $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
                 alert("2 " + $scope.user.imageURL);
                 $location.path('savings/' + response._id);
 
