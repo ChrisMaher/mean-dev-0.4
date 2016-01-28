@@ -436,6 +436,7 @@ body {
     font-size: 18px;
     text-decoration: none;
     color: #000000;
+    margin-left: 10px;
 
 }
 
@@ -960,7 +961,7 @@ body {
 
 .single-middle-product-details{
 
-    height: 500px;
+    height: 490px;
     display: block;
     word-wrap: break-word;
     -moz-hyphens: auto;
@@ -978,7 +979,6 @@ body {
     text-overflow: ellipsis;
     margin-top: 10px;
     margin-bottom: 10px;
-    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -1546,6 +1546,23 @@ colorpicker-alpha,
     border-radius: 100%;
     margin: 0px auto;
     margin-left: 10px;
+
+}
+
+.single-middle-posted-by{
+
+    padding-bottom: 30px;
+
+}
+
+.small-profile-image-thumbnail{
+
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+    border-radius: 100%;
+    margin: 0px auto;
+    /*margin-left: 10px;*/
 
 }
 

@@ -7,6 +7,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
         $scope.savingImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
+        // $scope.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
         $scope.imageURL1 = '';
         $scope.hottestsorted = true;
         $scope.newestsorted = true;
@@ -21,6 +22,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
             }else{
                 $scope.hottestsorted = false;
             }
+
+        };
+
+        $scope.setUserImage = function () {
+
+            $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
 
         };
 
@@ -117,33 +124,39 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         $scope.create = function () {
             $scope.error = null;
 
-            //if (!isValid) {
-            //    $scope.$broadcast('show-errors-check-validity', 'createSavingForm');
-            //
-            //    return false;
-            //}
+            var image = '/modules/users/client/img/profile/saveme-placeholder.png';
+            if($scope.user.imageURL === '/modules/users/client/img/profile/saveme-placeholder.png'){
+                //alert("equal")
+                image = $scope.savingImageURL;
+            }else{
+                //alert("not equal")
+                image = $scope.user.imageURL;
+                //alert("image " + image)
+            }
+
+            //alert($scope.savingImageURL);
 
             // Create new Saving object
             var saving = new Savings({
-
 
                 title: this.title,
                 details: this.details,
                 retailer: this.retailer,
                 price: this.price,
                 link: this.link,
-                image: $scope.user.imageURL,
-                urlimage: this.urlimage,
+                image: image,
+                urlimage: image,
                 tags: this.tags,
                 upVoters : $scope.user
 
-
             });
-
-
 
             // Redirect after save
             saving.$save(function (response) {
+
+                alert("1 " + $scope.user.imageURL);
+                $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png'
+                alert("2 " + $scope.user.imageURL);
                 $location.path('savings/' + response._id);
 
                 // Clear form fields
@@ -156,7 +169,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 $scope.urlimage = '';
                 $scope.tags = '';
 
-                $scope.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
+
 
 
             }, function (errorResponse) {

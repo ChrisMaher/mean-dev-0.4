@@ -87,7 +87,7 @@ exports.delete = function (req, res) {
  * List of Savings
  */
 exports.list = function (req, res) {
-    Saving.find().sort('-created').populate('user', 'displayName').exec(function (err, savings) {
+    Saving.find().sort('-created').populate('user').exec(function (err, savings) {
         if (err) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
@@ -109,7 +109,7 @@ exports.savingByID = function (req, res, next, id) {
         });
     }
 
-    Saving.findById(id).populate('user', 'displayName').exec(function (err, saving) {
+    Saving.findById(id).populate('user').exec(function (err, saving) {
         if (err) {
             return next(err);
         } else if (!saving) {
