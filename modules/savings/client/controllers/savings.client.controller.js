@@ -39,8 +39,6 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         $scope.timeFrame = function (classNum) {
 
-            alert(classNum);
-
             if(classNum === 1){
                 $scope.weekly = true;
                 $scope.monthly = false;
