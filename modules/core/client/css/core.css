@@ -1269,13 +1269,15 @@ body {
     display: block;
     word-wrap: break-word;
     -moz-hyphens: auto;
-    text-overflow: ellipsis;
     /*margin-top: 5px;*/
     margin-bottom: 10px;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /*line-height: 16px;     !* fallback *!*/
+    max-height: 85px;      /* fallback */
+    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-box-orient: vertical;
 
 
 }
