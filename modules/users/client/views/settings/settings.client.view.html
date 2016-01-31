@@ -1,4 +1,19 @@
+<div class="col-sm-12" id="below-navbar">
+
+  <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
+    <li role="presentation" class="active"><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Save Me </a>
+    </li>
+  </ul>
+
+  <ul class="nav nav-tabs " id="submit-tabs">
+    <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
+  </ul>
+
+
+</div>
+
 <section ng-controller="SettingsController">
+  <div class="settings-screen">
   <div class="page-header">
     <h1>Settings</h1>
   </div>
@@ -22,5 +37,6 @@
     <div class="col-sm-9 col-md-8 settings-view">
       <div ui-view></div>
     </div>
+  </div>
   </div>
 </section>

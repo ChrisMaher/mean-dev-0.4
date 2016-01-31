@@ -11,7 +11,19 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         $scope.imageURL1 = '';
         $scope.hottestsorted = true;
         $scope.newestsorted = true;
+        $scope.weekly = true;
+        $scope.monthly = false;
+        $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
+        Savings.query({}, function(resp){
+            console.log(resp);
+            $scope.savings = resp;
+        });
+
         //$scope.user.imageURL = '';
+        $scope.submitFormSaving = function(isValid) {
+            $scope.submitted = true;
+        };
+
 
         $scope.hottest = function() {
 
@@ -25,9 +37,24 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         };
 
+        $scope.timeFrame = function (classNum) {
+
+            alert(classNum);
+
+            if(classNum === 1){
+                $scope.weekly = true;
+                $scope.monthly = false;
+            }else if(classNum === 2){
+                $scope.weekly = false;
+                $scope.monthly = true;
+            }
+
+        };
+
         $scope.setUserImage = function () {
 
             $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
+
 
         };
 
@@ -146,7 +173,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 link: this.link,
                 image: image,
                 urlimage: image,
-                tags: this.tags,
+                category: this.category,
                 upVoters : $scope.user
 
             });
@@ -167,7 +194,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 $scope.link = '';
                 $scope.image = '';
                 $scope.urlimage = '';
-                $scope.tags = '';
+                $scope.category = '';
 
 
 
@@ -234,6 +261,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
             if (!hasVoted) {
 
                 saving.votes++;
+                saving.votesreal++;
                 //alert(saving.votes);
                 saving.upVoters.push($scope.user);
 
@@ -266,7 +294,6 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         $scope.downVoteHome = function(saving) {
 
-
             var hasVoted = saving.downVoters.filter(function (voter) {
                     return voter.ref === $scope.loggedInUser;
                 }).length > 0;
@@ -276,6 +303,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
             if (!hasVoted) {
 
                 saving.votes--;
+                saving.votesreal--;
                 saving.downVoters.push($scope.user);
 
 
@@ -306,5 +334,31 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         };
 
+
     }
 ]);
+
+angular.module('savings').filter('lessThan', function () {
+    return function(items, requirement) {
+        var filterKey = Object.keys(requirement)[0];
+        var filterVal = requirement[filterKey];
+
+        var filtered = [];
+
+        if(filterVal !== undefined && filterVal !== ''){
+            angular.forEach(items, function(item) {
+                var today = new Date();
+                var date = new Date(item.created);
+                var diff = today - date;
+                diff = diff / (1000*60*60);
+
+                if(diff < filterVal) {
+                    filtered.push(item);
+                }
+            });
+            return filtered;
+        }
+
+        return items;
+    };
+});

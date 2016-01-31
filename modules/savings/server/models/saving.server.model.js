@@ -13,13 +13,12 @@ var SavingSchema = new Schema({
 
   title: {
     type: String,
-    default: 'NA',
-    required: 'Please fill Deal title',
+    required: 'We need a Title for the Deal.',
     trim: true
   },
   link: {
     type: String,
-    required: 'Please fill Deal URL',
+    required: 'We need a Link to the deal.',
     trim: true
   },
   details: {
@@ -29,14 +28,12 @@ var SavingSchema = new Schema({
   },
   retailer: {
     type: String,
-    default: 'NA',
-    required: 'Please fill Deal Retailer',
+    required: 'We need a Retailer for the Deal.',
     trim: true
   },
   price: {
-    type: String,
-    default: '0',
-    required: 'Please fill Deal Price',
+    type: Number,
+    required: 'We need a Price for the Deal.',
     trim: true
   },
   urlimage: {
@@ -48,9 +45,10 @@ var SavingSchema = new Schema({
     type: String,
     default: 'http://placehold.it/120x120?text=no+image'
   },
-  tags: {
+  category: {
     type: String,
-    default: 'NA',
+    default: 'All',
+    required: 'We need a category for the Deal.',
     trim: true
   },
   startdate: {
@@ -65,7 +63,11 @@ var SavingSchema = new Schema({
   },
   votes: {
     type: Number,
-    default: '1'
+    default: '100'
+  },
+  votesreal: {
+    type: Number,
+    default: '100'
   },
   upVoters: [{
     type: Schema.ObjectId,

@@ -8,6 +8,16 @@ angular.module('savings').factory('Savings', ['$resource',
     }, {
       update: {
         method: 'PUT'
+      },
+      countSavings: {
+        method: 'GET',
+        url: '/savings/savingCount',
+        isArray: false
+      },
+      countSavingsToday: {
+        method: 'GET',
+        url: '/savings/savingCountToday',
+        isArray: false
       }
     });
   }

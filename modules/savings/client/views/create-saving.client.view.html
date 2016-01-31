@@ -23,7 +23,7 @@
 
               <!-- Title Box Start-->
 
-              <div class="form-group new-deal-form" show-errors>
+              <div class="form-group new-deal-form" ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
                 <label for="title">Title</label>
                 <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
                 <div class="sub-label">Enter the Title of the Deal.</div>
@@ -36,7 +36,7 @@
 
               <!-- Link Box Start-->
 
-              <div class="form-group new-deal-form" show-errors>
+              <div class="form-group new-deal-form" ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
                 <label for="link">Link</label>
                 <input name="link" type="url" ng-model="link" id="link" class="form-control" placeholder="Link" required>
                 <div class="sub-label">Enter the Link to the Deal.</div>
@@ -52,7 +52,6 @@
                 <label for="details">Details</label>
                 <div class="form-group new-deal-form">
                   <text-angular ta-toolbar="[['bold','italics', 'underline', 'strikeThrough'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertLink', 'undo'],['charcount']]"  id="details" name="details" data-ng-model="details">
-
                   </text-angular >
                 </div>
 
@@ -61,7 +60,7 @@
 
               <!-- Retailer Box Start-->
 
-              <div class="form-group new-deal-form" show-errors>
+              <div class="form-group new-deal-form" ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
                 <label for="retailer">Retailer</label>
                 <input name="retailer" type="text" ng-model="retailer" id="retailer" class="form-control" placeholder="Retailer" required>
                 <div class="sub-label">Enter the Retailer of the Deal.</div>
@@ -72,10 +71,15 @@
 
               <!-- Retailer Box End-->
 
+
+
+            </div>
+            <div class="col-lg-6 create-saving-right">
+
               <!-- Price Box Start-->
 
-              <div class="form-group new-deal-form" show-errors>
-                <label for="price">Price</label>
+              <div class="form-group new-deal-form" ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
+                <label for="price">Price(Euro)</label>
                 <input name="price" type="number" ng-model="price" id="price" class="form-control" placeholder="Price" required>
                 <div class="sub-label">Enter the Price of the Deal. 0 for no price.</div>
                 <div ng-messages="savingForm.savingsCTRL.price.$error" role="alert">
@@ -84,9 +88,6 @@
               </div>
 
               <!-- Price Box End-->
-
-            </div>
-            <div class="col-lg-6 create-saving-right">
 
               <!-- uploadImage Box Start-->
 
@@ -118,9 +119,9 @@
                       <strong>Upload Successful</strong>
                     </div>
 
-                    <div ng-show="error" class="text-center text-danger">
-                      <strong ng-bind="error"></strong>
-                    </div>
+                    <!--<div ng-show="error" class="text-center text-danger">-->
+                      <!--<strong ng-bind="error"></strong>-->
+                    <!--</div>-->
 
                   </div>
 
@@ -147,12 +148,26 @@
 
               <!-- Tags Box Start-->
 
-              <div class="form-group new-deal-form" show-errors>
-                <label for="tags">Tags</label>
-                <input name="tags" type="text" ng-model="tags" id="tags" class="form-control" placeholder="Tags">
-                <div class="sub-label">Enter tags separated by commas</div>
-                <div ng-messages="savingForm.tags.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">Tags are required.</p>
+              <div class="form-group new-deal-form"  ng-class="{ 'has-error' : createSavingForm.category.$invalid && submitted}"  show-errors>
+                <label for="category">Category</label>
+                <!--<input name="category" type="text" ng-model="category" id="category" class="form-control" placeholder="Category">-->
+                <select name="category" ng-model="category" class="form-control"  id="category" required>
+                  <option>All</option>
+                  <option>Electronics</option>
+                  <option>Clothes</option>
+                  <option>Mobile Phones</option>
+                  <option>Gaming</option>
+                  <option>Computing</option>
+                  <option>Entertainment</option>
+                  <option>HomeWare</option>
+                  <option>Childrens</option>
+                  <option>Entertainment</option>
+                  <option>Food</option>
+                  <option>Travel</option>
+                </select>
+                <div class="sub-label">Select Category of Deal</div>
+                <div ng-messages="savingForm.category.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Category is required.</p>
                 </div>
               </div>
 
@@ -186,12 +201,13 @@
               <!--Submit Button Start-->
 
 
-              <div class="form-group buttons-cancel-submit">
+              <div class="form-group buttons-cancel-submit text-center">
                 <button class="btn btn-default " ng-click="cancel()">Cancel</button>
-                <button type="submit" class="btn btn-success " ng-click="create(); submitForm(createSavingForm.$valid)" >Save Details </button>
+                <button type="submit" class="btn btn-success " ng-click="create(); submitFormSaving(createSavingForm.$valid)" >Save Details </button>
+
               </div>
 
-              <div ng-show="error" class="text-danger">
+              <div ng-show="error" class="text-danger text-center buttons-cancel-submit">
                 <strong ng-bind="error"></strong>
               </div>
 
