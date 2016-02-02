@@ -18,14 +18,6 @@ angular.module('posts').factory('Posts', ['$resource',
         method: 'GET',
         url: '/posts/postCountToday',
         isArray: false
-      },
-      voteUp: {
-        method: 'PUT',
-        url: '/posts/upVote'
-      },
-      voteDown: {
-        method: 'PUT',
-        url: '/posts/downVote'
       }
     });
   }

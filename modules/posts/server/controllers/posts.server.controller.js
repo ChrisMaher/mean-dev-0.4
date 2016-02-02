@@ -6,7 +6,6 @@
 var mongoose = require('mongoose'),
     errorHandler = require('./errors.server.controller'),
     Post = mongoose.model('Post'),
-    Deal = mongoose.model('Deal'),
     _ = require('lodash');
 
 /**
@@ -76,7 +75,7 @@ exports.delete = function (req, res) {
 
 exports.list = function (req, res) {
 
-    var id = req.dealId;
+    var id = req.postId;
     console.log('Log - ' + id);
     Post.find( )
         .sort('-created')

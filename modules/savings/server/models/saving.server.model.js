@@ -36,6 +36,12 @@ var SavingSchema = new Schema({
     required: 'We need a Price for the Deal.',
     trim: true
   },
+  currency: {
+    type: String,
+    default: 'Euro (&euro;)',
+    required: 'We need a Currency for the Deal.',
+    trim: true
+  },
   urlimage: {
     type: String,
     default: 'http://placehold.it/120x120?text=no+image',

@@ -13,6 +13,8 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         $scope.newestsorted = true;
         $scope.weekly = true;
         $scope.monthly = false;
+        $scope.disablelist = true;
+        $scope.currency = "Euro (&euro;)";
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
         Savings.query({}, function(resp){
             console.log(resp);
@@ -49,6 +51,18 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         };
 
+        $scope.toggleTop = function () {
+
+            alert("Top");
+
+            if($scope.top6 === false){
+                $scope.top6 = true;
+            }else{
+                $scope.top6 = false;
+            }
+
+        };
+
         $scope.setUserImage = function () {
 
             $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
@@ -70,7 +84,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
             }
         });
 
-        // Change user profile picture
+        // Change product profile picture
         $scope.uploadProductPictureSaving = function () {
 
             // Clear messages
@@ -93,6 +107,17 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         });
 
+        $scope.$watch('pricesterling', function(newVal, oldVal){
+
+            if(newVal !== undefined){
+                $scope.price = (newVal/70)*100;
+
+            }
+
+        });
+
+
+
         // Called after the user selected a new picture file
         $scope.uploaderProductSaving.onAfterAddingFile = function (fileItem) {
 
@@ -102,7 +127,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 fileReader.readAsDataURL(fileItem._file);
                 fileReader.onload = function (fileReaderEvent) {
                     $timeout(function () {
-                        
+
                         $scope.savingImageURL = fileReaderEvent.target.result;
 
                     }, 0);
@@ -159,6 +184,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 //alert("image " + image)
             }
 
+            if(this.currency === 'Sterling (£)'){
+
+                this.price = Math.round(((this.price/70)*100) * 100) / 100 ;
+
+            }
+
             //alert($scope.savingImageURL);
 
             // Create new Saving object
@@ -179,9 +210,9 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
             // Redirect after save
             saving.$save(function (response) {
 
-                alert("1 " + $scope.user.imageURL);
+                //alert("1 " + $scope.user.imageURL);
                 $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
-                alert("2 " + $scope.user.imageURL);
+                //alert("2 " + $scope.user.imageURL);
                 $location.path('savings/' + response._id);
 
                 // Clear form fields
@@ -204,19 +235,27 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         // Remove existing Saving
         $scope.remove = function (saving) {
-            if (saving) {
-                saving.$remove();
 
-                for (var i in $scope.savings) {
-                    if ($scope.savings[i] === saving) {
-                        $scope.savings.splice(i, 1);
+                var result = confirm("Are you sure you want to delete?");
+                if (result) {
+
+                    // Delete the item
+
+                    if (saving) {
+                        saving.$remove();
+
+                        for (var i in $scope.savings) {
+                            if ($scope.savings[i] === saving) {
+                                $scope.savings.splice(i, 1);
+                            }
+                        }
+                    } else {
+                        $scope.saving.$remove(function () {
+                            $location.path('savings');
+                        });
                     }
                 }
-            } else {
-                $scope.saving.$remove(function () {
-                    $location.path('savings');
-                });
-            }
+
         };
 
         // Update existing Saving
@@ -224,7 +263,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
             var saving = $scope.saving;
 
-            alert($scope.saving);
+            //alert($scope.saving);
 
             saving.$update(function() {
                 $location.path('savings/' + saving._id);

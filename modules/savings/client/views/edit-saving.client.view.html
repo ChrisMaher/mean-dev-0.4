@@ -8,11 +8,11 @@
 
 </div>
 
-<section ng-controller="SavingsController" ng-init="findOne()">
+<section ng-controller="SavingsController  as savingsCTRL" ng-init="findOne()">
   <div class=" col-sm-12 create-body-saving">
     <div class="col-md-12">
 
-      <form name="savingForm" class="form-horizontal" ng-submit="update(savingForm.$valid)" novalidate>
+      <form name="savingForm" class="form-horizontal" novalidate>
         <fieldset>
 
           <div class="row body-content">
@@ -36,7 +36,7 @@
               <!-- Link Box Start-->
 
               <div class="form-group new-deal-form"
-                   ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
+                   ng-class="{ 'has-error' : createSavingForm.link.$invalid && submitted}" show-errors>
                 <label for="link">Link</label>
                 <input name="link" type="url" ng-model="saving.link" id="link" class="form-control" placeholder="Link"
                        required>
@@ -64,7 +64,7 @@
               <!-- Retailer Box Start-->
 
               <div class="form-group new-deal-form"
-                   ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
+                   ng-class="{ 'has-error' : createSavingForm.retailer.$invalid && submitted}" show-errors>
                 <label for="retailer">Retailer</label>
                 <input name="retailer" type="text" ng-model="saving.retailer" id="retailer" class="form-control"
                        placeholder="Retailer" required>
@@ -81,7 +81,7 @@
               <!-- Price Box Start-->
 
               <div class="form-group new-deal-form"
-                   ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
+                   ng-class="{ 'has-error' : createSavingForm.price.$invalid && submitted}" show-errors>
                 <label for="price">Price(Euro)</label>
                 <input name="price" type="number" ng-model="saving.price" id="price" class="form-control" placeholder="Price"
                        required>
@@ -146,7 +146,7 @@
 
 
                 <div class="col-md-5 create-deal-image-preview"></br></br>
-                  <img ng-src="{{savingImageURL}}" class="img-thumbnail product-upload-picture">
+                  <img src="{{saving.urlimage}}" class="img-thumbnail product-upload-picture">
                 </div>
               </div>
 
@@ -183,10 +183,20 @@
             </div>
 
 
-            <div class="form-group  buttons-cancel-submit text-center">
-              <input type="submit" value="Update" class="btn btn-default">
+            <!--<div class="form-group  buttons-cancel-submit text-center">-->
+              <!--<input type="submit" value="Update" class="btn btn-default">-->
+            <!--</div>-->
+            <!--<div ng-show="error" class="text-danger">-->
+              <!--<strong ng-bind="error"></strong>-->
+            <!--</div>-->
+
+            <div class="form-group buttons-cancel-submit text-center">
+              <button class="btn btn-default " ng-click="cancel()">Cancel</button>
+              <button type="submit" class="btn btn-success " ng-click="update(); submitFormSaving(createSavingForm.$valid)" >Save Details </button>
+
             </div>
-            <div ng-show="error" class="text-danger">
+
+            <div ng-show="error" class="text-danger text-center buttons-cancel-submit">
               <strong ng-bind="error"></strong>
             </div>
 

@@ -30,13 +30,17 @@ var PostSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
+    votes: {
+        type: Number,
+        default: '0'
+    },
+    upVoters: [{
+        type: Schema.ObjectId,
+        ref: 'User'
+    }],
     saving: {
         type: Schema.ObjectId,
         ref: 'Deal'
-    },
-    savingId: {
-        type: String,
-        trim: true
     }
 
 });

@@ -3,6 +3,7 @@
 // Comments controller
 angular.module('posts').controller('PostsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Posts',
     function($scope, $stateParams, $location, Authentication, Posts) {
+
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
 
@@ -80,5 +81,34 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
                 postId: $stateParams.postId
             });
         };
+
+        $scope.voteCommentUp = function(post) {
+
+            var hasVoted = post.upVoters.filter(function (voter) {
+                    return voter.ref === $scope.loggedInUser;
+                }).length > 0;
+
+            // If a downvote exists remove it , else do nothing
+
+            if (!hasVoted) {
+
+                post.votes++;
+                //alert(saving.votes);
+                post.upVoters.push($scope.user);
+
+            }
+
+            post.$update(function () {
+                //$location.path('savings/' + saving._id);
+            }, function (errorResponse) {
+                // rollback votes on fail also
+                $scope.error = errorResponse.data.message;
+            });
+
+        };
+
+
+
+
     }
 ]);

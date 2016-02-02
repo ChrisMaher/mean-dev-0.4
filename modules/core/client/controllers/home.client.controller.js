@@ -24,6 +24,8 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         $scope.hottestsorted = true;
         $scope.newestsorted = false;
 
+        $scope.top6 = true;
+
         $scope.brandLogo = '/modules/users/client/img/profile/all-logo.png';
 
         $scope.setUserImage = function () {
@@ -38,6 +40,16 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
             }else if(classNum === 2){
                 $scope.hottestsorted = false;
                 $scope.newestsorted = true;
+            }
+
+        };
+
+        $scope.toggleTop = function () {
+
+            if($scope.top6 === false){
+                $scope.top6 = true;
+            }else{
+                $scope.top6 = false;
             }
 
         };

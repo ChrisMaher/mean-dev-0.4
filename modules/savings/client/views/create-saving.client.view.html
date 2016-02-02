@@ -1,8 +1,8 @@
 <div class="col-sm-12" id="below-navbar">
 
   <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
-    <li role="presentation" class="active"><a href="/savings/create"><i class="glyphicon glyphicon-thumbs-up"></i> New Deal </a>
-    <li role="presentation"><a href="/coupons/create"><i class="glyphicon glyphicon-thumbs-up"></i> New Coupon </a>
+    <li role="presentation" class="active"><a href="/savings/create"> New Deal </a>
+    <li role="presentation"><a href="/coupons/create"> New Coupon </a>
     </li>
   </ul>
 
@@ -23,9 +23,11 @@
 
               <!-- Title Box Start-->
 
-              <div class="form-group new-deal-form" ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
+              <div class="form-group new-deal-form"
+                   ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
                 <label for="title">Title</label>
-                <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
+                <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title"
+                       required>
                 <div class="sub-label">Enter the Title of the Deal.</div>
                 <div ng-messages="savingForm.savingsCTRL.title.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Saving title is required.</p>
@@ -36,9 +38,11 @@
 
               <!-- Link Box Start-->
 
-              <div class="form-group new-deal-form" ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
+              <div class="form-group new-deal-form"
+                   ng-class="{ 'has-error' : createSavingForm.link.$invalid && submitted}" show-errors>
                 <label for="link">Link</label>
-                <input name="link" type="url" ng-model="link" id="link" class="form-control" placeholder="Link" required>
+                <input name="link" type="url" ng-model="link" id="link" class="form-control" placeholder="Link"
+                       required>
                 <div class="sub-label">Enter the Link to the Deal.</div>
                 <div ng-messages="savingForm.savingsCTRL.link.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Saving link is required.</p>
@@ -49,20 +53,24 @@
 
               <!-- Details Box Start-->
 
-                <label for="details">Details</label>
-                <div class="form-group new-deal-form">
-                  <text-angular ta-toolbar="[['bold','italics', 'underline', 'strikeThrough'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertLink', 'undo'],['charcount']]"  id="details" name="details" data-ng-model="details">
-                  </text-angular >
-                </div>
+              <label for="details">Details</label>
+              <div class="form-group new-deal-form">
+                <text-angular
+                  ta-toolbar="[['bold','italics', 'underline', 'strikeThrough'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertLink', 'undo'],['charcount']]"
+                  id="details" name="details" data-ng-model="details">
+                </text-angular>
+              </div>
 
 
               <!-- Details Box End-->
 
               <!-- Retailer Box Start-->
 
-              <div class="form-group new-deal-form" ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
+              <div class="form-group new-deal-form"
+                   ng-class="{ 'has-error' : createSavingForm.retailer.$invalid && submitted}" show-errors>
                 <label for="retailer">Retailer</label>
-                <input name="retailer" type="text" ng-model="retailer" id="retailer" class="form-control" placeholder="Retailer" required>
+                <input name="retailer" type="text" ng-model="retailer" id="retailer" class="form-control"
+                       placeholder="Retailer" required>
                 <div class="sub-label">Enter the Retailer of the Deal.</div>
                 <div ng-messages="savingForm.savingsCTRL.retailer.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Retailer is required.</p>
@@ -72,19 +80,77 @@
               <!-- Retailer Box End-->
 
 
-
             </div>
             <div class="col-lg-6 create-saving-right">
 
               <!-- Price Box Start-->
 
-              <div class="form-group new-deal-form" ng-class="{ 'has-error' : createSavingForm.title.$invalid && submitted}" show-errors>
-                <label for="price">Price(Euro)</label>
-                <input name="price" type="number" ng-model="price" id="price" class="form-control" placeholder="Price" required>
-                <div class="sub-label">Enter the Price of the Deal. 0 for no price.</div>
-                <div ng-messages="savingForm.savingsCTRL.price.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">Price is required.</p>
+              <div class="row price-row">
+
+                <!--<div class="col-lg-1 price-box-euro-check text-center ">-->
+                  <!--<div class="form-group new-deal-form"-->
+                       <!--ng-class="{ 'has-error' : createSavingForm.price.$invalid && submitted}" show-errors>-->
+                    <!--<label for="price">Euro</label>-->
+
+                        <!--<input type="checkbox" checked ng-model="disablelist">-->
+
+                    <!--&lt;!&ndash;<div class="sub-label">Enter either the &euro; price</div>&ndash;&gt;-->
+                    <!--<div ng-messages="savingForm.savingsCTRL.price.$error" role="alert">-->
+                      <!--<p class="help-block error-text" ng-message="required">Price is required.</p>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+
+                <div class="col-lg-6 price-box-euro">
+
+                  <div class="form-group new-deal-form"
+                       ng-class="{ 'has-error' : createSavingForm.price.$invalid && submitted}" show-errors>
+                    <label for="currency">Currency</label>
+                    <select  name="currency" ng-model="currency" class="form-control" id="currency" required>
+                      <option >Euro (&euro;)</option>
+                      <option >Sterling (£)</option>
+                    </select>
+                  </div>
+
                 </div>
+
+                <div class="col-lg-6 price-box-euro">
+                  <div class="form-group new-deal-form"
+                       ng-class="{ 'has-error' : createSavingForm.price.$invalid && submitted}" show-errors>
+                    <label for="price">Price</label>
+                    <!--<div class="input-group">-->
+                      <!--<div class="input-group-addon">&euro;-->
+                      <!--</div>-->
+                      <input name="price" ng-disabled="!disablelist" type="number" ng-model="price" id="price"
+                             class="form-control" placeholder="" required>
+                    <!--</div>-->
+                    <!--<div class="sub-label">Enter either the &euro; price</div>-->
+                    <div ng-messages="savingForm.savingsCTRL.price.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Price is required.</p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!--<div class="col-lg-6 price-box-sterling">-->
+                  <!--<div class="form-group new-deal-form"-->
+                       <!--ng-class="{ 'has-error' : createSavingForm.pricesterling.$invalid && submitted}" show-errors>-->
+                    <!--<label for="pricesterling">Price(£)</label>-->
+                    <!--<div class="input-group">-->
+                      <!--<span class="input-group-addon">£</span>-->
+                    <!--<input name="pricesterling" ng-disabled="disablelist" type="number" ng-model="pricesterling" id="pricesterling"-->
+                           <!--class="form-control" placeholder="" required>-->
+                      <!--</div>-->
+                    <!--&lt;!&ndash;<div class="sub-label">Or the £ price</div>&ndash;&gt;-->
+                    <!--<div ng-messages="savingForm.savingsCTRL.pricesterling.$error" role="alert">-->
+                      <!--<p class="help-block error-text" ng-message="required">Price is required.</p>-->
+                    <!--</div>-->
+
+                  <!--</div>-->
+
+
+                <!--</div>-->
+
               </div>
 
               <!-- Price Box End-->
@@ -100,7 +166,7 @@
 
                     <div class="text-center form-group controls" ng-hide="uploaderProductSaving.queue.length">
                             <span class="btn btn-default btn-file">
-                                Select Image <input type="file" nv-file-select uploader="uploaderProductSaving" >
+                                Select Image <input type="file" nv-file-select uploader="uploaderProductSaving">
                             </span>
                     </div>
 
@@ -120,17 +186,19 @@
                     </div>
 
                     <!--<div ng-show="error" class="text-center text-danger">-->
-                      <!--<strong ng-bind="error"></strong>-->
+                    <!--<strong ng-bind="error"></strong>-->
                     <!--</div>-->
 
                   </div>
 
                   <div class="add-image-link" ng-hide="success">
 
-                    <label class="control-label" for="urlimage" ng-hide="uploaderProductSaving.queue.length">IMAGE URL</label>
+                    <label class="control-label" for="urlimage" ng-hide="uploaderProductSaving.queue.length">IMAGE
+                      URL</label>
 
                     <div class="controls" ng-hide="uploaderProductSaving.queue.length">
-                      <input type="url" data-ng-model="urlimage" id="urlimage" class="form-control" placeholder="Image URL"  required>
+                      <input type="url" data-ng-model="urlimage" id="urlimage" class="form-control"
+                             placeholder="Image URL" required>
                       <div class="sub-label">Manually enter an image URL.</div>
 
                     </div>
@@ -148,10 +216,11 @@
 
               <!-- Tags Box Start-->
 
-              <div class="form-group new-deal-form"  ng-class="{ 'has-error' : createSavingForm.category.$invalid && submitted}"  show-errors>
+              <div class="form-group new-deal-form"
+                   ng-class="{ 'has-error' : createSavingForm.category.$invalid && submitted}" show-errors>
                 <label for="category">Category</label>
                 <!--<input name="category" type="text" ng-model="category" id="category" class="form-control" placeholder="Category">-->
-                <select name="category" ng-model="category" class="form-control"  id="category" required>
+                <select name="category" ng-model="category" class="form-control" id="category" required>
                   <option>All</option>
                   <option>Electronics</option>
                   <option>Clothes</option>
@@ -203,7 +272,9 @@
 
               <div class="form-group buttons-cancel-submit text-center">
                 <button class="btn btn-default " ng-click="cancel()">Cancel</button>
-                <button type="submit" class="btn btn-success " ng-click="create(); submitFormSaving(createSavingForm.$valid)" >Save Details </button>
+                <button type="submit" class="btn btn-success "
+                        ng-click="create(); submitFormSaving(createSavingForm.$valid)">Save Details
+                </button>
 
               </div>
 
