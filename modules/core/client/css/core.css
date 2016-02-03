@@ -100,7 +100,7 @@ body {
 
 .main-deals {
 
-    min-height: 2230px;
+    min-height: 2447px;
     /*border: #000000 1px solid;*/
     padding: 15px;
     background-color: #FFFFFF;
@@ -113,6 +113,35 @@ body {
 
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+
+}
+
+.main-coupons {
+
+    /*min-height: 2230px;*/
+    /*border: #000000 1px solid;*/
+    /*padding: 15px;*/
+    /*background-color: #FFFFFF;*/
+    /*border-top: #dddddd 1px solid;*/
+    /*border-bottom: #dddddd 1px solid;*/
+    /*border-left: #dddddd 1px solid;*/
+
+    /*-moz-border-radius-bottomleft: 10px;*/
+    /*-moz-border-radius-topleft: 10px;*/
+
+    /*border-top-left-radius: 10px;*/
+    /*border-bottom-left-radius: 10px;*/
+
+}
+
+.main-body-view{
+
+    min-height: 800px;
+    margin: 0px;
+    border: #dddddd 1px solid;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding-top: 15px;
 
 }
 
@@ -209,18 +238,11 @@ body {
 .main-deals-view-saving {
 
 
-     /*border: #000000 1px solid;*/
-    padding: 15px;
-    background-color: #FFFFFF;
-    border-top: #dddddd 1px solid;
-    border-bottom: #dddddd 1px solid;
-    border-left: #dddddd 1px solid;
-
-    -moz-border-radius-bottomleft: 10px;
-    -moz-border-radius-topleft: 10px;
-
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    /*padding: 15px;*/
+    /*background-color: #FFFFFF;*/
+    /*border: #dddddd 1px solid;*/
+    /*-moz-border-radius: 10px;*/
+    /*border-radius: 10px;*/
 
 }
 
@@ -253,6 +275,24 @@ body {
 
 }
 
+.right-column-coupons {
+
+    /*min-height: 2447px;*/
+    /*padding: 15px;*/
+    /*background-color: #FFFFFF;*/
+    /*border-top: #dddddd 1px solid;*/
+    /*border-bottom: #dddddd 1px solid;*/
+    /*border-right: #dddddd 1px solid;*/
+    /*border-right: 1px solid #DDDDDD;*/
+
+    /*-moz-border-radius-bottomright: 10px;*/
+    /*-moz-border-radius-topright: 10px;*/
+
+    /*border-top-right-radius: 10px;*/
+    /*border-bottom-right-radius: 10px;*/
+
+}
+
 .right-column-saving {
 
     min-height: 1300px;
@@ -271,21 +311,27 @@ body {
 
 }
 
+.coupon-buttons{
+
+    margin-bottom: 50px;
+
+}
+
 .right-column-saving-view {
 
-    min-height: 1024px;
-    padding: 15px;
-    background-color: #FFFFFF;
-    border-top: #dddddd 1px solid;
-    border-bottom: #dddddd 1px solid;
-    border-right: #dddddd 1px solid;
-    border-right: 1px solid #DDDDDD;
+    /*min-height: 1024px;*/
+    /*!*padding: 15px;*!*/
+    /*background-color: #FFFFFF;*/
+    /*border-top: #dddddd 1px solid;*/
+    /*border-bottom: #dddddd 1px solid;*/
+    /*border-right: #dddddd 1px solid;*/
+    /*border-right: 1px solid #DDDDDD;*/
 
-    -moz-border-radius-bottomright: 10px;
-    -moz-border-radius-topright: 10px;
+    /*-moz-border-radius-bottomright: 10px;*/
+    /*-moz-border-radius-topright: 10px;*/
 
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    /*border-top-right-radius: 10px;*/
+    /*border-bottom-right-radius: 10px;*/
 
 }
 
@@ -820,6 +866,7 @@ body {
 .submit-tab-view {
 
     float: right;
+    margin-right: 15px;
 
 }
 
@@ -1081,7 +1128,7 @@ body {
 
 .create-body-saving .form-group {
 
-    /*padding: 10px;*/
+    padding: 10px;
 
 }
 
@@ -1255,18 +1302,21 @@ body {
 
 .list-group-home-single {
 
-    padding: 10px;
-    height: 600px;
+    min-height: 250px;
     margin-bottom: 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
     border: #dddddd 1px solid;
+    -moz-border-radius: 10px;
     border-radius: 10px;
+
 
 }
 
 #single-left-box {
 
-    height: 580px;
-    /*background-color: #0040D0;*/
+min-height: 200px;
+/*background-color: #0040D0;*/
     /*border-right: 1px solid #DDDDDD;*/
     padding-left: 20px;
 
@@ -1275,7 +1325,7 @@ body {
 #single-middle-box {
 
     /*padding: 5px;*/
-    height: 580px;
+    min-height: 250px;
 
 }
 
@@ -1298,7 +1348,7 @@ body {
 
 .single-middle-product-details {
 
-    height: 490px;
+    min-height: 250px;
     display: block;
     word-wrap: break-word;
     -moz-hyphens: auto;
@@ -1325,6 +1375,85 @@ body {
 
 }
 
+.single-middle-product-details-home-coupon {
+
+    height: 42px;
+    display: block;
+    word-wrap: break-word;
+    -moz-hyphens: auto;
+    /*margin-top: 5px;*/
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /*line-height: 16px;     !* fallback *!*/
+    max-height: 42px; /* fallback */
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+
+}
+
+.single-middle-product-details-home-coupon-instructions {
+
+    height: 42px;
+    display: block;
+    word-wrap: break-word;
+    -moz-hyphens: auto;
+    /*margin-top: 5px;*/
+    margin-bottom: 2px;
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    /*line-height: 16px;     !* fallback *!*/
+    max-height: 42px; /* fallback */
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical;
+
+}
+
+.coupon-code-box{
+
+    display: inline-block;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #EAE9E4;
+    border-radius: 2px;
+    padding: 0 14px;
+    margin-right: 14px;
+    height: 36px;
+    min-width: 200px;
+    /*max-width: 235px;*/
+    line-height: 40px;
+    white-space: nowrap;
+    font-size: 16px;
+    overflow: hidden;
+    text-transform: uppercase;
+    margin: 6px 8px;
+
+}
+
+.coupon-visit-box{
+
+    display: inline-block;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(161, 28, 0);
+    border-radius: 2px;
+    padding: 0 14px;
+    margin-left: 14px;
+    height: 36px;
+    min-width: 200px;
+    /*max-width: 235px;*/
+    line-height: 40px;
+    white-space: nowrap;
+
+}
+
 .dropdown {
 
     z-index: 10;
@@ -1335,6 +1464,7 @@ body {
 
     color: #888885;
     font-size: 10px;
+    padding-left: 30px;
 
 }
 
@@ -1447,6 +1577,27 @@ body {
     background-color: rgba(230, 230, 229, 0.96);
 }
 
+.visit-coupon-button {
+    color: rgb(255, 255, 255);
+    background-color: rgb(161, 28, 0);
+    /*border-radius: 10px ;*/
+    font-size: 16px;
+    width: 100%;
+
+}
+
+.visit-coupon-button:not([disabled]):hover {
+    background-color: rgb(126, 22, 0) !important;
+    color: white;
+
+}
+
+.visit-coupon-button[disabled] {
+    color: rgb(187, 187, 187);
+    background-color: rgba(230, 230, 229, 0.96);
+
+}
+
 .vote-down-button {
     color: rgb(141, 133, 133);
     background-color: rgb(187, 187, 187);
@@ -1470,11 +1621,18 @@ body {
 
 }
 
+.md-button{
+    margin: 6px 8px;
+}
+
 .save-button-md {
+
     color: rgb(255, 255, 255);
     background-color: rgb(71, 174, 71);
     /*border-radius: 10px ;*/
     font-size: 16px;
+    width: 110px;
+    margin-left: -2px;
 }
 
 .save-button-md:not([disabled]):hover {
@@ -1486,6 +1644,28 @@ body {
     color: rgb(187, 187, 187);
     background-color: rgba(230, 230, 229, 0.96);
 }
+
+.save-button-md-view {
+
+    color: rgb(255, 255, 255);
+    background-color: rgb(71, 174, 71);
+    /*border-radius: 10px ;*/
+    font-size: 16px;
+    width: 110px;
+    margin-left: -2px;
+}
+
+.save-button-md-view:not([disabled]):hover {
+    background-color: rgb(66, 151, 66) !important;
+    color: white;
+}
+
+.save-button-md-view[disabled] {
+    color: rgb(187, 187, 187);
+    background-color: rgba(230, 230, 229, 0.96);
+
+}
+
 
 .username {
 
@@ -1535,7 +1715,7 @@ body {
     width: 125px;
     margin: 0px auto;
     padding-left: 15px;
-    margin-left: -10px;
+    margin-left: -11px;
 
 
 }
@@ -2001,11 +2181,7 @@ colorpicker-alpha,
 
 }
 
-.single-middle-posted-by {
 
-    padding-bottom: 30px;
-
-}
 
 .small-profile-image-thumbnail {
 

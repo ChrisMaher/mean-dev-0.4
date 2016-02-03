@@ -10,6 +10,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         $scope.user = Authentication.user;
 
         $scope.orderByField = 'votesreal';
+        $scope.orderByFieldCoupon = 'votes';
 
         $scope.numOfSavings = Savings.countSavings();
         $scope.numOfSavingsToday = Savings.countSavingsToday();
@@ -25,6 +26,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
         $scope.hottestsorted = true;
         $scope.newestsorted = false;
+
+        $scope.hottestsortedCoupon = true;
+        $scope.newestsortedCoupon = false;
 
         $scope.top6 = true;
 
@@ -44,6 +48,23 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
                 $scope.hottestsorted = false;
                 $scope.newestsorted = true;
                 $scope.orderByField = 'created';
+            }
+
+        };
+
+        $scope.toggleClassCoupon = function (classNum) {
+
+
+            if(classNum === 1){
+                $scope.hottestsortedCoupon = true;
+                $scope.newestsortedCoupon = false;
+                $scope.orderByFieldCoupon = 'votes';
+
+            }else if(classNum === 2){
+                $scope.hottestsortedCoupon = false;
+                $scope.newestsortedCoupon = true;
+                $scope.orderByFieldCoupon = 'created';
+
             }
 
         };
