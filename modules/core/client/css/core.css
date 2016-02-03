@@ -175,7 +175,7 @@ body {
 
 .main-deals-view {
 
-    height: 2165px;
+    min-height: 2165px;
     /*border: #000000 1px solid;*/
     padding: 15px;
     background-color: #FFFFFF;
@@ -191,10 +191,25 @@ body {
 
 }
 
+.whole-body-view{
+
+    /* border: #000000 1px solid; */
+    padding: 15px;
+    background-color: #FFFFFF;
+    border-top: #dddddd 1px solid;
+    border-bottom: #dddddd 1px solid;
+    border-left: #dddddd 1px solid;
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
 .main-deals-view-saving {
 
-    min-height: 1346px;
-    /*border: #000000 1px solid;*/
+
+     /*border: #000000 1px solid;*/
     padding: 15px;
     background-color: #FFFFFF;
     border-top: #dddddd 1px solid;
@@ -206,6 +221,17 @@ body {
 
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+
+}
+
+.view-savings-body{
+
+    width: 1140px;
+    background-color: #FFFFFF;
+    min-height: 1200px;
+    border: #dddddd 1px solid;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 
 }
 
@@ -247,7 +273,7 @@ body {
 
 .right-column-saving-view {
 
-    min-height: 1300px;
+    min-height: 1024px;
     padding: 15px;
     background-color: #FFFFFF;
     border-top: #dddddd 1px solid;
@@ -267,7 +293,7 @@ body {
 
     border: 1px solid #DDDDDD;
     padding-left: 0px;
-    height: 410px;
+    height: 200px;
     margin-bottom: 10px;
 }
 
@@ -275,7 +301,7 @@ body {
 
     border: 1px solid #DDDDDD;
     padding-left: 0px;
-    height: 410px;
+    height: 303px;
     margin-bottom: 10px;
 
 }
@@ -299,6 +325,21 @@ body {
 }
 
 .comments-list .list-group-item {
+
+    /*padding: 10px;*/
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    max-height: 800px;
+
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-topright: 5px;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+.comments-list-top-comment .list-group-item {
 
     /*padding: 10px;*/
     overflow-y: scroll;
@@ -580,7 +621,7 @@ body {
     text-align: center;
     line-height: 35px;
     vertical-align: middle;
-    /*padding-left: 23px;*/
+    padding-left: 17px;
 }
 
 .timeframe-row-item-2 {

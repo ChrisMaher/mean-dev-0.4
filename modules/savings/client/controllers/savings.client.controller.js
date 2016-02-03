@@ -184,7 +184,9 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 //alert("image " + image)
             }
 
-            if(this.currency === 'Sterling (£)'){
+
+
+            if(this.currency == 'Sterling (£)'){
 
                 this.price = Math.round(((this.price/70)*100) * 100) / 100 ;
 
@@ -200,6 +202,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 retailer: this.retailer,
                 price: this.price,
                 link: this.link,
+                currency: this.currency,
                 image: image,
                 urlimage: image,
                 category: this.category,
@@ -263,6 +266,15 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
             var saving = $scope.saving;
 
+            alert($scope.saving.currency);
+
+            if($scope.saving.currency === 'Sterling (£)'){
+
+                $scope.saving.price = Math.round((($scope.saving.price/70)*100) * 100) / 100 ;
+                $scope.saving.currency = 'Euro (€)';
+
+            }
+
             //alert($scope.saving);
 
             saving.$update(function() {
@@ -289,8 +301,11 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         $scope.upVoteHome = function(saving) {
 
+
             var hasVoted = saving.upVoters.filter(function (voter) {
-                    return voter.ref === $scope.loggedInUser;
+
+                    return voter === $scope.user._id;
+
                 }).length > 0;
 
             // If a downvote exists remove it , else do nothing
@@ -306,8 +321,11 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
             // Check if there is a downVote to remove
 
+
             var hasVoted3 = saving.downVoters.filter(function (voter) {
-                    return voter.ref === $scope.loggedInUser;
+
+                    return voter === $scope.user._id;
+
                 }).length > 0;
 
             if (hasVoted3) {
@@ -332,7 +350,9 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         $scope.downVoteHome = function(saving) {
 
             var hasVoted = saving.downVoters.filter(function (voter) {
-                    return voter.ref === $scope.loggedInUser;
+
+                    return voter === $scope.user._id;
+
                 }).length > 0;
 
             // If a upvote exists remove it , else do nothing
@@ -348,8 +368,11 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
             // Check if there is a upVote to remove
 
+
             var hasVoted2 = saving.upVoters.filter(function (voter) {
-                    return voter.ref === $scope.loggedInUser;
+
+                    return voter === $scope.user._id;
+
                 }).length > 0;
 
             if (hasVoted2) {

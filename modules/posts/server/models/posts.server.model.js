@@ -11,12 +11,7 @@ var mongoose = require('mongoose'),
  * Post Schema
  */
 var PostSchema = new Schema({
-    userName: {
-        type: String,
-        default: 'na',
-        required: 'Please fill Comment name',
-        trim: true
-    },
+
     created: {
         type: Date,
         default: Date.now
@@ -34,13 +29,17 @@ var PostSchema = new Schema({
         type: Number,
         default: '0'
     },
-    upVoters: [{
+    voters: [{
         type: Schema.ObjectId,
         ref: 'User'
     }],
     saving: {
         type: Schema.ObjectId,
         ref: 'Deal'
+    },
+    savingId: {
+        type: String,
+        trim: true
     }
 
 });

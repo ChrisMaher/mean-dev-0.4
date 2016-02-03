@@ -5,14 +5,12 @@
 
     <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
 
-      <li role="presentation" ng-class="{ 'active' : hottestsorted}"><a href="#"
-                                                                        ng-click="orderByField='votes'; reverseSort = !reverseSort; toggleClass(1);"><i>
-        <!--class="glyphicon glyphicon-thumbs-up"--> </i> Hottest </a>
+      <li role="presentation" ng-class="{ 'active' : hottestsorted}"><a href="#" ng-click="orderByField='votes'; toggleClass(1);"><i>
+       </i> Hottest </a>
       </li>
 
-      <li role="presentation " ng-class="{ 'active' : newestsorted}"><a href="#"
-                                                                        ng-click="orderByField='created'; reverseSort = !reverseSort; toggleClass(2);"><i>
-        <!--class="glyphicon glyphicon-arrow-up" --> </i> Newest </a>
+      <li role="presentation " ng-class="{ 'active' : newestsorted}"><a href="#" ng-click="orderByField='created'; toggleClass(2);"><i>
+        </i> Newest </a>
       </li>
 
       <!--<li ng-show="top6" class="top6tabactive" role="presentation " ng-class="{ 'active' : top6}"><a href="#" ng-click="toggleTop();"> Top Savings </a>-->
@@ -21,35 +19,35 @@
       <!--</li>-->
 
 
-      <!--<li class="dropdown  brand-dropdown" dropdown>-->
-        <!--<a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>-->
-          <!--&lt;!&ndash;class="glyphicon glyphicon-search"&ndash;&gt; </i> {{selectedLogo}} <span class="caret"></span>-->
-        <!--</a>-->
-        <!--<ul class="dropdown-menu">-->
+      <li class="dropdown  brand-dropdown" dropdown>
+        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>
+          <!--class="glyphicon glyphicon-search"--> </i> {{selectedLogo}} <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
 
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy=''; setFilterText('All') ; setLogo('All')">All</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Littlewoods'; setFilterText('Littlewoods') ; setLogo('Littlewoods')">LittleWoods</a>-->
-          <!--</li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Argos'; setFilterText('Argos') ; setLogo('Argos')">Argos</a>-->
-          <!--</li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='ScrewFix'; setFilterText('Screwfix')">ScrewFix</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Amazon'; setFilterText('Amazon')">Amazon</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Penneys'; setFilterText('Penneys')">Penneys</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Tesco'; setFilterText('Tesco')">Tesco</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Lidl'; setFilterText('Lidl')">Lidl</a>-->
-          <!--</li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Aldi'; setFilterText('Aldi')">Aldi</a>-->
-          <!--</li>-->
+          <li role="presentation"><a href="#" ng-selected="selected"
+                                     ng-click="filterBy=''; setFilterText('All') ; setLogo('All')">All</a></li>
+          <li role="presentation"><a href="#" ng-selected="selected"
+                                     ng-click="filterBy='Littlewoods'; setFilterText('Littlewoods') ; setLogo('Littlewoods')">LittleWoods</a>
+          </li>
+          <li role="presentation"><a href="#" ng-selected="selected"
+                                     ng-click="filterBy='Argos'; setFilterText('Argos') ; setLogo('Argos')">Argos</a>
+          </li>
+          <li role="presentation"><a href="#" ng-selected="selected"
+                                     ng-click="filterBy='ScrewFix'; setFilterText('Screwfix')">ScrewFix</a></li>
+          <li role="presentation"><a href="#" ng-selected="selected"
+                                     ng-click="filterBy='Amazon'; setFilterText('Amazon')">Amazon</a></li>
+          <li role="presentation"><a href="#" ng-selected="selected"
+                                     ng-click="filterBy='Penneys'; setFilterText('Penneys')">Penneys</a></li>
+          <li role="presentation"><a href="#" ng-selected="selected"
+                                     ng-click="filterBy='Tesco'; setFilterText('Tesco')">Tesco</a></li>
+          <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Lidl'; setFilterText('Lidl')">Lidl</a>
+          </li>
+          <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Aldi'; setFilterText('Aldi')">Aldi</a>
+          </li>
 
-        <!--</ul>-->
-      <!--</li>-->
+        </ul>
+      </li>
 
       <!--<li role="presentation "><a><i></i><img src="{{brandLogo}}" class="brand-logo-thumbnail" alt="SaveMe.ie"/></a>-->
       <!--</li>-->
@@ -115,7 +113,7 @@
 
 
         <div
-          dir-paginate="saving in savings|orderBy:orderByField:reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"
+          dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"
           class="list-group-item">
 
 
@@ -181,7 +179,7 @@
                                                         alt="{{saving.user.displayName}}" height="20px"
                                                         width="20px"/></a> <span class="username"
                                                                                  data-ng-bind="saving.user.displayName"></span>
-                  | <span data-ng-bind="saving.created | date:'mediumDate'"></span>
+                  | <span data-ng-bind="saving.created | date:'mediumDate'"> </span>
                 </div>
                 <!--<div class="col-lg-6 middle-time-of-posting">Posted On <span data-ng-bind="saving.created | date:'mediumDate'"></span></div>-->
 

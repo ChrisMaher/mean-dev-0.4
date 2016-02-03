@@ -38,7 +38,7 @@ var SavingSchema = new Schema({
   },
   currency: {
     type: String,
-    default: 'Euro (&euro;)',
+    default: 'Euro (€)',
     required: 'We need a Currency for the Deal.',
     trim: true
   },

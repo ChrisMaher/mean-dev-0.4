@@ -78,17 +78,46 @@
 
             </div>
             <div class="col-lg-6 create-saving-right">
+
               <!-- Price Box Start-->
 
-              <div class="form-group new-deal-form"
-                   ng-class="{ 'has-error' : createSavingForm.price.$invalid && submitted}" show-errors>
-                <label for="price">Price(Euro)</label>
-                <input name="price" type="number" ng-model="saving.price" id="price" class="form-control" placeholder="Price"
-                       required>
-                <div class="sub-label">Enter the Price of the Deal. 0 for no price.</div>
-                <div ng-messages="savingForm.savingsCTRL.price.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">Price is required.</p>
+              <div class="row price-row">
+
+
+
+                <div class="col-lg-6 price-box-euro">
+
+                  <div class="form-group new-deal-form"
+                       ng-class="{ 'has-error' : createSavingForm.price.$invalid && submitted}" show-errors>
+                    <label for="currency">Currency</label>
+                    <select  name="currency" ng-model="saving.currency" class="form-control" id="currency" required>
+                      <option >Euro (€)</option>
+                      <option >Sterling (£)</option>
+                    </select>
+                  </div>
+
                 </div>
+
+                <div class="col-lg-6 price-box-euro">
+                  <div class="form-group new-deal-form"
+                       ng-class="{ 'has-error' : createSavingForm.price.$invalid && submitted}" show-errors>
+                    <label for="price">Price</label>
+                    <!--<div class="input-group">-->
+                    <!--<div class="input-group-addon">&euro;-->
+                    <!--</div>-->
+                    <input name="price" ng-disabled="!disablelist" type="number" ng-model="saving.price" id="price"
+                           class="form-control" placeholder="" required>
+                    <!--</div>-->
+                    <!--<div class="sub-label">Enter either the &euro; price</div>-->
+                    <div ng-messages="savingForm.savingsCTRL.price.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Price is required.</p>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
               </div>
 
               <!-- Price Box End-->
