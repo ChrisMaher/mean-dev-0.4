@@ -19,7 +19,6 @@ var CouponSchema = new Schema({
     link: {
         type: String,
         required: 'We need a Link to the Deal.',
-
         trim: true
     },
     code: {
