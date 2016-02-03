@@ -6,6 +6,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
+        //$scope.orderByField = 'votesreal';
         $scope.savingImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
         // $scope.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
         $scope.imageURL1 = '';
@@ -36,6 +37,14 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
             }else{
                 $scope.hottestsorted = false;
             }
+
+        };
+
+        $scope.setSort = function(sort){
+
+            alert(sort);
+
+            $scope.orderByField = sort;
 
         };
 
@@ -186,7 +195,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
 
 
-            if(this.currency == 'Sterling (£)'){
+            if(this.currency === 'Sterling (£)'){
 
                 this.price = Math.round(((this.price/70)*100) * 100) / 100 ;
 
@@ -266,7 +275,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
             var saving = $scope.saving;
 
-            alert($scope.saving.currency);
+            //alert($scope.saving.currency);
 
             if($scope.saving.currency === 'Sterling (£)'){
 

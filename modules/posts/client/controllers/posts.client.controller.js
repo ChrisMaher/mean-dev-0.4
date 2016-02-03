@@ -86,7 +86,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
             var hasVoted5 = post.voters.filter(function (voters) {
 
-                    return voters == $scope.user._id;
+                    return voters === $scope.user._id;
 
                 }).length > 0;
 

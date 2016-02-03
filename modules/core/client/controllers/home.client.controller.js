@@ -9,6 +9,8 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
 
+        $scope.orderByField = 'votesreal';
+
         $scope.numOfSavings = Savings.countSavings();
         $scope.numOfSavingsToday = Savings.countSavingsToday();
 
@@ -37,9 +39,11 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
             if(classNum === 1){
                 $scope.hottestsorted = true;
                 $scope.newestsorted = false;
+                $scope.orderByField = 'votesreal';
             }else if(classNum === 2){
                 $scope.hottestsorted = false;
                 $scope.newestsorted = true;
+                $scope.orderByField = 'created';
             }
 
         };
