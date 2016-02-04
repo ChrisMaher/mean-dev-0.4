@@ -8,13 +8,13 @@ module.exports = {
   },
   port: process.env.PORT || 8443,
   db: {
-    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds053295.mongolab.com:53295/savings',
+    uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds031339.mongolab.com:31339/deals',
     options: {
       user: 'mongo',
       pass: 'mongo'
     },
     // Enable mongoose debug mode
-    debug: process.env.MONGODB_DEBUG || false
+    debug: process.env.MONGODB_DEBUG || true
   },
   log: {
     // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'

@@ -8,6 +8,16 @@ angular.module('coupons').factory('Coupons', ['$resource',
     }, {
       update: {
         method: 'PUT'
+      },
+      countCoupons: {
+        method: 'GET',
+        url: '/coupons/couponCount',
+        isArray: false
+      },
+      countCouponsToday: {
+        method: 'GET',
+        url: '/coupons/couponCountToday',
+        isArray: false
       }
     });
   }

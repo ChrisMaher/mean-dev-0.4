@@ -25,10 +25,10 @@ exports.invokeRolesPolicies = function () {
     roles: ['user'],
     allows: [{
       resources: '/api/coupons',
-      permissions: ['get', 'post']
+      permissions: ['get', 'post', 'put']
     }, {
       resources: '/api/coupons/:couponId',
-      permissions: ['get']
+      permissions: ['get', 'put']
     }]
   }, {
     roles: ['guest'],

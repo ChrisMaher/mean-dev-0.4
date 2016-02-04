@@ -35,7 +35,7 @@ var PostSchema = new Schema({
     }],
     saving: {
         type: Schema.ObjectId,
-        ref: 'Deal'
+        ref: 'Saving'
     },
     savingId: {
         type: String,

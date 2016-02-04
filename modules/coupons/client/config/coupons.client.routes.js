@@ -16,18 +16,18 @@ angular.module('coupons').config(['$stateProvider',
       })
       .state('coupons.create', {
         url: '/create',
-        templateUrl: 'modules/coupons/client/views/create-coupons.client.view.html',
+        templateUrl: 'modules/coupons/client/views/create-coupon.client.view.html',
         data: {
           roles: ['user', 'admin']
         }
       })
       .state('coupons.view', {
         url: '/:couponId',
-        templateUrl: 'modules/coupons/client/views/view-coupons.client.view.html'
+        templateUrl: 'modules/coupons/client/views/view-coupon.client.view.html'
       })
       .state('coupons.edit', {
         url: '/:couponId/edit',
-        templateUrl: 'modules/coupons/client/views/edit-coupons.client.view.html',
+        templateUrl: 'modules/coupons/client/views/edit-coupon.client.view.html',
         data: {
           roles: ['user', 'admin']
         }
