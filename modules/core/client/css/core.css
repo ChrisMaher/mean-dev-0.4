@@ -134,6 +134,39 @@ body {
 
 }
 
+.main-deals-settings {
+
+    min-height: 500px;
+    /*border: #000000 1px solid;*/
+
+    padding-top: 30px;
+    background-color: #FFFFFF;
+    border-top: #dddddd 1px solid;
+    border-bottom: #dddddd 1px solid;
+    border-left: #dddddd 1px solid;
+
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+}
+
+.settings-view{
+
+
+
+}
+
+.settings-left-list{
+
+
+
+}
+
+
+.settings-view .form-group {
+    padding: 10px;
+}
+
 .main-body-view{
 
     min-height: 800px;
@@ -164,7 +197,7 @@ body {
 
 .settings-screen {
 
-    /*height: 350px;*/
+    height: 600px;
     padding: 15px;
     background-color: #FFFFFF;
     border-top: #dddddd 1px solid;

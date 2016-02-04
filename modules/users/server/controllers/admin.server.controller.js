@@ -25,6 +25,9 @@ exports.update = function (req, res) {
   user.firstName = req.body.firstName;
   user.lastName = req.body.lastName;
   user.displayName = user.firstName + ' ' + user.lastName;
+  user.gender = req.body.gender;
+  user.county = req.body.county;
+  user.aboutme = req.body.aboutme;
   user.roles = req.body.roles;
 
   user.save(function (err) {
