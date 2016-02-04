@@ -33,10 +33,6 @@ var PostSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     }],
-    saving: {
-        type: Schema.ObjectId,
-        ref: 'Saving'
-    },
     savingId: {
         type: String,
         trim: true
