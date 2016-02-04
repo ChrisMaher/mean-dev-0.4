@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Deals', 'Savings', 'Users', 'Posts',
-    function ($scope, Authentication, Deals, Savings, Users, Posts) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Savings', 'Users', 'Posts',
+    function ($scope, Authentication, Savings, Users, Posts) {
 
 
         // This provides Authentication context.

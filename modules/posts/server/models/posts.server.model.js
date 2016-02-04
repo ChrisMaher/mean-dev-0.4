@@ -32,7 +32,7 @@ var PostSchema = new Schema({
     },
     votes: {
         type: Number,
-        default: '0'
+        default: 0
     },
     upVoters: [{
         type: Schema.ObjectId,
@@ -40,7 +40,7 @@ var PostSchema = new Schema({
     }],
     saving: {
         type: Schema.ObjectId,
-        ref: 'Deal'
+        ref: 'Saving'
     }
 
 });
