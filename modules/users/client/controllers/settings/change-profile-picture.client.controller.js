@@ -1,74 +1,115 @@
 'use strict';
 
 angular.module('users').controller('ChangeProfilePictureController', ['$scope', '$timeout', '$window', 'Authentication', 'FileUploader',
-  function ($scope, $timeout, $window, Authentication, FileUploader) {
+    function ($scope, $timeout, $window, Authentication, FileUploader) {
 
-    $scope.user = Authentication.user;
-    $scope.imageURL = $scope.user.profileImageURL;
+        $scope.user = Authentication.user;
+        $scope.imageURL = $scope.user.profileImageURL;
 
-    // Create file uploader instance
-    $scope.uploader = new FileUploader({
-      url: 'api/users/picture'
-    });
+        $scope.randomAvatar1 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar2 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar3 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar4 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar5 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar6 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar7 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar8 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar9 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar10 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatarFB = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatarG = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
 
-    // Set file uploader image filter
-    $scope.uploader.filters.push({
-      name: 'imageFilter',
-      fn: function (item, options) {
-        var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-        return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
-      }
-    });
 
-    // Called after the user selected a new picture file
-    $scope.uploader.onAfterAddingFile = function (fileItem) {
-      if ($window.FileReader) {
-        var fileReader = new FileReader();
-        fileReader.readAsDataURL(fileItem._file);
+        // Create file uploader instance
+        $scope.uploader = new FileUploader({
+            url: 'api/users/picture'
+        });
 
-        fileReader.onload = function (fileReaderEvent) {
-          $timeout(function () {
-            $scope.imageURL = fileReaderEvent.target.result;
-          }, 0);
+        $scope.selectAvatar = function (imageURLIn) {
+
+            $scope.imageURL = imageURLIn;
+
         };
-      }
-    };
 
-    // Called after the user has successfully uploaded a new picture
-    $scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
-      // Show success message
-      $scope.success = true;
+        $scope.randomiseAvatars = function () {
 
-      // Populate user object
-      $scope.user = Authentication.user = response;
+            $scope.randomAvatar1 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar2 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar3 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar4 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar5 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar6 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar7 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar8 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar9 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar10 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatarFB = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatarG = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
 
-      // Clear upload buttons
-      $scope.cancelUpload();
-    };
 
-    // Called after the user has failed to uploaded a new picture
-    $scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
-      // Clear upload buttons
-      $scope.cancelUpload();
 
-      // Show error message
-      $scope.error = response.message;
-    };
+        };
 
-    // Change user profile picture
-    $scope.uploadProfilePicture = function () {
-      // Clear messages
-      $scope.success = $scope.error = null;
 
-      // Start upload
-      $scope.uploader.uploadAll();
 
-    };
+        // Set file uploader image filter
+        $scope.uploader.filters.push({
+            name: 'imageFilter',
+            fn: function (item, options) {
+                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
+            }
+        });
 
-    // Cancel the upload process
-    $scope.cancelUpload = function () {
-      $scope.uploader.clearQueue();
-      $scope.imageURL = $scope.user.profileImageURL;
-    };
-  }
+        // Called after the user selected a new picture file
+        $scope.uploader.onAfterAddingFile = function (fileItem) {
+            if ($window.FileReader) {
+                var fileReader = new FileReader();
+                fileReader.readAsDataURL(fileItem._file);
+
+                fileReader.onload = function (fileReaderEvent) {
+                    $timeout(function () {
+                        $scope.imageURL = fileReaderEvent.target.result;
+                    }, 0);
+                };
+            }
+        };
+
+        // Called after the user has successfully uploaded a new picture
+        $scope.uploader.onSuccessItem = function (fileItem, response, status, headers) {
+            // Show success message
+            $scope.success = true;
+
+            // Populate user object
+            $scope.user = Authentication.user = response;
+
+            // Clear upload buttons
+            $scope.cancelUpload();
+        };
+
+        // Called after the user has failed to uploaded a new picture
+        $scope.uploader.onErrorItem = function (fileItem, response, status, headers) {
+            // Clear upload buttons
+            $scope.cancelUpload();
+
+            // Show error message
+            $scope.error = response.message;
+        };
+
+        // Change user profile picture
+        $scope.uploadProfilePicture = function () {
+            // Clear messages
+            $scope.success = $scope.error = null;
+
+            // Start upload
+            $scope.uploader.uploadAll();
+
+        };
+
+        // Cancel the upload process
+        $scope.cancelUpload = function () {
+            $scope.uploader.clearQueue();
+            $scope.imageURL = $scope.user.profileImageURL;
+        };
+    }
 ]);

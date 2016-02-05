@@ -6,7 +6,8 @@ module.exports = {
             css: [
                 'public/lib/bootstrap/dist/css/bootstrap.css',
                 'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-                'public/lib/angular-material/angular-material.css'
+                'public/lib/angular-material/angular-material.css',
+                'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
             ],
             js: [
                 'public/lib/angular/angular.js',
@@ -35,8 +36,8 @@ module.exports = {
             tests: ['public/lib/angular-mocks/angular-mocks.js']
         },
         css: [
-            'modules/*/client/css/*.css',
-            'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
+            'modules/*/client/css/*.css'
+
         ],
         less: [
             'modules/*/client/less/*.less'
