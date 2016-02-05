@@ -1,10 +1,11 @@
 'use strict';
 
-angular.module('users').controller('ChangeProfilePictureController', ['$scope', '$timeout', '$window', 'Authentication', 'FileUploader',
-    function ($scope, $timeout, $window, Authentication, FileUploader) {
+angular.module('users').controller('ChangeProfilePictureController', ['$scope', '$timeout',  '$location', '$window', 'Authentication', 'FileUploader', 'Users',
+    function ($scope, $timeout, $window, $location,  Authentication, FileUploader, Users) {
 
         $scope.user = Authentication.user;
         $scope.imageURL = $scope.user.profileImageURL;
+        $scope.avatarSelected = false;
 
         $scope.randomAvatar1 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
         $scope.randomAvatar2 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
@@ -28,6 +29,7 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
         $scope.selectAvatar = function (imageURLIn) {
 
             $scope.imageURL = imageURLIn;
+            $scope.avatarSelected = true;
 
         };
 
@@ -106,10 +108,53 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
 
         };
 
+        // Change user profile picture
+        $scope.uploadProfilePictureAvatar = function () {
+
+            // Clear messages
+            $scope.success = $scope.error = null;
+
+            var user = new Users($scope.user);
+
+            user.profileImageURL = $scope.imageURL;
+
+            user.$update(function (response) {
+
+                $scope.success = true;
+                Authentication.user = response;
+
+
+            }, function (response) {
+                $scope.error = response.data.message;
+            });
+
+
+
+        };
+
+        //be sure to inject $scope and $location
+        $scope.changeLocation = function(url, forceReload) {
+            $scope = $scope || angular.element(document).scope();
+            if(forceReload || $scope.$$phase) {
+                window.location = url;
+            }
+            else {
+                //only use this if you want to replace the history stack
+                //$location.path(url).replace();
+
+                //this this if you want to change the URL and add it to the history stack
+                $location.path(url);
+                $scope.$apply();
+            }
+        };
+
         // Cancel the upload process
         $scope.cancelUpload = function () {
             $scope.uploader.clearQueue();
             $scope.imageURL = $scope.user.profileImageURL;
         };
+
+
+
     }
 ]);

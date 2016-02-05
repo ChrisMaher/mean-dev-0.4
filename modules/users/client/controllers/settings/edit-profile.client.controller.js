@@ -24,6 +24,8 @@ angular.module('users').controller('EditProfileController', ['$scope', '$http', 
       }, function (response) {
         $scope.error = response.data.message;
       });
+
+
     };
   }
 ]);

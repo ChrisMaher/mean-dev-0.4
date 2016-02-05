@@ -1,151 +1,202 @@
 <section class="row" ng-controller="ChangeProfilePictureController">
   <section class="row" ng-controller="SocialAccountsController">
 
-  <div class="col-md-12">
+    <div class="col-md-12">
 
-    <div class="col-md-3">
-      <form class="signin form-horizontal">
-        <fieldset>
-          <div class="form-group text-center">
-            <img ng-src="{{imageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture">
-          </div>
-          <div class="text-center form-group" ng-hide="uploader.queue.length">
+      <div class="col-md-3">
+        <form class="signin form-horizontal">
+          <fieldset>
+
+            <div class="text-center">
+            <label class="control-label">IMAGE UPLOAD</label>
+            </div>
+
+            <!-- Image Preview -->
+            <div class="form-group text-center">
+              <img ng-src="{{imageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture">
+            </div>
+
+            <div class="manual-image-upload-buttons" ng-show="urlimage === undefined">
+
+            <!-- Upload Image Button -->
+            <div class="text-center form-group" ng-hide="uploader.queue.length || avatarSelected === true">
           <span class="btn btn-default btn-file">
               Upload Image <input type="file" nv-file-select uploader="uploader">
           </span>
+            </div>
+
+             <!-- Upload and Cancel Buttons -->
+            <div class="text-center form-group" ng-show="uploader.queue.length">
+              <button class="btn btn-primary" ng-click="uploadProfilePicture();">Upload</button>
+              <button class="btn btn-default" ng-click="cancelUpload();">Cancel</button>
+            </div>
+
+              <!-- Upload and Cancel Buttons For Avatar Selected-->
+              <div class="text-center form-group" ng-show="avatarSelected === true">
+                <button class="btn btn-primary" ng-click="uploadProfilePictureAvatar();">Choose</button>
+                <button class="btn btn-default" ng-click="changeLocation('settings/picture',false);">Cancel</button>
+              </div>
+
+
+              <!--Error & Success Messages-->
+            <div ng-show="success" class="text-center text-success">
+              <strong>Profile Picture Changed Successfully</strong>
+            </div>
+            <div ng-show="error" class="text-center text-danger">
+              <strong ng-bind="error"></strong>
+            </div>
+
+            </div>
+
+            <!--&lt;!&ndash; Hide if Image is selected to Upload  &ndash;&gt;-->
+            <!--<div class="manual-upload" ng-hide="uploader.queue.length">-->
+              <!--<div class="add-image-link" ng-hide="success">-->
+              <!--</div>-->
+              <!--<label class="control-label" for="urlimage" ng-hide="uploader.queue.length">IMAGE URL</label>-->
+
+              <!--<div class="controls" ng-hide="uploader.queue.length">-->
+                <!--<input type="url" data-ng-model="urlimage" id="urlimage" class="form-control" placeholder="Image URL" required>-->
+                <!--<div class="sub-label">Manually enter an image URL.</div>-->
+              <!--</div>-->
+
+            <!--</div>-->
+
+
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="col-md-9 avatar-pick">
+
+
+        <div class="row">
+
+          <div class="col-md-2 avatar-thumb ">
+
+            <!-- User is connected to FB but no Avatar = Show Random Avatar -->
+            <img
+              ng-show="isConnectedSocialAccount('facebook') && user.additionalProvidersData.facebook.picture.data.is_silhouette"
+              ng-src="{{randomAvatarFB}}" ng-click="selectAvatar(randomAvatarFB)" alt="{{user.displayName}}'s Avatar">
+
+            <!-- User is connected to FB with Avatar = show FB Avatar -->
+            <img
+              ng-show="isConnectedSocialAccount('facebook') && user.additionalProvidersData.facebook.picture.data.is_silhouette === false"
+              ng-src="{{user.additionalProvidersData.facebook.picture.data.url}}"
+              ng-click="selectAvatar(user.additionalProvidersData.facebook.picture.data.url)"
+              alt="{{user.displayName}}'s Facebook Avatar">
+
+            <!-- User is not connected to FB = Show Sign up to FB Button -->
+            <div ng-show="user.additionalProvidersData.facebook === undefined" class="join-facebook-avatar img">
+
+              <a href="/api/auth/facebook" target="_self"><img ng-src="../modules/users/client/img/buttons/facebook.png"
+                                                               alt="Get Avatar from Facebook"></a>
+            </div>
+
           </div>
-          <div class="text-center form-group" ng-show="uploader.queue.length">
-            <button class="btn btn-primary" ng-click="uploadProfilePicture();">Upload</button>
-            <button class="btn btn-default" ng-click="cancelUpload();">Cancel</button>
+
+          <div class="col-md-2 avatar-thumb">
+
+            <!-- User is connected to FB but no Avatar = Show Random Avatar -->
+            <img ng-show="isConnectedSocialAccount('google') && user.additionalProvidersData.google.image.isDefault"
+                 ng-src="{{randomAvatarG}}" ng-click="selectAvatar(randomAvatarG)" alt="{{user.displayName}}'s Avatar">
+
+            <!-- User is connected to FB with Avatar = show FB Avatar -->
+            <img
+              ng-show="isConnectedSocialAccount('google') && user.additionalProvidersData.google.image.isDefault === false"
+              ng-src="{{user.additionalProvidersData.google.image.url}}"
+              ng-click="selectAvatar(user.additionalProvidersData.google.image.url)"
+              alt="{{user.displayName}}'s Facebook Avatar">
+
+            <!-- User is not connected to Google = Show Sign up to Google Button -->
+            <div ng-show="user.additionalProvidersData.google === undefined" class="join-facebook-avatar img">
+              <a href="/api/auth/google" target="_self"><img ng-src="../modules/users/client/img/buttons/google.png"
+                                                             alt="Get Avatar from Google"></a>
+            </div>
+
+            <!--<img ng-hide="isConnectedSocialAccount('google')" ng-src="{{user.additionalProvidersData.google.image.url}}" ng-click="selectAvatar(user.additionalProvidersData.google.image.url)" alt="{{user.displayName}}'s Google Avatar" >-->
+            <!--<img ng-show="user.additionalProvidersData.google.image.isDefault === false" ng-src="{{user.additionalProvidersData.google.image.url}}" ng-click="selectAvatar(user.additionalProvidersData.google.image.url)" alt="{{user.displayName}}'s Google Avatar" >-->
+
           </div>
-          <div ng-show="success" class="text-center text-success">
-            <strong>Profile Picture Changed Successfully</strong>
+
+          <div class="col-md-2 avatar-thumb ">
+
+            <img ng-src="{{randomAvatar1}}" ng-click="selectAvatar(randomAvatar1)" alt="{{user.displayName}}'s Avatar">
+
           </div>
-          <div ng-show="error" class="text-center text-danger">
-            <strong ng-bind="error"></strong>
+
+          <div class="col-md-2 avatar-thumb">
+
+            <img ng-src="{{randomAvatar2}}" ng-click="selectAvatar(randomAvatar2)" alt="{{user.displayName}}'s Avatar">
+
           </div>
-        </fieldset>
-      </form>
+
+        </div>
+        <div class="row">
+
+          <div class="col-md-2 avatar-thumb ">
+
+            <img ng-src="{{randomAvatar3}}" ng-click="selectAvatar(randomAvatar3)" alt="{{user.displayName}}'s Avatar">
+
+          </div>
+
+          <div class="col-md-2 avatar-thumb">
+
+            <img ng-src="{{randomAvatar4}}" ng-click="selectAvatar(randomAvatar4)" alt="{{user.displayName}}'s Avatar">
+
+          </div>
+
+          <div class="col-md-2 avatar-thumb ">
+
+            <img ng-src="{{randomAvatar5}}" ng-click="selectAvatar(randomAvatar5)" alt="{{user.displayName}}'s Avatar">
+
+          </div>
+
+          <div class="col-md-2 avatar-thumb">
+
+            <img ng-src="{{randomAvatar6}}" ng-click="selectAvatar(randomAvatar6)" alt="{{user.displayName}}'s Avatar">
+
+          </div>
+
+        </div>
+        <div class="row">
+
+          <div class="col-md-2 avatar-thumb ">
+
+            <img ng-src="{{randomAvatar7}}" ng-click="selectAvatar(randomAvatar7)" alt="{{user.displayName}}'s Avatar">
+
+          </div>
+
+          <div class="col-md-2 avatar-thumb">
+
+            <img ng-src="{{randomAvatar8}}" ng-click="selectAvatar(randomAvatar8)" alt="{{user.displayName}}'s Avatar">
+
+          </div>
+
+          <div class="col-md-2 avatar-thumb ">
+
+            <img ng-src="{{randomAvatar9}}" ng-click="selectAvatar(randomAvatar9)" alt="{{user.displayName}}'s Avatar">
+
+          </div>
+
+          <div class="col-md-2 avatar-thumb">
+
+            <img ng-src="{{randomAvatar10}}" ng-click="selectAvatar(randomAvatar10)"
+                 alt="{{user.displayName}}'s Avatar">
+
+          </div>
+
+        </div>
+
+        <div class="col-md-12 text-center avatar-text">
+
+          <md-button ng-click="randomiseAvatars()" type="button" class=" randomise-button">Randomise</md-button>
+
+        </div>
+
+
+      </div>
+
     </div>
-
-    <div class="col-md-9 avatar-pick">
-
-
-
-      <div class="row">
-
-        <div class="col-md-2 avatar-thumb ">
-
-          <!-- User is connected to FB but no Avatar = Show Random Avatar -->
-          <img ng-show="isConnectedSocialAccount('facebook') && user.additionalProvidersData.facebook.picture.data.is_silhouette" ng-src="{{randomAvatarFB}}" ng-click="selectAvatar(randomAvatarFB)" alt="{{user.displayName}}'s Avatar" >
-
-          <!-- User is connected to FB with Avatar = show FB Avatar -->
-          <img ng-show="isConnectedSocialAccount('facebook') && user.additionalProvidersData.facebook.picture.data.is_silhouette === false" ng-src="{{user.additionalProvidersData.facebook.picture.data.url}}" ng-click="selectAvatar(user.additionalProvidersData.facebook.picture.data.url)" alt="{{user.displayName}}'s Facebook Avatar" >
-
-          <!-- User is not connected to FB = Show Sign up to FB Button -->
-          <div ng-show="user.additionalProvidersData.facebook === undefined"  class="join-facebook-avatar img">
-
-          <a href="/api/auth/facebook" target="_self"><img  ng-src="../modules/users/client/img/buttons/facebook.png" alt="{{user.displayName}}'s Facebook Avatar" ></a>
-          </div>
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb">
-
-          <!-- User is connected to FB but no Avatar = Show Random Avatar -->
-          <img ng-show="isConnectedSocialAccount('google') && user.additionalProvidersData.google.image.isDefault" ng-src="{{randomAvatarG}}" ng-click="selectAvatar(randomAvatarG)" alt="{{user.displayName}}'s Avatar" >
-
-          <!-- User is connected to FB with Avatar = show FB Avatar -->
-          <img ng-show="isConnectedSocialAccount('google') && user.additionalProvidersData.google.image.isDefault === false" ng-src="{{user.additionalProvidersData.google.image.url}}" ng-click="selectAvatar(user.additionalProvidersData.google.image.url)" alt="{{user.displayName}}'s Facebook Avatar" >
-
-          <!-- User is not connected to Google = Show Sign up to Google Button -->
-          <div ng-show="user.additionalProvidersData.google === undefined"  class="join-facebook-avatar img">
-            <a href="/api/auth/facebook" target="_self"><img  ng-src="../modules/users/client/img/buttons/google.png" alt="{{user.displayName}}'s Facebook Avatar" ></a>
-          </div>
-
-          <!--<img ng-hide="isConnectedSocialAccount('google')" ng-src="{{user.additionalProvidersData.google.image.url}}" ng-click="selectAvatar(user.additionalProvidersData.google.image.url)" alt="{{user.displayName}}'s Google Avatar" >-->
-          <!--<img ng-show="user.additionalProvidersData.google.image.isDefault === false" ng-src="{{user.additionalProvidersData.google.image.url}}" ng-click="selectAvatar(user.additionalProvidersData.google.image.url)" alt="{{user.displayName}}'s Google Avatar" >-->
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb ">
-
-          <img ng-src="{{randomAvatar1}}" ng-click="selectAvatar(randomAvatar1)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb">
-
-          <img ng-src="{{randomAvatar2}}" ng-click="selectAvatar(randomAvatar2)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-      </div>
-      <div class="row">
-
-        <div class="col-md-2 avatar-thumb ">
-
-          <img ng-src="{{randomAvatar3}}" ng-click="selectAvatar(randomAvatar3)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb">
-
-          <img ng-src="{{randomAvatar4}}" ng-click="selectAvatar(randomAvatar4)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb ">
-
-          <img ng-src="{{randomAvatar5}}" ng-click="selectAvatar(randomAvatar5)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb">
-
-          <img ng-src="{{randomAvatar6}}" ng-click="selectAvatar(randomAvatar6)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-      </div>
-      <div class="row">
-
-        <div class="col-md-2 avatar-thumb ">
-
-          <img ng-src="{{randomAvatar7}}" ng-click="selectAvatar(randomAvatar7)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb">
-
-          <img ng-src="{{randomAvatar8}}" ng-click="selectAvatar(randomAvatar8)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb ">
-
-          <img ng-src="{{randomAvatar9}}" ng-click="selectAvatar(randomAvatar9)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-        <div class="col-md-2 avatar-thumb">
-
-          <img ng-src="{{randomAvatar10}}" ng-click="selectAvatar(randomAvatar10)" alt="{{user.displayName}}'s Avatar" >
-
-        </div>
-
-      </div>
-
-      <div class="col-md-12 text-center avatar-text">
-
-        <md-button ng-click="randomiseAvatars()" type="button" class=" randomise-button">Randomise</md-button>
-
-      </div>
-
-
-    </div>
-
-  </div>
 
   </section>
 </section>
