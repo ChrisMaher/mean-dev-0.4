@@ -109,6 +109,23 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
 
         };
 
+        $scope.toggleClassCoupon = function (classNum) {
+
+
+            if(classNum === 1){
+                $scope.hottestsortedCoupon = true;
+                $scope.newestsortedCoupon = false;
+                $scope.orderByFieldCoupon = 'votes';
+
+            }else if(classNum === 2){
+                $scope.hottestsortedCoupon = false;
+                $scope.newestsortedCoupon = true;
+                $scope.orderByFieldCoupon = 'created';
+
+            }
+
+        };
+
         $scope.$watch('urlimage', function (newVal, oldVal) {
 
             if (newVal !== undefined) {
@@ -186,15 +203,22 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
         $scope.create = function () {
             $scope.error = null;
 
+            var priceRounded = Math.round(this.discount * 100) / 100;
+            var priceRoundedPercentage = Math.round(this.discountpercent * 100) / 100;
+            var priceRoundedMinimum = Math.round(this.minimumspend * 100) / 100;
+
+
             // Create new Coupon object
             var coupon = new Coupons({
 
                 title: this.title,
                 link: this.link,
                 retailer: this.retailer,
+                code: this.code,
                 currency: this.currency,
-                minimumspend: this.minimumspend,
-                discount: this.discount,
+                minimumspend: priceRoundedMinimum,
+                discount: priceRounded,
+                discountpercent: priceRoundedPercentage,
                 category: this.category,
                 instructions: this.instructions,
                 validfrom: this.validfrom,
@@ -259,10 +283,14 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
 
             if ($scope.coupon.currency === 'Sterling (£)') {
 
-                $scope.coupon.price = Math.round((($scope.coupon.price / 70) * 100) * 100) / 100;
+                $scope.coupon.discount = Math.round((($scope.coupon.discount / 70) * 100) * 100) / 100;
                 $scope.coupon.currency = 'Euro (€)';
 
             }
+
+            $scope.coupon.discount = Math.round($scope.coupon.discount * 100) / 100;
+            $scope.coupon.discountpercent = Math.round($scope.coupon.discountpercent * 100) / 100;
+            $scope.coupon.minimumspend = Math.round($scope.coupon.minimumspend * 100) / 100;
 
             //alert($scope.coupon);
 

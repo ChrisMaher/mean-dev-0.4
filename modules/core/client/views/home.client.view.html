@@ -86,7 +86,7 @@
 
           <div class="col-md-12 spotlight-deal-inner">
 
-            <div ng-repeat="saving in savings |  orderBy: '-votes' | limitTo:6 | lessThan: {'created.$date':48}"
+            <div ng-repeat="saving in savings|orderBy:'votesreal'|lessThan:{'created.$date':24}|limitTo:6"
                  class="col-lg-2 no-padding-spotlight text-center">
 
               <div class="thumbnail-spotlight thumbnail centred-image spotlight-text">
@@ -182,8 +182,9 @@
                                                         class="small-profile-image-thumbnail"
                                                         alt="{{saving.user.displayName}}" height="20px"
                                                         width="20px"/></a> <span class="username"
-                                                                                 data-ng-bind="saving.user.displayName"></span>
-                  | <span data-ng-bind="saving.created | date:'mediumDate'"> </span>
+                                                        data-ng-bind="saving.user.displayName"></span>
+                                                         |
+                  <span am-time-ago="saving.created"></span>
                 </div>
                 <!--<div class="col-lg-6 middle-time-of-posting">Posted On <span data-ng-bind="saving.created | date:'mediumDate'"></span></div>-->
 
@@ -266,7 +267,7 @@
 
             <div ng-show="weekly" class="weekly-list">
 
-              <div ng-repeat="saving in savings |  orderBy: '-votes' | limitTo:10| lessThan: {'created.$date':168}"
+              <div ng-repeat="saving in savings |  orderBy: 'votesreal'| lessThan: {'created.$date':168} | limitTo:10"
                    class=" timeframe-row">
 
                 <div class="row timeframe-row-item">
@@ -304,7 +305,7 @@
 
             <div ng-show="monthly" class="monthly-list">
 
-              <div ng-repeat="saving in savings |  orderBy: '-votes' | limitTo:10| lessThan: {'created.$date':744}"
+              <div ng-repeat="saving in savings |  orderBy: 'votesreal' | lessThan: {'created.$date':744}| limitTo:10"
                    class=" timeframe-row">
 
                 <div class="row timeframe-row-item">
@@ -321,7 +322,7 @@
                       <!--</md-button>-->
 
                       <a ng-href="/users/{{user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
-                                                            class="small-profile-image-thumbnail"
+                                                            class="small-profile-image-thumbnail img-thumbnail"
                                                             alt="{{saving.user.displayName}}" height="20px"
                                                             width="20px"/></a></span>
 

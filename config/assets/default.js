@@ -29,7 +29,9 @@ module.exports = {
                 'public/lib/textAngular/dist/textAngular.js',
                 'public/lib/angular-wysiwyg/dist/angular-wysiwyg.js',
                 'public/lib/angular-wysiwyg/dist/bootstrap-colorpicker-module.js',
-                'public/lib/jquery/dist/jquery.js'
+                'public/lib/jquery/dist/jquery.js',
+                'public/lib/moment/moment.js',
+                'public/lib/angular-moment/angular-moment.js'
 
 
             ],

@@ -52,8 +52,6 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
 
         };
 
-
-
         // Set file uploader image filter
         $scope.uploader.filters.push({
             name: 'imageFilter',

@@ -201,7 +201,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
             }
 
-            //alert($scope.savingImageURL);
+            var priceRounded = Math.round(this.price * 100) / 100;
 
             // Create new Saving object
             var saving = new Savings({
@@ -209,7 +209,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 title: this.title,
                 details: this.details,
                 retailer: this.retailer,
-                price: this.price,
+                price: priceRounded,
                 link: this.link,
                 currency: this.currency,
                 image: image,
@@ -246,7 +246,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         };
 
         // Remove existing Saving
-        $scope.remove = function (saving) {
+        $scope.removeSaving = function (saving) {
 
                 var result = confirm("Are you sure you want to delete?");
                 if (result) {
@@ -283,6 +283,10 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 $scope.saving.currency = 'Euro (€)';
 
             }
+
+            var priceRounded = Math.round($scope.saving.price * 100) / 100;
+            $scope.saving.price = priceRounded;
+
 
             //alert($scope.saving);
 

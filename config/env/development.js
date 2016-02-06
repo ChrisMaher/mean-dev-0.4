@@ -22,7 +22,7 @@ module.exports = {
     }
   },
   app: {
-    title: defaultEnvConfig.app.title + ' - Irish Deals & Coupons'
+    title: defaultEnvConfig.app.title + ' - The Irish Savings Site.'
   },
   facebook: {
     clientID: process.env.FACEBOOK_ID || '1685832878317344',

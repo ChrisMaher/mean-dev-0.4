@@ -14,7 +14,8 @@ var SavingSchema = new Schema({
   title: {
     type: String,
     required: 'We need a Title for the Deal.',
-    trim: true
+    trim: true,
+    maxlength: 150
   },
   link: {
     type: String,
@@ -29,12 +30,15 @@ var SavingSchema = new Schema({
   retailer: {
     type: String,
     required: 'We need a Retailer for the Deal.',
+    maxlength: 25,
     trim: true
   },
   price: {
     type: Number,
     required: 'We need a Price for the Deal.',
-    trim: true
+    trim: true,
+    min: 0,
+    max: 1000000
   },
   currency: {
     type: String,
@@ -69,11 +73,11 @@ var SavingSchema = new Schema({
   },
   votes: {
     type: Number,
-    default: '100'
+    default: 100
   },
   votesreal: {
     type: Number,
-    default: '100'
+    default: 100
   },
   upVoters: [{
     type: Schema.ObjectId,

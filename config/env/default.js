@@ -2,10 +2,10 @@
 
 module.exports = {
   app: {
-    title: 'SaveMe',
-    description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
-    keywords: 'mongodb, express, angularjs, node.js, mongoose, passport',
-    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
+    title: 'SaveMe.ie',
+    description: 'The Irish Savings Site.',
+    keywords: 'ireland, money, codes, coupons, deals, irish',
+    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'UA-73380688-1'
   },
   port: process.env.PORT || 3000,
   templateEngine: 'swig',

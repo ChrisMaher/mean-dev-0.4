@@ -14,7 +14,8 @@ var CouponSchema = new Schema({
     title: {
         type: String,
         required: 'We need a Title for the Deal.',
-        trim: true
+        trim: true,
+        maxlength: 150
     },
     link: {
         type: String,
@@ -25,7 +26,8 @@ var CouponSchema = new Schema({
         type: String,
         required: 'We need a Code for the Discount.',
         default: 'None',
-        trim: true
+        trim: true,
+        maxlength: 23
     },
     instructions: {
         type: String,
@@ -37,17 +39,27 @@ var CouponSchema = new Schema({
         required: 'We need a Retailer for the Deal.',
         trim: true
     },
+    discountpercent: {
+        type: Number,
+        required: 'We need a Discount for the Deal.',
+        default: 0,
+        trim: true,
+        min:0,
+        max: 100
+    },
     discount: {
         type: Number,
         required: 'We need a Discount for the Deal.',
         default: 0,
+        min:0,
         trim: true
     },
     minimumspend: {
         type: Number,
         required: 'We need a Minimum Spend for the Deal.',
         default: 0,
-        trim: true
+        trim: true,
+        maxlength: 35
     },
     currency: {
         type: String,

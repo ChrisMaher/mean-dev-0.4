@@ -8,12 +8,15 @@
           <fieldset>
 
             <div class="text-center">
-            <label class="control-label">IMAGE UPLOAD</label>
+            <label class="control-label">Image Upload</label>
             </div>
 
             <!-- Image Preview -->
             <div class="form-group text-center">
               <img ng-src="{{imageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture">
+            </div>
+            <div class="form-group text-center">
+              <img ng-src="{{imageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture-circle">
             </div>
 
             <div class="manual-image-upload-buttons" ng-show="urlimage === undefined">
@@ -48,6 +51,10 @@
 
             </div>
 
+
+
+
+
             <!--&lt;!&ndash; Hide if Image is selected to Upload  &ndash;&gt;-->
             <!--<div class="manual-upload" ng-hide="uploader.queue.length">-->
               <!--<div class="add-image-link" ng-hide="success">-->
@@ -68,6 +75,9 @@
 
       <div class="col-md-9 avatar-pick">
 
+        <div class="text-center">
+          <label class="control-label">Avatar Gallery</label>
+        </div>
 
         <div class="row">
 
@@ -187,9 +197,9 @@
 
         </div>
 
-        <div class="col-md-12 text-center avatar-text">
+        <div class="col-md-12 text-center avatar-text avatar-button">
 
-          <md-button ng-click="randomiseAvatars()" type="button" class=" randomise-button">Randomise</md-button>
+          <md-button ng-click="randomiseAvatars()" type="button" class="randomise-button">Randomise</md-button>
 
         </div>
 

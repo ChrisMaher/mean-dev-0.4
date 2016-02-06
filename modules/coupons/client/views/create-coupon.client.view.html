@@ -26,7 +26,7 @@
               <div class="form-group new-deal-form"
                    ng-class="{ 'has-error' : createCouponForm.title.$invalid && submitted}" show-errors>
                 <label for="title">Title</label>
-                <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title"
+                <input name="title" type="text" ng-model="title" id="title" class="form-control"
                        required>
                 <div class="sub-label">Enter the Title of the Coupon.</div>
                 <div ng-messages="couponForm.couponsCTRL.title.$error" role="alert">
@@ -41,7 +41,7 @@
               <div class="form-group new-deal-form"
                    ng-class="{ 'has-error' : createCouponForm.link.$invalid && submitted}" show-errors>
                 <label for="link">Link</label>
-                <input name="link" type="url" ng-model="link" id="link" class="form-control" placeholder="Link"
+                <input name="link" type="url" ng-model="link" id="link" class="form-control"
                        required>
                 <div class="sub-label">Enter the Link to the Coupon.</div>
                 <div ng-messages="couponForm.couponsCTRL.link.$error" role="alert">
@@ -59,7 +59,7 @@
                    ng-class="{ 'has-error' : createCouponForm.retailer.$invalid && submitted}" show-errors>
                 <label for="retailer">Retailer</label>
                 <input name="retailer" type="text" ng-model="retailer" id="retailer" class="form-control"
-                       placeholder="Retailer" required>
+                        required>
                 <div class="sub-label">Enter the Retailer of the Coupon.</div>
                 <div ng-messages="couponForm.couponsCTRL.retailer.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Retailer is required.</p>
@@ -111,24 +111,40 @@
                 <div class="col-lg-6 price-box-euro">
                   <div class="form-group new-deal-form"
                        ng-class="{ 'has-error' : createCouponForm.discount.$invalid && submitted}" show-errors>
-                    <label for="discount">Discount(%)</label>
+                    <label for="discount">Discount(Cash)</label>
                     <!--<div class="input-group">-->
                     <!--<div class="input-group-addon">&euro;-->
                     <!--</div>-->
                     <input name="discount" ng-disabled="!disablelist" type="number" ng-model="discount" id="discount"
-                           class="form-control" placeholder="">
+                           class="form-control" >
                     <!--</div>-->
                     <!--<div class="sub-label">Enter either the &euro; price</div>-->
                     <div class="sub-label">Enter the Discount of the Coupon.</div>
                     <div ng-messages="couponForm.couponsCTRL.discount.$error" role="alert">
-                      <p class="help-block error-text" ng-message="required">Discount is required.</p>
+                      <p class="help-block error-text" ng-message="required">Discount Cash Amount is required. You can enter 0.</p>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-lg-6 price-box-euro"></div>
 
-
+                <div class="col-lg-6 price-box-euro">
+                  <div class="form-group new-deal-form"
+                       ng-class="{ 'has-error' : createCouponForm.discountpercent.$invalid && submitted}" show-errors>
+                    <label for="discountpercent">Discount(%)</label>
+                    <!--<div class="input-group">-->
+                    <!--<div class="input-group-addon">&euro;-->
+                    <!--</div>-->
+                    <input name="discountpercent" ng-disabled="!disablelist" type="number" ng-model="discountpercent" id="discountpercent"
+                           class="form-control" >
+                    <!--</div>-->
+                    <!--<div class="sub-label">Enter either the &euro; price</div>-->
+                    <div class="sub-label">Enter the Discount of the Coupon.</div>
+                    <div ng-messages="couponForm.couponsCTRL.discountpercent.$error" role="alert">
+                      <p class="help-block error-text" ng-message="required">Discount Percent is required. You can enter 0.</p>
+                    </div>
+                  </div>
+                </div>
 
 
 
@@ -206,6 +222,21 @@
 
               <!-- uploadImage Box Start-->
 
+              <!-- Title Box Start-->
+
+              <div class="form-group new-deal-form"
+                   ng-class="{ 'has-error' : createCouponForm.code.$invalid && submitted}" show-errors>
+                <label for="code">Code</label>
+                <input name="code" type="text" ng-model="code" id="code" class="form-control"
+                       required>
+                <div class="sub-label">Enter the code for the Coupon.</div>
+                <div ng-messages="couponForm.couponsCTRL.code.$error" role="alert">
+                  <p class="help-block error-text" ng-message="required">Coupon Code is required.</p>
+                </div>
+              </div>
+
+              <!-- Title Box End-->
+
               <!-- Tags Box Start-->
 
               <div class="form-group new-deal-form"
@@ -236,8 +267,9 @@
 
               <!-- Details Box Start-->
 
-              <label for="details">Details</label>
+
               <div class="form-group new-deal-form">
+                <label for="details">Details</label>
                 <text-angular
                   ta-toolbar="[['bold','italics', 'underline', 'strikeThrough'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertLink', 'undo'],['charcount']]"
                   id="details" name="instructions" data-ng-model="instructions">

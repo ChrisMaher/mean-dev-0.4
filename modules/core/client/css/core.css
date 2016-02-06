@@ -31,12 +31,18 @@ html {
     width: 28px;
     border-radius: 50%;
     margin-right: 5px;
-    border: #dddddd 1px solid;
+    /*border: #000000 1px solid;*/
 }
 
 .open .header-profile-image,
 a:hover .header-profile-image {
     opacity: 0.9;
+}
+
+.user-profile-picture-circle{
+
+    border-radius: 50%;
+
 }
 
 .small-profile-image-thumbnail{
@@ -111,7 +117,7 @@ body {
 
 .main-deals {
 
-    min-height: 2447px;
+    min-height: 2470px;
     /*border: #000000 1px solid;*/
     padding: 15px;
     background-color: #FFFFFF;
@@ -147,10 +153,11 @@ body {
 
 .main-deals-settings {
 
-    min-height: 530px;
+    /*min-height: 550px;*/
     border: #dddddd 1px solid;
 
     padding-top: 30px;
+    padding-bottom: 60px;
     background-color: #FFFFFF;
 
     -moz-border-radius: 10px;
@@ -223,6 +230,7 @@ body {
 }
 
 .randomise-button[disabled] {
+
     color: rgb(187, 187, 187);
     background-color: rgba(230, 230, 229, 0.96);
 }
@@ -361,7 +369,7 @@ body {
 
 .right-column {
 
-    min-height: 2447px;
+    min-height: 2470px;
     padding: 15px;
     background-color: #FFFFFF;
     border-top: #dddddd 1px solid;
@@ -457,7 +465,7 @@ body {
 .list-group-home-deals .list-group-item {
 
     /*padding: 10px;*/
-    height: 200px;
+    min-height: 200px;
     margin-bottom: 10px;
 
     border-radius: 10px;
@@ -542,6 +550,7 @@ body {
 .nav-tabs {
 
     border-bottom: none !important;
+
 
 }
 
@@ -897,11 +906,16 @@ body {
 .middle-title {
 
     height: 50px;
+    width: 90%;
     font-weight: bold;
     font-size: 18px;
     text-decoration: none;
     color: #000000;
     margin-left: 10px;
+    word-wrap: break-word;
+    max-lines: 2;
+    overflow: hidden;
+    margin-bottom: 5px;
 
 }
 
@@ -1016,6 +1030,7 @@ body {
 
 .spotlight-deal .spotlight-deal-inner {
     color: #333;
+    margin: 0px;
 }
 
 .spotlight-deal {
@@ -1439,6 +1454,8 @@ body {
     height: 50px;
     font-weight: bold;
     font-size: 18px;
+    overflow: hidden;
+    width: 90%;
 
 }
 
@@ -1477,8 +1494,8 @@ body {
     display: block;
     word-wrap: break-word;
     -moz-hyphens: auto;
-    /*margin-top: 5px;*/
-    margin-bottom: 5px;
+    margin-top: -10px;
+    margin-bottom: 2px;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -1492,6 +1509,7 @@ body {
 .single-middle-product-details-home-coupon-instructions {
 
     height: 42px;
+    width: 90%;
     display: block;
     word-wrap: break-word;
     -moz-hyphens: auto;
@@ -1505,6 +1523,8 @@ body {
     max-height: 42px; /* fallback */
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
+
+
 
 }
 
