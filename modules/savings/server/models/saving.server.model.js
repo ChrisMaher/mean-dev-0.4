@@ -42,7 +42,6 @@ var SavingSchema = new Schema({
   },
   currency: {
     type: String,
-    default: 'Euro (€)',
     required: 'We need a Currency for the Deal.',
     trim: true
   },
@@ -78,6 +77,11 @@ var SavingSchema = new Schema({
   votesreal: {
     type: Number,
     default: 100
+  },
+  commentcount: {
+    type: Number,
+    default: 0,
+    min: 0
   },
   upVoters: [{
     type: Schema.ObjectId,

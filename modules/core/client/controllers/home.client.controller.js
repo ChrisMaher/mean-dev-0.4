@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Deals', 'Savings', 'Users', 'Posts',
-    function ($scope, Authentication, Deals, Savings, Users, Posts) {
+angular.module('core').controller('HomeController', ['$scope', '$location', 'Authentication', 'Deals', 'Savings', 'Users', 'Posts', 'Coupons',
+    function ($scope, $location, Authentication, Deals, Savings, Users, Posts, Coupons) {
 
 
         // This provides Authentication context.
@@ -20,6 +20,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
         $scope.numOfPosts = Posts.countPosts();
         $scope.numOfPostsToday = Posts.countPostsToday();
+
+        $scope.numOfCoupons = Coupons.countCoupons();
+        $scope.numOfCouponsToday = Coupons.countCouponsToday();
 
         $scope.selectedLogo = 'All';
         $scope.activeClass = 2;
@@ -50,6 +53,22 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
                 $scope.orderByField = 'created';
             }
 
+        };
+
+        //be sure to inject $scope and $location
+        $scope.changeLocation = function(url, forceReload) {
+            $scope = $scope || angular.element(document).scope();
+            if(forceReload || $scope.$$phase) {
+                window.location = url;
+            }
+            else {
+                //only use this if you want to replace the history stack
+                //$location.path(url).replace();
+
+                //this this if you want to change the URL and add it to the history stack
+                $location.path(url);
+                $scope.$apply();
+            }
         };
 
         $scope.toggleClassCoupon = function (classNum) {

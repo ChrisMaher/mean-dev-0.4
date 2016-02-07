@@ -111,6 +111,7 @@ exports.countPosts = function (req, res) {
         });
 };
 
+
 /**
  * Count of Posts Today
  */
@@ -132,6 +133,43 @@ exports.countPostsToday = function (req, res) {
                 var data = {};
                 data.count = postsCount;
                 res.jsonp(data);
+            }
+        });
+};
+
+/**
+ * Count of Customers
+ */
+exports.custCountSaving = function(req, res) {
+    Post.count({},
+        function(err, customerCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                var data = {};
+                data.count = customerCount;
+                res.json(data);
+            }
+        });
+};
+
+
+/**
+ * Count of Customers
+ */
+exports.custCountCoupon = function(req, res) {
+    Post.count({},
+        function(err, customerCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                var data = {};
+                data.count = customerCount;
+                res.json(data);
             }
         });
 };

@@ -1,7 +1,7 @@
 <div class="col-sm-12" id="below-navbar">
 
   <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
-    <li role="presentation" class="active"><a href="/savings/create"><i class="glyphicon glyphicon-thumbs-up"></i> Edit
+    <li role="presentation" class="active"><a href="/savings/create"> Edit
       Saving </a>
     </li>
   </ul>
@@ -88,7 +88,7 @@
                 <div class="col-lg-6 price-box-euro">
 
                   <div class="form-group new-deal-form"
-                       ng-class="{ 'has-error' : createSavingForm.price.$invalid && submitted}" show-errors>
+                       ng-class="{ 'has-error' : createSavingForm.currency.$invalid && submitted}" show-errors>
                     <label for="currency">Currency</label>
                     <select  name="currency" ng-model="saving.currency" class="form-control" id="currency" required>
                       <option >Euro (€)</option>
@@ -221,7 +221,7 @@
 
             <div class="form-group buttons-cancel-submit text-center">
               <button class="btn btn-default " ng-click="cancel()">Cancel</button>
-              <button type="submit" class="btn btn-success " ng-click="update(); submitFormSaving(createSavingForm.$valid)" >Save Details </button>
+              <button type="submit" class="btn btn-success " ng-click="updateSaving(); submitFormSaving(createSavingForm.$valid)" >Save Details </button>
 
             </div>
 

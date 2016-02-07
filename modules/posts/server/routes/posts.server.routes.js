@@ -19,6 +19,12 @@ module.exports = function (app) {
   app.route('/posts/postCountToday').all()
       .get(posts.countPostsToday);
 
+  app.route('/posts/custCountSaving')
+      .get(posts.custCountSaving);
+
+  app.route('/posts/custCountCoupon')
+      .get(posts.custCountCoupon);
+
 
   // Single post routes
   app.route('/posts/:postId').all(postsPolicy.isAllowed)

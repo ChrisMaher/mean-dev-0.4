@@ -39,21 +39,23 @@ exports.read = function (req, res) {
  * Update a saving
  */
 exports.update = function (req, res) {
+
     var saving = req.saving;
 
-    //saving.title  = req.body.title;
-    //saving.retailer  = req.body.retailer;
-    //saving.price  = req.body.price;
-    //saving.image  = req.body.image;
-    //saving.votes = req.body.votes;
-    //saving.urlimage  = req.body.urlimage;
-    //saving.tags  = req.body.tags;
-    //saving.upVoters  = req.body.upVoters;
-    //saving.downVoters  = req.body.downVoters;
-    //saving.link  = req.body.link;
-    //saving.details  = req.body.details;
+    saving.title  = req.body.title;
+    saving.retailer  = req.body.retailer;
+    saving.price  = req.body.price;
+    saving.image  = req.body.image;
+    saving.votes = req.body.votes;
+    saving.urlimage  = req.body.urlimage;
+    saving.tags  = req.body.tags;
+    saving.upVoters  = req.body.upVoters;
+    saving.downVoters  = req.body.downVoters;
+    saving.link  = req.body.link;
+    saving.details  = req.body.details;
+    saving.currency  = req.body.currency;
 
-    saving = _.extend(saving, req.body);
+    //saving = _.extend(saving, req.body);
 
     saving.save(function (err) {
         if (err) {

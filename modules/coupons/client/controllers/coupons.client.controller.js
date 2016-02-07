@@ -1,8 +1,8 @@
 'use strict';
 
 // Deals controller
-angular.module('coupons').controller('CouponsController', ['$scope', '$timeout', '$stateParams', '$location', '$window', 'Authentication', 'Coupons', 'FileUploader',
-    function ($scope, $timeout, $stateParams, $location, $window, Authentication, Coupons, FileUploader) {
+angular.module('coupons').controller('CouponsController', ['$scope', '$timeout', '$stateParams', '$location', '$window', 'Authentication', 'Coupons', 'FileUploader', 'Posts',
+    function ($scope, $timeout, $stateParams, $location, $window, Authentication, Coupons, FileUploader, Posts) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
@@ -21,10 +21,9 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
         $scope.weekly = true;
         $scope.monthly = false;
         $scope.disablelist = true;
-        $scope.currency = "Euro (&euro;)";
+        $scope.currency = "Euro (€)";
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
         Coupons.query({}, function (resp) {
-            console.log(resp);
             $scope.coupons = resp;
         });
 

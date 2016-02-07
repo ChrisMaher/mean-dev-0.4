@@ -12,6 +12,10 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
         $scope.comments = false;
 
+        $scope.numOfCommentsSaving = Posts.countCustomersSaving();
+        $scope.numOfCommentsCoupon = Posts.countCustomersCoupon();
+
+
             // Create new Comment
         $scope.create = function () {
             // Create new Comment object
@@ -20,6 +24,28 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
                 details: this.details,
                 savingId: $scope.saving._id
+
+            });
+
+            // Redirect after save
+            post.$save(function (response) {
+
+                // Clear form fields
+                $scope.details = '';
+
+            }, function (errorResponse) {
+                $scope.error = errorResponse.data.message;
+            });
+        };
+
+        // Create new Comment
+        $scope.createCouponComment = function () {
+            // Create new Comment object
+
+            var post = new Posts({
+
+                details: this.details,
+                couponId: $scope.coupon._id
 
             });
 

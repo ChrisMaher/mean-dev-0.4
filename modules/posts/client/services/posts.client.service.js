@@ -18,6 +18,16 @@ angular.module('posts').factory('Posts', ['$resource',
         method: 'GET',
         url: '/posts/postCountToday',
         isArray: false
+      },
+      countCustomersSaving: {
+        method: 'GET',
+        url: '/posts/custCountSaving',
+        isArray: false
+      },
+      countCustomersCoupon: {
+        method: 'GET',
+        url: '/posts/custCountCoupon',
+        isArray: false
       }
     });
   }

@@ -36,6 +36,10 @@ var PostSchema = new Schema({
     savingId: {
         type: String,
         trim: true
+    },
+    couponId: {
+        type: String,
+        trim: true
     }
 
 });

@@ -132,68 +132,132 @@
 
 
           <div class="comment-headers" ng-if="(posts | filter:{ savingId: saving._id}).length > 0">
-            <h3>Top Comments</h3>
 
+            <div  ng-if="(posts | filter:{ savingId: saving._id}).length > 2">
+            <h3>Top Comments</h3>
+            </div>
 
             <div class="list-group comments-list-top-comment">
 
-              <div dir-paginate="post in posts | filter:{ savingId: saving._id}|orderBy : '-votes' | itemsPerPage:2"
-                   class="list-group-item comment-box-single">
-
-                <div class="row outer-comment-box">
-                  <div class="col-sm-1 comment-box-left">
+              <div  ng-if="(posts | filter:{ savingId: saving._id}).length === 3">
+                <div dir-paginate="post in posts | filter:{ savingId: saving._id}|orderBy : '-votes' | itemsPerPage:1"
+                     class="list-group-item comment-box-single" >
 
 
-                    <img ng-src="{{post.user.profileImageURL}}" alt="{{post.user.displayName}}"
-                         class="comment-profile-image"/>
+                  <div class="row outer-comment-box">
+                    <div class="col-sm-1 comment-box-left">
 
 
-                  </div>
-                  <div class="col-sm-10  comment-box-middle">
-
-                    <div class="col-sm-12  comment-box-middle-top">
-
-                      <text-angular ta-toolbar="[[]]" ng-bind-html="post.details"></text-angular>
+                      <img ng-src="{{post.user.profileImageURL}}" alt="{{post.user.displayName}}"
+                           class="comment-profile-image"/>
 
 
                     </div>
+                    <div class="col-sm-10  comment-box-middle">
 
-                    <div class="col-sm-5 middle-posted-by">
+                      <div class="col-sm-12  comment-box-middle-top">
 
-
-                      <a ng-href="/users/{{user._id}}">
-
-                      </a> <span class="username" data-ng-bind="post.user.displayName"></span> | <span
-                      am-time-ago="post.created"></span>
+                        <text-angular ta-toolbar="[[]]" ng-bind-html="post.details"></text-angular>
 
 
-                    </div>
-                    <div class="col-sm-5 comment-box-middle-bottom">
+                      </div>
 
-                      <!--<small class="list-group-item-text">-->
-                      <!--Replies : <span>{{post.replies.length}}</span>-->
-                      <!--</small>-->
+                      <div class="col-sm-5 middle-posted-by">
 
-                    </div>
 
-                    <div class="col-sm-2 comment-box-middle-bottom">
+                        <a ng-href="/users/{{user._id}}">
 
-                      <small class="list-group-item-text">
+                        </a> <span class="username" data-ng-bind="post.user.displayName"></span> | <span
+                        am-time-ago="post.created"></span>
+
+
+                      </div>
+                      <div class="col-sm-5 comment-box-middle-bottom">
+
+                        <!--<small class="list-group-item-text">-->
+                        <!--Replies : <span>{{post.replies.length}}</span>-->
+                        <!--</small>-->
+
+                      </div>
+
+                      <div class="col-sm-2 comment-box-middle-bottom">
+
+                        <small class="list-group-item-text">
                     <span><a href="" ng-show="authentication.user" ng-click="voteCommentUp(post)">Vote Up
                       ({{post.voters.length}})</a></span>
-                      </small>
+                        </small>
+
+                      </div>
 
                     </div>
 
                   </div>
 
+
                 </div>
+              </div>
+              <div  ng-if="(posts | filter:{ savingId: saving._id}).length > 3">
+                <div dir-paginate="post in posts | filter:{ savingId: saving._id}|orderBy : '-votes' | itemsPerPage:2"
+                     class="list-group-item comment-box-single" >
 
 
+                  <div class="row outer-comment-box">
+                    <div class="col-sm-1 comment-box-left">
+
+
+                      <img ng-src="{{post.user.profileImageURL}}" alt="{{post.user.displayName}}"
+                           class="comment-profile-image"/>
+
+
+                    </div>
+                    <div class="col-sm-10  comment-box-middle">
+
+                      <div class="col-sm-12  comment-box-middle-top">
+
+                        <text-angular ta-toolbar="[[]]" ng-bind-html="post.details"></text-angular>
+
+
+                      </div>
+
+                      <div class="col-sm-5 middle-posted-by">
+
+
+                        <a ng-href="/users/{{user._id}}">
+
+                        </a> <span class="username" data-ng-bind="post.user.displayName"></span> | <span
+                        am-time-ago="post.created"></span>
+
+
+                      </div>
+                      <div class="col-sm-5 comment-box-middle-bottom">
+
+                        <!--<small class="list-group-item-text">-->
+                        <!--Replies : <span>{{post.replies.length}}</span>-->
+                        <!--</small>-->
+
+                      </div>
+
+                      <div class="col-sm-2 comment-box-middle-bottom">
+
+                        <small class="list-group-item-text">
+                    <span><a href="" ng-show="authentication.user" ng-click="voteCommentUp(post)">Vote Up
+                      ({{post.voters.length}})</a></span>
+                        </small>
+
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+                </div>
               </div>
 
+
+
               <div class="comment-headers">
-                <h3>All Comments</h3>
+                <h3>Comments</h3>
               </div>
 
               <div class="list-group comments-list">
@@ -273,9 +337,50 @@
 
           </div>
 
-          <h3>New Comment</h3>
+          <h3 ng-show="authentication.user">New Comment</h3>
 
-          <div class="row comments-section">
+          <div class="row sign-up-to-comment-box" ng-hide="authentication.user">
+            <div class="col-md-2 center-block sign-in-to-comment">
+              <h3></h3>
+            </div>
+            <div class="col-md-4 center-block sign-in-to-comment">
+              <h3>Sign In to Comment</h3>
+            </div>
+            <div class="col-md-4">
+
+              <section ng-controller="AuthenticationController">
+                <div ng-hide="authentication.user">
+                  <div class="social-buttons">
+                    <a ng-click="callOauthProvider('/api/auth/facebook')" class="btn btn-fb"><i
+                      class="fa fa-facebook"></i> Facebook</a>
+                    <a ng-click="callOauthProvider('/api/auth/google')" class="btn btn-tw"><i
+                      class="fa fa-google"></i> Google</a>
+                  </div>
+                </div>
+
+              </section>
+
+            </div>
+            <div class="col-md-2 center-block sign-in-to-comment">
+              <h3></h3>
+            </div>
+            <!--<div class="col-md-6 center-block">-->
+            <!--<section ng-controller="AuthenticationController">-->
+            <!--<div class="comment-headers" ng-hide="authentication.user">-->
+            <!--<div class="social-buttons">-->
+            <!--<a ng-click="callOauthProvider('/api/auth/facebook')" class="btn btn-fb"><i-->
+            <!--class="fa fa-facebook"></i> Facebook</a>-->
+            <!--<a ng-click="callOauthProvider('/api/auth/google')" class="btn btn-tw"><i-->
+            <!--class="fa fa-google"></i> Google</a>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</section>-->
+            <!--</div>-->
+
+          </div>
+
+
+          <div class="row comments-section" ng-show="authentication.user">
             <form class="form-horizontal" novalidate>
               <fieldset>
 
@@ -301,7 +406,7 @@
                 </div>
 
 
-                <div class="col-lg-7">
+                <div class="col-lg-7" ng-show="authentication.user">
                   <div class="form-group">
                     <button class="btn btn-default" type="submit" value="Submit Comment" ng-click="create(); reload()">
                       Submit Comment
@@ -314,6 +419,7 @@
               </fieldset>
             </form>
           </div>
+
 
         </div>
       </div>
@@ -366,7 +472,7 @@
                       <div class="col-lg-9 text-center timeframe-row-item-3">
 
                         <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (&euro;{{saving.price}})
-                          </a>
+                        </a>
 
                       </div>
                     </div>

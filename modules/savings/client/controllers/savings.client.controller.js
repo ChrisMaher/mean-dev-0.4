@@ -1,8 +1,8 @@
 'use strict';
 
 // Deals controller
-angular.module('savings').controller('SavingsController', ['$scope', '$timeout', '$stateParams', '$location', '$window', 'Authentication', 'Savings', 'FileUploader',
-    function($scope, $timeout, $stateParams,  $location, $window, Authentication, Savings, FileUploader) {
+angular.module('savings').controller('SavingsController', ['$scope', '$timeout', '$stateParams', '$location', '$window', 'Authentication', 'Savings', 'FileUploader', 'Posts',
+    function($scope, $timeout, $stateParams,  $location, $window, Authentication, Savings, FileUploader, Posts) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
@@ -15,10 +15,10 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         $scope.weekly = true;
         $scope.monthly = false;
         $scope.disablelist = true;
-        $scope.currency = "Euro (&euro;)";
+        $scope.currency = "Euro (€)";
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
         Savings.query({}, function(resp){
-            console.log(resp);
+            //console.log(resp);
             $scope.savings = resp;
         });
 
@@ -49,6 +49,8 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         };
 
         $scope.timeFrame = function (classNum) {
+
+            alert($scope.numOfPostsOnSaving.count);
 
             if(classNum === 1){
                 $scope.weekly = true;
@@ -198,6 +200,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
             if(this.currency === 'Sterling (£)'){
 
                 this.price = Math.round(((this.price/70)*100) * 100) / 100 ;
+                this.currency = 'Euro (€)';
 
             }
 
@@ -236,6 +239,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 $scope.image = '';
                 $scope.urlimage = '';
                 $scope.category = '';
+                $scope.currency = '';
 
 
 
@@ -263,7 +267,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                         }
                     } else {
                         $scope.saving.$remove(function () {
-                            $location.path('savings');
+                            $location.path('/');
                         });
                     }
                 }
@@ -271,24 +275,30 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         };
 
         // Update existing Saving
-        $scope.update = function() {
+        $scope.updateSaving = function() {
 
             var saving = $scope.saving;
 
             //alert($scope.saving.currency);
+
+            //if($scope.saving.currency === 'Sterling (£)'){
+            //
+            //    $scope.saving.price = Math.round((($scope.saving.price/70)*100) * 100) / 100 ;
+            //    $scope.saving.currency = 'Euro (&euro;)';
+            //    alert($scope.saving.currency);
+            //
+            //}
 
             if($scope.saving.currency === 'Sterling (£)'){
 
                 $scope.saving.price = Math.round((($scope.saving.price/70)*100) * 100) / 100 ;
                 $scope.saving.currency = 'Euro (€)';
 
+
             }
 
-            var priceRounded = Math.round($scope.saving.price * 100) / 100;
-            $scope.saving.price = priceRounded;
 
-
-            //alert($scope.saving);
+            alert($scope.saving.currency);
 
             saving.$update(function() {
                 $location.path('savings/' + saving._id);

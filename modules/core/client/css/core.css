@@ -39,13 +39,13 @@ a:hover .header-profile-image {
     opacity: 0.9;
 }
 
-.user-profile-picture-circle{
+.user-profile-picture-circle {
 
     border-radius: 50%;
 
 }
 
-.small-profile-image-thumbnail{
+.small-profile-image-thumbnail {
 
     opacity: 0.9;
     border: #dddddd 1px solid;
@@ -91,7 +91,7 @@ body {
     /*border-top: #eeeeee 20px solid;*/
     /*border-bottom: #eeeeee 20px solid;*/
     color: #FFFFFF;
-    height: 350px;
+    height: 250px;
     width: 1140px;
     margin: 0px auto;
 
@@ -219,7 +219,7 @@ body {
 
 .randomise-button {
     color: rgb(255, 255, 255);
-    background-color:  #337AB7;
+    background-color: #337AB7 !important;
     /*border-radius: 10px ;*/
     font-size: 16px;
 }
@@ -231,7 +231,7 @@ body {
 
 .randomise-button[disabled] {
 
-    color: rgb(187, 187, 187);
+    color: rgb(187, 187, 187) !important;
     background-color: rgba(230, 230, 229, 0.96);
 }
 
@@ -247,7 +247,7 @@ body {
 
 .main-body-view {
 
-    min-height: 800px;
+    /*min-height: 700px;*/
     margin: 0px;
     border: #dddddd 1px solid;
     border-radius: 10px;
@@ -258,8 +258,9 @@ body {
 
 .login-screen {
 
-    height: 350px;
+    min-height: 350px;
     padding: 15px;
+    padding-bottom: 30px;
     background-color: #FFFFFF;
     border-top: #dddddd 1px solid;
     border-bottom: #dddddd 1px solid;
@@ -550,7 +551,6 @@ body {
 .nav-tabs {
 
     border-bottom: none !important;
-
 
 }
 
@@ -1425,9 +1425,30 @@ body {
 
 }
 
+.list-group-home-single-coupon {
+
+    /*min-height: 150px;*/
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border: #dddddd 1px solid;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+}
+
 #single-left-box {
 
     min-height: 200px;
+    /*background-color: #0040D0;*/
+    /*border-right: 1px solid #DDDDDD;*/
+    padding-left: 20px;
+
+}
+
+#single-left-box-coupon {
+
+    /*min-height: 200px;*/
     /*background-color: #0040D0;*/
     /*border-right: 1px solid #DDDDDD;*/
     padding-left: 20px;
@@ -1438,6 +1459,13 @@ body {
 
     /*padding: 5px;*/
     min-height: 250px;
+
+}
+
+#single-middle-box-coupon {
+
+    /*padding: 5px;*/
+    /*min-height: 250px;*/
 
 }
 
@@ -1462,6 +1490,17 @@ body {
 .single-middle-product-details {
 
     min-height: 250px;
+    display: block;
+    word-wrap: break-word;
+    -moz-hyphens: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.single-middle-product-details-coupon {
+
+    min-height: 100px;
     display: block;
     word-wrap: break-word;
     -moz-hyphens: auto;
@@ -1523,8 +1562,6 @@ body {
     max-height: 42px; /* fallback */
     -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
-
-
 
 }
 
@@ -1659,13 +1696,18 @@ body {
 
 .vote-up-button {
     color: rgb(255, 255, 255);
-    background-color: rgb(161, 28, 0);
+    background-color: rgb(161, 28, 0) !important;
     /*border-radius: 10px ;*/
     font-size: 16px;
 }
 
 .vote-up-button:not([disabled]):hover {
-    background-color: rgb(126, 22, 0);
+    background-color: rgb(126, 22, 0) !important;
+    color: white;
+}
+
+.vote-up-button:not([disabled]):active {
+    background-color: rgb(126, 22, 0) !important;
     color: white;
 }
 
@@ -1695,7 +1737,7 @@ body {
 
 .visit-coupon-button {
     color: rgb(255, 255, 255);
-    background-color: rgb(161, 28, 0);
+    background-color: rgb(161, 28, 0) !important;
     /*border-radius: 10px ;*/
     font-size: 16px;
     width: 100%;
@@ -1710,25 +1752,25 @@ body {
 
 .visit-coupon-button[disabled] {
     color: rgb(187, 187, 187);
-    background-color: rgba(230, 230, 229, 0.96);
+    background-color: rgba(230, 230, 229, 0.96) !important;
 
 }
 
 .vote-down-button {
     color: rgb(141, 133, 133);
-    background-color: rgb(187, 187, 187);
+    background-color: rgb(187, 187, 187) !important;
     /*border-radius: 10px ;*/
     font-size: 16px;
 }
 
 .vote-down-button:not([disabled]):hover {
-    background-color: rgba(37, 112, 193, 0.96);
+    background-color: rgba(37, 112, 193, 0.96) !important;
     color: white;
 }
 
 .vote-down-button[disabled] {
     color: rgb(187, 187, 187);
-    background-color: rgba(230, 230, 229, 0.96);
+    background-color: rgba(230, 230, 229, 0.96) !important;
 }
 
 .vote-down-button {
@@ -1744,7 +1786,7 @@ body {
 .save-button-md {
 
     color: rgb(255, 255, 255);
-    background-color: rgb(71, 174, 71);
+    background-color: rgb(71, 174, 71) !important;
     /*border-radius: 10px ;*/
     font-size: 16px;
     width: 110px;
@@ -1752,19 +1794,19 @@ body {
 }
 
 .save-button-md:not([disabled]):hover {
-    background-color: rgb(66, 151, 66);
+    background-color: rgb(66, 151, 66) !important;
     color: white;
 }
 
 .save-button-md[disabled] {
     color: rgb(187, 187, 187);
-    background-color: rgba(230, 230, 229, 0.96);
+    background-color: rgba(230, 230, 229, 0.96) !important;
 }
 
 .save-button-md-view {
 
     color: rgb(255, 255, 255);
-    background-color: rgb(71, 174, 71);
+    background-color: rgb(71, 174, 71) !important;
     /*border-radius: 10px ;*/
     font-size: 16px;
     width: 110px;
@@ -1778,7 +1820,7 @@ body {
 
 .save-button-md-view[disabled] {
     color: rgb(187, 187, 187);
-    background-color: rgba(230, 230, 229, 0.96);
+    background-color: rgba(230, 230, 229, 0.96) !important;
 
 }
 
@@ -2324,9 +2366,26 @@ body {
 
 #login-dp {
     min-width: 260px;
-    padding: 14px 14px 0;
+    padding: 14px 14px 10px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 1);
+}
+
+.sign-in-to-comment {
+
+    margin-top: -15px;
+}
+
+.sign-up-to-comment-box {
+
+    height: 60px;
+    border: #dddddd 1px solid;
+    padding: 15px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+
 }
 
 #login-dp .help-block {

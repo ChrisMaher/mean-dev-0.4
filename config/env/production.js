@@ -14,7 +14,7 @@ module.exports = {
       pass: 'mongo'
     },
     // Enable mongoose debug mode
-    debug: process.env.MONGODB_DEBUG || true
+    debug: process.env.MONGODB_DEBUG || false
   },
   log: {
     // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
