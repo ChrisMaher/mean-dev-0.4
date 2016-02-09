@@ -973,6 +973,47 @@ body {
 
 }
 
+.profile-stats-unit{
+
+    height: 80px;
+    padding: 20px;
+
+}
+
+.profile-stats-unit-title{
+
+    margin-bottom: 10px;
+    font-weight: bold;
+
+}
+
+.profile-avatar{
+
+    height: 240px;
+
+    padding-left: 50px;
+    padding-top: 30px;
+
+}
+
+.profile-info-squares{
+
+
+
+}
+
+.avatar-section{
+
+    padding: 0px !important;
+
+}
+
+.profile-avatar > img{
+
+    height: 200px;
+    width: 200px;
+}
+
 .submit-tab {
 
     float: right;
