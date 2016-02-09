@@ -132,19 +132,7 @@ exports.countUsersToday = function (req, res) {
       });
 };
 
-/*
- * user middleware
- * */
-exports.userByUsername = function(req, res, next, username) {
-  User.findOne({
-    username: username
-  }, '_id').exec(function(err, user) {
-    if (err) return next(err);
-    if (!user) return next(new Error('Failed to load User ' + username));
-    req.user = user;
-    next();
-  });
-};
+
 
 /**
  * Send User

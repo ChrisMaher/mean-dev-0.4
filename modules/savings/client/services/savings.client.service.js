@@ -18,6 +18,11 @@ angular.module('savings').factory('Savings', ['$resource',
         method: 'GET',
         url: '/savings/savingCountToday',
         isArray: false
+      },
+      listOf: {
+        method: 'GET',
+        url: '/api/savings/of/:userid',
+        isArray: true
       }
     });
   }

@@ -1,11 +1,11 @@
 <section data-ng-controller="HomeController">
   <section data-ng-controller="SavingsController">
-    <section class="row" ng-controller="ChangeProfilePictureController">
+    <section class="row" ng-controller="ViewProfileController" >
 
     <div class="col-sm-12" id="below-navbar">
 
       <ul role="presentation" class="nav nav-tabs profile-tab">
-        <li role="presentation"><a href="#">Members > {{usernamevalue}} </a></li>
+        <li role="presentation"><a href="#">Members > {{profile.username}} </a></li>
       </ul>
 
 
@@ -20,7 +20,6 @@
 
     <div class="col-lg-9 main-deals">
 
-
       <!--Deals Array Start-->
 
       <div class="list-group-home-deals">
@@ -34,7 +33,7 @@
 
               <div class="row profile-avatar">
 
-                  <img ng-src="{{imageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture-circle">
+                  <img ng-src="{{profile.profileImageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture-circle">
 
               </div>
               <div class="row profile-below-avatar">
@@ -51,7 +50,7 @@
                     Member Since
                   </div>
                   <div class="col-lg-12 text-center">
-                    31-12-1985
+                    <span am-time-ago="profile.created"></span>
                   </div>
                 </div>
                 <div class="col-lg-6 text-center">
@@ -59,7 +58,7 @@
                     Location
                   </div>
                   <div class="col-lg-12 text-center">
-                    Waterford
+                    {{capatilize(profile.county)}}
                   </div>
                 </div>
               </div>
@@ -118,7 +117,7 @@
 
         <!--</div>-->
 
-        <div dir-paginate="saving in savings | filter:{user: {username: usernamevalue}} | itemsPerPage:4"
+        <div dir-paginate="saving in savings | filter:{user: {_id: usernamevalue}} | itemsPerPage:4"
              class="list-group-item">
 
 
@@ -182,9 +181,9 @@
               <div class="col-lg-12 middle-post-details">
                 <section data-ng-controller="PostsController">
                   <div class="col-lg-6 middle-posted-by">
-                    <a ng-href="/users/{{saving.user.username}}"><img ng-src="{{saving.user.profileImageURL}}"
+                    <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
                                                                       class="small-profile-image-thumbnail"
-                                                                      alt="{{saving.user.username}}" height="20px"
+                                                                      alt="{{saving.user._id}}" height="20px"
                                                                       width="20px"/> <span class="username"
                                                                                            data-ng-bind="saving.user.username"></span></a>
                     |
@@ -201,7 +200,7 @@
               <!--Posted on-->
               <!--<span data-ng-bind="saving.created | date:'medium'"></span>-->
               <!--by-->
-              <!--<span data-ng-bind="saving.user.username"></span>-->
+              <!--<span data-ng-bind="saving.user._id"></span>-->
               <!--</small>-->
 
 
@@ -275,7 +274,7 @@
               <div ng-show="weekly" class="weekly-list">
 
                 <div
-                  ng-repeat="saving in savings |  orderBy: 'votesreal'| filter:{user: {username: usernamevalue}} | lessThan: {'created.$date':168} | limitTo:10"
+                  ng-repeat="saving in savings |  orderBy: 'votesreal'| filter:{user: {_id: usernamevalue}} | lessThan: {'created.$date':168} | limitTo:10"
                   class=" timeframe-row">
 
                   <div class="row timeframe-row-item">
@@ -291,9 +290,9 @@
                         <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
                         <!--</md-button>-->
 
-                        <a ng-href="/users/{{saving.user.username}}"><img ng-src="{{saving.user.profileImageURL}}"
+                        <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
                                                                           class="small-profile-image-thumbnail"
-                                                                          alt="{{saving.user.username}}" height="20px"
+                                                                          alt="{{saving.user._id}}" height="20px"
                                                                           width="20px"/></a></span>
 
                       </div>
@@ -314,7 +313,7 @@
               <div ng-show="monthly" class="monthly-list">
 
                 <div
-                  ng-repeat="saving in savings |  orderBy: 'votesreal' | filter:{user: {username: usernamevalue}} | lessThan: {'created.$date':744}| limitTo:10"
+                  ng-repeat="saving in savings |  orderBy: 'votesreal' | filter:{user: {_id: usernamevalue}} | lessThan: {'created.$date':744}| limitTo:10"
                   class=" timeframe-row">
 
                   <div class="row timeframe-row-item">
@@ -330,9 +329,9 @@
                         <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
                         <!--</md-button>-->
 
-                        <a ng-href="/users/{{saving.user.username}}"><img ng-src="{{saving.user.profileImageURL}}"
+                        <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
                                                                           class="small-profile-image-thumbnail"
-                                                                          alt="{{saving.user.username}}" height="20px"
+                                                                          alt="{{saving.user._id}}" height="20px"
                                                                           width="20px"/></a></span>
 
                       </div>

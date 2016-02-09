@@ -25,6 +25,23 @@ exports.invokeRolesPolicies = function () {
 };
 
 /**
+ * Invoke Admin Permissions
+ */
+exports.invokeRolesPolicies = function () {
+  acl.allow([{
+    roles: ['user'],
+    allows: [{
+      resources: '/api/users',
+      permissions: 'get'
+    }, {
+      resources: '/api/users/:userId',
+      permissions: 'get'
+    }]
+  }]);
+};
+
+
+/**
  * Check If Admin Policy Allows
  */
 exports.isAllowed = function (req, res, next) {

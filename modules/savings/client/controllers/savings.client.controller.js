@@ -1,8 +1,8 @@
 'use strict';
 
 // Deals controller
-angular.module('savings').controller('SavingsController', ['$scope',  '$http', '$timeout', '$stateParams', '$location', '$window','$state' , 'Authentication', 'Savings', 'FileUploader', 'Posts', 'Users',
-    function($scope,  $http, $timeout, $stateParams,  $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users) {
+angular.module('savings').controller('SavingsController', ['$scope', '$http', '$timeout', '$stateParams', '$location', '$window', '$state', 'Authentication', 'Savings', 'FileUploader', 'Posts', 'Users',
+    function ($scope, $http, $timeout, $stateParams, $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
@@ -15,41 +15,39 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
         $scope.weekly = true;
         $scope.monthly = false;
         $scope.disablelist = true;
-        $scope.usernamevalue = $stateParams.username;
+        $scope.usernamevalue = $stateParams.userId;
         $scope.currency = "Euro (€)";
         $scope.filterUserId = '';
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
-        Savings.query({}, function(resp){
+        Savings.query({}, function (resp) {
             //console.log(resp);
             $scope.savings = resp;
         });
-        $scope.findUser = function () {
 
-            $scope.ourUser = Users.get({
-                username: $stateParams.username
-            });
+        //alert($stateParams.username); // Have Username
 
-        };
+
+        //console.log($scope.ourUser);
 
 
         //$scope.user.imageURL = '';
-        $scope.submitFormSaving = function(isValid) {
+        $scope.submitFormSaving = function (isValid) {
             $scope.submitted = true;
         };
 
-        $scope.hottest = function() {
+        $scope.hottest = function () {
 
             alert(123);
 
-            if($scope.hottestsorted === false){
+            if ($scope.hottestsorted === false) {
                 $scope.hottestsorted = true;
-            }else{
+            } else {
                 $scope.hottestsorted = false;
             }
 
         };
 
-        $scope.setSort = function(sort){
+        $scope.setSort = function (sort) {
 
             alert(sort);
 
@@ -59,10 +57,10 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
 
         $scope.timeFrame = function (classNum) {
 
-            if(classNum === 1){
+            if (classNum === 1) {
                 $scope.weekly = true;
                 $scope.monthly = false;
-            }else if(classNum === 2){
+            } else if (classNum === 2) {
                 $scope.weekly = false;
                 $scope.monthly = true;
             }
@@ -73,9 +71,9 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
 
             alert("Top");
 
-            if($scope.top6 === false){
+            if ($scope.top6 === false) {
                 $scope.top6 = true;
-            }else{
+            } else {
                 $scope.top6 = false;
             }
 
@@ -114,26 +112,25 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
 
         };
 
-        $scope.$watch('urlimage', function(newVal, oldVal){
+        $scope.$watch('urlimage', function (newVal, oldVal) {
 
-            if(newVal !== undefined){
+            if (newVal !== undefined) {
                 $scope.savingImageURL = newVal;
 
-            }else{
+            } else {
                 $scope.savingImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
             }
 
         });
 
-        $scope.$watch('pricesterling', function(newVal, oldVal){
+        $scope.$watch('pricesterling', function (newVal, oldVal) {
 
-            if(newVal !== undefined){
-                $scope.price = (newVal/70)*100;
+            if (newVal !== undefined) {
+                $scope.price = (newVal / 70) * 100;
 
             }
 
         });
-
 
 
         // Called after the user selected a new picture file
@@ -164,7 +161,7 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
             $scope.user = Authentication.user = response;
 
             //// Clear upload buttons
-             $scope.cancelProductUploadSaving();
+            $scope.cancelProductUploadSaving();
 
         };
 
@@ -193,20 +190,19 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
             $scope.error = null;
 
             var image = '/modules/users/client/img/profile/saveme-placeholder.png';
-            if($scope.user.imageURL === '/modules/users/client/img/profile/saveme-placeholder.png'){
+            if ($scope.user.imageURL === '/modules/users/client/img/profile/saveme-placeholder.png') {
                 //alert("equal")
                 image = $scope.savingImageURL;
-            }else{
+            } else {
                 //alert("not equal")
                 image = $scope.user.imageURL;
                 //alert("image " + image)
             }
 
 
+            if (this.currency === 'Sterling (£)') {
 
-            if(this.currency === 'Sterling (£)'){
-
-                this.price = Math.round(((this.price/70)*100) * 100) / 100 ;
+                this.price = Math.round(((this.price / 70) * 100) * 100) / 100;
                 this.currency = 'Euro (€)';
 
             }
@@ -225,7 +221,7 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
                 image: image,
                 urlimage: image,
                 category: this.category,
-                upVoters : $scope.user
+                upVoters: $scope.user
 
             });
 
@@ -249,8 +245,6 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
                 $scope.currency = '';
 
 
-
-
             }, function (errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
@@ -259,30 +253,30 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
         // Remove existing Saving
         $scope.removeSaving = function (saving) {
 
-                var result = confirm("Are you sure you want to delete?");
-                if (result) {
+            var result = confirm("Are you sure you want to delete?");
+            if (result) {
 
-                    // Delete the item
+                // Delete the item
 
-                    if (saving) {
-                        saving.$remove();
+                if (saving) {
+                    saving.$remove();
 
-                        for (var i in $scope.savings) {
-                            if ($scope.savings[i] === saving) {
-                                $scope.savings.splice(i, 1);
-                            }
+                    for (var i in $scope.savings) {
+                        if ($scope.savings[i] === saving) {
+                            $scope.savings.splice(i, 1);
                         }
-                    } else {
-                        $scope.saving.$remove(function () {
-                            $location.path('/');
-                        });
                     }
+                } else {
+                    $scope.saving.$remove(function () {
+                        $location.path('/');
+                    });
                 }
+            }
 
         };
 
         // Update existing Saving
-        $scope.updateSaving = function() {
+        $scope.updateSaving = function () {
 
             var saving = $scope.saving;
 
@@ -296,9 +290,9 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
             //
             //}
 
-            if($scope.saving.currency === 'Sterling (£)'){
+            if ($scope.saving.currency === 'Sterling (£)') {
 
-                $scope.saving.price = Math.round((($scope.saving.price/70)*100) * 100) / 100 ;
+                $scope.saving.price = Math.round((($scope.saving.price / 70) * 100) * 100) / 100;
                 $scope.saving.currency = 'Euro (€)';
 
 
@@ -307,9 +301,9 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
 
             alert($scope.saving.currency);
 
-            saving.$update(function() {
+            saving.$update(function () {
                 $location.path('savings/' + saving._id);
-            }, function(errorResponse) {
+            }, function (errorResponse) {
                 $scope.error = errorResponse.data.message;
             });
 
@@ -329,7 +323,7 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
 
         // Upvote if user hasnt upvoted already
 
-        $scope.upVoteHome = function(saving) {
+        $scope.upVoteHome = function (saving) {
 
 
             var hasVoted = saving.upVoters.filter(function (voter) {
@@ -359,9 +353,9 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
 
             if (hasVoted3) {
 
-                for(var i = saving.downVoters.length - 1; i >= 0; i--) {
+                for (var i = saving.downVoters.length - 1; i >= 0; i--) {
 
-                    if(saving.downVoters[i] === $scope.user._id) {
+                    if (saving.downVoters[i] === $scope.user._id) {
                         saving.downVoters.splice(i, 1);
                     }
                 }
@@ -376,7 +370,7 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
 
         };
 
-        $scope.downVoteHome = function(saving) {
+        $scope.downVoteHome = function (saving) {
 
             var hasVoted = saving.downVoters.filter(function (voter) {
 
@@ -393,8 +387,6 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
                 saving.downVoters.push($scope.user);
 
 
-
-
             }
 
             // Check if there is a upVote to remove
@@ -409,10 +401,9 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
             if (hasVoted2) {
 
 
+                for (var i = saving.upVoters.length - 1; i >= 0; i--) {
 
-                for(var i = saving.upVoters.length - 1; i >= 0; i--) {
-
-                    if(saving.upVoters[i] === $scope.user._id) {
+                    if (saving.upVoters[i] === $scope.user._id) {
                         saving.upVoters.splice(i, 1);
                     }
                 }
@@ -433,20 +424,20 @@ angular.module('savings').controller('SavingsController', ['$scope',  '$http', '
 ]);
 
 angular.module('savings').filter('lessThan', function () {
-    return function(items, requirement) {
+    return function (items, requirement) {
         var filterKey = Object.keys(requirement)[0];
         var filterVal = requirement[filterKey];
 
         var filtered = [];
 
-        if(filterVal !== undefined && filterVal !== ''){
-            angular.forEach(items, function(item) {
+        if (filterVal !== undefined && filterVal !== '') {
+            angular.forEach(items, function (item) {
                 var today = new Date();
                 var date = new Date(item.created);
                 var diff = today - date;
-                diff = diff / (1000*60*60);
+                diff = diff / (1000 * 60 * 60);
 
-                if(diff < filterVal) {
+                if (diff < filterVal) {
                     filtered.push(item);
                 }
             });
