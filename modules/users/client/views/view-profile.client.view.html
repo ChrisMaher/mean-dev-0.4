@@ -33,7 +33,7 @@
 
               <div class="row profile-avatar">
 
-                  <img ng-src="{{profile.profileImageURL}}" alt="{{user.displayName}}" class="img-thumbnail user-profile-picture-circle">
+                  <img ng-src="{{profile.profileImageURL}}" class="img-thumbnail user-profile-picture-circle">
 
               </div>
               <div class="row profile-below-avatar">
@@ -183,7 +183,7 @@
                   <div class="col-lg-6 middle-posted-by">
                     <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
                                                                       class="small-profile-image-thumbnail"
-                                                                      alt="{{saving.user._id}}" height="20px"
+                                                                      alt="{{saving.user.username}}" height="20px"
                                                                       width="20px"/> <span class="username"
                                                                                            data-ng-bind="saving.user.username"></span></a>
                     |

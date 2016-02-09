@@ -69,8 +69,9 @@
             </div>
 
             <div class="col-lg-8" id="single-middle-box">
-              <div class="col-lg-12 single-middle-title"><h4
-                data-ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></h4>
+              <div class="col-lg-12 single-middle-title">
+                <h4  class="black-title"
+                data-ng-bind="saving.title +' (&euro;'+  saving.price.toFixed(2) +' @ '+  saving.retailer+')'"></h4>
               </div>
 
               <div class="col-lg-12 single-middle-product-details">
@@ -468,7 +469,7 @@
                       </div>
                       <div class="col-lg-9 text-center timeframe-row-item-3">
 
-                        <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (&euro;{{saving.price}})
+                        <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (&euro;{{saving.price.toFixed(2)}})
                         </a>
 
                       </div>

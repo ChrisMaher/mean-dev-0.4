@@ -9,233 +9,327 @@
 </div>
 
 <section ng-controller="CouponsController  as couponsCTRL" ng-init="findOne()">
+
+
   <div class=" col-sm-12 create-body-coupon">
-    <div class="col-md-12">
+    <div class=" col-sm-12 create-body-saving">
+      <div class="col-md-12">
 
-      <form name="couponForm" class="form-horizontal" novalidate>
-        <fieldset>
+        <form name="createCouponForm" class="form-horizontal" novalidate>
 
-          <div class="row body-content">
-            <div class="col-lg-6 create-coupon-left">
+          <fieldset>
 
-              <!-- Title Box Start-->
+            <div class="row body-content">
 
-              <div class="form-group new-deal-form"
-                   ng-class="{ 'has-error' : createCouponForm.title.$invalid && submitted}" show-errors>
-                <label for="title">Title</label>
-                <input name="title" type="text" ng-model="coupon.title" id="title" class="form-control" placeholder="Title"
-                       required>
-                <div class="sub-label">Enter the Title of the Deal.</div>
-                <div ng-messages="couponForm.couponsCTRL.title.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">Coupon title is required.</p>
-                </div>
-              </div>
+              <div class="col-lg-6 create-saving-left">
 
-              <!-- Title Box End-->
+                <!-- Title Box Start-->
 
-              <!-- Link Box Start-->
-
-              <div class="form-group new-deal-form"
-                   ng-class="{ 'has-error' : createCouponForm.link.$invalid && submitted}" show-errors>
-                <label for="link">Link</label>
-                <input name="link" type="url" ng-model="coupon.link" id="link" class="form-control" placeholder="Link"
-                       required>
-                <div class="sub-label">Enter the Link to the Deal.</div>
-                <div ng-messages="couponForm.couponsCTRL.link.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">Coupon link is required.</p>
-                </div>
-              </div>
-
-              <!-- Link Box End-->
-
-              <!-- Details Box Start-->
-
-              <label for="details">Details</label>
-              <div class="form-group new-deal-form">
-                <text-angular
-                  ta-toolbar="[['bold','italics', 'underline', 'strikeThrough'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertLink', 'undo'],['charcount']]"
-                  id="details" name="details" data-ng-model="coupon.details">
-                </text-angular>
-              </div>
-
-
-              <!-- Details Box End-->
-
-              <!-- Retailer Box Start-->
-
-              <div class="form-group new-deal-form"
-                   ng-class="{ 'has-error' : createCouponForm.retailer.$invalid && submitted}" show-errors>
-                <label for="retailer">Retailer</label>
-                <input name="retailer" type="text" ng-model="coupon.retailer" id="retailer" class="form-control"
-                       placeholder="Retailer" required>
-                <div class="sub-label">Enter the Retailer of the Deal.</div>
-                <div ng-messages="couponForm.couponsCTRL.retailer.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">Retailer is required.</p>
-                </div>
-              </div>
-
-              <!-- Retailer Box End-->
-
-            </div>
-            <div class="col-lg-6 create-coupon-right">
-
-              <!-- Price Box Start-->
-
-              <div class="row price-row">
-
-
-
-                <div class="col-lg-6 price-box-euro">
-
-                  <div class="form-group new-deal-form"
-                       ng-class="{ 'has-error' : createCouponForm.price.$invalid && submitted}" show-errors>
-                    <label for="currency">Currency</label>
-                    <select  name="currency" ng-model="coupon.currency" class="form-control" id="currency" required>
-                      <option >Euro (€)</option>
-                      <option >Sterling (£)</option>
-                    </select>
-                  </div>
-
-                </div>
-
-                <div class="col-lg-6 price-box-euro">
-                  <div class="form-group new-deal-form"
-                       ng-class="{ 'has-error' : createCouponForm.price.$invalid && submitted}" show-errors>
-                    <label for="price">Price</label>
-                    <!--<div class="input-group">-->
-                    <!--<div class="input-group-addon">&euro;-->
-                    <!--</div>-->
-                    <input name="price" ng-disabled="!disablelist" type="number" ng-model="coupon.price" id="price"
-                           class="form-control" placeholder="" required>
-                    <!--</div>-->
-                    <!--<div class="sub-label">Enter either the &euro; price</div>-->
-                    <div ng-messages="couponForm.couponsCTRL.price.$error" role="alert">
-                      <p class="help-block error-text" ng-message="required">Price is required.</p>
-                    </div>
+                <div class="form-group new-deal-form"
+                     ng-class="{ 'has-error' : createCouponForm.title.$invalid && submitted}" show-errors>
+                  <label for="title">Title</label>
+                  <input name="title" type="text" ng-model="coupon.title" id="title" class="form-control"
+                         required>
+                  <div class="sub-label">Enter the Title of the Coupon.</div>
+                  <div ng-messages="couponForm.couponsCTRL.title.$error" role="alert">
+                    <p class="help-block error-text" ng-message="required">Coupon title is required.</p>
                   </div>
                 </div>
 
+                <!-- Title Box End-->
+
+                <!-- Link Box Start-->
+
+                <div class="form-group new-deal-form"
+                     ng-class="{ 'has-error' : createCouponForm.link.$invalid && submitted}" show-errors>
+                  <label for="link">Link</label>
+                  <input name="link" type="url" ng-model="coupon.link" id="link" class="form-control"
+                         required>
+                  <div class="sub-label">Enter the Link to the Coupon.</div>
+                  <div ng-messages="couponForm.couponsCTRL.link.$error" role="alert">
+                    <p class="help-block error-text" ng-message="required">Coupon link is required.</p>
+                  </div>
+                </div>
+
+                <!-- Link Box End-->
 
 
+                <!-- Retailer Box Start-->
 
-              </div>
+                <div class="form-group new-deal-form"
+                     ng-class="{ 'has-error' : createCouponForm.retailer.$invalid && submitted}" show-errors>
+                  <label for="retailer">Retailer</label>
+                  <input name="retailer" type="text" ng-model="coupon.retailer" id="retailer" class="form-control"
+                         required>
+                  <div class="sub-label">Enter the Retailer of the Coupon.</div>
+                  <div ng-messages="couponForm.couponsCTRL.retailer.$error" role="alert">
+                    <p class="help-block error-text" ng-message="required">Retailer is required.</p>
+                  </div>
+                </div>
 
-              <!-- Price Box End-->
+                <!-- Retailer Box End-->
 
-              <!-- uploadImage Box Start-->
+                <div class="row price-row">
 
-              <div class="col-md-12 create-deal-image-upload-coupon new-deal-form">
+                  <div class="col-lg-6 price-box-euro">
 
-                <div class="col-md-7 create-deal-image-detais">
-
-                  <div class="manual-upload" ng-show="coupon.urlimage.length === undefined">
-                    <label class="control-label" for="urlimage">IMAGE UPLOAD</label>
-
-                    <div class="text-center form-group controls" ng-hide="uploaderProductCoupon.queue.length">
-                            <span class="btn btn-default btn-file">
-                                Select Image <input type="file" nv-file-select uploader="uploaderProductCoupon">
-                            </span>
+                    <div class="form-group new-deal-form"
+                         ng-class="{ 'has-error' : createSavingForm.currency.$invalid && submitted}" show-errors>
+                      <label for="currency">Currency</label>
+                      <select name="currency" ng-model="coupon.currency" class="form-control" id="currency" required>
+                        <option>Euro (€)</option>
+                        <option>Sterling (£)</option>
+                      </select>
+                      <div class="sub-label">Select the Currency of the Retailer.</div>
                     </div>
-
-                    <div class="sub-label"> Upload an image of product.</div>
-                    </br>
-
-                    <div class="text-center form-group-coupon" ng-show="uploaderProductCoupon.queue.length">
-
-                      <button class="btn btn-primary" ng-click="uploadProductPictureCoupon();">Upload</button>
-                      <button class="btn btn-default" ng-click="cancelProductUploadCoupon();">Delete</button>
-
-                    </div>
-
-                    <div ng-show="success" class="text-center text-success">
-
-                      <strong>Upload Successful</strong>
-                    </div>
-
-                    <!--<div ng-show="error" class="text-center text-danger">-->
-                    <!--<strong ng-bind="error"></strong>-->
-                    <!--</div>-->
 
                   </div>
 
-                  <div class="add-image-link" ng-hide="success">
-
-                    <label class="control-label" for="urlimage" ng-hide="uploaderProductCoupon.queue.length">IMAGE
-                      URL</label>
-
-                    <div class="controls" ng-hide="uploaderProductCoupon.queue.length">
-                      <input type="url" data-ng-model="coupon.urlimage" id="urlimage" class="form-control"
-                             placeholder="Image URL" required>
-                      <div class="sub-label">Manually enter an image URL.</div>
-
+                  <div class="col-lg-6 price-box-euro">
+                    <div class="form-group new-deal-form"
+                         ng-class="{ 'has-error' : createCouponForm.minimumspend.$invalid && submitted}" show-errors>
+                      <label for="minimumspend">Minimum Spend</label>
+                      <!--<div class="input-group">-->
+                      <!--<div class="input-group-addon">&euro;-->
+                      <!--</div>-->
+                      <input name="minimumspend" ng-disabled="!disablelist" type="number" ng-model="coupon.minimumspend"
+                             id="minimumspend"
+                             class="form-control" placeholder="0">
+                      <!--</div>-->
+                      <!--<div class="sub-label">Enter either the &euro; price</div>-->
+                      <div class="sub-label">Enter the Minimum spend Required.</div>
+                      <div ng-messages="couponForm.couponsCTRL.minimumspend.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Minimum spend is required.</p>
+                      </div>
                     </div>
                   </div>
 
+
+                </div>
+
+                <div class="row price-row">
+
+                  <div class="col-lg-6 price-box-euro">
+                    <div class="form-group new-deal-form"
+                         ng-class="{ 'has-error' : createCouponForm.discount.$invalid && submitted}" show-errors>
+                      <label for="discount">Discount(Cash)</label>
+                      <!--<div class="input-group">-->
+                      <!--<div class="input-group-addon">&euro;-->
+                      <!--</div>-->
+                      <input name="discount" ng-disabled="!disablelist" type="number" ng-model="coupon.discount" id="discount"
+                             class="form-control">
+                      <!--</div>-->
+                      <!--<div class="sub-label">Enter either the &euro; price</div>-->
+                      <div class="sub-label">Enter the Discount of the Coupon.</div>
+                      <div ng-messages="couponForm.couponsCTRL.discount.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Discount Cash Amount is required. You can
+                          enter 0.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 price-box-euro"></div>
+
+                  <div class="col-lg-6 price-box-euro">
+                    <div class="form-group new-deal-form"
+                         ng-class="{ 'has-error' : createCouponForm.discountpercent.$invalid && submitted}" show-errors>
+                      <label for="discountpercent">Discount(%)</label>
+                      <!--<div class="input-group">-->
+                      <!--<div class="input-group-addon">&euro;-->
+                      <!--</div>-->
+                      <input name="discountpercent" ng-disabled="!disablelist" type="number" ng-model="coupon.discountpercent"
+                             id="discountpercent"
+                             class="form-control">
+                      <!--</div>-->
+                      <!--<div class="sub-label">Enter either the &euro; price</div>-->
+                      <div class="sub-label">Enter the Discount of the Coupon.</div>
+                      <div ng-messages="couponForm.couponsCTRL.discountpercent.$error" role="alert">
+                        <p class="help-block error-text" ng-message="required">Discount Percent is required. You can
+                          enter 0.</p>
+                      </div>
+                    </div>
+                  </div>
+
+
                 </div>
 
 
-                <div class="col-md-5 create-deal-image-preview"></br></br>
-                  <img src="{{coupon.urlimage}}" class="img-thumbnail product-upload-picture">
+              </div>
+              <div class="col-lg-6 create-saving-right">
+
+                <!-- Price Box Start-->
+
+
+                <!-- Price Box End-->
+
+                <!-- uploadImage Box Start-->
+
+                <!--<div class="col-md-12 create-deal-image-upload-saving new-deal-form">-->
+
+                <!--<div class="col-md-7 create-deal-image-detais">-->
+
+                <!--<div class="manual-upload" ng-show="urlimage.length === undefined">-->
+                <!--<label class="control-label" for="urlimage">IMAGE UPLOAD</label>-->
+
+                <!--<div class="text-center form-group controls" ng-hide="uploaderProductCoupon.queue.length">-->
+                <!--<span class="btn btn-default btn-file">-->
+                <!--Select Image <input type="file" nv-file-select uploader="uploaderProductCoupon">-->
+                <!--</span>-->
+                <!--</div>-->
+
+                <!--<div class="sub-label"> Upload an image of product.</div>-->
+                <!--</br>-->
+
+                <!--<div class="text-center form-group-coupon" ng-show="uploaderProductCoupon.queue.length">-->
+
+                <!--<button class="btn btn-primary" ng-click="uploadProductPictureCoupon();">Upload</button>-->
+                <!--<button class="btn btn-default" ng-click="cancelProductUploadCoupon();">Delete</button>-->
+
+                <!--</div>-->
+
+                <!--<div ng-show="success" class="text-center text-success">-->
+
+                <!--<strong>Upload Successful</strong>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash;<div ng-show="error" class="text-center text-danger">&ndash;&gt;-->
+                <!--&lt;!&ndash;<strong ng-bind="error"></strong>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                <!--</div>-->
+
+                <!--<div class="add-image-link" ng-hide="success">-->
+
+                <!--<label class="control-label" for="urlimage" ng-hide="uploaderProductCoupon.queue.length">IMAGE-->
+                <!--URL</label>-->
+
+                <!--<div class="controls" ng-hide="uploaderProductCoupon.queue.length">-->
+                <!--<input type="url" data-ng-model="urlimage" id="urlimage" class="form-control"-->
+                <!--placeholder="Image URL" required>-->
+                <!--<div class="sub-label">Manually enter an image URL.</div>-->
+
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--</div>-->
+
+
+                <!--<div class="col-md-5 create-deal-image-preview"></br></br>-->
+                <!--<img ng-src="{{couponImageURL}}" class="img-thumbnail product-upload-picture">-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!-- uploadImage Box Start-->
+
+                <!-- Title Box Start-->
+
+                <div class="form-group new-deal-form"
+                     ng-class="{ 'has-error' : createCouponForm.code.$invalid && submitted}" show-errors>
+                  <label for="code">Code</label>
+                  <input name="code" type="text" ng-model="coupon.code" id="code" class="form-control"
+                         required>
+                  <div class="sub-label">Enter the code for the Coupon.</div>
+                  <div ng-messages="couponForm.couponsCTRL.code.$error" role="alert">
+                    <p class="help-block error-text" ng-message="required">Coupon Code is required.</p>
+                  </div>
                 </div>
+
+                <!-- Title Box End-->
+
+                <!-- Tags Box Start-->
+
+                <div class="form-group new-deal-form"
+                     ng-class="{ 'has-error' : createCouponForm.category.$invalid && submitted}" show-errors>
+                  <label for="category">Category</label>
+                  <!--<input name="category" type="text" ng-model="category" id="category" class="form-control" placeholder="Category">-->
+                  <select name="category" ng-model="coupon.category" class="form-control" id="category" required>
+                    <option>All</option>
+                    <option>Electronics</option>
+                    <option>Clothes</option>
+                    <option>Mobile Phones</option>
+                    <option>Gaming</option>
+                    <option>Computing</option>
+                    <option>Entertainment</option>
+                    <option>HomeWare</option>
+                    <option>Childrens</option>
+                    <option>Entertainment</option>
+                    <option>Food</option>
+                    <option>Travel</option>
+                  </select>
+                  <div class="sub-label">Select Category of Coupon</div>
+                  <div ng-messages="couponForm.category.$error" role="alert">
+                    <p class="help-block error-text" ng-message="required">Category is required.</p>
+                  </div>
+                </div>
+
+                <!-- Tags Box End-->
+
+                <!-- Details Box Start-->
+
+
+                <div class="form-group new-deal-form">
+                  <label for="details">Details</label>
+                  <text-angular
+                    ta-toolbar="[['bold','italics', 'underline', 'strikeThrough'],['justifyLeft', 'justifyCenter', 'justifyRight'], ['insertLink', 'undo'],['charcount']]"
+                    id="details" name="instructions" data-ng-model="coupon.instructions">
+                  </text-angular>
+                  <div class="sub-label">Enter some details for the Coupon.</div>
+                </div>
+
+
+                <!-- Details Box End-->
+
+                <!--&lt;!&ndash; StartDate Box Start&ndash;&gt;-->
+
+                <!--<div class="form-group" show-errors>-->
+                <!--<label for="price">Title</label>-->
+                <!--<input name="price" type="number" ng-model="price" id="price" class="form-control" placeholder="Price" required>-->
+                <!--<div ng-messages="couponForm.price.$error" role="alert">-->
+                <!--<p class="help-block error-text" ng-message="required">Price is required.</p>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; StartDate Box End&ndash;&gt;-->
+
+                <!--&lt;!&ndash; EndDate Box Start&ndash;&gt;-->
+
+                <!--<div class="form-group" show-errors>-->
+                <!--<label for="price">Title</label>-->
+                <!--<input name="price" type="number" ng-model="price" id="price" class="form-control" placeholder="Price" required>-->
+                <!--<div ng-messages="couponForm.price.$error" role="alert">-->
+                <!--<p class="help-block error-text" ng-message="required">Price is required.</p>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; EndDate Box End&ndash;&gt;-->
+
+
+                <!--Submit Button Start-->
+
+
+                <div class="form-group buttons-cancel-submit coupon-buttons text-center">
+                  <button class="btn btn-default " ng-click="cancel()">Cancel</button>
+                  <button type="submit" class="btn btn-success " ng-click="updateCoupon(); submitFormCoupon(createCouponForm.$valid)">Save Details
+                  </button>
+
+                </div>
+
+                <div ng-show="error" class="text-danger text-center buttons-cancel-submit">
+                  <strong ng-bind="error"></strong>
+                </div>
+
+                <!--Submit Button End-->
+
               </div>
 
-              <!-- uploadImage Box Start-->
-
-              <!-- Tags Box Start-->
-
-              <div class="form-group new-deal-form"
-                   ng-class="{ 'has-error' : createCouponForm.category.$invalid && submitted}" show-errors>
-                <label for="category">Category</label>
-                <!--<input name="category" type="text" ng-model="category" id="category" class="form-control" placeholder="Category">-->
-                <select name="category" ng-model="coupon.category" class="form-control" id="category" required>
-                  <option>All</option>
-                  <option>Electronics</option>
-                  <option>Clothes</option>
-                  <option>Mobile Phones</option>
-                  <option>Gaming</option>
-                  <option>Computing</option>
-                  <option>Entertainment</option>
-                  <option>HomeWare</option>
-                  <option>Childrens</option>
-                  <option>Entertainment</option>
-                  <option>Food</option>
-                  <option>Travel</option>
-                </select>
-                <div class="sub-label">Select Category of Deal</div>
-                <div ng-messages="couponForm.category.$error" role="alert">
-                  <p class="help-block error-text" ng-message="required">Category is required.</p>
-                </div>
-              </div>
-
-              <!-- Tags Box End-->
-
             </div>
 
 
-            <!--<div class="form-group  buttons-cancel-submit text-center">-->
-              <!--<input type="submit" value="Update" class="btn btn-default">-->
-            <!--</div>-->
-            <!--<div ng-show="error" class="text-danger">-->
-              <!--<strong ng-bind="error"></strong>-->
-            <!--</div>-->
+          </fieldset>
 
-            <div class="form-group buttons-cancel-submit text-center">
-              <button class="btn btn-default " ng-click="cancel()">Cancel</button>
-              <button type="submit" class="btn btn-success " ng-click="update(); submitFormCoupon(createCouponForm.$valid)" >Save Details </button>
+        </form>
 
-            </div>
-
-            <div ng-show="error" class="text-danger text-center buttons-cancel-submit">
-              <strong ng-bind="error"></strong>
-            </div>
-
-
-          </div>
-
-        </fieldset>
-      </form>
-
-
+      </div>
     </div>
   </div>
 </section>

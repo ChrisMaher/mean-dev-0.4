@@ -274,7 +274,7 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
         };
 
         // Update existing Coupon
-        $scope.update = function () {
+        $scope.updateCoupon = function () {
 
             var coupon = $scope.coupon;
 

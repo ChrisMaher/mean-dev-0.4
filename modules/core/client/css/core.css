@@ -1002,6 +1002,14 @@ body {
 
 }
 
+.black-title > a{
+
+    color: #000000 !important;
+
+}
+
+
+
 .avatar-section{
 
     padding: 0px !important;
