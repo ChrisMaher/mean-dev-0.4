@@ -103,14 +103,14 @@
 
                   <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
 
-                    <md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
+                    <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
                                class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
-                    <md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
+                    <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
                                class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
-                    <md-button ng-show="authentication.user" ng-click="upVoteHome(coupon)" type="button"
+                    <md-button aria-label="button" ng-show="authentication.user" ng-click="upVoteHome(coupon)" type="button"
                                class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
-                    <md-button ng-show="authentication.user" ng-click="downVoteHome(coupon)" type="button"
+                    <md-button aria-label="button" ng-show="authentication.user" ng-click="downVoteHome(coupon)" type="button"
                                class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
 
@@ -143,7 +143,7 @@
                     </div>
                     <div class="col-lg-5 ">
 
-                      <md-button ng-show="authentication.user" href="{{coupon.link}}" target="_blank" type="button"
+                      <md-button  href="{{coupon.link}}" target="_blank" type="button"
                                  class=" visit-coupon-button">Copy code & Visit</md-button>
 
 
@@ -163,10 +163,10 @@
                 <div class="col-lg-12 middle-post-details">
 
                   <div class="col-lg-9 middle-posted-by">
-                    <a ng-href="/users/{{user._id}}"><img ng-src="{{coupon.user.profileImageURL}}"
+                    <a ng-href="/users/{{coupon.user.username}}"><img ng-src="{{coupon.user.profileImageURL}}"
                                                           class="small-profile-image-thumbnail"
-                                                          alt="{{coupon.user.displayName}}" height="20px"
-                                                          width="20px"/></a> <span class="username" data-ng-bind="coupon.user.displayName"></span>
+                                                          alt="{{coupon.user.username}}" height="20px"
+                                                          width="20px"/> <span class="username" data-ng-bind="coupon.user.username"></span></a>
                     | <span data-ng-bind="coupon.created | date:'mediumDate'"> </span>
                   </div>
 
@@ -186,7 +186,7 @@
                 <!--Posted on-->
                 <!--<span data-ng-bind="coupon.created | date:'medium'"></span>-->
                 <!--by-->
-                <!--<span data-ng-bind="coupon.user.displayName"></span>-->
+                <!--<span data-ng-bind="coupon.user.username"></span>-->
                 <!--</small>-->
 
 
@@ -275,9 +275,9 @@
                           <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
                           <!--</md-button>-->
 
-                          <a ng-href="/users/{{user._id}}"><img ng-src="{{coupon.user.profileImageURL}}"
+                          <a ng-href="/users/{{coupon.user.username}}"><img ng-src="{{coupon.user.profileImageURL}}"
                                                                 class="small-profile-image-thumbnail"
-                                                                alt="{{coupon.user.displayName}}" height="20px"
+                                                                alt="{{coupon.user.username}}" height="20px"
                                                                 width="20px"/></a></span>
 
                         </div>
@@ -313,9 +313,9 @@
                           <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
                           <!--</md-button>-->
 
-                          <a ng-href="/users/{{user._id}}"><img ng-src="{{coupon.user.profileImageURL}}"
+                          <a ng-href="/users/{{coupon.user.username}}"><img ng-src="{{coupon.user.profileImageURL}}"
                                                                 class="small-profile-image-thumbnail"
-                                                                alt="{{coupon.user.displayName}}" height="20px"
+                                                                alt="{{coupon.user.username}}" height="20px"
                                                                 width="20px"/></a></span>
 
                         </div>

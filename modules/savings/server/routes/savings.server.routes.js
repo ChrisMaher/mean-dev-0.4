@@ -28,8 +28,14 @@ module.exports = function (app) {
     app.route('/savings/savingCountToday').all()
         .get(savings.countSavingsToday);
 
+    app.route('/api/savings/of/:userid')
+        .get(savings.listOf);
+
+    app.route('/api/savings/of/:username')
+        .get(savings.listOf);
 
     // Finish by binding the saving middleware
     app.param('savingId', savings.savingByID);
+    app.param('userid', savings.listOf);
 
 };

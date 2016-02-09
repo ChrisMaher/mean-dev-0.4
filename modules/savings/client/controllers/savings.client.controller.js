@@ -1,8 +1,8 @@
 'use strict';
 
 // Deals controller
-angular.module('savings').controller('SavingsController', ['$scope', '$timeout', '$stateParams', '$location', '$window', 'Authentication', 'Savings', 'FileUploader', 'Posts',
-    function($scope, $timeout, $stateParams,  $location, $window, Authentication, Savings, FileUploader, Posts) {
+angular.module('savings').controller('SavingsController', ['$scope',  '$http', '$timeout', '$stateParams', '$location', '$window','$state' , 'Authentication', 'Savings', 'FileUploader', 'Posts', 'Users',
+    function($scope,  $http, $timeout, $stateParams,  $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
@@ -15,18 +15,27 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         $scope.weekly = true;
         $scope.monthly = false;
         $scope.disablelist = true;
+        $scope.usernamevalue = $stateParams.username;
         $scope.currency = "Euro (€)";
+        $scope.filterUserId = '';
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
         Savings.query({}, function(resp){
             //console.log(resp);
             $scope.savings = resp;
         });
+        $scope.findUser = function () {
+
+            $scope.ourUser = Users.get({
+                username: $stateParams.username
+            });
+
+        };
+
 
         //$scope.user.imageURL = '';
         $scope.submitFormSaving = function(isValid) {
             $scope.submitted = true;
         };
-
 
         $scope.hottest = function() {
 
@@ -49,8 +58,6 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
         };
 
         $scope.timeFrame = function (classNum) {
-
-            alert($scope.numOfPostsOnSaving.count);
 
             if(classNum === 1){
                 $scope.weekly = true;
@@ -337,7 +344,6 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
                 saving.votes++;
                 saving.votesreal++;
-                //alert(saving.votes);
                 saving.upVoters.push($scope.user);
 
             }
@@ -387,6 +393,8 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
                 saving.downVoters.push($scope.user);
 
 
+
+
             }
 
             // Check if there is a upVote to remove
@@ -400,6 +408,8 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
             if (hasVoted2) {
 
+
+
                 for(var i = saving.upVoters.length - 1; i >= 0; i--) {
 
                     if(saving.upVoters[i] === $scope.user._id) {
@@ -410,6 +420,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$timeout',
 
             saving.$update(function () {
                 //$location.path('savings/' + saving._id);
+
             }, function (errorResponse) {
                 // rollback votes on fail also
                 $scope.error = errorResponse.data.message;

@@ -25,6 +25,8 @@ module.exports = function (app) {
   app.route('/posts/custCountCoupon')
       .get(posts.custCountCoupon);
 
+  app.route('/api/posts/of/:userid').get(posts.listOf);
+
 
   // Single post routes
   app.route('/posts/:postId').all(postsPolicy.isAllowed)

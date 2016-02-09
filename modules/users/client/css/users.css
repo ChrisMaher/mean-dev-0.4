@@ -34,3 +34,15 @@
   min-height: 150px;
   max-height: 150px;
 }
+
+.profile-tab > li > a {
+
+  background-color: rgba(37, 112, 193, 0.96) !important;
+
+}
+
+.profile-tab > li > a:hover {
+
+  background-color: rgba(37, 112, 193, 0.96) !important;
+
+}

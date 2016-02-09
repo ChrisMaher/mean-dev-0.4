@@ -967,6 +967,12 @@ body {
 
 }
 
+.profile-tab {
+
+    float: left;
+
+}
+
 .submit-tab {
 
     float: right;
@@ -995,6 +1001,18 @@ body {
 .submit-tab > li > a:hover {
 
     background-color: rgb(126, 22, 0);
+
+}
+
+.profile-tab > li > a {
+
+    background-color: rgba(37, 112, 193, 0.96) !important;
+
+}
+
+.profile-tab > li > a:hover {
+
+    background-color: rgba(37, 112, 193, 0.96) !important;
 
 }
 

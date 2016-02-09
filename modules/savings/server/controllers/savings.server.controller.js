@@ -42,20 +42,21 @@ exports.update = function (req, res) {
 
     var saving = req.saving;
 
-    saving.title  = req.body.title;
-    saving.retailer  = req.body.retailer;
-    saving.price  = req.body.price;
-    saving.image  = req.body.image;
-    saving.votes = req.body.votes;
-    saving.urlimage  = req.body.urlimage;
-    saving.tags  = req.body.tags;
-    saving.upVoters  = req.body.upVoters;
-    saving.downVoters  = req.body.downVoters;
-    saving.link  = req.body.link;
-    saving.details  = req.body.details;
-    saving.currency  = req.body.currency;
+    //saving.title  = req.body.title;
+    //saving.retailer  = req.body.retailer;
+    //saving.price  = req.body.price;
+    //saving.image  = req.body.image;
+    //saving.votes = req.body.votes;
+    //saving.votesreal = req.body.votesreal;
+    //saving.urlimage  = req.body.urlimage;
+    //saving.tags  = req.body.tags;
+    //saving.upVoters  = req.body.upVoters;
+    //saving.downVoters  = req.body.downVoters;
+    //saving.link  = req.body.link;
+    //saving.details  = req.body.details;
+    //saving.currency  = req.body.currency;
 
-    //saving = _.extend(saving, req.body);
+    saving = _.extend(saving, req.body);
 
     saving.save(function (err) {
         if (err) {
@@ -141,6 +142,19 @@ exports.countSavings = function (req, res) {
                 res.jsonp(data);
             }
         });
+};
+
+exports.listOf = function(req, res) { Saving.find( { user: req.params.userid }).sort('-created').exec(function(err, posts) {
+
+    if (err) {
+        return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+    } else {
+        console.log(req.params.userid);
+        res.jsonp(posts);
+    }
+});
 };
 
 /**

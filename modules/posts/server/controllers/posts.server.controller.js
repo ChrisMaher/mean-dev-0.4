@@ -174,6 +174,17 @@ exports.custCountCoupon = function(req, res) {
         });
 };
 
+exports.listOf = function(req, res) { Post.find( { user: req.params.userid }).sort('-created').exec(function(err, posts) {
+    if (err) {
+        return res.status(400).send({
+            message: errorHandler.getErrorMessage(err)
+        });
+    } else {
+        res.jsonp(posts);
+    }
+});
+};
+
 /**
  * Post middleware
  */

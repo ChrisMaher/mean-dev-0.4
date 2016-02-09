@@ -137,14 +137,14 @@
 
                 <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
 
-                  <md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
+                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
                           class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
-                  <md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
+                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
                           class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
-                  <md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"
+                  <md-button aria-label="button" ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"
                           class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
-                  <md-button ng-show="authentication.user" ng-click="downVoteHome(saving)" type="button"
+                  <md-button aria-label="button" ng-show="authentication.user" ng-click="downVoteHome(saving)" type="button"
                           class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
 
@@ -178,11 +178,11 @@
               <div class="col-lg-12 middle-post-details">
                 <section data-ng-controller="PostsController">
                 <div class="col-lg-6 middle-posted-by">
-                  <a ng-href="/users/{{user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                  <a ng-href="/users/{{saving.user.username}}"><img ng-src="{{saving.user.profileImageURL}}"
                                                         class="small-profile-image-thumbnail"
-                                                        alt="{{saving.user.displayName}}" height="20px"
-                                                        width="20px"/></a> <span class="username"
-                                                        data-ng-bind="saving.user.displayName"></span>
+                                                        alt="{{saving.user.username}}" height="20px"
+                                                        width="20px"/> <span class="username"
+                                                        data-ng-bind="saving.user.username"></span></a>
                                                          |
                   <span am-time-ago="saving.created"></span>
                   <!-- | <a class="username" ng-href="/savings/{{saving._id}}"> Comments : {{numOfCommentsSaving.count}}</a>-->
@@ -197,7 +197,7 @@
               <!--Posted on-->
               <!--<span data-ng-bind="saving.created | date:'medium'"></span>-->
               <!--by-->
-              <!--<span data-ng-bind="saving.user.displayName"></span>-->
+              <!--<span data-ng-bind="saving.user.username"></span>-->
               <!--</small>-->
 
 
@@ -213,7 +213,7 @@
 
               <div class="row center-block save-button">
               <a data-ng-href="/savings/{{saving._id}}" >
-                <md-button class="save-button-md">Save</md-button>
+                <md-button aria-label="button" class="save-button-md">Save</md-button>
               </a>
               </div>
 
@@ -285,9 +285,9 @@
                                  <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
                       <!--</md-button>-->
 
-                      <a ng-href="/users/{{user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                      <a ng-href="/users/{{saving.user.username}}"><img ng-src="{{saving.user.profileImageURL}}"
                                                             class="small-profile-image-thumbnail"
-                                                            alt="{{saving.user.displayName}}" height="20px"
+                                                            alt="{{saving.user.username}}" height="20px"
                                                             width="20px"/></a></span>
 
                     </div>
@@ -323,9 +323,9 @@
                       <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
                       <!--</md-button>-->
 
-                      <a ng-href="/users/{{user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                      <a ng-href="/users/{{saving.user.username}}"><img ng-src="{{saving.user.profileImageURL}}"
                                                             class="small-profile-image-thumbnail"
-                                                            alt="{{saving.user.displayName}}" height="20px"
+                                                            alt="{{saving.user.username}}" height="20px"
                                                             width="20px"/></a></span>
 
                     </div>
