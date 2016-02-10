@@ -31,6 +31,8 @@ module.exports = function (app) {
       .get(posts.usersCommentsPostedTotal);
 
 
+
+
   // Single post routes
   app.route('/posts/:postId').all(postsPolicy.isAllowed)
       .get(posts.read)

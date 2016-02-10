@@ -147,8 +147,12 @@ exports.countSavings = function (req, res) {
 /**
  * Count of Deals by User
  */
-exports.usersSavingsPostedTotal = function (req, res) {
+exports.usersSavingsPostedTotal = function (req, res, idIn) {
     Saving.count({
+
+            $where: function () {
+                return _id === idIn;
+            }
 
     },
 
@@ -184,9 +188,9 @@ exports.listOf = function(req, res) { Saving.find( { user: req.params.userid }).
 exports.countSavingsToday = function (req, res) {
     Saving.count({
 
-            $where: function () {
-                return Date.now() - this._id.getTimestamp() < (24 * 60 * 60 * 1000);
-            }
+        $where: function () {
+            return Date.now() - this._id.getTimestamp() < (24 * 60 * 60 * 1000);
+        }
 
         },
 

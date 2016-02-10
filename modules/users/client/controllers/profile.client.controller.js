@@ -5,13 +5,15 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
 
         $scope.user = Authentication.user;
 
+        $http.get('api/users/' + $stateParams.userId).success(function(data) {
+            $scope.profile=data;
+        });
+
         $scope.usersSavingsPostedTotal1 = Savings.usersSavingsPostedTotal();
         $scope.usersCouponsPostedTotal1 = Coupons.usersCouponsPostedTotal();
         $scope.usersCommentsPostedTotal1 = Posts.usersCommentsPostedTotal();
 
-        $http.get('api/users/' + $stateParams.userId).success(function(data) {
-            $scope.profile=data;
-        });
+
 
 
         $scope.capatilize = function capitalizeFirstLetter(string) {
