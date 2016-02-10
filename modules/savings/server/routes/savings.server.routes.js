@@ -28,6 +28,9 @@ module.exports = function (app) {
     app.route('/savings/savingCountToday').all()
         .get(savings.countSavingsToday);
 
+    app.route('/savings/usersSavingsPostedTotal').all()
+        .get(savings.usersSavingsPostedTotal);
+
     app.route('/api/savings/of/:userid')
         .get(savings.listOf);
 
