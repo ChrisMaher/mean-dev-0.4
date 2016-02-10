@@ -28,6 +28,9 @@ module.exports = function (app) {
     app.route('/coupons/couponCountToday').all()
         .get(coupons.countCouponsToday);
 
+    app.route('/coupons/usersCouponsPostedTotal').all()
+        .get(coupons.usersCouponsPostedTotal);
+
 
     // Finish by binding the coupon middleware
     app.param('couponId', coupons.couponByID);

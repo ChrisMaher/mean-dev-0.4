@@ -27,6 +27,9 @@ module.exports = function (app) {
 
   app.route('/api/posts/of/:userid').get(posts.listOf);
 
+  app.route('/posts/usersCommentsPostedTotal').all()
+      .get(posts.usersCommentsPostedTotal);
+
 
   // Single post routes
   app.route('/posts/:postId').all(postsPolicy.isAllowed)

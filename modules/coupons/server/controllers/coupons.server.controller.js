@@ -142,6 +142,25 @@ exports.countCoupons = function (req, res) {
 };
 
 /**
+ * Count of Coupons
+ */
+exports.usersCouponsPostedTotal = function (req, res) {
+    Coupon.count({},
+
+        function (err, couponsCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                var data = {};
+                data.count = couponsCount;
+                res.jsonp(data);
+            }
+        });
+};
+
+/**
  * Count of Deals Today
  */
 exports.countCouponsToday = function (req, res) {

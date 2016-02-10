@@ -18,6 +18,11 @@ angular.module('coupons').factory('Coupons', ['$resource',
         method: 'GET',
         url: '/coupons/couponCountToday',
         isArray: false
+      },
+      usersCouponsPostedTotal: {
+        method: 'GET',
+        url: '/coupons/usersCouponsPostedTotal',
+        isArray: false
       }
     });
   }

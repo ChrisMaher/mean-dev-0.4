@@ -111,6 +111,25 @@ exports.countPosts = function (req, res) {
         });
 };
 
+/**
+ * Count of Posts
+ */
+exports.usersCommentsPostedTotal = function (req, res) {
+    Post.count({},
+
+        function (err, postsCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                var data = {};
+                data.count = postsCount;
+                res.jsonp(data);
+            }
+        });
+};
+
 
 /**
  * Count of Posts Today

@@ -28,6 +28,11 @@ angular.module('posts').factory('Posts', ['$resource',
         method: 'GET',
         url: '/posts/custCountCoupon',
         isArray: false
+      },
+      usersCommentsPostedTotal: {
+        method: 'GET',
+        url: '/posts/usersCommentsPostedTotal',
+        isArray: false
       }
     });
   }
