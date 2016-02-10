@@ -135,6 +135,7 @@ exports.countSavings = function (req, res) {
             if (err) {
                 return res.status(400).send({
                     message: errorHandler.getErrorMessage(err)
+
                 });
             } else {
                 var data = {};
@@ -147,11 +148,11 @@ exports.countSavings = function (req, res) {
 /**
  * Count of Deals by User
  */
-exports.usersSavingsPostedTotal = function (req, res, idIn) {
+exports.usersSavingsPostedTotal = function (req, res, userId) {
     Saving.count({
 
             $where: function () {
-                return _id === idIn;
+                return this._id === userId;
             }
 
     },
