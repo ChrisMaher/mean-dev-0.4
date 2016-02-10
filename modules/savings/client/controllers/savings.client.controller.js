@@ -37,7 +37,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         $scope.hottest = function () {
 
-            alert(123);
+            //alert(123);
 
             if ($scope.hottestsorted === false) {
                 $scope.hottestsorted = true;
@@ -49,7 +49,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         $scope.setSort = function (sort) {
 
-            alert(sort);
+            //alert(sort);
 
             $scope.orderByField = sort;
 
@@ -69,7 +69,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         $scope.toggleTop = function () {
 
-            alert("Top");
+            //alert("Top");
 
             if ($scope.top6 === false) {
                 $scope.top6 = true;
@@ -168,7 +168,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         // Called after the user has failed to uploaded a new picture
         $scope.uploaderProductSaving.onErrorItem = function (fileItem, response, status, headers) {
 
-            alert("Failed." + $scope.user.imageURL);
+            //alert("Failed." + $scope.user.imageURL);
 
             // Clear upload buttons
             $scope.cancelProductUploadSaving();
@@ -299,7 +299,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             }
 
 
-            alert($scope.saving.currency);
+            //alert($scope.saving.currency);
 
             saving.$update(function () {
                 $location.path('savings/' + saving._id);

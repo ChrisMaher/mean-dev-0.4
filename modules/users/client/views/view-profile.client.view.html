@@ -5,7 +5,7 @@
     <div class="col-sm-12" id="below-navbar">
 
       <ul role="presentation" class="nav nav-tabs profile-tab">
-        <li role="presentation"><a href="#">Members > {{profile.username}} </a></li>
+        <li role="presentation"><a href="#">{{profile.username}} </a></li>
       </ul>
 
 
@@ -68,7 +68,7 @@
                     Savings Posted
                   </div>
                   <div class="col-lg-12 text-center">
-                    20
+                    {{savings.count}}
                   </div>
                 </div>
                 <div class="col-lg-6 text-center">
@@ -117,7 +117,7 @@
 
         <!--</div>-->
 
-        <div dir-paginate="saving in savings | filter:{user: {_id: usernamevalue}} | itemsPerPage:4"
+        <div dir-paginate="saving in savings | filter:{user: {_id: usernamevalue}} | itemsPerPage:10"
              class="list-group-item">
 
 

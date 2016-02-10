@@ -128,7 +128,7 @@
 
                   <!--<h4 href="#!/coupons/{{coupon._id}}" ng-bind="coupon.title +' (&euro;'+  coupon.price +' @ '+  coupon.retailer+')'"></h4>-->
                   <h4>
-                  <a ng-href="/coupons/{{coupon._id}}"  ng-bind="coupon.discount +'% '+ coupon.title +' @ '+  coupon.retailer "></a>
+                  <a ng-href="/coupons/{{coupon._id}}"  ng-bind="'€' + coupon.discount +' '+ coupon.title +' @ '+  coupon.retailer "></a>
                   </h4>
 
                 </div>
@@ -143,8 +143,8 @@
                     </div>
                     <div class="col-lg-5 ">
 
-                      <md-button  href="{{coupon.link}}" target="_blank" type="button"
-                                 class=" visit-coupon-button">Copy code & Visit</md-button>
+                      <md-button  href="/coupons/{{coupon._id}}" type="button"
+                                 class=" visit-coupon-button">View Coupon</md-button>
 
 
                     </div>

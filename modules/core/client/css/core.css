@@ -262,15 +262,13 @@ body {
     padding: 15px;
     padding-bottom: 30px;
     background-color: #FFFFFF;
-    border-top: #dddddd 1px solid;
-    border-bottom: #dddddd 1px solid;
-    border-left: #dddddd 1px solid;
+    border: #dddddd 1px solid;
 
-    -moz-border-radius-bottomleft: 10px;
-    -moz-border-radius-topleft: 10px;
 
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    -moz-border-radius: 10px;
+
+    border-radius: 10px;
+
 
 }
 
@@ -1005,6 +1003,34 @@ body {
 .black-title > a{
 
     color: #000000 !important;
+
+}
+
+.why-register-text{
+
+    padding: 10px;
+    /*border: 1px solid #dddddd;*/
+    height: 320px;
+    border-radius: 10px;
+
+}
+
+.why-register{
+
+   padding-bottom: 10px;
+
+}
+
+.why-register-ul{
+
+    font-size: 19px;
+    padding-top: 20px;
+
+}
+
+.why-register-ul > li{
+
+    padding: 3px;
 
 }
 
