@@ -23,6 +23,11 @@ angular.module('savings').factory('Savings', ['$resource',
         method: 'GET',
         url: '/api/savings/of/:userid',
         isArray: true
+      },
+      usersSavingsPostedTotal: {
+        method: 'GET',
+        url: '/savings/usersSavingsPostedTotal',
+        isArray: false
       }
     });
   }

@@ -144,6 +144,27 @@ exports.countSavings = function (req, res) {
         });
 };
 
+/**
+ * Count of Deals by User
+ */
+exports.usersSavingsPostedTotal = function (req, res) {
+    Saving.count({
+
+    },
+
+        function (err, savingsCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+                });
+            } else {
+                var data = {};
+                data.count = savingsCount;
+                res.jsonp(data);
+            }
+        });
+};
+
 exports.listOf = function(req, res) { Saving.find( { user: req.params.userid }).sort('-created').exec(function(err, posts) {
 
     if (err) {

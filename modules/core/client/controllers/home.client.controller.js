@@ -15,6 +15,11 @@ angular.module('core').controller('HomeController', ['$scope', '$location', 'Aut
         $scope.numOfSavings = Savings.countSavings();
         $scope.numOfSavingsToday = Savings.countSavingsToday();
 
+
+       // $scope.usersCouponsPostedTotal = Coupons.usersCouponsPostedTotal();
+        // $scope.usersCommentsPostedTotal = Posts.usersCommentsPostedTotal();
+        //$scope.usersVotesTotal = Savings.usersVostesTotal();
+
         $scope.numOfUsers = Users.countUsers();
         $scope.numOfUsersToday = Users.countUsersToday();
 
