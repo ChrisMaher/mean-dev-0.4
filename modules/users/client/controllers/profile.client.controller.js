@@ -16,9 +16,9 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
 
 
 
-        $scope.capatilize = function capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        };
+        //$scope.capatilize = function capitalizeFirstLetter(string) {
+        //    return string.charAt(0).toUpperCase() + string.slice(1);
+        //};
 
 
 

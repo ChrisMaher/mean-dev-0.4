@@ -149,6 +149,13 @@ exports.countSavings = function (req, res) {
  * Count of Deals by User
  */
 exports.usersSavingsPostedTotal = function (req, res, userId) {
+
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+        return res.status(400).send({
+            message: 'Saving Parameter is invalid ' + userId
+        });
+    }
+
     Saving.count({
 
             $where: function () {
@@ -160,7 +167,9 @@ exports.usersSavingsPostedTotal = function (req, res, userId) {
         function (err, savingsCount) {
             if (err) {
                 return res.status(400).send({
+
                     message: errorHandler.getErrorMessage(err)
+
                 });
             } else {
                 var data = {};
