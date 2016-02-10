@@ -5,7 +5,7 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
 
         $scope.user = Authentication.user;
 
-        $scope.usersSavingsPostedTotal = Savings.usersSavingsPostedTotal();
+        $scope.usersSavingsPostedTotal1 = Savings.usersSavingsPostedTotal();
 
         $http.get('api/users/' + $stateParams.userId).success(function(data) {
             $scope.profile=data;
