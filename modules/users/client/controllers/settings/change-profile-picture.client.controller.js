@@ -14,8 +14,7 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
                 var full = $scope.user.providerData.image.url;
                 full = full.substring(0, full.length - 2);
 
-                console.log(full + '120');
-                return full + '120'
+                $scope.changedAvatar = full + '120';
 
             }
 
