@@ -52,7 +52,7 @@
             </div>
 
             <!-- Image Preview -->
-            <div class="form-group text-center">
+            <div class="form-group text-center social-photo">
               <!-- User is connected to FB but no Avatar = Show Random Avatar -->
 
               <!-- User is connected to FB with Avatar = show FB Avatar -->
@@ -70,8 +70,8 @@
               <!-- User is connected to FB with Avatar = show FB Avatar -->
               <img
                 ng-show="user.provider === 'google' "
-                ng-src="{{user.providerData.image.url}}"
-                ng-click="selectAvatar(user.providerData.image.url)"
+                ng-src="{{googleAvatar}}"
+                ng-click="selectAvatar(googleAvatar)"
                 alt="{{user.displayName}}'s Google Avatar">
 
             </div>

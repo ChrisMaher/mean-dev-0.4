@@ -7,6 +7,18 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
         $scope.imageURL = $scope.user.profileImageURL;
         $scope.avatarSelected = false;
 
+        $scope.googleAvatar = function(){
+
+            if($scope.user.provider === 'google'){
+
+                var full = $scope.user.providerData.image.url;
+                full = full.substring(0, str.length - 2);
+                return full + '120'
+
+            }
+
+        };
+
         $scope.randomAvatar1 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
         $scope.randomAvatar2 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
         $scope.randomAvatar3 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';

@@ -267,6 +267,13 @@ body {
 
 }
 
+.social-photo > img{
+
+    width:120px;
+    height:120px;
+
+}
+
 .avatar-text {
 
     height: 30px;
