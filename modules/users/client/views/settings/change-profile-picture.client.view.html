@@ -57,7 +57,7 @@
 
               <!-- User is connected to FB with Avatar = show FB Avatar -->
               <img
-                ng-show="isConnectedSocialAccount('facebook') && user.providerData.facebook.picture.data.is_silhouette === false"
+                ng-show="user.provider === 'facebook' "
                 ng-src="{{user.providerData.facebook.picture.data.url}}"
                 ng-click="selectAvatar(user.providerData.facebook.picture.data.url)"
                 alt="{{user.displayName}}'s Facebook Avatar">
@@ -69,7 +69,7 @@
 
               <!-- User is connected to FB with Avatar = show FB Avatar -->
               <img
-                ng-show="isConnectedSocialAccount('google') && user.providersData.google.image.isDefault === false"
+                ng-show="user.provider === 'google' "
                 ng-src="{{user.additionalProvidersData.google.image.url}}"
                 ng-click="selectAvatar(user.additionalProvidersData.google.image.url)"
                 alt="{{user.displayName}}'s Google Avatar">
