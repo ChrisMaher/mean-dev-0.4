@@ -70,8 +70,8 @@
               <!-- User is connected to FB with Avatar = show FB Avatar -->
               <img
                 ng-show="user.provider === 'google' "
-                ng-src="{{user.providesData.google.image.url}}"
-                ng-click="selectAvatar(user.providesData.google.image.url)"
+                ng-src="{{user.providerData.google.image.url}}"
+                ng-click="selectAvatar(user.providerData.google.image.url)"
                 alt="{{user.displayName}}'s Google Avatar">
 
             </div>
