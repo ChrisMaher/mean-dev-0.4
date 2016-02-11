@@ -19,6 +19,9 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.currency = "Euro (€)";
         $scope.filterUserId = '';
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
+        $scope.isDisabledUp = false;
+        $scope.isDisabledDown = false;
+
         Savings.query({}, function (resp) {
             //console.log(resp);
             $scope.savings = resp;
@@ -421,6 +424,40 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
                 // rollback votes on fail also
                 $scope.error = errorResponse.data.message;
             });
+
+        };
+
+        $scope.disableButtonUp = function(saving) {
+
+            var hasVotedUp = saving.upVoters.filter(function (voter) {
+
+                    return voter === $scope.user._id;
+
+                }).length > 0;
+
+            if(hasVotedUp){
+                return true;
+
+            }else{
+                return false;
+            }
+
+        };
+
+        $scope.disableButtonDown = function(saving) {
+
+            var hasVotedUp = saving.downVoters.filter(function (voter) {
+
+                    return voter === $scope.user._id;
+
+                }).length > 0;
+
+            if(hasVotedUp){
+                return true;
+
+            }else{
+                return false;
+            }
 
         };
 

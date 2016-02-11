@@ -411,6 +411,40 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
 
         };
 
+        $scope.disableButtonUp = function(coupon) {
+
+            var hasVotedUp = coupon.upVoters.filter(function (voter) {
+
+                    return voter === $scope.user._id;
+
+                }).length > 0;
+
+            if(hasVotedUp){
+                return true;
+
+            }else{
+                return false;
+            }
+
+        };
+
+        $scope.disableButtonDown = function(coupon) {
+
+            var hasVotedUp = coupon.downVoters.filter(function (voter) {
+
+                    return voter === $scope.user._id;
+
+                }).length > 0;
+
+            if(hasVotedUp){
+                return true;
+
+            }else{
+                return false;
+            }
+
+        };
+
 
     }
 ]);

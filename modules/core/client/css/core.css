@@ -148,6 +148,19 @@ body {
 
 }
 
+.main-deals-profile {
+
+    min-height: 2470px;
+    /*border: #000000 1px solid;*/
+    padding: 15px;
+    background-color: #FFFFFF;
+    border: #dddddd 1px solid;
+
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+}
+
 .main-coupons {
 
     /*min-height: 2230px;*/
@@ -1896,7 +1909,7 @@ body {
 }
 
 .vote-down-button {
-    color: rgb(141, 133, 133);
+    color: white;
     background-color: rgb(187, 187, 187) !important;
     /*border-radius: 10px ;*/
     font-size: 16px;

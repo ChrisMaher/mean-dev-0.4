@@ -1,10 +1,9 @@
 Design
 Logo
 
-Indication user has voted on a Saving
-Fix FB and G+ Avatars
-
 Profile Page
+
+Total Votes Count
 
 Social Networking Elements
 

@@ -46,12 +46,16 @@
 
                   <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
                              class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
+
                   <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
                              class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
-                  <md-button aria-label="button" ng-show="authentication.user" ng-click="upVoteHome(coupon)" type="button"
+                  <!--Logged In Buttons-->
+
+                  <md-button aria-label="button" ng-disabled="disableButtonUp(coupon)" ng-show="authentication.user" ng-click="upVoteHome(coupon)" type="button"
                              class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
-                  <md-button aria-label="button" ng-show="authentication.user" ng-click="downVoteHome(coupon)" type="button"
+
+                  <md-button aria-label="button" ng-disabled="disableButtonDown(coupon)" ng-show="authentication.user" ng-click="downVoteHome(coupon)" type="button"
                              class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
                 </div>
@@ -473,9 +477,7 @@
                       </div>
                       <div class="col-lg-9 text-center timeframe-row-item-3">
 
-                        <a class="timeframe-row-item-3-text" ng-href="/coupons/{{coupon._id}}">€ {{coupon.discount}} {{coupon.title}} @ ({{coupon.retailer}})
-
-                        </a>
+                        <a class="timeframe-row-item-3-text" ng-href="{{coupon.link}}"  target="_blank" ng-bind="coupon.discount +'% '+ coupon.title +' @ '+  coupon.retailer "></a>
 
                       </div>
                     </div>

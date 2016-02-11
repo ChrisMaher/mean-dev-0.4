@@ -105,17 +105,6 @@
 
         </div>
 
-
-        <!-------      START OF DEAL LIST      -------->
-
-        <!--<div dir-paginate="saving in savings|orderBy:orderByField:reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"-->
-        <!--class="list-group-item">-->
-
-        <!--AAA-->
-
-        <!--</div>-->
-
-
         <div
           dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"
           class="list-group-item">
@@ -137,15 +126,23 @@
 
                 <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
 
+                  <!--Logged Out Buttons-->
+
                   <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
                           class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
+
                   <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
                           class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
-                  <md-button aria-label="button" ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"
+                  <!--Logged In Buttons-->
+
+                  <md-button aria-label="button" ng-disabled="disableButtonUp(saving)" ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"
                           class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
-                  <md-button aria-label="button" ng-show="authentication.user" ng-click="downVoteHome(saving)" type="button"
+
+                  <md-button aria-label="button" ng-disabled="disableButtonDown(saving)" ng-show="authentication.user" ng-click="downVoteHome(saving)" type="button"
                           class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
+
+
 
 
 
