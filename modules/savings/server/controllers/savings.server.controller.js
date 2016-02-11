@@ -145,48 +145,61 @@ exports.countSavings = function (req, res) {
         });
 };
 
-/**
- * Count of Deals by User
- */
-exports.usersSavingsPostedTotal = function (req, res, userId) {
+///**
+// * Count of Deals by User
+// */
+//exports.usersSavingsPostedTotal = function (req, res) {
+//
+//    Saving.count({
+//
+//            $where: function () {
+//                return this.userIdString === req.params.userIdString;
+//            }
+//
+//    },
+//
+//        function (err, savingsCount) {
+//            if (err) {
+//                return res.status(400).send({
+//
+//                    message: errorHandler.getErrorMessage(err)
+//
+//                });
+//            } else {
+//                var data = {};
+//                data.count = savingsCount;
+//                res.jsonp(data);
+//            }
+//        });
+//};
 
-    if (!mongoose.Types.ObjectId.isValid(userId)) {
-        return res.status(400).send({
-            message: 'Saving Parameter is invalid ' + userId
-        });
-    }
+exports.usersSavingsPostedTotal = function(req, res) {
 
-    Saving.count({
+    Saving.find( {
 
-            $where: function () {
-                return this._id === userId;
-            }
-
-    },
-
-        function (err, savingsCount) {
-            if (err) {
-                return res.status(400).send({
-
-                    message: errorHandler.getErrorMessage(err)
-
-                });
-            } else {
-                var data = {};
-                data.count = savingsCount;
-                res.jsonp(data);
-            }
-        });
+        userIdString: req.params.userIdString }).sort('-created').populate('_id').exec(function (err, savings) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(savings);
+        }
+    });
 };
 
-exports.listOf = function(req, res) { Saving.find( { user: req.params.userid }).sort('-created').exec(function(err, posts) {
+exports.listOf = function(req, res) {
+
+    Saving.find( {
+
+        user: req.params.userid }).sort('-created').exec(function(err, posts) {
 
     if (err) {
         return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
         });
     } else {
-        console.log(req.params.userid);
+        //console.log(req.params.userid);
         res.jsonp(posts);
     }
 });

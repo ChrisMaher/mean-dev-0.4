@@ -26,8 +26,8 @@ angular.module('savings').factory('Savings', ['$resource',
       },
       usersSavingsPostedTotal: {
         method: 'GET',
-        url: '/savings/usersSavingsPostedTotal/:userId',
-        isArray: false
+        url: '/savings/usersSavingsPostedTotal/:userIdString',
+        isArray: true
       }
     });
   }

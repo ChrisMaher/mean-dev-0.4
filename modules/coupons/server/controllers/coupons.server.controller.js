@@ -144,20 +144,19 @@ exports.countCoupons = function (req, res) {
 /**
  * Count of Coupons
  */
-exports.usersCouponsPostedTotal = function (req, res) {
-    Coupon.count({},
+exports.usersCouponsPostedTotal = function(req, res) {
 
-        function (err, couponsCount) {
-            if (err) {
-                return res.status(400).send({
-                    message: errorHandler.getErrorMessage(err)
-                });
-            } else {
-                var data = {};
-                data.count = couponsCount;
-                res.jsonp(data);
-            }
-        });
+    Coupon.find( {
+
+        userIdStringCoupon: req.params.userIdStringCoupon }).sort('-created').populate('_id').exec(function (err, coupons) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(coupons);
+        }
+    });
 };
 
 /**

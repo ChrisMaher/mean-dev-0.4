@@ -28,11 +28,12 @@ module.exports = function (app) {
     app.route('/coupons/couponCountToday').all()
         .get(coupons.countCouponsToday);
 
-    app.route('/coupons/usersCouponsPostedTotal').all()
+    app.route('/coupons/usersCouponsPostedTotal/:userIdStringCoupon')
         .get(coupons.usersCouponsPostedTotal);
 
 
     // Finish by binding the coupon middleware
     app.param('couponId', coupons.couponByID);
+    app.param('userIdStringCoupon', coupons.usersCouponsPostedTotal);
 
 };

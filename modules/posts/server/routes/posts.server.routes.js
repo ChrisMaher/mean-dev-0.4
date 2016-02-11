@@ -27,7 +27,7 @@ module.exports = function (app) {
 
   app.route('/api/posts/of/:userid').get(posts.listOf);
 
-  app.route('/posts/usersCommentsPostedTotal').all()
+  app.route('/posts/usersCommentsPostedTotal/:userIdStringComment')
       .get(posts.usersCommentsPostedTotal);
 
 
@@ -41,6 +41,7 @@ module.exports = function (app) {
 
   // Finish by binding the post middleware
   app.param('postId', posts.postByID);
+  app.param('userIdStringComments', posts.usersCommentsPostedTotal);
 
   //app.route('/api/posts')
   //    .get(posts.list);

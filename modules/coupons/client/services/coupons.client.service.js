@@ -21,8 +21,8 @@ angular.module('coupons').factory('Coupons', ['$resource',
       },
       usersCouponsPostedTotal: {
         method: 'GET',
-        url: '/coupons/usersCouponsPostedTotal',
-        isArray: false
+        url: '/coupons/usersCouponsPostedTotal/:userIdStringCoupon',
+        isArray: true
       }
     });
   }

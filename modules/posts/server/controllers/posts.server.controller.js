@@ -114,20 +114,19 @@ exports.countPosts = function (req, res) {
 /**
  * Count of Posts
  */
-exports.usersCommentsPostedTotal = function (req, res) {
-    Post.count({},
+exports.usersCommentsPostedTotal = function(req, res) {
 
-        function (err, postsCount) {
-            if (err) {
-                return res.status(400).send({
-                    message: errorHandler.getErrorMessage(err)
-                });
-            } else {
-                var data = {};
-                data.count = postsCount;
-                res.jsonp(data);
-            }
-        });
+    Post.find( {
+
+        userIdStringComment: req.params.userIdStringComment }).sort('-created').populate('_id').exec(function (err, posts) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(posts);
+        }
+    });
 };
 
 

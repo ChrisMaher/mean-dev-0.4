@@ -37,12 +37,12 @@ module.exports = function (app) {
     app.route('/api/savings/of/:username')
         .get(savings.listOf);
 
-    app.route('/savings/usersSavingsPostedTotal/:userId')
+    app.route('/savings/usersSavingsPostedTotal/:userIdString')
         .get(savings.usersSavingsPostedTotal);
 
     // Finish by binding the saving middleware
     app.param('savingId', savings.savingByID);
     app.param('userid', savings.listOf);
-    app.param('userid', savings.usersSavingsPostedTotal);
+    app.param('userIdString', savings.usersSavingsPostedTotal);
 
 };

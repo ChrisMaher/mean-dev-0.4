@@ -34,6 +34,10 @@ var CouponSchema = new Schema({
         default: 'NA',
         trim: true
     },
+    userIdStringCoupon: {
+        type: String,
+        trim: true
+    },
     retailer: {
         type: String,
         required: 'We need a Retailer for the Deal.',

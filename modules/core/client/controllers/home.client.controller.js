@@ -33,6 +33,11 @@ angular.module('core').controller('HomeController', ['$scope', '$location', 'Aut
         $scope.hottestsortedCoupon = true;
         $scope.newestsortedCoupon = false;
 
+
+
+
+
+
         $scope.top6 = true;
 
         $scope.brandLogo = '/modules/users/client/img/profile/all-logo.png';

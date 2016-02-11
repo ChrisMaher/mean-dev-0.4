@@ -29,10 +29,10 @@ angular.module('posts').factory('Posts', ['$resource',
         url: '/posts/custCountCoupon',
         isArray: false
       },
-      usersCommentsPostedTotal: {
+      usersPostsPostedTotal: {
         method: 'GET',
-        url: '/posts/usersCommentsPostedTotal',
-        isArray: false
+        url: '/posts/usersCommentsPostedTotal/:userIdStringComments',
+        isArray: true
       }
     });
   }

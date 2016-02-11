@@ -33,6 +33,10 @@ var SavingSchema = new Schema({
     maxlength: 25,
     trim: true
   },
+  userIdString: {
+    type: String,
+    trim: true
+  },
   price: {
     type: Number,
     required: 'We need a Price for the Deal.',

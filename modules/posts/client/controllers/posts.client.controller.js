@@ -23,6 +23,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
             var post = new Posts({
 
                 details: this.details,
+                userIdStringComment: $scope.authentication.user._id,
                 savingId: $scope.saving._id
 
             });
@@ -45,6 +46,7 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
             var post = new Posts({
 
                 details: this.details,
+                userIdStringComment: $scope.authentication.user._id,
                 couponId: $scope.coupon._id
 
             });

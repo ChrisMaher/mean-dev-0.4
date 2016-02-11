@@ -218,6 +218,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
                 price: priceRounded,
                 link: this.link,
                 currency: this.currency,
+                userIdString: $scope.authentication.user._id,
                 image: image,
                 urlimage: image,
                 category: this.category,

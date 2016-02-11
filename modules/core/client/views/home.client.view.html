@@ -80,7 +80,7 @@
 
       <div class="list-group-home-deals">
 
-        <div ng-show="top6" class="spotlight-deal">
+        <div class="spotlight-deal" data-ng-show="!savings.$resolved || savings.length">
 
           <h4>Todays Top 6</h4>
 
@@ -235,7 +235,7 @@
 
 
       <div class="alert alert-warning text-center" data-ng-hide="!savings.$resolved || savings.length">
-        No Deals yet, why don't you <a href="/#!/savings/create">create one</a>?
+        No Savings yet, why don't you <a href="/#!/savings/create">create one</a>?
       </div>
 
       <div class="text-center">
@@ -247,7 +247,7 @@
 
     </div>
 
-    <div class="col-lg-3 right-column">
+    <div class="col-lg-3 right-column hidden-phone">
 
       <div class="row right-column-view-inner">
 

@@ -1,383 +1,378 @@
 <section data-ng-controller="HomeController">
   <section data-ng-controller="SavingsController">
-    <section class="row" ng-controller="ViewProfileController" >
+    <section class="row" ng-controller="ViewProfileController">
 
-    <div class="col-sm-12" id="below-navbar">
+      <div class="col-sm-12" id="below-navbar">
 
-      <ul role="presentation" class="nav nav-tabs profile-tab">
-        <li role="presentation"><a href="#">{{profile.username}} </a></li>
-      </ul>
-
-
-      <ul role="presentation" class="nav nav-tabs submit-tab">
-        <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i
-          class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
-      </ul>
+        <ul role="presentation" class="nav nav-tabs profile-tab">
+          <li role="presentation"><a href="#">{{profile.username}} </a></li>
+        </ul>
 
 
-    </div>
+        <ul role="presentation" class="nav nav-tabs submit-tab">
+          <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i
+            class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
+        </ul>
 
 
-    <div class="col-lg-9 main-deals">
+      </div>
 
-      <!--Deals Array Start-->
 
-      <div class="list-group-home-deals">
+      <div class="col-lg-9 main-deals">
 
-        <div class="spotlight-deal">
+        <!--Deals Array Start-->
 
-          <div class="row inner-profile-header">
-
-            <div class="col-lg-1 "></div>
-            <div class="col-lg-3 avatar-section">
-
-              <div class="row profile-avatar">
-
+        <div class="list-group-home-deals">
+          <div class="spotlight-deal">
+            <div class="row inner-profile-header">
+              <div class="col-lg-1 "></div>
+              <div class="col-lg-3 avatar-section">
+                <div class="row profile-avatar" ng-if="ownProfile">
                   <img ng-src="{{profile.profileImageURL}}" class="img-thumbnail user-profile-picture-circle">
-                if user = logged in user have edit button
+                  if user = logged in user have edit button
+                </div>
+                <div class="row profile-avatar">
+                  <img ng-src="{{profile.profileImageURL}}" class="img-thumbnail user-profile-picture-circle">
+                </div>
+                <div class="row profile-below-avatar">
+                </div>
+              </div>
+              <div class="col-lg-8 profile-info-squares">
+
+                <div class="row  profile-stats-unit">
+                  <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center profile-stats-unit-title">
+                      Member Since
+                    </div>
+                    <div class="col-lg-12 text-center profile-location-text">
+                      <span am-time-ago="profile.created"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center profile-stats-unit-title">
+                      Location
+                    </div>
+                    <div class="col-lg-12 text-center profile-location-text">
+                      {{profile.county}}
+                    </div>
+                  </div>
+                </div>
+                <div class="row  profile-stats-unit">
+                  <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center profile-stats-unit-title">
+                      Savings Posted
+                    </div>
+                    <div class="col-lg-12 text-center">
+                      {{savingsByUser.length}}
+                    </div>
+                  </div>
+                  <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center profile-stats-unit-title">
+                      Coupons Posted
+                    </div>
+                    <div class="col-lg-12 text-center">
+                      {{couponsByUser.length}}
+                    </div>
+                  </div>
+                </div>
+                <div class="row  profile-stats-unit">
+                  <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center profile-stats-unit-title">
+                      Comments
+                    </div>
+                    <div class="col-lg-12 text-center">
+                      {{commentsByUser.length}}
+                    </div>
+                  </div>
+                  <div class="col-lg-6 text-center">
+                    <div class="col-lg-12 text-center profile-stats-unit-title">
+                      Total Votes
+                    </div>
+                    <div class="col-lg-12 text-center">
+                      784
+                    </div>
+                  </div>
+                </div>
+
 
               </div>
-              <div class="row profile-below-avatar">
-
-              </div>
-
 
             </div>
-            <div class="col-lg-8 profile-info-squares">
 
-              <div class="row  profile-stats-unit">
-                <div class="col-lg-6 text-center">
-                  <div class="col-lg-12 text-center profile-stats-unit-title">
-                    Member Since
-                  </div>
-                  <div class="col-lg-12 text-center">
-                    <span am-time-ago="profile.created"></span>
-                  </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                  <div class="col-lg-12 text-center profile-stats-unit-title">
-                    Location
-                  </div>
-                  <div class="col-lg-12 text-center">
-                    <!--{{capatilize(profile.county)}}-->
-                  </div>
-                </div>
-              </div>
-              <div class="row  profile-stats-unit">
-                <div class="col-lg-6 text-center">
-                  <div class="col-lg-12 text-center profile-stats-unit-title">
-                    Savings Posted
-                  </div>
-                  <div class="col-lg-12 text-center">
-                    {{usersSavingsPostedTotal1.count}}
-                  </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                  <div class="col-lg-12 text-center profile-stats-unit-title">
-                    Coupons Posted
-                  </div>
-                  <div class="col-lg-12 text-center">
-                    {{usersCouponsPostedTotal1.count}}
-                  </div>
-                </div>
-              </div>
-              <div class="row  profile-stats-unit">
-                <div class="col-lg-6 text-center">
-                  <div class="col-lg-12 text-center profile-stats-unit-title">
-                    Comments
-                  </div>
-                  <div class="col-lg-12 text-center">
-                    {{usersCommentsPostedTotal1.count}}
-                  </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                  <div class="col-lg-12 text-center profile-stats-unit-title">
-                    Total Votes
-                  </div>
-                  <div class="col-lg-12 text-center">
-                    784
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
 
           </div>
 
 
-        </div>
+          <!-------      START OF DEAL LIST      -------->
+
+          <!--<div dir-paginate="saving in savings|orderBy:orderByField:reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"-->
+          <!--class="list-group-item">-->
+
+          <!--AAA-->
+
+          <!--</div>-->
+
+          <div dir-paginate="saving in savings | filter:{user: {_id: usernamevalue}} | itemsPerPage:10"
+               class="list-group-item">
 
 
-        <!-------      START OF DEAL LIST      -------->
+            <div class="row">
 
-        <!--<div dir-paginate="saving in savings|orderBy:orderByField:reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"-->
-        <!--class="list-group-item">-->
+              <div class="col-lg-2 left-box">
 
-        <!--AAA-->
+                <div class="row deal-votes center-block">
 
-        <!--</div>-->
-
-        <div dir-paginate="saving in savings | filter:{user: {_id: usernamevalue}} | itemsPerPage:10"
-             class="list-group-item">
-
-
-          <div class="row">
-
-            <div class="col-lg-2 left-box">
-
-              <div class="row deal-votes center-block">
-
-                <h1 ng-bind="saving.votes"></h1>
-
-              </div>
-
-              <div class="row saving-link link-button-home">
-
-                <!--<button class="btn btn-default "><i class="glyphicon glyphicon-thumbs-up"></i> Like</button>-->
-
-                <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
-
-                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup"
-                             type="button"
-                             class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
-                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup"
-                             type="button"
-                             class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
-
-                  <md-button aria-label="button" ng-show="authentication.user" ng-click="upVoteHome(saving)"
-                             type="button"
-                             class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
-                  <md-button aria-label="button" ng-show="authentication.user" ng-click="downVoteHome(saving)"
-                             type="button"
-                             class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
-
+                  <h1 ng-bind="saving.votes"></h1>
 
                 </div>
 
-              </div>
+                <div class="row saving-link link-button-home">
+
+                  <!--<button class="btn btn-default "><i class="glyphicon glyphicon-thumbs-up"></i> Like</button>-->
+
+                  <div class="btn-group-vertical hot-cold-buttons" role="group" aria-label="Vertical button group">
+
+                    <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup"
+                               type="button"
+                               class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
+                    <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup"
+                               type="button"
+                               class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
+
+                    <md-button aria-label="button" ng-show="authentication.user" ng-click="upVoteHome(saving)"
+                               type="button"
+                               class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
+                    <md-button aria-label="button" ng-show="authentication.user" ng-click="downVoteHome(saving)"
+                               type="button"
+                               class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
 
-            </div>
-
-            <div class="col-lg-8 middle-box">
-
-
-              <div class="col-lg-12 middle-title">
-
-                <!--<h4 href="#!/savings/{{saving._id}}" ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></h4>-->
-                <h4><a ng-href="/savings/{{saving._id}}"
-                       ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></a>
-                </h4>
-
-              </div>
-
-              <div class="col-lg-12 single-middle-product-details-home">
-
-                <!--<p>{{saving.details}}</p>-->
-                <text-angular ta-toolbar="[[]]" ng-bind-html="saving.details"></text-angular>
-
-              </div>
-
-              <div class="col-lg-12 middle-post-details">
-                <section data-ng-controller="PostsController">
-                  <div class="col-lg-6 middle-posted-by">
-                    <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
-                                                                      class="small-profile-image-thumbnail"
-                                                                      alt="{{saving.user.username}}" height="20px"
-                                                                      width="20px"/> <span class="username"
-                                                                                           data-ng-bind="saving.user.username"></span></a>
-                    |
-                    <span am-time-ago="saving.created"></span>
-                    <!-- | <a class="username" ng-href="/savings/{{saving._id}}"> Comments : {{numOfCommentsSaving.count}}</a>-->
                   </div>
-                </section>
-                <!--<div class="col-lg-6 middle-time-of-posting">Posted On <span data-ng-bind="saving.created | date:'mediumDate'"></span></div>-->
+
+                </div>
+
 
               </div>
 
+              <div class="col-lg-8 middle-box">
 
-              <!--<small class="list-group-item-text">-->
-              <!--Posted on-->
-              <!--<span data-ng-bind="saving.created | date:'medium'"></span>-->
-              <!--by-->
-              <!--<span data-ng-bind="saving.user._id"></span>-->
-              <!--</small>-->
 
+                <div class="col-lg-12 middle-title">
+
+                  <!--<h4 href="#!/savings/{{saving._id}}" ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></h4>-->
+                  <h4><a ng-href="/savings/{{saving._id}}"
+                         ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></a>
+                  </h4>
+
+                </div>
+
+                <div class="col-lg-12 single-middle-product-details-home">
+
+                  <!--<p>{{saving.details}}</p>-->
+                  <text-angular ta-toolbar="[[]]" ng-bind-html="saving.details"></text-angular>
+
+                </div>
+
+                <div class="col-lg-12 middle-post-details">
+                  <section data-ng-controller="PostsController">
+                    <div class="col-lg-6 middle-posted-by">
+                      <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                                                                   class="small-profile-image-thumbnail"
+                                                                   alt="{{saving.user.username}}" height="20px"
+                                                                   width="20px"/> <span class="username"
+                                                                                        data-ng-bind="saving.user.username"></span></a>
+                      |
+                      <span am-time-ago="saving.created"></span>
+                      <!-- | <a class="username" ng-href="/savings/{{saving._id}}"> Comments : {{numOfCommentsSaving.count}}</a>-->
+                    </div>
+                  </section>
+                  <!--<div class="col-lg-6 middle-time-of-posting">Posted On <span data-ng-bind="saving.created | date:'mediumDate'"></span></div>-->
+
+                </div>
+
+
+                <!--<small class="list-group-item-text">-->
+                <!--Posted on-->
+                <!--<span data-ng-bind="saving.created | date:'medium'"></span>-->
+                <!--by-->
+                <!--<span data-ng-bind="saving.user._id"></span>-->
+                <!--</small>-->
+
+
+              </div>
+
+              <div class="col-lg-2 right-box">
+
+                <div class="row deal-image thumbnail thumbnail-preview center-block">
+                  <a ng-href="/savings/{{saving._id}}"><img src="{{saving.urlimage}}" width="110"
+                                                            height="110"/></a>
+
+                </div>
+
+                <div class="row center-block save-button">
+                  <a data-ng-href="/savings/{{saving._id}}">
+                    <md-button aria-label="button" class="save-button-md">Save</md-button>
+                  </a>
+                </div>
+
+
+              </div>
 
             </div>
 
-            <div class="col-lg-2 right-box">
-
-              <div class="row deal-image thumbnail thumbnail-preview center-block">
-                <a ng-href="/savings/{{saving._id}}"><img src="{{saving.urlimage}}" width="110"
-                                                          height="110"/></a>
-
-              </div>
-
-              <div class="row center-block save-button">
-                <a data-ng-href="/savings/{{saving._id}}">
-                  <md-button aria-label="button" class="save-button-md">Save</md-button>
-                </a>
-              </div>
-
-
-            </div>
 
           </div>
 
 
+          <!-------      END OF DEAL LIST      -------->
+
+
         </div>
 
+        <!--Deals Array End-->
 
-        <!-------      END OF DEAL LIST      -------->
+
+        <div class="alert alert-warning text-center" data-ng-hide="!savings.$resolved || savings.length">
+          No Deals yet, why don't you <a href="/#!/savings/create">create one</a>?
+        </div>
+
+        <div class="text-center">
+          <dir-pagination-controls></dir-pagination-controls>
+        </div>
+
+        <!--Deals Array End-->
 
 
       </div>
 
-      <!--Deals Array End-->
+      <div class="col-lg-3 right-column">
+
+        <div class="row right-column-view-inner">
+
+          <div class="row right-column-inner-one">
+
+            <div class="best-box">
+
+              <ul class="nav nav-tabs img-rounded best-box-tabs">
+
+                <li ng-click="timeFrame(1);" role="presentation" ng-class="{ 'active' : weekly}"><a href="#">
+                  Weekly </a>
+                </li>
+
+                <li ng-click="timeFrame(2);" role="presentation " ng-class="{ 'active' : monthly}"><a href="#">
+                  Monthly </a>
+                </li>
 
 
-      <div class="alert alert-warning text-center" data-ng-hide="!savings.$resolved || savings.length">
-        No Deals yet, why don't you <a href="/#!/savings/create">create one</a>?
-      </div>
+              </ul>
+              <div class="best-box-inner">
 
-      <div class="text-center">
-        <dir-pagination-controls></dir-pagination-controls>
-      </div>
+                <div ng-show="weekly" class="weekly-list">
 
-      <!--Deals Array End-->
+                  <div
+                    ng-repeat="saving in savings |  orderBy: 'votesreal'| filter:{user: {_id: usernamevalue}} | lessThan: {'created.$date':168} | limitTo:10"
+                    class=" timeframe-row">
 
+                    <div class="row timeframe-row-item">
+                      <div class="col-lg-3 timeframe-row-item-0">
+                        <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
+                        <div class="col-lg-12 text-center center-block timeframe-row-item-2">
 
-    </div>
+                          <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
+                          <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                          <!--</md-button>-->
 
-    <div class="col-lg-3 right-column">
+                          <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
+                          <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                          <!--</md-button>-->
 
-      <div class="row right-column-view-inner">
+                          <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                                                                       class="small-profile-image-thumbnail"
+                                                                       alt="{{saving.user._id}}" height="20px"
+                                                                       width="20px"/></a></span>
 
-        <div class="row right-column-inner-one">
+                        </div>
+                      </div>
+                      <div class="col-lg-9 text-center timeframe-row-item-3">
 
-          <div class="best-box">
-
-            <ul class="nav nav-tabs img-rounded best-box-tabs">
-
-              <li ng-click="timeFrame(1);" role="presentation" ng-class="{ 'active' : weekly}"><a href="#"> Weekly </a>
-              </li>
-
-              <li ng-click="timeFrame(2);" role="presentation " ng-class="{ 'active' : monthly}"><a href="#">
-                Monthly </a>
-              </li>
-
-
-            </ul>
-            <div class="best-box-inner">
-
-              <div ng-show="weekly" class="weekly-list">
-
-                <div
-                  ng-repeat="saving in savings |  orderBy: 'votesreal'| filter:{user: {_id: usernamevalue}} | lessThan: {'created.$date':168} | limitTo:10"
-                  class=" timeframe-row">
-
-                  <div class="row timeframe-row-item">
-                    <div class="col-lg-3 timeframe-row-item-0">
-                      <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
-                      <div class="col-lg-12 text-center center-block timeframe-row-item-2">
-
-                        <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
-                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
-                        <!--</md-button>-->
-
-                        <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
-                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
-                        <!--</md-button>-->
-
-                        <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
-                                                                          class="small-profile-image-thumbnail"
-                                                                          alt="{{saving.user._id}}" height="20px"
-                                                                          width="20px"/></a></span>
+                        <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}}(&euro;{{saving.price}}
+                          @
+                          {{saving.retailer}}</a>
 
                       </div>
                     </div>
-                    <div class="col-lg-9 text-center timeframe-row-item-3">
 
-                      <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}}(&euro;{{saving.price}}
-                        @
-                        {{saving.retailer}}</a>
-
-                    </div>
                   </div>
 
                 </div>
 
-              </div>
+                <div ng-show="monthly" class="monthly-list">
 
-              <div ng-show="monthly" class="monthly-list">
+                  <div
+                    ng-repeat="saving in savings |  orderBy: 'votesreal' | filter:{user: {_id: usernamevalue}} | lessThan: {'created.$date':744}| limitTo:10"
+                    class=" timeframe-row">
 
-                <div
-                  ng-repeat="saving in savings |  orderBy: 'votesreal' | filter:{user: {_id: usernamevalue}} | lessThan: {'created.$date':744}| limitTo:10"
-                  class=" timeframe-row">
+                    <div class="row timeframe-row-item">
+                      <div class="col-lg-3 timeframe-row-item-0">
+                        <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
+                        <div class="col-lg-12 text-center center-block timeframe-row-item-2">
 
-                  <div class="row timeframe-row-item">
-                    <div class="col-lg-3 timeframe-row-item-0">
-                      <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
-                      <div class="col-lg-12 text-center center-block timeframe-row-item-2">
+                          <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
+                          <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                          <!--</md-button>-->
 
-                        <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
-                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
-                        <!--</md-button>-->
+                          <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
+                          <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                          <!--</md-button>-->
 
-                        <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
-                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
-                        <!--</md-button>-->
+                          <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                                                                       class="small-profile-image-thumbnail"
+                                                                       alt="{{saving.user._id}}" height="20px"
+                                                                       width="20px"/></a></span>
 
-                        <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
-                                                                          class="small-profile-image-thumbnail"
-                                                                          alt="{{saving.user._id}}" height="20px"
-                                                                          width="20px"/></a></span>
+                        </div>
+                      </div>
+                      <div class="col-lg-9 text-center timeframe-row-item-3">
+
+                        <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}}(&euro;{{saving.price}}
+                          @
+                          {{saving.retailer}}</a>
 
                       </div>
                     </div>
-                    <div class="col-lg-9 text-center timeframe-row-item-3">
 
-                      <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}}(&euro;{{saving.price}}
-                        @
-                        {{saving.retailer}}</a>
-
-                    </div>
                   </div>
 
                 </div>
 
+
               </div>
-
-
             </div>
+
+
           </div>
+
+          <!--<div class="col-lg-12 right-column-inner-two">-->
+
+
+          <!--</div>-->
+
+          <!--<div class="col-lg-12 right-column-inner-three">-->
+
+
+          <!--</div>-->
 
 
         </div>
 
-        <!--<div class="col-lg-12 right-column-inner-two">-->
+
+        <div class="col-lg-9 ">
 
 
-        <!--</div>-->
-
-        <!--<div class="col-lg-12 right-column-inner-three">-->
-
-
-        <!--</div>-->
-
-
+        </div>
       </div>
 
-
-      <div class="col-lg-9 ">
-
-
-      </div>
-    </div>
-
-  </section>
+    </section>
   </section>
 </section>
 

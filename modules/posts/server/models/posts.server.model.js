@@ -25,6 +25,10 @@ var PostSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
+    userIdStringComment: {
+        type: String,
+        trim: true
+    },
     votes: {
         type: Number,
         default: 0
