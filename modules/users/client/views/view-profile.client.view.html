@@ -1,10 +1,11 @@
 <section data-ng-controller="HomeController">
   <section data-ng-controller="SavingsController">
     <section class="row" ng-controller="ViewProfileController">
+      <section ng-controller="AuthenticationController">
 
       <div class="col-sm-12" id="below-navbar">
 
-        <ul role="presentation" class="nav nav-tabs profile-tab">
+        <ul role="presentation" class="nav nav-tabs profile-tab"  ng-show="authentication.user" >
           <li role="presentation"><a href="#">{{profile.username}} </a></li>
         </ul>
 
@@ -23,7 +24,24 @@
         <!--Deals Array Start-->
 
         <div class="list-group-home-deals">
-          <div class="spotlight-deal">
+
+          <div ng-hide="authentication.user" class="spotlight-deal">
+
+            <div class="col-md-12">
+
+              <h3 class="col-md-12 text-center login-screen-buffer-top">Login to view profile :</h3>
+              <div class=" col-md-12 social-buttons text-center">
+                <a ng-click="callOauthProvider('/api/auth/facebook')" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                <a ng-click="callOauthProvider('/api/auth/google')" class="btn btn-tw"><i class="fa fa-google"></i> Google</a>
+              </div>
+
+              <div ui-view></div>
+
+            </div>
+
+          </div>
+
+          <div ng-show="authentication.user" class="spotlight-deal">
             <div class="row inner-profile-header">
               <div class="col-lg-1 "></div>
               <div class="col-lg-3 avatar-section">
@@ -104,13 +122,6 @@
 
 
           <!-------      START OF DEAL LIST      -------->
-
-          <!--<div dir-paginate="saving in savings|orderBy:orderByField:reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"-->
-          <!--class="list-group-item">-->
-
-          <!--AAA-->
-
-          <!--</div>-->
 
           <div dir-paginate="saving in savings | filter:{user: {_id: usernamevalue}} | itemsPerPage:10"
                class="list-group-item">
@@ -223,7 +234,6 @@
 
           </div>
 
-
           <!-------      END OF DEAL LIST      -------->
 
 
@@ -232,14 +242,8 @@
         <!--Deals Array End-->
 
 
-        <div class="alert alert-warning text-center" data-ng-show="savingsByUser.length < 1 && couponsByUser.length < 1">
+        <div class="alert alert-warning text-center" data-ng-show="savings.$resolved && savingsByUser.length < 1 && couponsByUser.length < 1">
           This user has not posted any Savings or Coupons yet.
-        </div>
-        <div class="alert alert-warning text-center" data-ng-show="savingsByUser.length > 0 && couponsByUser.length < 1">
-          This user has not posted any Coupons yet.
-        </div>
-        <div class="alert alert-warning text-center" data-ng-show="savingsByUser.length < 1 && couponsByUser.length > 0">
-          This user has not posted any Savings yet.
         </div>
 
         <div class="text-center">
@@ -252,7 +256,7 @@
       </div>
 
 
-
+      </section>
     </section>
   </section>
 </section>

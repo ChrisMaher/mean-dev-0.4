@@ -182,11 +182,11 @@ body {
 
 .main-deals-settings {
 
-    min-height: 680px;
+    /*min-height: 680px;*/
     border: #dddddd 1px solid;
 
     padding-top: 30px;
-    padding-bottom: 60px;
+    /*padding-bottom: 60px;*/
     background-color: #FFFFFF;
 
     -moz-border-radius: 10px;
@@ -203,7 +203,7 @@ body {
 .avatar-pick {
 
     /*border: #dddddd 1px solid;*/
-    height: 440px;
+    /*height: 440px;*/
     padding-left: 30px;
 
 }
