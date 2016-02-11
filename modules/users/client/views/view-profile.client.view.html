@@ -232,8 +232,14 @@
         <!--Deals Array End-->
 
 
-        <div class="alert alert-warning text-center" data-ng-hide="!savings.$resolved || savings.length">
-          No Deals yet, why don't you <a href="/#!/savings/create">create one</a>?
+        <div class="alert alert-warning text-center" data-ng-show="savingsByUser.length < 1 && couponsByUser.length < 1">
+          This user has not posted any Savings or Coupons yet.
+        </div>
+        <div class="alert alert-warning text-center" data-ng-show="savingsByUser.length > 0 && couponsByUser.length < 1">
+          This user has not posted any Coupons yet.
+        </div>
+        <div class="alert alert-warning text-center" data-ng-show="savingsByUser.length < 1 && couponsByUser.length > 0">
+          This user has not posted any Savings yet.
         </div>
 
         <div class="text-center">
@@ -245,132 +251,7 @@
 
       </div>
 
-      <!--<div class="col-lg-3 right-column">-->
 
-        <!--<div class="row right-column-view-inner">-->
-
-          <!--<div class="row right-column-inner-one">-->
-
-            <!--<div class="best-box">-->
-
-              <!--<ul class="nav nav-tabs img-rounded best-box-tabs">-->
-
-                <!--<li ng-click="timeFrame(1);" role="presentation" ng-class="{ 'active' : weekly}"><a href="#">-->
-                  <!--Weekly </a>-->
-                <!--</li>-->
-
-                <!--<li ng-click="timeFrame(2);" role="presentation " ng-class="{ 'active' : monthly}"><a href="#">-->
-                  <!--Monthly </a>-->
-                <!--</li>-->
-
-
-              <!--</ul>-->
-              <!--<div class="best-box-inner">-->
-
-                <!--<div ng-show="weekly" class="weekly-list">-->
-
-                  <!--<div-->
-                    <!--ng-repeat="saving in savings |  orderBy: 'votesreal'| filter:{user: {_id: usernamevalue}} | lessThan: {'created.$date':168} | limitTo:10"-->
-                    <!--class=" timeframe-row">-->
-
-                    <!--<div class="row timeframe-row-item">-->
-                      <!--<div class="col-lg-3 timeframe-row-item-0">-->
-                        <!--<div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>-->
-                        <!--<div class="col-lg-12 text-center center-block timeframe-row-item-2">-->
-
-                          <!--&lt;!&ndash;<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"&ndash;&gt;-->
-                          <!--&lt;!&ndash;class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>&ndash;&gt;-->
-                          <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
-
-                          <!--&lt;!&ndash;<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"&ndash;&gt;-->
-                          <!--&lt;!&ndash;class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>&ndash;&gt;-->
-                          <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
-
-                          <!--<a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"-->
-                                                                       <!--class="small-profile-image-thumbnail"-->
-                                                                       <!--alt="{{saving.user._id}}" height="20px"-->
-                                                                       <!--width="20px"/></a></span>-->
-
-                        <!--</div>-->
-                      <!--</div>-->
-                      <!--<div class="col-lg-9 text-center timeframe-row-item-3">-->
-
-                        <!--<a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}}(&euro;{{saving.price}}-->
-                          <!--@-->
-                          <!--{{saving.retailer}}</a>-->
-
-                      <!--</div>-->
-                    <!--</div>-->
-
-                  <!--</div>-->
-
-                <!--</div>-->
-
-                <!--<div ng-show="monthly" class="monthly-list">-->
-
-                  <!--<div-->
-                    <!--ng-repeat="saving in savings |  orderBy: 'votesreal' | filter:{user: {_id: usernamevalue}} | lessThan: {'created.$date':744}| limitTo:10"-->
-                    <!--class=" timeframe-row">-->
-
-                    <!--<div class="row timeframe-row-item">-->
-                      <!--<div class="col-lg-3 timeframe-row-item-0">-->
-                        <!--<div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>-->
-                        <!--<div class="col-lg-12 text-center center-block timeframe-row-item-2">-->
-
-                          <!--&lt;!&ndash;<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"&ndash;&gt;-->
-                          <!--&lt;!&ndash;class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>&ndash;&gt;-->
-                          <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
-
-                          <!--&lt;!&ndash;<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"&ndash;&gt;-->
-                          <!--&lt;!&ndash;class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>&ndash;&gt;-->
-                          <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
-
-                          <!--<a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"-->
-                                                                       <!--class="small-profile-image-thumbnail"-->
-                                                                       <!--alt="{{saving.user._id}}" height="20px"-->
-                                                                       <!--width="20px"/></a></span>-->
-
-                        <!--</div>-->
-                      <!--</div>-->
-                      <!--<div class="col-lg-9 text-center timeframe-row-item-3">-->
-
-                        <!--<a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}}(&euro;{{saving.price}}-->
-                          <!--@-->
-                          <!--{{saving.retailer}}</a>-->
-
-                      <!--</div>-->
-                    <!--</div>-->
-
-                  <!--</div>-->
-
-                <!--</div>-->
-
-
-              <!--</div>-->
-            <!--</div>-->
-
-
-          <!--</div>-->
-
-          <!--&lt;!&ndash;<div class="col-lg-12 right-column-inner-two">&ndash;&gt;-->
-
-
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-          <!--&lt;!&ndash;<div class="col-lg-12 right-column-inner-three">&ndash;&gt;-->
-
-
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-
-        <!--</div>-->
-
-
-        <!--<div class="col-lg-9 ">-->
-
-
-        <!--</div>-->
-      <!--</div>-->
 
     </section>
   </section>

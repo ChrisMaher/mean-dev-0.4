@@ -150,9 +150,10 @@ body {
 
 .main-deals-profile {
 
-    min-height: 2470px;
+    /*min-height: 2470px;*/
     /*border: #000000 1px solid;*/
     padding: 15px;
+    padding-bottom: 5px;
     background-color: #FFFFFF;
     border: #dddddd 1px solid;
 

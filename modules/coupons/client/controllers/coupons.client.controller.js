@@ -250,7 +250,7 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
         };
 
         // Remove existing Coupon
-        $scope.remove = function (coupon) {
+        $scope.removeCoupon = function (coupon) {
 
             var result = confirm("Are you sure you want to delete?");
             if (result) {
