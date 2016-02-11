@@ -192,17 +192,16 @@
                 <label for="category">Category</label>
                 <!--<input name="category" type="text" ng-model="category" id="category" class="form-control" placeholder="Category">-->
                 <select name="category" ng-model="category" class="form-control" id="category" required>
-                  <option>All</option>
-                  <option>Electronics</option>
-                  <option>Clothes</option>
-                  <option>Mobile Phones</option>
-                  <option>Gaming</option>
+                  <option>Other</option>
                   <option>Computing</option>
+                  <option>Electronics</option>
                   <option>Entertainment</option>
-                  <option>HomeWare</option>
-                  <option>Childrens</option>
-                  <option>Entertainment</option>
+                  <option>Fashion</option>
                   <option>Food</option>
+                  <option>Gaming</option>
+                  <option>Mobile Phones</option>
+                  <option>HomeWare</option>
+                  <option>Kids</option>
                   <option>Travel</option>
                 </select>
                 <div class="sub-label">Select Category of Deal</div>
@@ -247,7 +246,12 @@
                         ng-click="create(); submitFormSaving(createSavingForm.$valid)">Save Details
                 </button>
 
+
               </div>
+              <!--<div class="center-block recap-block col-md-10">-->
+                <!--&lt;!&ndash;Recaptcha Widget-&ndash;&gt;-->
+                <!--<div vc-recaptcha key="publicKey"></div>-->
+              <!--</div>-->
 
               <div ng-show="error" class="text-danger text-center buttons-cancel-submit">
                 <strong ng-bind="error"></strong>

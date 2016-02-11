@@ -2,7 +2,7 @@
 
 // Deals controller
 angular.module('savings').controller('SavingsController', ['$scope', '$http', '$timeout', '$stateParams', '$location', '$window', '$state', 'Authentication', 'Savings', 'FileUploader', 'Posts', 'Users',
-    function ($scope, $http, $timeout, $stateParams, $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users) {
+    function ($scope, $http, $timeout, $stateParams, $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users ) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
@@ -23,6 +23,10 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             //console.log(resp);
             $scope.savings = resp;
         });
+
+
+
+
 
         //alert($stateParams.username); // Have Username
 

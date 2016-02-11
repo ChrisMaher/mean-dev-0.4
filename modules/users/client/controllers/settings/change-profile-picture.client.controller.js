@@ -17,6 +17,12 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
         $scope.randomAvatar8 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
         $scope.randomAvatar9 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
         $scope.randomAvatar10 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar11 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar12 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar13 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar14 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar15 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+        $scope.randomAvatar16 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
         $scope.randomAvatarFB = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
         $scope.randomAvatarG = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
 
@@ -26,6 +32,12 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
             url: 'api/users/picture'
         });
 
+        // Check if provider is already in use with current user
+        $scope.isConnectedSocialAccountProfile = function (provider) {
+
+            return $scope.user.provider === provider || ($scope.user.additionalProvidersData && $scope.user.additionalProvidersData[provider]);
+        };
+
         $scope.selectAvatar = function (imageURLIn) {
 
             $scope.imageURL = imageURLIn;
@@ -33,18 +45,26 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
 
         };
 
+
+
         $scope.randomiseAvatars = function () {
 
-            $scope.randomAvatar1 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar2 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar3 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar4 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar5 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar6 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar7 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar8 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar9 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
-            $scope.randomAvatar10 = '../modules/users/client/img/profile/avatars/2/' + Math.floor((Math.random() * 90) + 1) + '.png';
+            $scope.randomAvatar1 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar2 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar3 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar4 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar5 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar6 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar7 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar8 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar9 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar10 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar11 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar12 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar13 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar14 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar15 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
+            $scope.randomAvatar16 = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
             $scope.randomAvatarFB = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
             $scope.randomAvatarG = '../modules/users/client/img/profile/avatars/2/'+Math.floor((Math.random() * 90) + 1)+'.png';
 

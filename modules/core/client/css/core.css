@@ -42,6 +42,21 @@ a:hover .header-profile-image {
 .user-profile-picture-circle {
 
     border-radius: 50%;
+    height:120px;
+    width:120px;
+
+}
+
+.image-upload-text{
+
+    padding-top: 0px !important;
+
+}
+
+.user-profile-picture-edit{
+
+    height:120px;
+    width:120px;
 
 }
 
@@ -153,7 +168,7 @@ body {
 
 .main-deals-settings {
 
-    /*min-height: 550px;*/
+    min-height: 680px;
     border: #dddddd 1px solid;
 
     padding-top: 30px;
@@ -162,6 +177,12 @@ body {
 
     -moz-border-radius: 10px;
     border-radius: 10px;
+
+}
+
+.change-picture-screen{
+
+    padding-bottom: 10px;
 
 }
 
@@ -237,6 +258,13 @@ body {
 
 .settings-view .form-group {
     padding: 10px;
+
+}
+
+.avatar-button{
+
+    margin-bottom: 20px;
+
 }
 
 .avatar-text {
@@ -1037,6 +1065,13 @@ body {
 .profile-location-text{
 
     text-transform: uppercase;
+
+}
+
+.recap-block{
+
+    padding: 10px;
+    padding-left: 100px;
 
 }
 
