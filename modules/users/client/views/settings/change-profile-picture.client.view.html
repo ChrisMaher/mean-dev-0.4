@@ -56,19 +56,19 @@
               <!-- User is connected to FB but no Avatar = Show Random Avatar -->
 
               <!-- User is connected to FB with Avatar = show FB Avatar -->
-              <img
+              <img class="img-thumbnail"
                 ng-show="user.provider === 'facebook' "
-                ng-src="{{user.providerData.facebook.picture.data.url}}"
-                ng-click="selectAvatar(user.providerData.facebook.picture.data.url)"
+                ng-src="{{user.providerData.picture.data.url}}"
+                ng-click="selectAvatar(user.providerData.picture.data.url)"
                 alt="{{user.displayName}}'s Facebook Avatar">
 
             </div>
 
             <!-- Image Preview -->
-            <div class="form-group text-center">
+            <div class="form-group text-center ">
 
               <!-- User is connected to FB with Avatar = show FB Avatar -->
-              <img
+              <img class="img-thumbnail"
                 ng-show="user.provider === 'google' "
                 ng-src="{{changedAvatar}}"
                 ng-click="selectAvatar(changedAvatar)"
@@ -103,56 +103,23 @@
 
         <div class="row">
 
-          <!--<div class="col-md-2 avatar-thumb ">-->
 
-            <!--&lt;!&ndash; User is connected to FB but no Avatar = Show Random Avatar &ndash;&gt;-->
-            <!--<img-->
-              <!--ng-show="isConnectedSocialAccount('facebook') && user.additionalProvidersData.facebook.picture.data.is_silhouette"-->
-              <!--ng-src="{{randomAvatarFB}}" ng-click="selectAvatar(randomAvatarFB)" alt="{{user.displayName}}'s Avatar">-->
-
-            <!--&lt;!&ndash; User is connected to FB with Avatar = show FB Avatar &ndash;&gt;-->
-            <!--<img-->
-              <!--ng-show="isConnectedSocialAccount('facebook') && user.additionalProvidersData.facebook.picture.data.is_silhouette === false"-->
-              <!--ng-src="{{user.additionalProvidersData.facebook.picture.data.url}}"-->
-              <!--ng-click="selectAvatar(user.additionalProvidersData.facebook.picture.data.url)"-->
-              <!--alt="{{user.displayName}}'s Facebook Avatar">-->
-
-            <!--&lt;!&ndash; User is not connected to FB = Show Sign up to FB Button &ndash;&gt;-->
-            <!--<div ng-show="user.additionalProvidersData.facebook === undefined" class="join-facebook-avatar img">-->
-
-              <!--<a href="/api/auth/facebook" target="_self"><img ng-src="../modules/users/client/img/buttons/facebook.png"-->
-                                                               <!--alt="Get Avatar from Facebook"></a>-->
-            <!--</div>-->
-
-          <!--</div>-->
-
-          <!--<div class="col-md-2 avatar-thumb">-->
-
-            <!--&lt;!&ndash; User is connected to FB but no Avatar = Show Random Avatar &ndash;&gt;-->
-            <!--<img ng-show="isConnectedSocialAccount('google') && user.additionalProvidersData.google.image.isDefault"-->
-                 <!--ng-src="{{randomAvatarG}}" ng-click="selectAvatar(randomAvatarG)" alt="{{user.displayName}}'s Avatar">-->
-
-            <!--&lt;!&ndash; User is connected to FB with Avatar = show FB Avatar &ndash;&gt;-->
-            <!--<img-->
-              <!--ng-show="isConnectedSocialAccount('google') && user.additionalProvidersData.google.image.isDefault === false"-->
-              <!--ng-src="{{user.additionalProvidersData.google.image.url}}"-->
-              <!--ng-click="selectAvatar(user.additionalProvidersData.google.image.url)"-->
-              <!--alt="{{user.displayName}}'s Facebook Avatar">-->
-
-            <!--&lt;!&ndash; User is not connected to Google = Show Sign up to Google Button &ndash;&gt;-->
-            <!--<div ng-show="user.additionalProvidersData.google === undefined" class="join-facebook-avatar img">-->
-              <!--<a href="/api/auth/google" target="_self"><img ng-src="../modules/users/client/img/buttons/google.png"-->
-                                                             <!--alt="Get Avatar from Google"></a>-->
-            <!--</div>-->
-
-            <!--&lt;!&ndash;<img ng-hide="isConnectedSocialAccount('google')" ng-src="{{user.additionalProvidersData.google.image.url}}" ng-click="selectAvatar(user.additionalProvidersData.google.image.url)" alt="{{user.displayName}}'s Google Avatar" >&ndash;&gt;-->
-            <!--&lt;!&ndash;<img ng-show="user.additionalProvidersData.google.image.isDefault === false" ng-src="{{user.additionalProvidersData.google.image.url}}" ng-click="selectAvatar(user.additionalProvidersData.google.image.url)" alt="{{user.displayName}}'s Google Avatar" >&ndash;&gt;-->
-
-          <!--</div>-->
 
           <div class="col-md-2 avatar-thumb ">
 
-            <img ng-src="{{randomAvatar11}}" ng-click="selectAvatar(randomAvatar11)" alt="{{user.displayName}}'s Avatar">
+            <img class="img-thumbnail"
+                 ng-show="user.provider === 'facebook' "
+                 ng-src="{{user.providerData.picture.data.url}}"
+                 ng-click="selectAvatar(user.providerData.picture.data.url)"
+                 alt="{{user.displayName}}'s Facebook Avatar">
+
+            <img class="img-thumbnail"
+                 ng-show="user.provider === 'google' "
+                 ng-src="{{changedAvatar}}"
+                 ng-click="selectAvatar(changedAvatar)"
+                 alt="{{user.displayName}}'s Google Avatar">
+
+            <img ng-show="user.provider === 'local' " ng-src="{{randomAvatar11}}" ng-click="selectAvatar(randomAvatar11)" alt="{{user.displayName}}'s Avatar">
 
           </div>
 
