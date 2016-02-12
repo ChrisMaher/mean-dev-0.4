@@ -2,7 +2,7 @@
 
 // Deals controller
 angular.module('savings').controller('SavingsController', ['$scope', '$http', '$timeout', '$stateParams', '$location', '$window', '$state', 'Authentication', 'Savings', 'FileUploader', 'Posts', 'Users',
-    function ($scope, $http, $timeout, $stateParams, $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users ) {
+    function ($scope, $http, $timeout, $stateParams, $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
@@ -23,11 +23,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.isDisabledDown = false;
         $scope.yesterdaysDate = new Date();
         $scope.yesterdaysDate.setDate($scope.yesterdaysDate.getDate() - 1);
-        $scope.yesterdaysDate = $scope.yesterdaysDate.getMonth( ) + 1 +'/'+ $scope.yesterdaysDate.getDate( ) + '/' +$scope.yesterdaysDate.getFullYear( );
+        $scope.yesterdaysDate = $scope.yesterdaysDate.getMonth() + 1 + '/' + $scope.yesterdaysDate.getDate() + '/' + $scope.yesterdaysDate.getFullYear() + "";
+        // alert($scope.yesterdaysDate);
 
-        $scope.savingUrl = function(saving){
+        $scope.savingUrl = function (saving) {
 
-           $scope.savingLink =  'http://saveme.ie/savings/'+ saving;
+            $scope.savingLink = 'http://saveme.ie/savings/' + saving;
             // console.log($scope.savingLink);
             return $scope.savingLink;
 
@@ -345,9 +346,11 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             var wasRemoved = saving.votesTrim.filter(function (voter) {
 
-                    return saving.votesTrim.date === $scope.yesterdaysDate;
+                    return voter === $scope.yesterdaysDate;
 
                 }).length > 0;
+
+            console.log(wasRemoved);
 
             if(!wasRemoved){
 
@@ -401,6 +404,8 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
                 }
             }
 
+
+
             saving.$update(function () {
                 //$location.path('savings/' + saving._id);
             }, function (errorResponse) {
@@ -412,14 +417,13 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         $scope.downVoteHome = function (saving) {
 
-            // check if yesterdays votes have been removed, if not remove 10% of votes
-            // Filter out votesTrim for yesterdays date
-
             var wasRemoved = saving.votesTrim.filter(function (voter) {
 
-                    return saving.votesTrim.date === $scope.yesterdaysDate;
+                    return voter === $scope.yesterdaysDate;
 
                 }).length > 0;
+
+            console.log(wasRemoved);
 
             if(!wasRemoved){
 
@@ -475,6 +479,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
                 }
             }
 
+
             saving.$update(function () {
                 //$location.path('savings/' + saving._id);
 
@@ -485,7 +490,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         };
 
-        $scope.disableButtonUp = function(saving) {
+        $scope.disableButtonUp = function (saving) {
 
             var hasVotedUp = saving.upVoters.filter(function (voter) {
 
@@ -493,16 +498,16 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                 }).length > 0;
 
-            if(hasVotedUp){
+            if (hasVotedUp) {
                 return true;
 
-            }else{
+            } else {
                 return false;
             }
 
         };
 
-        $scope.disableButtonDown = function(saving) {
+        $scope.disableButtonDown = function (saving) {
 
             var hasVotedUp = saving.downVoters.filter(function (voter) {
 
@@ -510,10 +515,10 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                 }).length > 0;
 
-            if(hasVotedUp){
+            if (hasVotedUp) {
                 return true;
 
-            }else{
+            } else {
                 return false;
             }
 

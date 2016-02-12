@@ -96,7 +96,7 @@ var SavingSchema = new Schema({
     ref: 'User'
   }],
   votesTrim: [{
-    type: Date
+    type: String
   }],
   created: {
     type: Date,
