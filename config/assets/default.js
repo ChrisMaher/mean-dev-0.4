@@ -16,7 +16,7 @@ module.exports = {
                 'public/lib/angular-material/angular-material.js',
                 'public/lib/angular/angular-route.js',
                 'public/lib/angular-resource/angular-resource.js',
-                'public/lib/angular-animate/angular-animate.js',
+                'public/lib/angulike/angulike.js',
                 'public/lib/angular-messages/angular-messages.js',
                 'public/lib/angular-ui-router/release/angular-ui-router.js',
                 'public/lib/angular-ui-utils/ui-utils.js',
@@ -31,8 +31,8 @@ module.exports = {
                 'public/lib/angular-wysiwyg/dist/bootstrap-colorpicker-module.js',
                 'public/lib/jquery/dist/jquery.js',
                 'public/lib/moment/moment.js',
-                'public/lib/angular-moment/angular-moment.js',
-                'public/lib/angulike/angulike.js'
+                'public/lib/angular-moment/angular-moment.js'
+
 
 
             ],
