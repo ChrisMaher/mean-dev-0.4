@@ -345,7 +345,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             var wasRemoved = saving.votesTrim.filter(function (voter) {
 
-                    return saving.votesTrim === $scope.yesterdaysDate;
+                    return saving.votesTrim.date === $scope.yesterdaysDate;
 
                 }).length > 0;
 
@@ -417,7 +417,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             var wasRemoved = saving.votesTrim.filter(function (voter) {
 
-                    return saving.votesTrim === $scope.yesterdaysDate;
+                    return saving.votesTrim.date === $scope.yesterdaysDate;
 
                 }).length > 0;
 
