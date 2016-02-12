@@ -23,6 +23,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.isDisabledDown = false;
         $scope.yesterdaysDate = new Date();
         $scope.yesterdaysDate.setDate($scope.yesterdaysDate.getDate() - 1);
+        $scope.yesterdaysDate = $scope.yesterdaysDate.getMonth( ) + 1 +'/'+ $scope.yesterdaysDate.getDate( ) + '/' +$scope.yesterdaysDate.getFullYear( );
 
         $scope.savingUrl = function(saving){
 
