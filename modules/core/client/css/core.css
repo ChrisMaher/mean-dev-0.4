@@ -42,21 +42,21 @@ a:hover .header-profile-image {
 .user-profile-picture-circle {
 
     border-radius: 50%;
-    height:120px;
-    width:120px;
+    height: 120px;
+    width: 120px;
 
 }
 
-.image-upload-text{
+.image-upload-text {
 
     padding-top: 0px !important;
 
 }
 
-.user-profile-picture-edit{
+.user-profile-picture-edit {
 
-    height:120px;
-    width:120px;
+    height: 120px;
+    width: 120px;
 
 }
 
@@ -180,6 +180,18 @@ body {
 
 }
 
+.middle-posted-by-icons {
+
+    /*float: right;*/
+
+}
+
+.middle-posted-by-icons-coupons{
+
+    /*padding-left: 10px;*/
+
+}
+
 .main-deals-settings {
 
     /*min-height: 680px;*/
@@ -194,7 +206,7 @@ body {
 
 }
 
-.change-picture-screen{
+.change-picture-screen {
 
     padding-bottom: 10px;
 
@@ -275,16 +287,16 @@ body {
 
 }
 
-.avatar-button{
+.avatar-button {
 
     margin-bottom: 20px;
 
 }
 
-.social-photo > img{
+.social-photo > img {
 
-    width:120px;
-    height:120px;
+    width: 120px;
+    height: 120px;
 
 }
 
@@ -313,11 +325,9 @@ body {
     background-color: #FFFFFF;
     border: #dddddd 1px solid;
 
-
     -moz-border-radius: 10px;
 
     border-radius: 10px;
-
 
 }
 
@@ -1020,21 +1030,21 @@ body {
 
 }
 
-.profile-stats-unit{
+.profile-stats-unit {
 
     height: 80px;
     padding: 20px;
 
 }
 
-.profile-stats-unit-title{
+.profile-stats-unit-title {
 
     margin-bottom: 10px;
     font-weight: bold;
 
 }
 
-.profile-avatar{
+.profile-avatar {
 
     height: 240px;
 
@@ -1043,19 +1053,17 @@ body {
 
 }
 
-.profile-info-squares{
-
-
+.profile-info-squares {
 
 }
 
-.black-title > a{
+.black-title > a {
 
     color: #000000 !important;
 
 }
 
-.why-register-text{
+.why-register-text {
 
     padding: 10px;
     /*border: 1px solid #dddddd;*/
@@ -1064,45 +1072,45 @@ body {
 
 }
 
-.why-register{
+.why-register {
 
-   padding-bottom: 10px;
+    padding-bottom: 10px;
 
 }
 
-.why-register-ul{
+.why-register-ul {
 
     font-size: 19px;
     padding-top: 20px;
 
 }
 
-.why-register-ul > li{
+.why-register-ul > li {
 
     padding: 3px;
 
 }
 
-.profile-location-text{
+.profile-location-text {
 
     text-transform: uppercase;
 
 }
 
-.recap-block{
+.recap-block {
 
     padding: 10px;
     padding-left: 100px;
 
 }
 
-.avatar-section{
+.avatar-section {
 
     padding: 0px !important;
 
 }
 
-.profile-avatar > img{
+.profile-avatar > img {
 
     height: 200px;
     width: 200px;

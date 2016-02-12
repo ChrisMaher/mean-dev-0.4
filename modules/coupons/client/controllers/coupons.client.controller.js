@@ -23,6 +23,13 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
         $scope.disablelist = true;
         $scope.currency = "Euro (€)";
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
+        $scope.couponUrl = function(coupon){
+
+            $scope.couponLink =  'http://saveme.ie/coupons/'+ coupon;
+            console.log($scope.couponLink);
+            return $scope.couponLink;
+
+        };
         Coupons.query({}, function (resp) {
             $scope.coupons = resp;
         });

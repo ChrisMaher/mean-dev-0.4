@@ -107,13 +107,13 @@
 
           <div class="col-md-2 avatar-thumb ">
 
-            <img class="img-thumbnail"
+            <img
                  ng-show="user.provider === 'facebook' "
                  ng-src="{{user.providerData.picture.data.url}}"
                  ng-click="selectAvatar(user.providerData.picture.data.url)"
                  alt="{{user.displayName}}'s Facebook Avatar">
 
-            <img class="img-thumbnail"
+            <img
                  ng-show="user.provider === 'google' "
                  ng-src="{{changedAvatar}}"
                  ng-click="selectAvatar(changedAvatar)"

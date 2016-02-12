@@ -21,6 +21,13 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
         $scope.isDisabledUp = false;
         $scope.isDisabledDown = false;
+        $scope.savingUrl = function(saving){
+
+           $scope.savingLink =  'http://saveme.ie/savings/'+ saving;
+            console.log($scope.savingLink);
+            return $scope.savingLink;
+
+        };
 
         Savings.query({}, function (resp) {
             //console.log(resp);
