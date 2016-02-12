@@ -18,7 +18,8 @@
     "angular-timeago": "~0.2.4",
     "angular-material": "^1.0.4",
     "moment": "^2.11.2",
-    "angular-recaptcha": "^2.4.1"
+    "angular-recaptcha": "^2.4.1",
+    "angulike": "^1.2.0"
   },
   "resolutions": {
     "angular": "~1.3",
