@@ -187,6 +187,7 @@ exports.usersSavingsPostedTotal = function(req, res) {
         }
     });
 };
+
 // Count Upvotes by a user
 
 exports.usersUpvotesTotal = function(req, res) {
