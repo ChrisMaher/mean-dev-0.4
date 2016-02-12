@@ -14,6 +14,14 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
             $scope.savingsByUser = data1;
             $scope.upvotesCount = $scope.savingsByUser[3].upVoters.length;
 
+            $scope.totalUpvotes = 0;
+
+            for (var i = 0; i < $scope.savingsByUser.length; i++) {
+
+                $scope.totalUpvotes = $scope.totalUpvotes + $scope.savingsByUser[i].upVoters.length
+            }
+
+
         });
 
         $http.get('savings/usersUpvotesTotal/' + $stateParams.userId).success(function (data4) {
