@@ -12,13 +12,18 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
 
         $http.get('savings/usersSavingsPostedTotal/' + $stateParams.userId).success(function (data1) {
             $scope.savingsByUser = data1;
-            $scope.upvotesCount = $scope.savingsByUser[3].upVoters.length;
 
             $scope.totalUpvotes = 0;
+            $scope.totalDownvotes = 0;
 
             for (var i = 0; i < $scope.savingsByUser.length; i++) {
 
                 $scope.totalUpvotes = $scope.totalUpvotes + $scope.savingsByUser[i].upVoters.length;
+            }
+
+            for (var i = 0; i < $scope.savingsByUser.length; i++) {
+
+                $scope.totalDownvotes = $scope.totalDownvotes + $scope.savingsByUser[i].downVoters.length;
             }
 
 
