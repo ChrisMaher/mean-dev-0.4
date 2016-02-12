@@ -14,6 +14,10 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
             $scope.savingsByUser = data1;
         });
 
+        $http.get('savings/usersUpvotesTotal/' + $stateParams.userId).success(function (data4) {
+            $scope.upvotesToUser = data4;
+        });
+
         $http.get('coupons/usersCouponsPostedTotal/' + $stateParams.userId).success(function (data2) {
             $scope.couponsByUser = data2;
         });
@@ -21,6 +25,8 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
         $http.get('posts/usersCommentsPostedTotal/' + $stateParams.userId).success(function (data3) {
             $scope.commentsByUser = data3;
         });
+
+
 
 
         $scope.capatilize = function capitalizeFirstLetter(string) {

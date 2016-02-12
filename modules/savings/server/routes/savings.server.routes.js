@@ -40,9 +40,13 @@ module.exports = function (app) {
     app.route('/savings/usersSavingsPostedTotal/:userIdString')
         .get(savings.usersSavingsPostedTotal);
 
+    app.route('/savings/usersUpvotesTotal/:userIdString')
+        .get(savings.usersUpvotesTotal);
+
     // Finish by binding the saving middleware
     app.param('savingId', savings.savingByID);
     app.param('userid', savings.listOf);
     app.param('userIdString', savings.usersSavingsPostedTotal);
+    app.param('userIdString', savings.usersUpvotesTotal);
 
 };

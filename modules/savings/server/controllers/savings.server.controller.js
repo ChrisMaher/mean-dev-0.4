@@ -187,6 +187,22 @@ exports.usersSavingsPostedTotal = function(req, res) {
         }
     });
 };
+// Count Upvotes by a user
+
+exports.usersUpvotesTotal = function(req, res) {
+
+    Saving.find( {
+
+        upVoters: req.params.userIdString }).sort('-created').populate('_id').exec(function (err, savings) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(savings);
+        }
+    });
+};
 
 exports.listOf = function(req, res) {
 
