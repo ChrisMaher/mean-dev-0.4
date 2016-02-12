@@ -12,7 +12,7 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
 
         $http.get('savings/usersSavingsPostedTotal/' + $stateParams.userId).success(function (data1) {
             $scope.savingsByUser = data1;
-            $scope.upvotesCount = $scope.savingsByUser.upVoters._id.count;
+
         });
 
         $http.get('savings/usersUpvotesTotal/' + $stateParams.userId).success(function (data4) {
@@ -28,8 +28,6 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
         });
 
 
-
-
         $scope.capatilize = function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         };
@@ -38,6 +36,8 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
         if ($stateParams.userId === $scope.authentication.user._id) {
             $scope.myPage = true;
         }
+
+        $scope.upvotesCount = $scope.savingsByUser[0].upVoters.length;
 
     }
 ]);
