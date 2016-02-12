@@ -136,7 +136,7 @@
 
                   <!--Logged In Buttons-->
 
-                  <md-button aria-label="button" ng-disabled="disableButtonUp(saving)" ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"
+                  <md-button aria-label="button" ng-disabled="disableButtonUp(saving)" ng-show="authentication.user" ng-click="upVoteHome(saving); removeVotesDailyCall()" type="button"
                           class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
 
                   <md-button aria-label="button" ng-disabled="disableButtonDown(saving)" ng-show="authentication.user" ng-click="downVoteHome(saving)" type="button"
@@ -272,7 +272,7 @@
 
             <div ng-show="weekly" class="weekly-list">
 
-              <div ng-repeat="saving in savings |  orderBy: 'votesreal'| lessThan: {'created.$date':168} | limitTo:10"
+              <div ng-repeat="saving in savings |  orderBy: '-votesreal'| lessThan: {'created.$date':168} | limitTo:10"
                    class=" timeframe-row">
 
                 <div class="row timeframe-row-item">
@@ -310,7 +310,7 @@
 
             <div ng-show="monthly" class="monthly-list">
 
-              <div ng-repeat="saving in savings |  orderBy: 'votesreal' | lessThan: {'created.$date':744}| limitTo:10"
+              <div ng-repeat="saving in savings |  orderBy: '-votesreal' | lessThan: {'created.$date':744}| limitTo:10"
                    class=" timeframe-row">
 
                 <div class="row timeframe-row-item">

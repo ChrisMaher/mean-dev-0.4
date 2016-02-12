@@ -95,6 +95,9 @@ var SavingSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   }],
+  votesTrim: [{
+    type: Date
+  }],
   created: {
     type: Date,
     default: Date.now

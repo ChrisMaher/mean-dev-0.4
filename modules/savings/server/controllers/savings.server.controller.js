@@ -205,6 +205,44 @@ exports.usersUpvotesTotal = function(req, res) {
     });
 };
 
+// Count Upvotes by a user
+
+/**
+ * List of Savings
+ */
+exports.removeVotesDaily = function (req, res) {
+
+    Saving.find().sort('created').populate('votes').exec(function (err, savings) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+
+            for (var i = 0; i < savings.length; i++) {
+
+                if(savings[i].votes > 100){
+
+                    savings[i].votes = savings[i].votes - (savings[i].votes / 5);
+                    savings[i].update();
+                    console.log("removed votes");
+
+                }else{
+                    savings[i].votes = 100;
+                    console.log("changed to 100");
+                }
+
+
+            }
+
+
+            res.json(savings);
+        }
+    });
+
+};
+
+
 exports.listOf = function(req, res) {
 
     Saving.find( {

@@ -21,10 +21,13 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
         $scope.isDisabledUp = false;
         $scope.isDisabledDown = false;
+        $scope.yesterdaysDate = new Date();
+        $scope.yesterdaysDate.setDate($scope.yesterdaysDate.getDate() - 1);
+
         $scope.savingUrl = function(saving){
 
            $scope.savingLink =  'http://saveme.ie/savings/'+ saving;
-            console.log($scope.savingLink);
+            // console.log($scope.savingLink);
             return $scope.savingLink;
 
         };
@@ -33,10 +36,6 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             //console.log(resp);
             $scope.savings = resp;
         });
-
-
-
-
 
         //alert($stateParams.username); // Have Username
 
@@ -340,6 +339,31 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         $scope.upVoteHome = function (saving) {
 
+            // check if yesterdays votes have been removed, if not remove 10% of votes
+            // Filter out votesTrim for yesterdays date
+
+            var wasRemoved = saving.votesTrim.filter(function (voter) {
+
+                    return saving.votesTrim === $scope.yesterdaysDate;
+
+                }).length > 0;
+
+            if(!wasRemoved){
+
+                if(saving.votesreal > 100){
+
+                    saving.votesreal = saving.votesreal - (saving.votesreal / 10);
+                    saving.votesTrim.push($scope.yesterdaysDate);
+                    console.log("removed votes");
+
+                }else{
+                    saving.votesreal = 100;
+                    saving.votesTrim.push($scope.yesterdaysDate);
+                    console.log("changed to 100");
+                }
+
+
+            }
 
             var hasVoted = saving.upVoters.filter(function (voter) {
 
@@ -386,6 +410,32 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         };
 
         $scope.downVoteHome = function (saving) {
+
+            // check if yesterdays votes have been removed, if not remove 10% of votes
+            // Filter out votesTrim for yesterdays date
+
+            var wasRemoved = saving.votesTrim.filter(function (voter) {
+
+                    return saving.votesTrim === $scope.yesterdaysDate;
+
+                }).length > 0;
+
+            if(!wasRemoved){
+
+                if(saving.votesreal > 100){
+
+                    saving.votesreal = saving.votesreal - (saving.votesreal / 10);
+                    saving.votesTrim.push($scope.yesterdaysDate);
+                    console.log("removed votes");
+
+                }else{
+                    saving.votesreal = 100;
+                    saving.votesTrim.push($scope.yesterdaysDate);
+                    console.log("changed to 100");
+                }
+
+
+            }
 
             var hasVoted = saving.downVoters.filter(function (voter) {
 

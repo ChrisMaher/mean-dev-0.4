@@ -28,6 +28,11 @@ angular.module('savings').factory('Savings', ['$resource',
         method: 'GET',
         url: '/savings/usersSavingsPostedTotal/:userIdString',
         isArray: true
+      },
+      removeVotesDaily: {
+        method: 'GET',
+        url: '/savings/removeVotesDaily',
+        isArray: true
       }
     });
   }

@@ -21,11 +21,10 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
                 $scope.totalUpvotes = $scope.totalUpvotes + $scope.savingsByUser[i].upVoters.length;
             }
 
-            for (var i = 0; i < $scope.savingsByUser.length; i++) {
+            for (var x = 0; x < $scope.savingsByUser.length; x++) {
 
-                $scope.totalDownvotes = $scope.totalDownvotes + $scope.savingsByUser[i].downVoters.length;
+                $scope.totalDownvotes = $scope.totalDownvotes + $scope.savingsByUser[x].downVoters.length;
             }
-
 
         });
 

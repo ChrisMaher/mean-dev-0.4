@@ -43,6 +43,9 @@ module.exports = function (app) {
     app.route('/savings/usersUpvotesTotal/:userIdString')
         .get(savings.usersUpvotesTotal);
 
+    app.route('/savings/removeVotesDaily')
+        .get(savings.removeVotesDaily);
+
     // Finish by binding the saving middleware
     app.param('savingId', savings.savingByID);
     app.param('userid', savings.listOf);
