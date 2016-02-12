@@ -18,7 +18,7 @@ angular.module('users').controller('ViewProfileController', ['$scope', '$http', 
 
             for (var i = 0; i < $scope.savingsByUser.length; i++) {
 
-                $scope.totalUpvotes = $scope.totalUpvotes + $scope.savingsByUser[i].upVoters.length
+                $scope.totalUpvotes = $scope.totalUpvotes + $scope.savingsByUser[i].upVoters.length;
             }
 
 
