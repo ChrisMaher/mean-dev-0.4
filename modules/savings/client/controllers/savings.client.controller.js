@@ -350,7 +350,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                 }).length > 0;
 
-            console.log(wasRemoved);
+            // console.log(wasRemoved);
 
             if(!wasRemoved){
 
@@ -358,12 +358,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                     saving.votesreal = saving.votesreal - (saving.votesreal / 10);
                     saving.votesTrim.push($scope.yesterdaysDate);
-                    console.log("removed votes");
+                    // console.log("removed votes");
 
                 }else{
                     saving.votesreal = 100;
                     saving.votesTrim.push($scope.yesterdaysDate);
-                    console.log("changed to 100");
+                    // console.log("changed to 100");
                 }
 
 
@@ -423,7 +423,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                 }).length > 0;
 
-            console.log(wasRemoved);
+            // console.log(wasRemoved);
 
             if(!wasRemoved){
 
@@ -431,12 +431,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                     saving.votesreal = saving.votesreal - (saving.votesreal / 10);
                     saving.votesTrim.push($scope.yesterdaysDate);
-                    console.log("removed votes");
+                    // console.log("removed votes");
 
                 }else{
                     saving.votesreal = 100;
                     saving.votesTrim.push($scope.yesterdaysDate);
-                    console.log("changed to 100");
+                    // console.log("changed to 100");
                 }
 
 

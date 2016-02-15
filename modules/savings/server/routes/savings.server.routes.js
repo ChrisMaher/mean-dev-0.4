@@ -22,6 +22,11 @@ module.exports = function (app) {
         .put(savings.update)
         .delete(savings.delete);
 
+    // Single saving routes
+    app.route('/api/savings/app/:savingId/:userEmail').all()
+        .get(savings.read)
+        .put(savings.update);
+
     app.route('/savings/savingCount').all()
         .get(savings.countSavings);
 
@@ -51,5 +56,7 @@ module.exports = function (app) {
     app.param('userid', savings.listOf);
     app.param('userIdString', savings.usersSavingsPostedTotal);
     app.param('userIdString', savings.usersUpvotesTotal);
+    app.param('appSavingId', savings.appUpvoteSaving);
+    app.param('userEmail', savings.appUpvoteSaving);
 
 };

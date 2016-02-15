@@ -7,6 +7,7 @@ var path = require('path'),
     fs = require('fs'),
     mongoose = require('mongoose'),
     Saving = mongoose.model('Saving'),
+    User = mongoose.model('User'),
     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
     _ = require('lodash');
 
@@ -222,6 +223,41 @@ exports.removeVotesDaily = function (req, res) {
             for (var i = 0; i < savings.length; i++) {
 
                 if(savings[i].votes > 100){
+
+                    savings[i].votes = savings[i].votes - (savings[i].votes / 5);
+                    savings[i].update();
+                    console.log("removed votes");
+
+                }else{
+                    savings[i].votes = 100;
+                    console.log("changed to 100");
+                }
+
+
+            }
+
+
+            res.json(savings);
+        }
+    });
+
+};
+
+// Upvote a Saving
+exports.appUpvoteSaving = function (req, res) {
+
+    // Find user and get user id that matches email
+
+    Saving.find().sort('created').populate('_id').exec(function (err, savings) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+
+            for (var i = 0; i < savings.length; i++) {
+
+                if(savings[i].upVoters === req.params.userIdString){
 
                     savings[i].votes = savings[i].votes - (savings[i].votes / 5);
                     savings[i].update();
