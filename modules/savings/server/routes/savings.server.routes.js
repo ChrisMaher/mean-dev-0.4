@@ -23,9 +23,9 @@ module.exports = function (app) {
         .delete(savings.delete);
 
     // Single saving routes
-    app.route('/api/savings/app/:savingId/:userEmail').all()
+    app.route('/api/savings/app/:appSavingId/:userEmail').all(savingsPolicy.isAllowed)
         .get(savings.read)
-        .put(savings.update);
+        .put(savings.appUpvoteSaving);
 
     app.route('/savings/savingCount').all()
         .get(savings.countSavings);

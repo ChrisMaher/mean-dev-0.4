@@ -38,6 +38,9 @@ exports.invokeRolesPolicies = function () {
     }, {
       resources: '/api/savings/:savingId',
       permissions: ['get']
+    }, {
+      resources: '/api/savings/:appSavingId/:userEmail',
+      permissions: ['get', 'put']
     }]
   }]);
 };
