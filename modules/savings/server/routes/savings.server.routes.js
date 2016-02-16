@@ -24,7 +24,7 @@ module.exports = function (app) {
 
     // Single saving routes
     app.route('/api/savings/app/:appSavingId/:userEmail').all(savingsPolicy.isAllowed)
-        .get(savings.read)
+        // .get(savings.read)
         .put(savings.appUpvoteSaving);
 
     app.route('/savings/savingCount').all()

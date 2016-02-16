@@ -244,36 +244,22 @@ exports.removeVotesDaily = function (req, res) {
 };
 
 // Upvote a Saving
-exports.appUpvoteSaving = function (req, res) {
+exports.appUpvoteSaving = function (req, res, next) {
 
-    // Find user and get user id that matches email
+    Saving.find({
 
-    Saving.find().sort('created').populate('_id').exec(function (err, savings) {
+        _id: req.params.appSavingId
+
+    }).populate('user').exec(function (err, saving) {
         if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
+            return next(err);
+        } else if (!saving) {
+            return res.status(404).send({
+                message: 'No saving with that identifier has been found'
             });
-        } else {
-
-            for (var i = 0; i < savings.length; i++) {
-
-                if(savings[i].upVoters === req.params.userIdString){
-
-                    savings[i].votes = savings[i].votes - (savings[i].votes / 5);
-                    savings[i].update();
-                    console.log("removed votes");
-
-                }else{
-                    savings[i].votes = 100;
-                    console.log("changed to 100");
-                }
-
-
-            }
-
-
-            res.json(savings);
         }
+        req.saving = saving;
+        next();
     });
 
 };

@@ -39,12 +39,6 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             $scope.savings = resp;
         });
 
-        //alert($stateParams.username); // Have Username
-
-
-        //console.log($scope.ourUser);
-
-
         //$scope.user.imageURL = '';
         $scope.submitFormSaving = function (isValid) {
             $scope.submitted = true;
