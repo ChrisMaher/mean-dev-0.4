@@ -88,12 +88,14 @@ var SavingSchema = new Schema({
     min: 0
   },
   upVoters: [{
-    type: Schema.ObjectId,
-    ref: 'User'
+    type: String,
+    default: 'NA',
+    trim: true
   }],
   downVoters: [{
-    type: Schema.ObjectId,
-    ref: 'User'
+    type: String,
+    default: 'NA',
+    trim: true
   }],
   votesTrim: [{
     type: String

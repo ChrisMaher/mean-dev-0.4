@@ -237,7 +237,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
                 image: image,
                 urlimage: image,
                 category: this.category,
-                upVoters: $scope.user
+                upVoters: $scope.user.email
 
             });
 
@@ -369,9 +369,11 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             }
 
+
+            // Check if they have voted with filter
             var hasVoted = saving.upVoters.filter(function (voter) {
 
-                    return voter === $scope.user._id;
+                    return voter === $scope.user.email;
 
                 }).length > 0;
 
@@ -390,7 +392,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             var hasVoted3 = saving.downVoters.filter(function (voter) {
 
-                    return voter === $scope.user._id;
+                    return voter === $scope.user.email;
 
                 }).length > 0;
 
@@ -398,7 +400,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                 for (var i = saving.downVoters.length - 1; i >= 0; i--) {
 
-                    if (saving.downVoters[i] === $scope.user._id) {
+                    if (saving.downVoters[i] === $scope.user.email) {
                         saving.downVoters.splice(i, 1);
                     }
                 }
@@ -444,7 +446,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             var hasVoted = saving.downVoters.filter(function (voter) {
 
-                    return voter === $scope.user._id;
+                    return voter === $scope.user.email;
 
                 }).length > 0;
 
@@ -464,7 +466,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             var hasVoted2 = saving.upVoters.filter(function (voter) {
 
-                    return voter === $scope.user._id;
+                    return voter === $scope.user.email;
 
                 }).length > 0;
 
@@ -473,7 +475,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                 for (var i = saving.upVoters.length - 1; i >= 0; i--) {
 
-                    if (saving.upVoters[i] === $scope.user._id) {
+                    if (saving.upVoters[i] === $scope.user.email) {
                         saving.upVoters.splice(i, 1);
                     }
                 }
@@ -494,7 +496,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             var hasVotedUp = saving.upVoters.filter(function (voter) {
 
-                    return voter === $scope.user._id;
+                    return voter === $scope.user.email;
 
                 }).length > 0;
 
@@ -511,7 +513,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             var hasVotedUp = saving.downVoters.filter(function (voter) {
 
-                    return voter === $scope.user._id;
+                    return voter === $scope.user.email;
 
                 }).length > 0;
 
