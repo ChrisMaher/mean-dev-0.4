@@ -383,7 +383,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                 saving.votes++;
                 saving.votesreal++;
-                saving.upVoters.push($scope.user);
+                saving.upVoters.push($scope.user.email);
 
             }
 
@@ -456,7 +456,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
                 saving.votes--;
                 saving.votesreal--;
-                saving.downVoters.push($scope.user);
+                saving.downVoters.push($scope.user.email);
 
 
             }
