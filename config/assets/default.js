@@ -10,29 +10,31 @@ module.exports = {
                 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
             ],
             js: [
-                'public/lib/angular/angular.js',
-                'public/lib/angular-aria/angular-aria.js',
-                'public/lib/angular-animate/angular-animate.js',
-                'public/lib/angular-material/angular-material.js',
-                'public/lib/angular/angular-route.js',
-                'public/lib/angular-resource/angular-resource.js',
+                'public/lib/angular/angular.min.js',
+                'public/lib/angular-aria/angular-aria.min.js',
+                'public/lib/angular-animate/angular-animate.min.js',
+                'public/lib/angular-material/angular-material.min.js',
+                'public/lib/angular/angular-route.min.js',
+                'public/lib/angular-resource/angular-resource.min.js',
                 'public/lib/angulike/angulike.js',
-                'public/lib/angular-messages/angular-messages.js',
-                'public/lib/angular-ui-router/release/angular-ui-router.js',
-                'public/lib/angular-ui-utils/ui-utils.js',
-                'public/lib/angular-file-upload/angular-file-upload.js',
+                'public/lib/angular-messages/angular-messages.min.js',
+                'public/lib/angular-ui-router/release/angular-ui-router.min.js',
+                'public/lib/angular-ui-utils/ui-utils.min.js',
+                'public/lib/angular-file-upload/angular-file-upload.min.js',
                 'public/lib/angular-utils-pagination/dirPagination.js',
-                'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+
+                'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
                 'public/lib/textAngular/dist/textAngular-rangy.min.js',
-                'public/lib/textAngular/dist/textAngular-sanitize.js',
+                'public/lib/textAngular/dist/textAngular-sanitize.min.js',
                 'public/lib/textAngular/dist/textAngularSetup.js',
-                'public/lib/textAngular/dist/textAngular.js',
-                'public/lib/angular-wysiwyg/dist/angular-wysiwyg.js',
+
+                'public/lib/textAngular/dist/textAngular.min.js',
+                'public/lib/angular-wysiwyg/dist/angular-wysiwyg.min.js',
                 'public/lib/angular-wysiwyg/dist/bootstrap-colorpicker-module.js',
-                'public/lib/jquery/dist/jquery.js',
+
+                'public/lib/jquery/dist/jquery.min.js',
                 'public/lib/moment/moment.js',
-                'public/lib/angular-moment/angular-moment.js',
-                'public/lib/ngGentle/ngGentle.js'
+                'public/lib/angular-moment/angular-moment.min.js'
 
 
 
