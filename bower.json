@@ -19,7 +19,8 @@
     "angular-material": "^1.0.4",
     "moment": "^2.11.2",
     "angular-recaptcha": "^2.4.1",
-    "angulike": "^1.2.0"
+    "angulike": "^1.2.0",
+    "ngGentle": "^0.0.1"
   },
   "resolutions": {
     "angular": "~1.3",
