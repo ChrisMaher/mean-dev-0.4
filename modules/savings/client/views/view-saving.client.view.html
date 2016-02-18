@@ -1,4 +1,7 @@
+
+
 <section data-ng-controller="SavingsController" data-ng-init="findOne()">
+
   <section data-ng-controller="PostsController" data-ng-init="find()">
 
     <div class="row" id="below-navbar">
@@ -130,8 +133,9 @@
             <div class="col-lg-2 right-box-view">
 
               <div class="row deal-image thumbnail thumbnail-preview-view center-block">
-                <a ng-href="/savings/{{saving._id}}"><img src="{{saving.urlimage}}" width="110"
-                                                          height="110"/></a>
+                <a ng-href="/savings/{{saving._id}}">
+
+                  <img class="home-saving-image" src="{{saving.urlimage}}" /></a>
 
               </div>
 
