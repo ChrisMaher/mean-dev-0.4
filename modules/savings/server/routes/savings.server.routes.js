@@ -17,7 +17,8 @@ module.exports = function (app) {
         .post(savings.create);
 
     // Single saving routes
-    app.route('/api/savings/:savingId').all(savingsPolicy.isAllowed)
+    app.route('/api/savings/:savingId')
+        // .all(savingsPolicy.isAllowed)
         .get(savings.read)
         .put(savings.update)
         .delete(savings.delete);
