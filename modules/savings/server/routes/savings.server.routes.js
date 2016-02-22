@@ -63,5 +63,6 @@ module.exports = function (app) {
     app.param('userIdString', savings.usersSavingsPostedTotal);
     app.param('userIdString', savings.usersUpvotesTotal);
     app.param('email', savings.appUpvoteSaving);
+    app.param('email', savings.appDownvoteSaving);
 
 };
