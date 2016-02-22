@@ -57,5 +57,6 @@ module.exports = function (app) {
     app.param('userid', savings.listOf);
     app.param('userIdString', savings.usersSavingsPostedTotal);
     app.param('userIdString', savings.usersUpvotesTotal);
+    app.param('email', savings.appUpvoteSaving);
 
 };
