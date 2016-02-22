@@ -335,23 +335,23 @@ exports.removeVotesDaily = function (req, res) {
  */
 exports.appDownvoteSaving = function (req, res) {
 
-    var saving = req.saving;
-
-    saving = _.extend(saving, req.body);
-
-    var hasVoted4 = saving.downVoters.filter(function (voter) {
-
-            return voter === req.params.email;
-
-        }).length > 0;
-
-    if(!hasVoted4){
-
-        saving.votes--;
-        saving.votesreal--;
-        saving.downVoters.push(req.params.email);
-
-    }
+    // var saving = req.saving;
+    //
+    // saving = _.extend(saving, req.body);
+    //
+    // var hasVoted4 = saving.downVoters.filter(function (voter) {
+    //
+    //         return voter === req.params.email;
+    //
+    //     }).length > 0;
+    //
+    // if(!hasVoted4){
+    //
+    //     saving.votes--;
+    //     saving.votesreal--;
+    //     saving.downVoters.push(req.params.email);
+    //
+    // }
 
     // var hasVoted3 = saving.upVoters.filter(function (voter) {
     //
