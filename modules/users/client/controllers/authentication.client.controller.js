@@ -54,6 +54,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       }).error(function (response) {
         $scope.error = response.message;
       });
+
+
+
+
+
     };
 
     // OAuth provider request
