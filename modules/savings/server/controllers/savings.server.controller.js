@@ -331,11 +331,9 @@ exports.removeVotesDaily = function (req, res) {
 };
 
 /**
- * App Upvote a saving.
+ * App Downvote a saving.
  */
 exports.appDownvoteSaving = function (req, res) {
-
-
 
     var saving = req.saving;
 
@@ -355,27 +353,26 @@ exports.appDownvoteSaving = function (req, res) {
 
     }
 
-    var hasVoted3 = saving.upVoters.filter(function (voter) {
-
-            return voter === req.params.email;
-
-        }).length > 0;
-
-    if (hasVoted3) {
-
-        for (var i = saving.upVoters.length - 1; i >= 0; i--) {
-
-            if (saving.upVoters[i] === req.params.email) {
-                saving.upVoters.splice(i, 1);
-            }
-        }
-    }
+    // var hasVoted3 = saving.upVoters.filter(function (voter) {
+    //
+    //         return voter === req.params.email;
+    //
+    //     }).length > 0;
+    //
+    // if (hasVoted3) {
+    //
+    //     for (var i = saving.upVoters.length - 1; i >= 0; i--) {
+    //
+    //         if (saving.upVoters[i] === req.params.email) {
+    //             saving.upVoters.splice(i, 1);
+    //         }
+    //     }
+    // }
 
 
 
     saving.save(function (err) {
         if (err) {
-            console.log(req.params.email);
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
 
@@ -383,7 +380,6 @@ exports.appDownvoteSaving = function (req, res) {
 
         } else {
             res.json(saving);
-            console.log(req.params.email);
         }
     });
 };
