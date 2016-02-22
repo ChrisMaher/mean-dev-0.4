@@ -243,55 +243,55 @@ exports.removeVotesDaily = function (req, res) {
 
 };
 
-// /**
-//  * App Upvote a saving.
-//  */
-// exports.appUpvoteSaving = function (req, res) {
-//
-//     var saving = req.saving;
-//
-//     saving = _.extend(saving, req.body);
-//
-//     var hasVoted = saving.upVoters.filter(function (voter) {
-//
-//             return voter === req.params.email;
-//
-//         }).length > 0;
-//
-//     if(!hasVoted){
-//
-//         saving.votes++;
-//         saving.votesreal++;
-//         saving.upVoters.push(req.params.email);
-//
-//     }
-//
-//     var hasVoted3 = saving.downVoters.filter(function (voter) {
-//
-//             return voter === req.params.email;
-//
-//         }).length > 0;
-//
-//     if (hasVoted3) {
-//
-//         for (var i = saving.downVoters.length - 1; i >= 0; i--) {
-//
-//             if (saving.downVoters[i] === req.params.email) {
-//                 saving.downVoters.splice(i, 1);
-//             }
-//         }
-//     }
-//
-//     saving.save(function (err) {
-//         if (err) {
-//             return res.status(400).send({
-//                 message: errorHandler.getErrorMessage(err)
-//             });
-//         } else {
-//             res.json(saving);
-//         }
-//     });
-// };
+/**
+ * App Upvote a saving.
+ */
+exports.appUpvoteSaving = function (req, res) {
+
+    var saving = req.saving;
+
+    saving = _.extend(saving, req.body);
+
+    var hasVoted = saving.upVoters.filter(function (voter) {
+
+            return voter === req.params.email;
+
+        }).length > 0;
+
+    if(!hasVoted){
+
+        saving.votes++;
+        saving.votesreal++;
+        saving.upVoters.push(req.params.email);
+
+    }
+
+    var hasVoted3 = saving.downVoters.filter(function (voter) {
+
+            return voter === req.params.email;
+
+        }).length > 0;
+
+    if (hasVoted3) {
+
+        for (var i = saving.downVoters.length - 1; i >= 0; i--) {
+
+            if (saving.downVoters[i] === req.params.email) {
+                saving.downVoters.splice(i, 1);
+            }
+        }
+    }
+
+    saving.save(function (err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            res.json(saving);
+        }
+    });
+};
 
 // Count Upvotes by a user
 
@@ -341,7 +341,7 @@ exports.appDownvoteSaving = function (req, res) {
 
     var hasVoted4 = saving.downVoters.filter(function (voter) {
 
-            return voter === req.params.email;
+            return voter === req.params.email1;
 
         }).length > 0;
 
@@ -349,13 +349,13 @@ exports.appDownvoteSaving = function (req, res) {
 
         saving.votes--;
         saving.votesreal--;
-        saving.downVoters.push(req.params.email);
+        saving.downVoters.push(req.params.email1);
 
     }
 
     var hasVoted3 = saving.upVoters.filter(function (voter) {
 
-            return voter === req.params.email;
+            return voter === req.params.email1;
 
         }).length > 0;
 
@@ -363,7 +363,7 @@ exports.appDownvoteSaving = function (req, res) {
 
         for (var i = saving.upVoters.length - 1; i >= 0; i--) {
 
-            if (saving.upVoters[i] === req.params.email) {
+            if (saving.upVoters[i] === req.params.email1) {
                 saving.upVoters.splice(i, 1);
             }
         }
