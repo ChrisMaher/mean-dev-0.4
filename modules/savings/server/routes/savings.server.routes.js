@@ -23,10 +23,10 @@ module.exports = function (app) {
         .put(savings.update)
         .delete(savings.delete);
 
-    // Single saving routes
-    app.route('/api/savings/app/upvote/:savingId/:email')
-        .put(savings.appUpvoteSaving)
-        .get(savings.read);
+    // // Single saving routes
+    // app.route('/api/savings/app/upvote/:savingId/:email')
+    //     .put(savings.appUpvoteSaving)
+    //     .get(savings.read);
 
     // Single saving routes
     app.route('/api/savings/app/downvote/:savingId/:email')
