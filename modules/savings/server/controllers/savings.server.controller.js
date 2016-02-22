@@ -335,9 +335,9 @@ exports.removeVotesDaily = function (req, res) {
  */
 exports.appDownvoteSaving = function (req, res) {
 
-    // var saving = req.saving;
-    //
-    // saving = _.extend(saving, req.body);
+    var saving = req.saving;
+
+    saving = _.extend(saving, req.body);
     //
     // var hasVoted4 = saving.downVoters.filter(function (voter) {
     //
