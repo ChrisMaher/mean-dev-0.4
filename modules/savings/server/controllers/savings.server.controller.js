@@ -260,21 +260,25 @@ exports.appUpvoteSaving = function (req, res, next) {
         }
         req.saving = saving;
         next();
+
+
+
+
     });
 
-    var saving = req.saving;
-
-    saving.save(function (err) {
-        if (err) {
-            return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-            });
-        } else {
-            return res.status(200).send({
-                message: 'Successful'
-            });
-        }
-    });
+    // var saving = req.saving;
+    //
+    // saving.save(function (err) {
+    //     if (err) {
+    //         return res.status(400).send({
+    //             message: errorHandler.getErrorMessage(err)
+    //         });
+    //     } else {
+    //         return res.status(200).send({
+    //             message: 'Successful'
+    //         });
+    //     }
+    // });
 
 
 
