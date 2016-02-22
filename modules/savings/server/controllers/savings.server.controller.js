@@ -243,46 +243,24 @@ exports.removeVotesDaily = function (req, res) {
 
 };
 
-// Upvote a Saving
-exports.appUpvoteSaving = function (req, res, next) {
+/**
+ * Update a saving
+ */
+exports.appUpvoteSaving = function (req, res) {
 
-    Saving.find({
+    var saving = req.saving;
 
-        _id: req.body.savingId
+    saving = _.extend(saving, req.body);
 
-    }).populate('user').exec(function (err, saving) {
+    saving.save(function (err) {
         if (err) {
-            return next(err);
-        } else if (!saving) {
-            return res.status(404).send({
-                message: 'No saving with that identifier has been found'
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
             });
+        } else {
+            res.json(saving);
         }
-        req.saving = saving;
-        next();
-
-
-
-
     });
-
-    // var saving = req.saving;
-    //
-    // saving.save(function (err) {
-    //     if (err) {
-    //         return res.status(400).send({
-    //             message: errorHandler.getErrorMessage(err)
-    //         });
-    //     } else {
-    //         return res.status(200).send({
-    //             message: 'Successful'
-    //         });
-    //     }
-    // });
-
-
-
-
 };
 
 
