@@ -335,17 +335,19 @@ exports.removeVotesDaily = function (req, res) {
  */
 exports.appDownvoteSaving = function (req, res) {
 
+
+
     var saving = req.saving;
 
     saving = _.extend(saving, req.body);
 
-    var hasVoted = saving.downVoters.filter(function (voter) {
+    var hasVoted4 = saving.downVoters.filter(function (voter) {
 
             return voter === req.params.email;
 
         }).length > 0;
 
-    if(!hasVoted){
+    if(!hasVoted4){
 
         saving.votes--;
         saving.votesreal--;
@@ -373,11 +375,15 @@ exports.appDownvoteSaving = function (req, res) {
 
     saving.save(function (err) {
         if (err) {
+            console.log(req.params.email);
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
+
             });
+
         } else {
             res.json(saving);
+            console.log(req.params.email);
         }
     });
 };
