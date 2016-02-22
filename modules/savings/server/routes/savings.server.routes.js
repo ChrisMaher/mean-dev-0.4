@@ -28,6 +28,11 @@ module.exports = function (app) {
         .put(savings.appUpvoteSaving)
         .get(savings.read);
 
+    // Single saving routes
+    app.route('/api/savings/app/downvote/:savingId/:email')
+        .put(savings.appDownvoteSaving)
+        .get(savings.read);
+
     app.route('/savings/savingCount').all()
         .get(savings.countSavings);
 
