@@ -249,7 +249,7 @@ exports.removeVotesDaily = function (req, res) {
 exports.appUpvoteSaving = function (req, res) {
 
     var saving = req.saving;
-    var email = req.email;
+    saving.email = req.email;
 
     saving = _.extend(saving, req.body);
 
