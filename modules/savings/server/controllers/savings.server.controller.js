@@ -248,7 +248,7 @@ exports.appUpvoteSaving = function (req, res, next) {
 
     Saving.find({
 
-        _id: req.params.appSavingId
+        _id: req.body.savingId
 
     }).populate('user').exec(function (err, saving) {
         if (err) {
@@ -261,6 +261,23 @@ exports.appUpvoteSaving = function (req, res, next) {
         req.saving = saving;
         next();
     });
+
+    var saving = req.saving;
+
+    saving.save(function (err) {
+        if (err) {
+            return res.status(400).send({
+                message: errorHandler.getErrorMessage(err)
+            });
+        } else {
+            return res.status(200).send({
+                message: 'Successful'
+            });
+        }
+    });
+
+
+
 
 };
 
