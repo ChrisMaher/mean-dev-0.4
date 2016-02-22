@@ -249,13 +249,12 @@ exports.removeVotesDaily = function (req, res) {
 exports.appUpvoteSaving = function (req, res) {
 
     var saving = req.saving;
-    saving.email = req.email;
 
     saving = _.extend(saving, req.body);
 
     saving.votes++;
     saving.votesreal++;
-    saving.upVoters.push(req.body.email);
+    saving.upVoters.push(req.params.email);
 
     saving.save(function (err) {
         if (err) {
