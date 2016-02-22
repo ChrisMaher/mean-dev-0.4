@@ -80,7 +80,7 @@
 
       <div class="list-group-home-deals">
 
-        <div class="spotlight-deal" data-ng-show="!savings.$resolved || savings.length">
+        <div class="spotlight-deal" data-ng-hide=" (savings |lessThan:{'created.$date':24}).length === 0">
 
           <h4>Todays Top 6</h4>
 
