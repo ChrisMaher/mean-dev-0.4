@@ -13,7 +13,7 @@
         </i> Newest </a>
       </li>
 
-      <li role="presentation " ng-show="authentication.admin"><a href="#" ng-click="toggleReported();"><i>
+      <li role="presentation " ng-if="authentication.user.roles[1] =='admin'"><a href="#" ng-click="toggleReported();"><i>
       </i> Reported </a>
       </li>
 
@@ -88,26 +88,53 @@
 
           <h4>Todays Top 6</h4>
 
-          <div class="col-md-12 spotlight-deal-inner">
+          <div class="row spotlight-deal-inner">
 
             <div ng-repeat="saving in savings|orderBy:'votesreal'|lessThan:{'created.$date':48}|limitTo:6"
                  class="col-lg-2 no-padding-spotlight text-center">
 
-              <div class="thumbnail-spotlight thumbnail centred-image spotlight-text">
+              <!--<div class="thumbnail-spotlight thumbnail centred-image spotlight-text">-->
 
-                <a ng-href="/savings/{{saving._id}}"><img class="home-spotlight-images" src="{{saving.urlimage}}"/></a>
+                <!--<a ng-href="/savings/{{saving._id}}"><img class="home-spotlight-images" src="{{saving.urlimage}}"/></a>-->
 
-                <br>
+                <!--<br>-->
 
-                <a class="timeframe-row-item-5-text" ng-href="/savings/{{saving._id}}">
+                <!--<a class="timeframe-row-item-5-text" ng-href="/savings/{{saving._id}}">-->
 
-                  <!--{{saving.title}}-->
+                  <!--&lt;!&ndash;{{saving.title}}&ndash;&gt;-->
 
-                  <span class="bolder">&euro;{{saving.price.toFixed(2)}}</span> @ {{saving.retailer}}
+                  <!--<span class="bolder">&euro;{{saving.price.toFixed(2)}}</span> @ {{saving.retailer}}-->
 
-                </a>
+                <!--</a>-->
 
+              <!--</div>-->
+
+            <div class="thumbnail outer-box">
+            <div class="image-outer-box">
+              <div class="image-box">
+                <a ng-href="/savings/{{saving._id}}"><img class="image-box-image" src="{{saving.urlimage}}"/></a>
               </div>
+            </div>
+              <div class="text-box">
+                <a ng-href="/savings/{{saving._id}}"> <span class="bolder">&euro;{{saving.price.toFixed(2)}}</span> @ {{saving.retailer}}</a>
+              </div>
+            </div>
+
+              <!--<div class="thumbnail-spotlight thumbnail centred-image spotlight-text">-->
+
+                <!---->
+
+                <!--<br>-->
+
+                <!--<a class="timeframe-row-item-5-text" ng-href="/savings/{{saving._id}}">-->
+
+                  <!--&lt;!&ndash;{{saving.title}}&ndash;&gt;-->
+
+                  <!--<span class="bolder">&euro;{{saving.price.toFixed(2)}}</span> @ {{saving.retailer}}-->
+
+                <!--</a>-->
+
+              <!--</div>-->
 
             </div>
 

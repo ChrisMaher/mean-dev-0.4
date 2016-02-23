@@ -532,6 +532,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             }
 
         };
+        
 
     }
 ]);

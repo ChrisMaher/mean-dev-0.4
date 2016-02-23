@@ -7,13 +7,15 @@ module.exports = {
                 'public/lib/bootstrap/dist/css/bootstrap.css',
                 'public/lib/bootstrap/dist/css/bootstrap-theme.css',
                 'public/lib/angular-material/angular-material.css',
-                'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
+                'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css',
+                'public/lib/allmighty-autocomplete/style/autocomplete.css'
             ],
             js: [
                 'public/lib/angular/angular.min.js',
                 'public/lib/angular-aria/angular-aria.min.js',
                 'public/lib/angular-animate/angular-animate.min.js',
                 'public/lib/angular-material/angular-material.min.js',
+                'public/lib/allmighty-autocomplete/script/autocomplete.js',
                 'public/lib/angular/angular-route.min.js',
                 'public/lib/angular-resource/angular-resource.min.js',
                 'public/lib/angulike/angulike.js',

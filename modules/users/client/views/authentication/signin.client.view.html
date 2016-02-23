@@ -1,7 +1,7 @@
 <div ng-controller="AuthenticationController">
 
 
-  <div class="col-md-12 text-center">
+  <div class="col-xs-offset-2 col-md-8 col-xs-offset-2 text-center sign-in-up">
     <form name="userForm" ng-submit="signin(userForm.$valid)" class="signin" novalidate autocomplete="off">
       <fieldset>
 
@@ -21,7 +21,7 @@
           </div>
         </div>
 
-        <div class="text-center form-group">
+        <div class="text-center form-group sign-in-up-buttons">
           <button type="submit" class="btn btn-primary">Sign in</button>
           &nbsp; or&nbsp;
           <a ui-sref="authentication.signup">Sign up</a>

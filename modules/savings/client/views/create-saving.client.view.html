@@ -1,5 +1,6 @@
 <div class="col-sm-12" id="below-navbar">
 
+
   <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
     <li role="presentation" class="active"><a href="/savings/create"> New Deal </a>
     <li role="presentation"><a href="/coupons/create"> New Coupon </a>
@@ -9,6 +10,7 @@
 </div>
 
 <section data-ng-controller="SavingsController as savingsCTRL">
+
 
   <div class=" col-sm-12 create-body-saving">
     <div class="col-md-12">
@@ -78,7 +80,7 @@
               <div class="form-group new-deal-form"
                    ng-class="{ 'has-error' : createSavingForm.retailer.$invalid && submitted}" show-errors>
                 <label for="retailer">Retailer</label>
-                <input name="retailer" type="text" ng-model="retailer" id="retailer" class="form-control" required>
+                <input name="retailer" type="text" ng-autocomplete="result3" details="details3" ng-model="retailer" id="retailer" class="form-control" required>
                 <div class="sub-label">Enter the Retailer of the Deal.</div>
                 <div ng-messages="savingForm.savingsCTRL.retailer.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Retailer is required.</p>

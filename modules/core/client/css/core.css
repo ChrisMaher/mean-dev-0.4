@@ -17,12 +17,19 @@ html {
     text-decoration: none;
 }
 
-[ng\:cloak],
-[ng-cloak],
-[x-ng-cloak],
-.ng-cloak,
-.x-ng-cloak {
+[ng\:cloak], [ng-cloak], .ng-cloak {
     display: none !important;
+}
+
+.sign-in-up{
+
+    padding: 10px;
+
+}
+
+.sign-in-up-buttons{
+
+    margin: 20px
 }
 
 .header-profile-image {
@@ -349,8 +356,8 @@ body {
 }
 
 .login-screen-buffer-top {
-    margin-top: 70px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .main-savings {
@@ -1260,7 +1267,6 @@ a:hover, a:focus{
 
     text-decoration: none;
     color: #000000;
-    margin-left: 10px;
 
 
 }
@@ -1270,6 +1276,7 @@ a:hover, a:focus{
     text-decoration: none !important;
     color: #000000;
     transition: color 0.3s ease-in-out;
+    bottom : 0;
 
 }
 
@@ -1277,7 +1284,6 @@ a:hover, a:focus{
 
     width: 120px;
     margin-top: 5px;
-    padding: 2px;
     height: 195px;
     overflow: hidden;
 
@@ -1285,7 +1291,7 @@ a:hover, a:focus{
 
 .no-padding-spotlight {
 
-    padding: 0px;
+    padding-left: 10px;
 
 }
 
@@ -1640,7 +1646,13 @@ a:hover, a:focus{
 
     border-radius: 50px;
     margin-right: 30px;
+    background-color: rgb(161, 28, 0) !important;
 
+}
+
+.report-button:not([disabled]):hover {
+    background-color: rgb(126, 22, 0) !important;
+    color: white;
 }
 
 #single-left-box-coupon {
@@ -2927,6 +2939,42 @@ a:hover, a:focus{
 .create-textarea{
 
     width: 100%;
+
+}
+
+.outer-box{
+
+    height: 200px;
+    width: 100%;
+
+}
+
+.image-outer-box{
+
+    width: 100%;
+    height: 135px;
+
+}
+
+.image-box{
+
+    width: 95%;
+    height: auto;
+    max-height: 125px;
+    margin: 0px auto;
+
+}
+
+.image-box-image{
+
+    vertical-align: middle;
+
+}
+
+.text-box > a{
+
+    text-transform: none;
+    color: #000000;
 
 }
 

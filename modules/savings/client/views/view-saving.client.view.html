@@ -14,14 +14,19 @@
 
       <ul class="nav nav-tabs submit-tab-view">
 
-        <li ng-show="authentication.user._id == saving.user._id" role="presentation"><a href="#"
-                                                                                        ng-click="removeSaving();">Delete</a>
+        <li data-ng-if="authentication.user._id === saving.user._id || authentication.user.roles[1] =='admin'" role="presentation"><a href="#" ng-click="removeSaving();">Delete</a>
         </li>
-        <li ng-show="authentication.user._id == saving.user._id" role="presentation"><a href="#"
-                                                                                        ui-sref="savings.edit({savingId: saving._id})">Edit</a>
+        <li data-ng-if="authentication.user._id === saving.user._id || authentication.user.roles[1] =='admin'" role="presentation"><a href="#" ui-sref="savings.edit({savingId: saving._id})">Edit</a>
+
+
         </li>
-        <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i
-          class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
+
+
+        <li role="presentation"><a href="#" ng-show="authentication.user" ng-click="reportSaving(saving)"> Report </a></li>
+
+        <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
+
+
 
       </ul>
     </div>
@@ -68,7 +73,7 @@
               <div class="left-box-three" >
 
                  <!--<button type="button" class="btn-xs btn-warning">Hide</button>-->
-                <button ng-show="authentication.user" ng-click="reportSaving(saving)" type="button" class="btn-xs btn-danger report-button"><li class="glyphicon glyphicon-warning-sign"></li></button>
+
 
               </div>
 
