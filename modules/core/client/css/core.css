@@ -2938,8 +2938,10 @@ a:hover, a:focus{
 .outer-box{
 
     height: 200px;
-    width: 100%;
+    width: 110%;
     padding: 2px;
+
+
 
 }
 
@@ -2974,8 +2976,8 @@ a:hover, a:focus{
 
 .spotlight-deal .spotlight-deal-inner {
     color: #333;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 15px;
+    padding-right: 22px;
 }
 
 
