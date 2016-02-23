@@ -1225,10 +1225,7 @@ a:hover, a:focus{
     border-bottom: 1px solid #dddddd;
 }
 
-.spotlight-deal .spotlight-deal-inner {
-    color: #333;
-    margin: 0px;
-}
+
 
 .spotlight-deal {
     -moz-border-radius: 10px;
@@ -1289,11 +1286,7 @@ a:hover, a:focus{
 
 }
 
-.no-padding-spotlight {
 
-    padding-left: 10px;
-
-}
 
 .myCarousel {
 
@@ -2944,8 +2937,9 @@ a:hover, a:focus{
 
 .outer-box{
 
-    height: 200px;
+    height: 190px;
     width: 100%;
+    padding: 2px;
 
 }
 
@@ -2976,6 +2970,11 @@ a:hover, a:focus{
     text-transform: none;
     color: #000000;
 
+}
+
+.spotlight-deal .spotlight-deal-inner {
+    color: #333;
+    padding: 12px;
 }
 
 

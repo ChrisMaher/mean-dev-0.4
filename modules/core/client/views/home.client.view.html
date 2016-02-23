@@ -1,4 +1,3 @@
-
 <section data-ng-controller="HomeController">
 
   <div class="col-sm-12" id="below-navbar">
@@ -6,14 +5,15 @@
     <ul class="nav nav-tabs img-rounded" id="hottest-tabs">
 
       <li role="presentation" ng-class="{ 'active' : hottestsorted}"><a href="#" ng-click="toggleClass(1);"><i>
-       </i> Hottest </a>
+      </i> Hottest </a>
       </li>
 
       <li role="presentation " ng-class="{ 'active' : newestsorted}"><a href="#" ng-click="toggleClass(2);"><i>
-        </i> Newest </a>
+      </i> Newest </a>
       </li>
 
-      <li role="presentation " ng-if="authentication.user.roles[1] =='admin'"><a href="#" ng-click="toggleReported();"><i>
+      <li role="presentation " ng-if="authentication.user.roles[1] =='admin'"><a href="#"
+                                                                                 ng-click="toggleReported();"><i>
       </i> Reported </a>
       </li>
 
@@ -24,33 +24,33 @@
 
 
       <!--<li class="dropdown  brand-dropdown " dropdown>-->
-        <!--<a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>-->
-          <!--&lt;!&ndash;class="glyphicon glyphicon-search"&ndash;&gt; </i> {{selectedLogo}} <span class="caret"></span>-->
-        <!--</a>-->
-        <!--<ul class="dropdown-menu">-->
+      <!--<a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>-->
+      <!--&lt;!&ndash;class="glyphicon glyphicon-search"&ndash;&gt; </i> {{selectedLogo}} <span class="caret"></span>-->
+      <!--</a>-->
+      <!--<ul class="dropdown-menu">-->
 
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy=''; setFilterText('All') ; setLogo('All')">All</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Littlewoods'; setFilterText('Littlewoods') ; setLogo('Littlewoods')">LittleWoods</a>-->
-          <!--</li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Argos'; setFilterText('Argos') ; setLogo('Argos')">Argos</a>-->
-          <!--</li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='ScrewFix'; setFilterText('Screwfix')">ScrewFix</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Amazon'; setFilterText('Amazon')">Amazon</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Penneys'; setFilterText('Penneys')">Penneys</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected"-->
-                                     <!--ng-click="filterBy='Tesco'; setFilterText('Tesco')">Tesco</a></li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Lidl'; setFilterText('Lidl')">Lidl</a>-->
-          <!--</li>-->
-          <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Aldi'; setFilterText('Aldi')">Aldi</a>-->
-          <!--</li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+      <!--ng-click="filterBy=''; setFilterText('All') ; setLogo('All')">All</a></li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+      <!--ng-click="filterBy='Littlewoods'; setFilterText('Littlewoods') ; setLogo('Littlewoods')">LittleWoods</a>-->
+      <!--</li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+      <!--ng-click="filterBy='Argos'; setFilterText('Argos') ; setLogo('Argos')">Argos</a>-->
+      <!--</li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+      <!--ng-click="filterBy='ScrewFix'; setFilterText('Screwfix')">ScrewFix</a></li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+      <!--ng-click="filterBy='Amazon'; setFilterText('Amazon')">Amazon</a></li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+      <!--ng-click="filterBy='Penneys'; setFilterText('Penneys')">Penneys</a></li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+      <!--ng-click="filterBy='Tesco'; setFilterText('Tesco')">Tesco</a></li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Lidl'; setFilterText('Lidl')">Lidl</a>-->
+      <!--</li>-->
+      <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Aldi'; setFilterText('Aldi')">Aldi</a>-->
+      <!--</li>-->
 
-        <!--</ul>-->
+      <!--</ul>-->
       <!--</li>-->
 
       <!--<li role="presentation "><a><i></i><img src="{{brandLogo}}" class="brand-logo-thumbnail" alt="SaveMe.ie"/></a>-->
@@ -66,7 +66,8 @@
       <!--<li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>-->
 
       <!-- If logged In-->
-      <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
+      <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i
+        class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
 
 
     </ul>
@@ -91,50 +92,20 @@
           <div class="row spotlight-deal-inner">
 
             <div ng-repeat="saving in savings|orderBy:'votesreal'|lessThan:{'created.$date':48}|limitTo:6"
-                 class="col-lg-2 no-padding-spotlight text-center">
+                 class="col-lg-2 ">
 
-              <!--<div class="thumbnail-spotlight thumbnail centred-image spotlight-text">-->
-
-                <!--<a ng-href="/savings/{{saving._id}}"><img class="home-spotlight-images" src="{{saving.urlimage}}"/></a>-->
-
-                <!--<br>-->
-
-                <!--<a class="timeframe-row-item-5-text" ng-href="/savings/{{saving._id}}">-->
-
-                  <!--&lt;!&ndash;{{saving.title}}&ndash;&gt;-->
-
-                  <!--<span class="bolder">&euro;{{saving.price.toFixed(2)}}</span> @ {{saving.retailer}}-->
-
-                <!--</a>-->
-
-              <!--</div>-->
-
-            <div class="thumbnail outer-box">
-            <div class="image-outer-box">
-              <div class="image-box">
-                <a ng-href="/savings/{{saving._id}}"><img class="image-box-image" src="{{saving.urlimage}}"/></a>
+              <div class="thumbnail outer-box text-center">
+                <div class="image-outer-box">
+                  <div class="image-box">
+                    <a ng-href="/savings/{{saving._id}}"><img class="image-box-image" src="{{saving.urlimage}}"/></a>
+                  </div>
+                </div>
+                <div class="text-box">
+                  <a ng-href="/savings/{{saving._id}}"> <span class="bolder">&euro;{{saving.price.toFixed(2)}}</span> @
+                    {{saving.retailer}}</a>
+                </div>
               </div>
-            </div>
-              <div class="text-box">
-                <a ng-href="/savings/{{saving._id}}"> <span class="bolder">&euro;{{saving.price.toFixed(2)}}</span> @ {{saving.retailer}}</a>
-              </div>
-            </div>
 
-              <!--<div class="thumbnail-spotlight thumbnail centred-image spotlight-text">-->
-
-                <!---->
-
-                <!--<br>-->
-
-                <!--<a class="timeframe-row-item-5-text" ng-href="/savings/{{saving._id}}">-->
-
-                  <!--&lt;!&ndash;{{saving.title}}&ndash;&gt;-->
-
-                  <!--<span class="bolder">&euro;{{saving.price.toFixed(2)}}</span> @ {{saving.retailer}}-->
-
-                <!--</a>-->
-
-              <!--</div>-->
 
             </div>
 
@@ -142,7 +113,9 @@
 
         </div>
 
-        <div ng-showe="reportedPosts" dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{reported:true}|itemsPerPage:10" class="list-group-item">
+        <div ng-showe="reportedPosts"
+             dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{reported:true}|itemsPerPage:10"
+             class="list-group-item">
 
 
           <div class="row">
@@ -163,22 +136,23 @@
 
                   <!--Logged Out Buttons-->
 
-                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
+                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup"
+                             type="button"
                              class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
 
-                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
+                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup"
+                             type="button"
                              class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
                   <!--Logged In Buttons-->
 
-                  <md-button aria-label="button" ng-disabled="disableButtonUp(saving)" ng-show="authentication.user" ng-click="upVoteHome(saving); removeVotesDailyCall()" type="button"
+                  <md-button aria-label="button" ng-disabled="disableButtonUp(saving)" ng-show="authentication.user"
+                             ng-click="upVoteHome(saving); removeVotesDailyCall()" type="button"
                              class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
 
-                  <md-button aria-label="button" ng-disabled="disableButtonDown(saving)" ng-show="authentication.user" ng-click="downVoteHome(saving)" type="button"
+                  <md-button aria-label="button" ng-disabled="disableButtonDown(saving)" ng-show="authentication.user"
+                             ng-click="downVoteHome(saving)" type="button"
                              class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
-
-
-
 
 
                 </div>
@@ -194,7 +168,8 @@
               <div class="col-lg-12 middle-title">
 
                 <!--<h4 href="#!/savings/{{saving._id}}" ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></h4>-->
-                <h4><a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
+                <h4><a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span
+                  class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
                 </h4>
 
               </div>
@@ -253,7 +228,7 @@
               </div>
 
               <div class="row center-block save-button">
-                <a data-ng-href="/savings/{{saving._id}}" >
+                <a data-ng-href="/savings/{{saving._id}}">
                   <md-button aria-label="button" class="save-button-md">Save</md-button>
                 </a>
               </div>
@@ -266,7 +241,9 @@
 
         </div>
         <!--<div ng-show="reportedPosts" dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{retailer:filterBy}|itemsPerPage:10" class="list-group-item">-->
-        <div ng-hide="reportedPosts" dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{retailer:filterBy}|itemsPerPage:10" class="list-group-item">
+        <div ng-hide="reportedPosts"
+             dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"
+             class="list-group-item">
 
 
           <div class="row">
@@ -287,22 +264,23 @@
 
                   <!--Logged Out Buttons-->
 
-                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
-                          class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
+                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup"
+                             type="button"
+                             class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
 
-                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup" type="button"
-                          class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
+                  <md-button aria-label="button" ng-hide="authentication.user" ui-sref="authentication.signup"
+                             type="button"
+                             class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
                   <!--Logged In Buttons-->
 
-                  <md-button aria-label="button" ng-disabled="disableButtonUp(saving)" ng-show="authentication.user" ng-click="upVoteHome(saving); removeVotesDailyCall()" type="button"
-                          class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
+                  <md-button aria-label="button" ng-disabled="disableButtonUp(saving)" ng-show="authentication.user"
+                             ng-click="upVoteHome(saving); removeVotesDailyCall()" type="button"
+                             class=" vote-up-button"><i class="glyphicon glyphicon-arrow-up"></i></md-button>
 
-                  <md-button aria-label="button" ng-disabled="disableButtonDown(saving)" ng-show="authentication.user" ng-click="downVoteHome(saving)" type="button"
-                          class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
-
-
-
+                  <md-button aria-label="button" ng-disabled="disableButtonDown(saving)" ng-show="authentication.user"
+                             ng-click="downVoteHome(saving)" type="button"
+                             class="vote-down-button"><i class="glyphicon glyphicon-arrow-down  "></i></md-button>
 
 
                 </div>
@@ -318,7 +296,8 @@
               <div class="col-lg-12 middle-title">
 
                 <!--<h4 href="#!/savings/{{saving._id}}" ng-bind="saving.title +' (&euro;'+  saving.price +' @ '+  saving.retailer+')'"></h4>-->
-                <h4><a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
+                <h4><a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span
+                  class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
                 </h4>
 
               </div>
@@ -333,22 +312,22 @@
               <div class="col-lg-12 middle-post-details">
                 <section data-ng-controller="PostsController">
 
-                <div class="col-lg-8 middle-posted-by">
-                  <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
-                                                        class="small-profile-image-thumbnail"
-                                                        alt="{{saving.user._id}}" height="20px"
-                                                        width="20px"/> <span class="username"
-                                                        data-ng-bind="saving.user.username"></span></a>
-                                                         |
-                  <span am-time-ago="saving.created"></span>
-                  <!-- | <a class="username" ng-href="/savings/{{saving._id}}"> Comments : {{numOfCommentsSaving.count}}</a>-->
-                </div>
+                  <div class="col-lg-8 middle-posted-by">
+                    <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                                                                 class="small-profile-image-thumbnail"
+                                                                 alt="{{saving.user._id}}" height="20px"
+                                                                 width="20px"/> <span class="username"
+                                                                                      data-ng-bind="saving.user.username"></span></a>
+                    |
+                    <span am-time-ago="saving.created"></span>
+                    <!-- | <a class="username" ng-href="/savings/{{saving._id}}"> Comments : {{numOfCommentsSaving.count}}</a>-->
+                  </div>
 
                   <!--<div class="col-lg-4 middle-posted-by ">-->
-                      <!--<div fb-like="savingUrl(saving._id)"></div>-->
+                  <!--<div fb-like="savingUrl(saving._id)"></div>-->
                   <!--</div>-->
 
-                 </section>
+                </section>
                 <!--<div class="col-lg-6 middle-time-of-posting">Posted On <span data-ng-bind="saving.created | date:'mediumDate'"></span></div>-->
 
               </div>
@@ -377,9 +356,9 @@
               </div>
 
               <div class="row center-block save-button">
-              <a data-ng-href="/savings/{{saving._id}}" >
-                <md-button aria-label="button" class="save-button-md">Save</md-button>
-              </a>
+                <a data-ng-href="/savings/{{saving._id}}">
+                  <md-button aria-label="button" class="save-button-md">Save</md-button>
+                </a>
               </div>
 
 
@@ -389,11 +368,10 @@
 
 
         </div>
-          </div>
+      </div>
 
 
-        <!-------      END OF DEAL LIST      -------->
-
+      <!-------      END OF DEAL LIST      -------->
 
 
       <!--Deals Array End-->
@@ -416,119 +394,124 @@
 
       <div class="row right-column-view-inner">
 
-      <div class="row right-column-inner-one">
+        <div class="row right-column-inner-one">
 
-        <div class="best-box">
+          <div class="best-box">
 
-          <ul class="nav nav-tabs img-rounded best-box-tabs">
+            <ul class="nav nav-tabs img-rounded best-box-tabs">
 
-            <li ng-click="timeFrame(1);" role="presentation" ng-class="{ 'active' : weekly}"><a href="#" > Weekly </a>
-            </li>
+              <li ng-click="timeFrame(1);" role="presentation" ng-class="{ 'active' : weekly}"><a href="#"> Weekly </a>
+              </li>
 
-            <li ng-click="timeFrame(2);" role="presentation " ng-class="{ 'active' : monthly}"><a href="#" > Monthly </a>
-            </li>
+              <li ng-click="timeFrame(2);" role="presentation " ng-class="{ 'active' : monthly}"><a href="#">
+                Monthly </a>
+              </li>
 
 
-          </ul>
-          <div class="best-box-inner">
+            </ul>
+            <div class="best-box-inner">
 
-            <div ng-show="weekly" class="weekly-list">
+              <div ng-show="weekly" class="weekly-list">
 
-              <div ng-repeat="saving in savings |  orderBy: '-votesreal'| lessThan: {'created.$date':168} | limitTo:10"
-                   class=" timeframe-row">
+                <div
+                  ng-repeat="saving in savings |  orderBy: '-votesreal'| lessThan: {'created.$date':168} | limitTo:10"
+                  class=" timeframe-row">
 
-                <div class="row timeframe-row-item">
-                  <div class="col-lg-3 timeframe-row-item-0">
-                    <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
-                    <div class="col-lg-12 text-center center-block timeframe-row-item-2">
+                  <div class="row timeframe-row-item">
+                    <div class="col-lg-3 timeframe-row-item-0">
+                      <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
+                      <div class="col-lg-12 text-center center-block timeframe-row-item-2">
 
-                      <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
-                                 <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
-                      <!--</md-button>-->
+                        <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
+                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                        <!--</md-button>-->
 
-                      <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
-                                 <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
-                      <!--</md-button>-->
+                        <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
+                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                        <!--</md-button>-->
 
-                      <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
-                                                            class="small-profile-image-thumbnail"
-                                                            alt="{{saving.user.username}}" height="20px"
-                                                            width="20px"/></a></span>
+                        <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                                                                     class="small-profile-image-thumbnail"
+                                                                     alt="{{saving.user.username}}" height="20px"
+                                                                     width="20px"/></a></span>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-9 text-center timeframe-row-item-3">
+
+                      <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span
+                        class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
 
                     </div>
                   </div>
-                  <div class="col-lg-9 text-center timeframe-row-item-3">
 
-                    <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
-
-                  </div>
                 </div>
 
               </div>
 
-            </div>
+              <div ng-show="monthly" class="monthly-list">
 
-            <div ng-show="monthly" class="monthly-list">
+                <div
+                  ng-repeat="saving in savings |  orderBy: '-votesreal' | lessThan: {'created.$date':744}| limitTo:10"
+                  class=" timeframe-row">
 
-              <div ng-repeat="saving in savings |  orderBy: '-votesreal' | lessThan: {'created.$date':744}| limitTo:10"
-                   class=" timeframe-row">
+                  <div class="row timeframe-row-item">
+                    <div class="col-lg-3 timeframe-row-item-0">
+                      <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
+                      <div class="col-lg-12 text-center center-block timeframe-row-item-2">
 
-                <div class="row timeframe-row-item">
-                  <div class="col-lg-3 timeframe-row-item-0">
-                    <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
-                    <div class="col-lg-12 text-center center-block timeframe-row-item-2">
+                        <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
+                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                        <!--</md-button>-->
 
-                      <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
-                      <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
-                      <!--</md-button>-->
+                        <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
+                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                        <!--</md-button>-->
 
-                      <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
-                      <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
-                      <!--</md-button>-->
+                        <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                                                                     class="small-profile-image-thumbnail"
+                                                                     alt="{{saving.user.username}}" height="20px"
+                                                                     width="20px"/></a></span>
 
-                      <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
-                                                            class="small-profile-image-thumbnail"
-                                                            alt="{{saving.user.username}}" height="20px"
-                                                            width="20px"/></a></span>
+                      </div>
+                    </div>
+                    <div class="col-lg-9 text-center timeframe-row-item-3">
+
+                      <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span
+                        class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
 
                     </div>
                   </div>
-                  <div class="col-lg-9 text-center timeframe-row-item-3">
 
-                    <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
-
-                  </div>
                 </div>
 
               </div>
 
+
             </div>
-
-
           </div>
+
+
         </div>
+
+        <!--<div class="col-lg-12 right-column-inner-two">-->
+
+
+        <!--</div>-->
+
+        <!--<div class="col-lg-12 right-column-inner-three">-->
+
+
+        <!--</div>-->
 
 
       </div>
 
-      <!--<div class="col-lg-12 right-column-inner-two">-->
+
+      <div class="col-lg-9 ">
 
 
-      <!--</div>-->
-
-      <!--<div class="col-lg-12 right-column-inner-three">-->
-
-
-      <!--</div>-->
-
-
-    </div>
-
-
-    <div class="col-lg-9 ">
-
-
-    </div>
+      </div>
     </div>
 
   </section>
