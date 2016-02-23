@@ -2937,7 +2937,7 @@ a:hover, a:focus{
 
 .outer-box{
 
-    height: 190px;
+    height: 200px;
     width: 100%;
     padding: 2px;
 
@@ -2952,7 +2952,7 @@ a:hover, a:focus{
 
 .image-box{
 
-    width: 95%;
+    width: 98%;
     height: auto;
     max-height: 125px;
     margin: 0px auto;
@@ -2974,7 +2974,8 @@ a:hover, a:focus{
 
 .spotlight-deal .spotlight-deal-inner {
     color: #333;
-    padding: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 
