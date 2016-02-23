@@ -856,12 +856,41 @@ body {
 }
 
 .timeframe-row-item-3-text {
+    text-decoration: none;
     color: #000000;
+
+}
+
+.home-spotlight-images{
+
+    max-height: 125px;
+
+}
+
+a:hover, a:focus{
+
+    text-decoration: none;
+    color: #000000;
+
 }
 
 .timeframe-row-item-3-text a:hover, a:focus {
     text-decoration: none;
     color: #000000;
+
+}
+
+.timeframe-row-item-5-text {
+    color: #000000;
+   padding-right: 15px;
+    padding-left: 5px;
+
+}
+
+.timeframe-row-item-5-text a:hover, a:focus {
+    text-decoration: none;
+    color: #000000;
+
 }
 
 .timeframe-row-item-3 a:hover, a:focus {
@@ -1233,6 +1262,7 @@ body {
     color: #000000;
     margin-left: 10px;
 
+
 }
 
 .spotlight-text > a {
@@ -1600,10 +1630,16 @@ body {
 
 #single-left-box {
 
-    min-height: 200px;
-    /*background-color: #0040D0;*/
-    /*border-right: 1px solid #DDDDDD;*/
+    min-height: 350px;
+
     padding-left: 20px;
+
+}
+
+.report-button{
+
+    border-radius: 50px;
+    margin-right: 30px;
 
 }
 
@@ -1645,6 +1681,7 @@ body {
     font-size: 18px;
     overflow: hidden;
     width: 90%;
+    text-decoration: none;
 
 }
 
@@ -1672,11 +1709,11 @@ body {
 
 .single-middle-product-details-home {
 
-    height: 85px;
+    height: 80px;
     display: block;
     word-wrap: break-word;
     -moz-hyphens: auto;
-    /*margin-top: 5px;*/
+    margin-top: 5px;
     margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2873,6 +2910,12 @@ body {
     font-size: 14px;
     font-family: "DinCondensedMedium", Helvetica, Arial, Sans-serif;
     color: #464745;
+
+}
+
+.bolder{
+
+    font-weight: bolder;
 
 }
 

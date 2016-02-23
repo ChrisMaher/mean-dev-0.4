@@ -32,10 +32,7 @@ angular.module('core').controller('HomeController', ['$scope', '$location', 'Aut
 
         $scope.hottestsortedCoupon = true;
         $scope.newestsortedCoupon = false;
-
-
-
-
+        $scope.reportedPosts = false;
 
 
         $scope.top6 = true;
@@ -56,6 +53,18 @@ angular.module('core').controller('HomeController', ['$scope', '$location', 'Aut
                 $scope.hottestsorted = false;
                 $scope.newestsorted = true;
                 $scope.orderByField = 'created';
+            }else if(classNum === 3){
+                $scope.reportedPosts = true;
+            }
+
+        };
+
+        $scope.toggleReported = function(){
+            
+            if($scope.reportedPosts === true){
+                $scope.reportedPosts = false;
+            }else if($scope.reportedPosts === false){
+                $scope.reportedPosts = true;
             }
 
         };

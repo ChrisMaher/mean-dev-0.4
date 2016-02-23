@@ -82,6 +82,10 @@ var SavingSchema = new Schema({
     type: Number,
     default: 100
   },
+  reported: {
+    type: Boolean,
+    default: false
+  },
   commentcount: {
     type: Number,
     default: 0,
