@@ -29,9 +29,17 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.savingUrl = function (saving) {
 
             $scope.savingLink = 'http://saveme.ie/savings/' + saving;
-            // console.log($scope.savingLink);
-            return $scope.savingLink;
 
+            if(saving != null){
+
+                return $scope.savingLink;
+
+            }else{
+
+                return "";
+
+            }
+            
         };
 
         Savings.query({}, function (resp) {

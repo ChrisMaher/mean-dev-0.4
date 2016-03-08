@@ -868,6 +868,12 @@ body {
 
 }
 
+.timeframe-row-item-3-text a:hover, a:focus {
+    text-decoration: none;
+    color: #000000;
+
+}
+
 .home-spotlight-images{
 
     max-height: 125px;
@@ -881,11 +887,7 @@ a:hover, a:focus{
 
 }
 
-.timeframe-row-item-3-text a:hover, a:focus {
-    text-decoration: none;
-    color: #000000;
 
-}
 
 .timeframe-row-item-5-text {
     color: #000000;
@@ -2918,11 +2920,7 @@ a:hover, a:focus{
 
 }
 
-.bolder{
-
-    font-weight: bolder;
-
-}
+timeframe-row-item-3-text
 
 .input[type="radio"], input[type="checkbox"] {
     margin: 4px 20px 4px;
