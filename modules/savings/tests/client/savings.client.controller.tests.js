@@ -52,8 +52,28 @@
       // create mock saving
       mockSaving = new Savings({
         _id: '525a8422f6d0f87f0e407a33',
-        title: 'An Saving about MEAN',
-        content: 'MEAN rocks!'
+        title: 'Saving test',
+        link: 'http://www.saveme.ie',
+        details: 'testing ',
+        retailer: 'argos',
+        userIdString: '525a8422f6d0f87f0e407aaa',
+        price: 99.99,
+        currency: 'Euro (\u20ac)',
+        urlimage: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+        image: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+        category: 'Electronics',
+        startdate: 'NA',
+        enddate: 'NA',
+        votes : 99,
+        votesreal: 97,
+        reported: false,
+        commentcount : 0,
+        upVoters: 'chrismaher.wit@gmail.com',
+        downVoters: 'tcvip1@gmail.com',
+        votesTrim: '2/11/2016',
+        created: '2016-02-22T21:51:38.336Z',
+        user: '56ba5bd94e1f2d0e00ef19f9'
+
       });
 
       // Mock logged in user
@@ -103,13 +123,31 @@
       beforeEach(function () {
         // Create a sample saving object
         sampleSavingPostData = new Savings({
-          title: 'An Saving about MEAN',
-          content: 'MEAN rocks!'
+          title: 'Saving test',
+          link: 'http://www.saveme.ie',
+          details: 'testing ',
+          retailer: 'argos',
+          userIdString: '525a8422f6d0f87f0e407aaa',
+          price: 99.99,
+          currency: 'Euro (\u20ac)',
+          urlimage: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+          image: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+          category: 'Electronics',
+          startdate: 'NA',
+          enddate: 'NA',
+          votes : 99,
+          votesreal: 97,
+          reported: false,
+          commentcount : 0,
+          upVoters: 'chrismaher.wit@gmail.com',
+          downVoters: 'tcvip1@gmail.com',
+          votesTrim: '2/11/2016',
+          created: '2016-02-22T21:51:38.336Z',
+          user: '56ba5bd94e1f2d0e00ef19f9'
         });
 
         // Fixture mock form input values
-        scope.title = 'An Saving about MEAN';
-        scope.content = 'MEAN rocks!';
+        scope.title = 'Saving test';
 
         spyOn($location, 'path');
       });
@@ -206,5 +244,7 @@
         expect($location.path).toHaveBeenCalledWith('savings');
       });
     });
+
+
   });
 }());

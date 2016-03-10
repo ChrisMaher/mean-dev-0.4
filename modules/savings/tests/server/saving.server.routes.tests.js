@@ -28,8 +28,8 @@ describe('Saving CRUD tests', function () {
   beforeEach(function (done) {
     // Create user credentials
     credentials = {
-      username: 'username',
-      password: 'password'
+      username: 'testtest',
+      password: 'testtest'
     };
 
     // Create a new user
@@ -37,7 +37,7 @@ describe('Saving CRUD tests', function () {
       firstName: 'Full',
       lastName: 'Name',
       displayName: 'Full Name',
-      email: 'test@test.com',
+      email: 'test1@test1.com',
       username: credentials.username,
       password: credentials.password,
       provider: 'local'
@@ -47,7 +47,26 @@ describe('Saving CRUD tests', function () {
     user.save(function () {
       saving = {
         title: 'Saving Title',
-        content: 'Saving Content'
+        details: 'Saving Content',
+          link: 'http://www.saveme.ie',
+          retailer: 'argos',
+          userIdString: '525a8422f6d0f87f0e407aaa',
+          price: 99.99,
+          currency: 'Euro (\u20ac)',
+          urlimage: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+          image: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+          category: 'Electronics',
+          startdate: 'NA',
+          enddate: 'NA',
+          votes : 99,
+          votesreal: 97,
+          reported: false,
+          commentcount : 0,
+          upVoters: 'chrismaher.wit@gmail.com',
+          downVoters: 'tcvip1@gmail.com',
+          votesTrim: '2/11/2016',
+          created: '2016-02-22T21:51:38.336Z',
+          user: user
       };
 
       done();

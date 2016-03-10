@@ -24,13 +24,38 @@ describe('Saving Model Unit Tests:', function () {
       displayName: 'Full Name',
       email: 'test@test.com',
       username: 'username',
-      password: 'password'
+      password: 'password',
+      gender: 'M',
+      county: 'Waterford',
+      aboutme: 'About Me',
+      profileImageURL: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+      ImageURL: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+      provider: 'Facebook'
+
     });
 
     user.save(function () {
       saving = new Saving({
-        title: 'Saving Title',
-        content: 'Saving Content',
+        title: 'Saving test',
+        link: 'http://www.saveme.ie',
+        details: 'testing ',
+        retailer: 'argos',
+        userIdString: '525a8422f6d0f87f0e407aaa',
+        price: 99.99,
+        currency: 'Euro (\u20ac)',
+        urlimage: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+        image: 'http://ecx.images-amazon.com/images/I/A1nSvsCX0IL._SY355_.jpg',
+        category: 'Electronics',
+        startdate: 'NA',
+        enddate: 'NA',
+        votes : 99,
+        votesreal: 97,
+        reported: false,
+        commentcount : 0,
+        upVoters: 'chrismaher.wit@gmail.com',
+        downVoters: 'tcvip1@gmail.com',
+        votesTrim: '2/11/2016',
+        created: '2016-02-22T21:51:38.336Z',
         user: user
       });
 

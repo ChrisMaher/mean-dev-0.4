@@ -13,7 +13,7 @@ var SavingSchema = new Schema({
 
   title: {
     type: String,
-    required: 'We need a Title for the Deal.',
+    required: 'Title cannot be blank',
     trim: true,
     maxlength: 150
   },
