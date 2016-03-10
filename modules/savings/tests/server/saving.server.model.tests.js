@@ -64,7 +64,7 @@ describe('Saving Model Unit Tests:', function () {
   });
 
   describe('Method Save', function () {
-    it('should be able to save without problems', function (done) {
+    it('should be able to save without problems.', function (done) {
       this.timeout(10000);
       return saving.save(function (err) {
         should.not.exist(err);
@@ -72,7 +72,7 @@ describe('Saving Model Unit Tests:', function () {
       });
     });
 
-    it('should be able to show an error when try to save without title', function (done) {
+    it('Validation should work fine with blank form submit.', function (done) {
       saving.title = '';
 
       return saving.save(function (err) {
