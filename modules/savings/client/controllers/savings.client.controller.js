@@ -12,8 +12,8 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.imageURL1 = '';
         $scope.hottestsorted = true;
         $scope.newestsorted = true;
-        $scope.weekly = true;
-        $scope.monthly = false;
+        $scope.weekly = false;
+        $scope.monthly = true;
         $scope.disablelist = true;
         $scope.usernamevalue = $stateParams.userId;
         $scope.currency = "Euro (€)";
@@ -30,7 +30,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             $scope.savingLink = 'http://saveme.ie/savings/' + saving;
 
-            if(saving != null){
+            if(saving !== null){
 
                 return $scope.savingLink;
 

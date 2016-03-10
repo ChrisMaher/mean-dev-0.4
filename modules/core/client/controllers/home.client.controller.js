@@ -4,6 +4,7 @@
 angular.module('core').controller('HomeController', ['$scope', '$location', 'Authentication', 'Savings', 'Users', 'Posts', 'Coupons',
     function ($scope, $location, Authentication, Savings, Users, Posts, Coupons) {
 
+        
 
         // This provides Authentication context.
         $scope.authentication = Authentication;
