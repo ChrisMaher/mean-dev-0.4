@@ -10,7 +10,11 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
 
     if($scope.authentication.user.passwordChanged === 'false'){
 
-      window.location = 'http://www.saveme.ie/settings/password';
+      if(window.location !== 'http://www.saveme.ie/settings/password'){
+
+        window.location = 'http://www.saveme.ie/settings/password';
+
+      }
 
     }
     
