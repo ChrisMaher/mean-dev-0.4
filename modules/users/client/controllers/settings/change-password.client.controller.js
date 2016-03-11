@@ -1,17 +1,10 @@
 'use strict';
 
-angular.module('users').controller('ChangePasswordController', ['$window', '$state', '$scope', '$http', 'Authentication',
-    function ($window, $state, $scope, $http, Authentication) {
+angular.module('users').controller('ChangePasswordController', ['$location','$window', '$state', '$scope', '$http', 'Authentication',
+    function ($location, $window, $state, $scope, $http, Authentication) {
         $scope.user = Authentication.user;
         $scope.authentication = Authentication;
 
-        if ($scope.authentication.user.passwordChanged === 'false') {
-
-            $scope.passwordDetails = {
-                currentPassword: 'changeme'
-            };
-
-        }
 
 
         // Change user password
@@ -26,12 +19,14 @@ angular.module('users').controller('ChangePasswordController', ['$window', '$sta
             }
 
             $http.post('/api/users/password', $scope.passwordDetails).success(function (response) {
+                
+                $scope.changeLocation('/settings/password');
                 // If successful show success message and clear form
                 $scope.$broadcast('show-errors-reset', 'passwordForm');
                 $scope.success = true;
                 $scope.passwordDetails = null;
                 // And redirect to the previous or home page
-                $state.go($state.previous.state.name || 'home', $state.previous.params);
+
             }).error(function (response) {
                 $scope.error = response.message;
             });

@@ -4,6 +4,10 @@
 angular.module('savings').controller('SavingsController', ['$scope', '$http', '$timeout', '$stateParams', '$location', '$window', '$state', 'Authentication', 'Savings', 'FileUploader', 'Posts', 'Users',
     function ($scope, $http, $timeout, $stateParams, $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users) {
 
+
+
+        $scope.authentication = Authentication;
+        $scope.user = Authentication.user;
         if ($scope.authentication.user.passwordChanged === 'false') {
 
             if ($state !== 'settings.password') {
@@ -13,9 +17,6 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             }
 
         }
-
-        $scope.authentication = Authentication;
-        $scope.user = Authentication.user;
         //$scope.orderByField = 'votesreal';
         $scope.savingImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
         // $scope.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';

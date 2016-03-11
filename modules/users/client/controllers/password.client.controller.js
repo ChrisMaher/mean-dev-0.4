@@ -38,6 +38,7 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
 
         // And redirect to the index page
         $location.path('/password/reset/success');
+        console.log("Password Changed.");
       }).error(function (response) {
         $scope.error = response.message;
       });
