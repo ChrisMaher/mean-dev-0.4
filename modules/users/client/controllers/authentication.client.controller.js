@@ -26,7 +26,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        window.location = 'http://www.saveme.ie/settings/password';
+        $state.go($state.settings.password);
       }).error(function (response) {
         $scope.error = response.message;
       });
