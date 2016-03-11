@@ -207,7 +207,7 @@ exports.changePassword = function (req, res, next) {
     if (passwordDetails.newPassword) {
       User.findById(req.user.id, function (err, user) {
         if (!err && user) {
-          if (user.authenticate(passwordDetails.currentPassword)) {
+          if (user.authenticate(passwordDetails.currentPassword) || user.passwordChanged === 'false') {
             if (passwordDetails.newPassword === passwordDetails.verifyPassword) {
               user.password = passwordDetails.newPassword;
               user.passwordChanged = 'true';
