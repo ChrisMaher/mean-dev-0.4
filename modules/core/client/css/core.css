@@ -139,7 +139,7 @@ body {
 
 .main-deals {
 
-    min-height: 2900px;
+    min-height: 2500px;
     /*border: #000000 1px solid;*/
     padding: 15px;
     background-color: #FFFFFF;
@@ -434,7 +434,7 @@ body {
 
 .right-column {
 
-    min-height: 2900px;
+    min-height: 2500px;
     padding: 15px;
     background-color: #FFFFFF;
     border-top: #dddddd 1px solid;
