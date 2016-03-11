@@ -5,7 +5,23 @@ angular.module('users').controller('ChangePasswordController', ['$location','$wi
         $scope.user = Authentication.user;
         $scope.authentication = Authentication;
 
-        
+        //be sure to inject $scope and $location
+        $scope.changeLocation = function (url, forceReload) {
+            $scope = $scope || angular.element(document).scope();
+            if (forceReload || $scope.$$phase) {
+                window.location = url;
+            }
+            else {
+                //only use this if you want to replace the history stack
+                //$location.path(url).replace();
+
+                //this this if you want to change the URL and add it to the history stack
+                $location.path(url);
+                $scope.$apply();
+            }
+        };
+
+
         // Change user password
         $scope.changeUserPassword = function (isValid) {
             $scope.success = $scope.error = null;
@@ -19,7 +35,7 @@ angular.module('users').controller('ChangePasswordController', ['$location','$wi
 
             $http.post('/api/users/password', $scope.passwordDetails).success(function (response) {
 
-                $scope.changeLocation('/settings/password');
+                $scope.changeLocation('/');
                 // If successful show success message and clear form
                 $scope.$broadcast('show-errors-reset', 'passwordForm');
                 $scope.success = true;
