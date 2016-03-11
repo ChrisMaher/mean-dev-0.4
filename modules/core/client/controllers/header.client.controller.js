@@ -10,9 +10,9 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
 
         if ($scope.authentication.user.passwordChanged === 'false') {
 
-            if ($state !== $state.settings.password) {
+            if ($scope.$state !== settings.password) {
 
-                $state.go($state.settings.password);
+                $state.go('settings.password');
 
             }
 
