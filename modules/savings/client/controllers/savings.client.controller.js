@@ -4,6 +4,16 @@
 angular.module('savings').controller('SavingsController', ['$scope', '$http', '$timeout', '$stateParams', '$location', '$window', '$state', 'Authentication', 'Savings', 'FileUploader', 'Posts', 'Users',
     function ($scope, $http, $timeout, $stateParams, $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users) {
 
+        if ($scope.authentication.user.passwordChanged === 'false') {
+
+            if ($state !== 'settings.password') {
+
+                $state.go('settings.password');
+
+            }
+
+        }
+
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
         //$scope.orderByField = 'votesreal';

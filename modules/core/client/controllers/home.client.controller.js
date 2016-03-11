@@ -1,14 +1,24 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$scope', '$location', 'Authentication', 'Savings', 'Users', 'Posts', 'Coupons',
-    function ($scope, $location, Authentication, Savings, Users, Posts, Coupons) {
+angular.module('core').controller('HomeController', ['$state','$scope', '$location', 'Authentication', 'Savings', 'Users', 'Posts', 'Coupons',
+    function ($state, $scope, $location, Authentication, Savings, Users, Posts, Coupons) {
 
         
 
         // This provides Authentication context.
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
+
+        if ($scope.authentication.user.passwordChanged === 'false') {
+
+            if ($state !== 'settings.password') {
+
+                $state.go('settings.password');
+
+            }
+
+        }
 
         $scope.orderByField = 'votesreal';
         $scope.orderByFieldCoupon = 'votes';

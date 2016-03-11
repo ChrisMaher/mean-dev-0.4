@@ -6,11 +6,9 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
         $scope.$state = $state;
         $scope.authentication = Authentication;
 
-        // var pass = "NA92lYb1c30oDY81YxMX/TfL28sRodj/cT6U0xV2Ibm2hh6W3+jYuV18qdSL3Psgd1YY4xtUdO072fGXpugY5w==";
-
         if ($scope.authentication.user.passwordChanged === 'false') {
 
-            if ($scope.$state !== settings.password) {
+            if ($state !== 'settings.password') {
 
                 $state.go('settings.password');
 

@@ -1,10 +1,20 @@
 'use strict';
 
-angular.module('users').controller('ViewProfileController', ['$scope', '$http', '$resource', '$location', 'Users', 'Authentication', '$stateParams', 'Savings', 'Coupons', 'Posts',
-    function ($scope, $http, $resource, $location, Users, Authentication, $stateParams, Savings, Coupons, Posts) {
+angular.module('users').controller('ViewProfileController', ['$state','$scope', '$http', '$resource', '$location', 'Users', 'Authentication', '$stateParams', 'Savings', 'Coupons', 'Posts',
+    function ($state, $scope, $http, $resource, $location, Users, Authentication, $stateParams, Savings, Coupons, Posts) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
+
+        if ($scope.authentication.user.passwordChanged === 'false') {
+
+            if ($state !== 'settings.password') {
+
+                $state.go('settings.password');
+
+            }
+
+        }
 
         $http.get('api/users/' + $stateParams.userId).success(function (data) {
             $scope.profile = data;

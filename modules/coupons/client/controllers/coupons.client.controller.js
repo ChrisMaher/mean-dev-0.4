@@ -1,11 +1,22 @@
 'use strict';
 
 // Deals controller
-angular.module('coupons').controller('CouponsController', ['$scope', '$timeout', '$stateParams', '$location', '$window', 'Authentication', 'Coupons', 'FileUploader', 'Posts',
-    function ($scope, $timeout, $stateParams, $location, $window, Authentication, Coupons, FileUploader, Posts) {
+angular.module('coupons').controller('CouponsController', ['$scope', '$timeout', '$state', '$stateParams', '$location', '$window', 'Authentication', 'Coupons', 'FileUploader', 'Posts',
+    function ($scope, $timeout, $state, $stateParams, $location, $window, Authentication, Coupons, FileUploader, Posts) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
+
+        if ($scope.authentication.user.passwordChanged === 'false') {
+
+            if ($state !== 'settings.password') {
+
+                $state.go('settings.password');
+
+            }
+
+        }
+
         //$scope.orderByField = 'votesreal';
         $scope.couponImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
         // $scope.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
