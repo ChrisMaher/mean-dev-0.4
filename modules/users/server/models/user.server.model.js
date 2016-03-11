@@ -80,7 +80,7 @@ var UserSchema = new Schema({
     },
     password: {
         type: String,
-        default: '',
+        default: 'changeme',
         validate: [validateLocalStrategyPassword, 'Password should be longer']
     },
     salt: {
