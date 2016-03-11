@@ -14,6 +14,10 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
       alert("Please change your password.");
       window.location = 'http://www.saveme.ie/settings/password';
 
+    }else{
+      
+      
+      
     }
     
     // Get the topbar menu
