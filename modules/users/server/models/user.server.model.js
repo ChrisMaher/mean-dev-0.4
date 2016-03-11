@@ -90,6 +90,11 @@ var UserSchema = new Schema({
         type: String,
         default: 'modules/users/client/img/profile/default.png'
     },
+    passwordChanged: {
+        type: String,
+        default: 'false',
+        required: 'Password Change Required.'
+    },
     imageURL: {
         type: String,
         default: 'modules/users/client/img/profile/default.png'

@@ -8,16 +8,10 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
 
     // var pass = "NA92lYb1c30oDY81YxMX/TfL28sRodj/cT6U0xV2Ibm2hh6W3+jYuV18qdSL3Psgd1YY4xtUdO072fGXpugY5w==";
 
-    if($scope.authentication.user.password === "NA92lYb1c30oDY81YxMX/TfL28sRodj/cT6U0xV2Ibm2hh6W3+jYuV18qdSL3Psgd1YY4xtUdO072fGXpugY5w=="){
+    if($scope.authentication.user.passwordChanged === 'false'){
 
-
-      alert("Please change your password.");
       window.location = 'http://www.saveme.ie/settings/password';
 
-    }else{
-      
-      
-      
     }
     
     // Get the topbar menu
