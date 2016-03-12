@@ -345,6 +345,11 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             $scope.savings = Savings.query();
         };
 
+        // Find a list of Savings
+        $scope.findAll = function () {
+            $scope.savings1 = Savings.query();
+        };
+
         // Find existing Saving
         $scope.findOne = function () {
             $scope.saving = Savings.get({
