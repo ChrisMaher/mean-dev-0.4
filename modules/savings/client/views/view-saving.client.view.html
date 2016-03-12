@@ -272,11 +272,26 @@
 
 
                         </div>
-                        <div class="col-sm-5 comment-box-middle-bottom">
+                        <div class="col-sm-4 comment-box-middle-bottom">
 
                           <!--<small class="list-group-item-text">-->
                           <!--Replies : <span>{{post.replies.length}}</span>-->
                           <!--</small>-->
+
+                        </div>
+
+
+                        <div class="col-sm-1 comment-box-middle-bottom" ng-if="post.user === authentication.user">
+
+                          <small class="list-group-item-text">
+                            <span><a href="" ng-show="authentication.user" ng-click="remove()">Delete</a></span>
+                          </small>
+
+                        </div>
+
+                        <div class="col-sm-1 comment-box-middle-bottom"  ng-if="post.user._id !== authentication.user._id">
+
+
 
                         </div>
 
@@ -335,11 +350,27 @@
 
                         </div>
 
-                        <div class="col-sm-5 comment-box-middle-bottom">
+                        <div class="col-sm-4 comment-box-middle-bottom">
 
                           <!--<small class="list-group-item-text">-->
                           <!--Replies : <span>{{post.replies.length}}</span>-->
                           <!--</small>-->
+
+                        </div>
+
+
+
+                        <div class="col-sm-1 comment-box-middle-bottom"  ng-if="post.user._id === authentication.user._id">
+
+                          <small class="list-group-item-text">
+                    <span><a href="" ng-show="authentication.user" ng-click="remove(post)">Delete</a></span>
+                          </small>
+
+                        </div>
+
+                        <div class="col-sm-1 comment-box-middle-bottom"  ng-if="post.user._id !== !authentication.user._id">
+
+
 
                         </div>
 

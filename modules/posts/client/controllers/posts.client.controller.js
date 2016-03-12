@@ -68,18 +68,25 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
 
         // Remove existing Comment
         $scope.remove = function (post) {
-            if (post) {
-                post.$remove();
 
-                for (var i in $scope.posts) {
-                    if ($scope.posts [i] === post) {
-                        $scope.posts.splice(i, 1);
+
+            var result = confirm("Are you sure you want to delete?");
+            if (result) {
+
+                if (post) {
+                    post.$remove();
+
+                    for (var i in $scope.posts) {
+                        if ($scope.posts [i] === post) {
+                            $scope.posts.splice(i, 1);
+                        }
                     }
+                } else {
+                    $scope.post.$remove(function () {
+                        $location.path('posts');
+                    });
                 }
-            } else {
-                $scope.post.$remove(function () {
-                    $location.path('posts');
-                });
+
             }
         };
 
