@@ -37,17 +37,19 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.yesterdaysDate = $scope.yesterdaysDate.getMonth() + 1 + '/' + $scope.yesterdaysDate.getDate() + '/' + $scope.yesterdaysDate.getFullYear() + "";
         // alert($scope.yesterdaysDate);
 
-        $scope.savingUrl = function (saving) {
 
-            $scope.savingLink = 'http://saveme.ie/savings/' + saving;
+        $scope.savingUrl1 = function (id) {
 
-            if(saving !== null){
+
+            $scope.savingLink = 'http://saveme.ie/savings/' + id;
+
+            if(id !== undefined){
 
                 return $scope.savingLink;
 
             }else{
 
-                return "";
+                return "http://saveme.ie";
 
             }
             
