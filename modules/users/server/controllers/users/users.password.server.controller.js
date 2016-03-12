@@ -207,7 +207,6 @@ exports.changePassword = function (req, res, next) {
     if (passwordDetails.newPassword) {
       User.findById(req.user.id, function (err, user) {
         if (!err && user) {
-          if (user.authenticate(passwordDetails.currentPassword) || user.passwordChanged === 'false') {
             if (passwordDetails.newPassword === passwordDetails.verifyPassword) {
               user.password = passwordDetails.newPassword;
               user.passwordChanged = 'true';
@@ -233,12 +232,8 @@ exports.changePassword = function (req, res, next) {
                 message: 'Passwords do not match'
               });
             }
-          } else {
-            res.status(400).send({
-              message: 'Current password is incorrect'
-            });
           }
-        } else {
+         else {
           res.status(400).send({
             message: 'User is not found'
           });
