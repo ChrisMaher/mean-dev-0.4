@@ -507,35 +507,49 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         $scope.disableButtonUp = function (saving) {
 
-            var hasVotedUp = saving.upVoters.filter(function (voter) {
+            if(saving.upVoters !== undefined){
 
-                    return voter === $scope.user.email;
+                var hasVotedUp = saving.upVoters.filter(function (voter) {
 
-                }).length > 0;
+                        return voter === $scope.user.email;
 
-            if (hasVotedUp) {
-                return true;
+                    }).length > 0;
 
-            } else {
-                return false;
+                if (hasVotedUp) {
+                    return true;
+
+                } else {
+                    return false;
+                }
+
+
             }
+
+
 
         };
 
         $scope.disableButtonDown = function (saving) {
 
-            var hasVotedUp = saving.downVoters.filter(function (voter) {
+            if(saving.downVoters !== undefined){
 
-                    return voter === $scope.user.email;
+                var hasVotedUp = saving.downVoters.filter(function (voter) {
 
-                }).length > 0;
+                        return voter === $scope.user.email;
 
-            if (hasVotedUp) {
-                return true;
+                    }).length > 0;
 
-            } else {
-                return false;
+                if (hasVotedUp) {
+                    return true;
+
+                } else {
+                    return false;
+                }
+
+
             }
+
+
 
         };
 

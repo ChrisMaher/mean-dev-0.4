@@ -149,6 +149,7 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
 
                 $scope.success = true;
                 Authentication.user = response;
+                
 
 
             }, function (response) {

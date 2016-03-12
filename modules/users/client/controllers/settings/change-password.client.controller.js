@@ -35,7 +35,7 @@ angular.module('users').controller('ChangePasswordController', ['$location','$wi
 
             $http.post('/api/users/password', $scope.passwordDetails).success(function (response) {
 
-                $scope.changeLocation('/');
+                $scope.changeLocation('/settings/picture');
                 // If successful show success message and clear form
                 $scope.$broadcast('show-errors-reset', 'passwordForm');
                 $scope.success = true;
