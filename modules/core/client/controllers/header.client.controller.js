@@ -27,15 +27,20 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
         };
 
 
-
         if ( isMobile.Android() ) {
-            alert("Android");
-            document.location.href = "http://www.google.ie";
+            document.location.href = "http://www.saveme.ie/android";
         }
-        // else if(isMobile.iOS())
-        // {
-        //     document.location.href="x";
-        // }
+        else if(isMobile.iOS())
+        {
+            document.location.href = "http://www.saveme.ie/apple";
+        }
+        else if(isMobile.BlackBerry())
+        {
+            document.location.href = "http://www.saveme.ie/android";
+        }else if(isMobile.Windows())
+        {
+            document.location.href = "http://www.saveme.ie/windows";
+        }
 
 
         // Expose view variables

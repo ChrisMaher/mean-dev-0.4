@@ -514,8 +514,27 @@ body {
 
     border: 1px solid #DDDDDD;
     padding-left: 0px;
-    height: 200px;
     margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.right-column-inner-two > img{
+
+   width : 90%;
+    height: 250px;
+    padding-left: 10%;
+}
+
+.app-download-title{
+
+    padding-top: 10px;
+
+}
+
+.app-download-buttons{
+
+    padding-bottom: 10px;
+
 }
 
 .right-column-inner-three {
@@ -1890,6 +1909,61 @@ a:hover, a:focus{
 
 }
 
+.download-app-button-android {
+    width: 80%;
+    color: #ffffff;
+    border: 1px solid #dddddd;
+    background-color: #9D9D9D !important;
+    /*border-radius: 10px ;*/
+    font-size: 16px;
+}
+
+.download-app-button-android:not([disabled]):hover {
+    width: 80%;
+    color: #dddddd;
+    border: 1px solid #dddddd;
+    background-color: #9D9D9D !important;
+    /*border-radius: 10px ;*/
+    font-size: 16px;
+}
+
+.download-app-button-ios {
+    width: 80%;
+    color: #ffffff;
+    border: 1px solid #dddddd;
+    background-color: #9D9D9D !important;
+    /*border-radius: 10px ;*/
+    font-size: 16px;
+}
+
+.download-app-button-ios:not([disabled]):hover {
+    width: 80%;
+    color: #dddddd;
+    border: 1px solid #dddddd;
+    background-color: #9D9D9D !important;
+    /*border-radius: 10px ;*/
+    font-size: 16px;
+}
+
+.download-app-button-windows {
+    width: 80%;
+    color: #ffffff;
+    border: 1px solid #dddddd;
+    background-color: #9D9D9D !important;
+    /*border-radius: 10px ;*/
+    font-size: 16px;
+}
+
+.download-app-button-windows:not([disabled]):hover {
+    width: 80%;
+    color: #dddddd;
+    border: 1px solid #dddddd;
+    background-color: #9D9D9D !important;
+    /*border-radius: 10px ;*/
+    font-size: 16px;
+}
+
+
 /*.vote-up-button{*/
 
 /*margin-bottom: 5px;*/
@@ -2944,7 +3018,6 @@ a:hover, a:focus{
 
 }
 
-timeframe-row-item-3-text
 
 .input[type="radio"], input[type="checkbox"] {
     margin: 4px 20px 4px;
