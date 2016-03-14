@@ -28,7 +28,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
 
 
         if ( isMobile.Android() ) {
-            document.location.href = "http://www.saveme.ie/android";
+            document.location.href = "https://play.google.com/store/apps/details?id=com.savemeie.android";
         }
         else if(isMobile.iOS())
         {
