@@ -45,6 +45,27 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.newestsortedCoupon = false;
         $scope.reportedPosts = false;
 
+        // $scope.loggedIn1Id = "";
+        // $scope.loggedIn1Image = "https://lh5.googleusercontent.com/-ZW7RHRV2zWs/AAAAAAAAAAI/AAAAAAAAJV4/F8AVmhWQ4n4/photo.jpg?sz=120";
+        // $scope.loggedIn1User = "Chris Maher";
+        //
+        // $scope.loggedIn2Id = "";
+        // $scope.loggedIn2Image = "https://lh5.googleusercontent.com/-ZW7RHRV2zWs/AAAAAAAAAAI/AAAAAAAAJV4/F8AVmhWQ4n4/photo.jpg?sz=120";
+        // $scope.loggedIn2User = "Chris Maher";
+        //
+        // $scope.loggedIn3Id = "";
+        // $scope.loggedIn3Image = "https://lh5.googleusercontent.com/-ZW7RHRV2zWs/AAAAAAAAAAI/AAAAAAAAJV4/F8AVmhWQ4n4/photo.jpg?sz=120";
+        // $scope.loggedIn3User = "Chris Maher";
+        //
+        // $scope.loggedIn4Id = "";
+        // $scope.loggedIn4Image = "https://lh5.googleusercontent.com/-ZW7RHRV2zWs/AAAAAAAAAAI/AAAAAAAAJV4/F8AVmhWQ4n4/photo.jpg?sz=120";
+        // $scope.loggedIn4User = "Chris Maher";
+        //
+        // $scope.loggedIn5Id = "";
+        // $scope.loggedIn5Image = "https://lh5.googleusercontent.com/-ZW7RHRV2zWs/AAAAAAAAAAI/AAAAAAAAJV4/F8AVmhWQ4n4/photo.jpg?sz=120";
+        // $scope.loggedIn5User = "Chris Maher";
+
+
 
         $scope.top6 = true;
 

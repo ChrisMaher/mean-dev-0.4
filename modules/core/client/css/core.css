@@ -531,20 +531,29 @@ body {
 
 }
 
+.right-column-inner-three {
+
+    border: 1px solid #DDDDDD;
+    padding-left: 0px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+
+}
+
+.right-column-inner-three-title{
+
+    padding: 10px;
+
+}
+
 .app-download-buttons{
 
     padding-bottom: 10px;
 
 }
 
-.right-column-inner-three {
 
-    border: 1px solid #DDDDDD;
-    padding-left: 0px;
-    height: 303px;
-    margin-bottom: 10px;
-
-}
 
 .list-group-home-deals .list-group-item {
 
@@ -1906,6 +1915,18 @@ a:hover, a:focus{
 .pagination {
 
     margin: 0px;
+
+}
+
+.logged-in-user-left{
+
+ margin-left: 10px;
+
+}
+
+.logged-in-user-right{
+
+    margin-right: 10px;
 
 }
 
