@@ -16,7 +16,10 @@
       <li role="presentation " class="active"><a href="#" ng-click="toggleSpotlightDeal();"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
       </li>
 
-      <li><input type="text" class="form-control" placeholder="Search"  ng-model="searchValue" >
+      <li role="presentation " class="active"><a href="#" ng-click="toggleSearch();"><span class="glyphicon glyphicon-search"></span></a>
+      </li>
+
+      <li ng-show="searchTab" role="presentation " class="active"><input type="text" class="form-control" placeholder="Search"  ng-model="searchValue" >
       </li>
 
       <li role="presentation " ng-if="authentication.user.roles[1] =='admin'"><a href="#" ng-click="toggleReported();"><i>
