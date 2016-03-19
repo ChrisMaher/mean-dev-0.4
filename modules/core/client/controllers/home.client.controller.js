@@ -44,6 +44,7 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.hottestsortedCoupon = true;
         $scope.newestsortedCoupon = false;
         $scope.reportedPosts = false;
+        
 
         // $scope.loggedIn1Id = "";
         // $scope.loggedIn1Image = "https://lh5.googleusercontent.com/-ZW7RHRV2zWs/AAAAAAAAAAI/AAAAAAAAJV4/F8AVmhWQ4n4/photo.jpg?sz=120";
@@ -100,6 +101,8 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
             }
 
         };
+
+        
 
         //be sure to inject $scope and $location
         $scope.changeLocation = function(url, forceReload) {

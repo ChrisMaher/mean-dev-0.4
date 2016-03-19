@@ -1,4 +1,5 @@
 <section data-ng-controller="HomeController">
+  <section data-ng-controller="SavingsController" data-ng-init="find()">
 
   <div class="col-sm-12" id="below-navbar">
 
@@ -12,8 +13,13 @@
       </i> Newest </a>
       </li>
 
-      <li role="presentation " ng-if="authentication.user.roles[1] =='admin'"><a href="#"
-                                                                                 ng-click="toggleReported();"><i>
+      <li role="presentation " class="active"><a href="#" ng-click="toggleSpotlightDeal();"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+      </li>
+
+      <li><input type="text" class="form-control" placeholder="Search"  ng-model="searchValue" >
+      </li>
+
+      <li role="presentation " ng-if="authentication.user.roles[1] =='admin'"><a href="#" ng-click="toggleReported();"><i>
       </i> Reported </a>
       </li>
 
@@ -76,7 +82,7 @@
   </div>
 
 
-  <section data-ng-controller="SavingsController" data-ng-init="find()">
+
 
     <div class="col-lg-9 main-deals">
 
@@ -85,14 +91,13 @@
 
       <div class="list-group-home-deals">
 
-        <div class="spotlight-deal" data-ng-hide="(savings |lessThan:{'created.$date':500}).length === 0">
+        <div ng-if="spotlightDeal" class="spotlight-deal" data-ng-hide="(savings |lessThan:{'created.$date':500}).length === 0">
 
           <h4>Todays Top 6</h4>
 
           <div class="row spotlight-deal-inner">
 
-            <div ng-repeat="saving in savings|orderBy:'votesreal'|lessThan:{'created.$date':500}|limitTo:6"
-                 class="col-lg-2 ">
+            <div ng-repeat="saving in savings|  orderBy:'votesreal'|lessThan:{'created.$date':500}|limitTo:6" class="col-lg-2 ">
 
               <div class="thumbnail outer-box text-center">
                 <div class="image-outer-box">
@@ -114,11 +119,12 @@
         </div>
 
         <div ng-show="reportedPosts"
-             dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{reported:true}|itemsPerPage:10"
-             class="list-group-item">
+             dir-paginate="saving in savings|filter:searchValue| orderBy:orderByField:!reverseSort|filter:{reported:true}| itemsPerPage:10" class="list-group-item">
 
 
           <div class="row">
+
+
 
             <div class="col-lg-2 left-box">
 
@@ -241,9 +247,7 @@
 
         </div>
         <!--<div ng-show="reportedPosts" dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{retailer:filterBy}|itemsPerPage:10" class="list-group-item">-->
-        <div ng-hide="reportedPosts"
-             dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{retailer:filterBy}|itemsPerPage:10"
-             class="list-group-item">
+        <div ng-hide="reportedPosts" dir-paginate="saving in savings| filter:searchValue | orderBy:orderByField:!reverseSort| filter:{retailer:filterBy}|itemsPerPage:10" class="list-group-item">
 
 
           <div class="row">
@@ -368,6 +372,8 @@
 
 
         </div>
+
+
       </div>
 
 

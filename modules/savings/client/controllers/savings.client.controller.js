@@ -36,6 +36,9 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.yesterdaysDate.setDate($scope.yesterdaysDate.getDate() - 1);
         $scope.yesterdaysDate = $scope.yesterdaysDate.getMonth() + 1 + '/' + $scope.yesterdaysDate.getDate() + '/' + $scope.yesterdaysDate.getFullYear() + "";
         // alert($scope.yesterdaysDate);
+        $scope.searchTab = false;
+        $scope.searchValue = "";
+        $scope.spotlightDeal = true;
 
 
         $scope.savingUrl1 = function (id) {
@@ -93,6 +96,26 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             } else if (classNum === 2) {
                 $scope.weekly = false;
                 $scope.monthly = true;
+            }
+
+        };
+
+        $scope.toggleSearch = function(){
+
+            if($scope.searchTab === true){
+                $scope.searchTab = false;
+            }else if($scope.searchTab === false){
+                $scope.searchTab = true;
+            }
+
+        };
+
+        $scope.toggleSpotlightDeal = function(){
+
+            if($scope.spotlightDeal === true){
+                $scope.spotlightDeal = false;
+            }else if($scope.spotlightDeal === false){
+                $scope.spotlightDeal = true;
             }
 
         };
