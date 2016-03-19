@@ -35,7 +35,6 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
         $scope.yesterdaysDate = new Date();
         $scope.yesterdaysDate.setDate($scope.yesterdaysDate.getDate() - 1);
         $scope.yesterdaysDate = $scope.yesterdaysDate.getMonth() + 1 + '/' + $scope.yesterdaysDate.getDate() + '/' + $scope.yesterdaysDate.getFullYear() + "";
-        // alert($scope.yesterdaysDate);
         $scope.searchTab = false;
         $scope.searchValue = "";
         $scope.spotlightDeal = true;
@@ -109,6 +108,7 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             }
 
         };
+
 
         $scope.toggleSpotlightDeal = function(){
 

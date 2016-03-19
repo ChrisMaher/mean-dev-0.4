@@ -3,10 +3,11 @@
 .autocomplete{
   width: 100%;
   position: relative;
+
 }
 
 .autocomplete input{
-  font-size: 1.2em;
+  /*font-size: 1.2em;*/
   width: 100%;
   padding:0.4em;
 }
@@ -28,6 +29,8 @@
   padding:0.4em;
   background-color: #fff;
 }
+
+
 
 .autocomplete li.active{
   width: 100%;
