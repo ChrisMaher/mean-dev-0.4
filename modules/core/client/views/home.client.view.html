@@ -25,9 +25,7 @@
 
       </li>
 
-      <li role="presentation " ng-if="authentication.user.roles[1] =='admin'"><a href="#" ng-click="toggleReported();"><i>
-      </i> Reported </a>
-      </li>
+
 
       <!--<li ng-show="top6" class="top6tabactive" role="presentation " ng-class="{ 'active' : top6}"><a href="#" ng-click="toggleTop();"> Top Savings </a>-->
       <!--</li>-->
@@ -76,6 +74,11 @@
       <!--<li role="presentation"><input type="text" ng-model="search" class="form-control" placeholder="Search"></li>-->
 
       <!--<li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>-->
+
+
+      <li role="presentation " ng-if="authentication.user.roles[1] =='admin'"><a href="#" ng-click="toggleReported();"><i>
+      </i> Reported </a>
+      </li>
 
       <!-- If logged In-->
       <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i
