@@ -499,7 +499,39 @@
 
               <div ng-show="weekly" class="weekly-list">
 
-                href
+                <div
+                  ng-repeat="saving in savings |  orderBy: '-votesreal' | lessThan: {'created.$date':168}| limitTo:10"
+                  class=" timeframe-row">
+
+                  <div class="row timeframe-row-item">
+                    <div class="col-lg-3 timeframe-row-item-0">
+                      <div class="col-lg-12 text-center center-block timeframe-row-item-1">{{saving.votes}}</div>
+                      <div class="col-lg-12 text-center center-block timeframe-row-item-2">
+
+                        <!--<md-button ng-hide="authentication.user" ui-sref="authentication.signup" type="button"-->
+                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                        <!--</md-button>-->
+
+                        <!--<md-button ng-show="authentication.user" ng-click="upVoteHome(saving)" type="button"-->
+                        <!--class="vote-up-button-small"><i class="glyphicon glyphicon-arrow-up"></i>-->
+                        <!--</md-button>-->
+
+                        <a ng-href="/users/{{saving.user._id}}"><img ng-src="{{saving.user.profileImageURL}}"
+                                                                     class="small-profile-image-thumbnail"
+                                                                     alt="{{saving.user.username}}" height="20px"
+                                                                     width="20px"/></a></span>
+
+                      </div>
+                    </div>
+                    <div class="col-lg-9 text-center timeframe-row-item-3">
+
+                      <a class="timeframe-row-item-3-text" ng-href="/savings/{{saving._id}}">{{saving.title}} (<span
+                        class="bolder">&euro;{{saving.price.toFixed(2)}} @ {{saving.retailer}})</span></a>
+
+                    </div>
+                  </div>
+
+                </div>
 
               </div>
 
