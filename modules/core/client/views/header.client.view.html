@@ -26,7 +26,7 @@
         <!--<a ng-switch-default ui-sref="{{item.state}}" ng-bind="item.title"></a>-->
       <!--</li>-->
 
-      <li class="dotted-border-right line-middle"><a href="/">Deals</a></li>
+      <li class="dotted-border-right line-middle"><a href="/">Savings</a></li>
 
       <li class="dotted-border-right line-middle"><a href="/coupons">Coupons</a></li>
 
@@ -48,6 +48,7 @@
               <div class="col-md-12">
                 <!--Login via-->
                 <div class="social-buttons">
+                  <a href="/authentication/signin" class="btn btn-default"><i class="fa fa-envelope"></i> Email</a>
                   <a ng-click="callOauthProvider('/api/auth/facebook')" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
                   <a ng-click="callOauthProvider('/api/auth/google')" class="btn btn-tw"><i class="fa fa-google"></i> Google</a>
                 </div>

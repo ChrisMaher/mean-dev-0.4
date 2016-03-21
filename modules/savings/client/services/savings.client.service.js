@@ -33,6 +33,11 @@ angular.module('savings').factory('Savings', ['$resource',
         method: 'GET',
         url: '/savings/removeVotesDaily',
         isArray: true
+      },
+      appPostSaving: {
+        method: 'GET',
+        url: '/api/savings/app/add',
+        isArray: true
       }
     });
   }

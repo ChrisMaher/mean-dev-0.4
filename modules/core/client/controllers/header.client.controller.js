@@ -26,6 +26,8 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
 
         };
 
+        $scope.isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
 
         if ( isMobile.Android() ) {
             document.location.href = "https://play.google.com/store/apps/details?id=com.saveme.chris";

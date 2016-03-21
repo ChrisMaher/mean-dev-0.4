@@ -134,9 +134,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         $scope.setUserImage = function () {
 
-            $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
+            if($scope.user !== undefined){
 
+                $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
 
+            }
+            
         };
 
         // Create file uploader instance

@@ -139,7 +139,7 @@ body {
 
 .main-deals {
 
-    min-height: 2470px;
+    min-height: 2000px;
     /*border: #000000 1px solid;*/
     padding: 15px;
     background-color: #FFFFFF;
@@ -411,6 +411,8 @@ body {
 
 }
 
+
+
 .main-deals-view-saving {
 
     /*padding: 15px;*/
@@ -434,7 +436,7 @@ body {
 
 .right-column {
 
-    min-height: 2470px;
+    min-height: 2464px;
     padding: 15px;
     background-color: #FFFFFF;
     border-top: #dddddd 1px solid;
@@ -514,15 +516,21 @@ body {
 
     border: 1px solid #DDDDDD;
     padding-left: 0px;
-    margin-bottom: 10px;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.right-column-inner-two > img{
+.ad-image{
 
-   width : 90%;
+    width : 90%;
     height: 250px;
     padding-left: 10%;
+}
+
+.smartphone-logos{
+
+    margin-bottom: 20px;
+
 }
 
 .app-download-title{
@@ -552,6 +560,34 @@ body {
     padding: 10px;
 
 }
+
+.social-icons{
+
+    width: 20%;
+    padding: 0px !important;
+    margin-top: 10px;
+
+
+}
+
+.social-icons > img{
+
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     width: 40px !important;
+     height: 40px !important;
+
+
+ }
+
+.social-icon-images{
+
+    width: 40px !important;
+    height: 40px !important;
+
+}
+
 
 .app-download-buttons{
 
@@ -763,7 +799,10 @@ body {
 
 }
 
-.right-column-inner-one {
+.right-column-inner-one
+{
+
+
 
 }
 
@@ -2685,7 +2724,7 @@ a:hover, a:focus{
 /*login box*/
 
 #login-dp {
-    min-width: 260px;
+    min-width: 360px;
     padding: 14px 14px 10px;
     overflow: hidden;
     background-color: rgba(255, 255, 255, 1);
@@ -2725,7 +2764,7 @@ a:hover, a:focus{
 }
 
 #login-dp .social-buttons a {
-    width: 49%;
+    width: 32%;
 }
 
 #login-dp .form-group {

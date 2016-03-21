@@ -293,6 +293,16 @@ exports.appUpvoteSaving = function (req, res) {
     });
 };
 
+/**
+ * App Upvote a saving.
+ */
+exports.appPostSaving = function (req, res) {
+
+
+
+
+};
+
 // Count Upvotes by a user
 
 /**

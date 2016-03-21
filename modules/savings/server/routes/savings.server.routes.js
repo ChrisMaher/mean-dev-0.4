@@ -33,6 +33,11 @@ module.exports = function (app) {
         .put(savings.appUpvoteSaving)
         .get(savings.read);
 
+    // Single saving routes
+    app.route('/api/savings/app/add/')
+        .put(savings.appPostSaving)
+        .get(savings.read);
+
     app.route('/savings/savingCount').all()
         .get(savings.countSavings);
 
