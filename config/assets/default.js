@@ -15,7 +15,6 @@ module.exports = {
                 'public/lib/angular-aria/angular-aria.min.js',
                 'public/lib/angular-animate/angular-animate.min.js',
                 'public/lib/angular-material/angular-material.min.js',
-                'public/lib/allmighty-autocomplete/script/autocomplete.js',
                 'public/lib/angular/angular-route.min.js',
                 'public/lib/angular-resource/angular-resource.min.js',
                 'public/lib/angulike/angulike.js',
@@ -35,7 +34,7 @@ module.exports = {
                 'public/lib/angular-wysiwyg/dist/bootstrap-colorpicker-module.js',
 
                 'public/lib/jquery/dist/jquery.min.js',
-                'public/lib/moment/moment.js',
+                'public/lib/moment/min/moment.min.js',
                 'public/lib/angular-moment/angular-moment.min.js'
 
 

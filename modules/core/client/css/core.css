@@ -1776,6 +1776,27 @@ a:hover, a:focus{
 
 }
 
+.single-middle-product-details > textarea{
+
+    border: none;
+    height: 540px;
+
+
+
+
+
+}
+
+.single-middle-product-details > textarea:focus{
+
+    border: none;
+    height: 540px;
+    outline: none !important;
+
+
+
+}
+
 .single-middle-product-details-coupon {
 
     min-height: 100px;
