@@ -41,7 +41,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
             document.location.href = "http://www.saveme.ie/android";
         }else if(isMobile.Windows())
         {
-            document.location.href = "http://www.saveme.ie/windows";
+            document.location.href = "https://www.microsoft.com/store/apps/9NBLGGH4RFMC";
         }
 
 
