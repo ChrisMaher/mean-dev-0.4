@@ -598,6 +598,19 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
             }
 
         };
+
+        $scope.removeReport = function(saving){
+
+
+            if (confirm("Remove Report?")){
+
+                saving.reported = false;
+                $scope.updateSaving();
+                alert("Removed.");
+
+            }
+
+        };
         
 
     }
