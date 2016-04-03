@@ -3147,12 +3147,16 @@ a:hover, a:focus{
 
     vertical-align: middle;
 
+    max-height: 115px;
+    padding-top: 5px;
+
 }
 
 .text-box > a{
 
     text-transform: none;
     color: #000000;
+    padding: 2px;
 
 }
 
