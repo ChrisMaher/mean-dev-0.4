@@ -110,6 +110,7 @@ exports.oauthCallback = function (strategy) {
     passport.authenticate(strategy, function (err, user, redirectURL) {
       if (err) {
         return res.redirect('/authentication/signin?err=' + encodeURIComponent(errorHandler.getErrorMessage(err)));
+
       }
       if (!user) {
         return res.redirect('/authentication/signin');
@@ -119,7 +120,9 @@ exports.oauthCallback = function (strategy) {
           return res.redirect('/authentication/signin');
         }
 
-        return res.redirect(redirectURL || sessionRedirectURL || '/');
+        // return res.redirect(redirectURL || sessionRedirectURL || '/');
+        return res.redirect('http://www.saveme.ie');
+
       });
     })(req, res, next);
   };
