@@ -11,20 +11,32 @@
           </li>
         </ul>
 
+
         <ul class="nav nav-tabs submit-tab-view">
 
-          <li data-ng-if="authentication.user._id === saving.user._id || authentication.user.roles[1] =='admin'"
-              role="presentation"><a href="#" ng-click="removeSaving();">Delete</a>
+          <li class="dropdown  brand-dropdown " dropdown>
+            <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>
+              <!--class="glyphicon glyphicon-search"--> </i>Options <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+
+              <li data-ng-if="authentication.user._id === saving.user._id || authentication.user.roles[1] =='admin'"
+                  role="presentation"><a href="#" ng-click="removeSaving();">Delete</a>
+              </li>
+              <li data-ng-if="authentication.user._id === saving.user._id || authentication.user.roles[1] =='admin'"
+                  role="presentation"><a href="#" ui-sref="savings.edit({savingId: saving._id})">Edit</a>
+
+              <li role="presentation"><a href="#" ng-show="authentication.user" ng-click="reportSaving(saving)"> Report </a>
+              </li>
+
+            </ul>
           </li>
-          <li data-ng-if="authentication.user._id === saving.user._id || authentication.user.roles[1] =='admin'"
-              role="presentation"><a href="#" ui-sref="savings.edit({savingId: saving._id})">Edit</a>
+
+
 
 
           </li>
 
-
-          <li role="presentation"><a href="#" ng-show="authentication.user" ng-click="reportSaving(saving)"> Report </a>
-          </li>
 
           <li role="presentation"><a href="/savings/create" ng-click="setUserImage()"><i
             class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
@@ -96,7 +108,8 @@
                 <div class="col-lg-12 single-middle-product-details">
 
                   <!--<text-angular ta-toolbar="[[]]" ng-bind-html="saving.details"></text-angular>-->
-                  <textarea name="details" name="details" data-ng-model="saving.details" cols="70" rows="10" readonly></textarea>
+                  <textarea name="details" name="details" data-ng-model="saving.details" cols="70" rows="10"
+                            readonly></textarea>
 
                 </div>
 
@@ -290,8 +303,8 @@
 
                         </div>
 
-                        <div class="col-sm-1 comment-box-middle-bottom"  ng-if="post.user._id !== authentication.user._id">
-
+                        <div class="col-sm-1 comment-box-middle-bottom"
+                             ng-if="post.user._id !== authentication.user._id">
 
 
                         </div>
@@ -360,17 +373,17 @@
                         </div>
 
 
-
-                        <div class="col-sm-1 comment-box-middle-bottom"  ng-if="post.user._id === authentication.user._id">
+                        <div class="col-sm-1 comment-box-middle-bottom"
+                             ng-if="post.user._id === authentication.user._id">
 
                           <small class="list-group-item-text">
-                    <span><a href="" ng-show="authentication.user" ng-click="remove(post)">Delete</a></span>
+                            <span><a href="" ng-show="authentication.user" ng-click="remove(post)">Delete</a></span>
                           </small>
 
                         </div>
 
-                        <div class="col-sm-1 comment-box-middle-bottom"  ng-if="post.user._id !== !authentication.user._id">
-
+                        <div class="col-sm-1 comment-box-middle-bottom"
+                             ng-if="post.user._id !== !authentication.user._id">
 
 
                         </div>
@@ -521,9 +534,15 @@
               <div class="col-md-12 smartphone-logos">
 
                 <div class="col-md-2 social-icons"></div>
-                <div class="col-md-2 social-icons"><a href="https://play.google.com/store/apps/details?id=com.saveme.chris" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/android.png"></a></div>
-                <div class="col-md-2 social-icons"><a data-toggle="tooltip" title="Coming Soon!" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/apple.png"></a></div>
-                <div class="col-md-2 social-icons"><a href="https://www.microsoft.com/store/apps/9NBLGGH4RFMC" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/windows.png"></a></div>
+                <div class="col-md-2 social-icons"><a
+                  href="https://play.google.com/store/apps/details?id=com.saveme.chris" target="_blank"><img
+                  class="social-icon-images" src="modules/core/client/img/social/android.png"></a></div>
+                <div class="col-md-2 social-icons"><a data-toggle="tooltip" title="Coming Soon!" target="_blank"><img
+                  class="social-icon-images" src="modules/core/client/img/social/apple.png"></a></div>
+                <div class="col-md-2 social-icons"><a href="https://www.microsoft.com/store/apps/9NBLGGH4RFMC"
+                                                      target="_blank"><img class="social-icon-images"
+                                                                           src="modules/core/client/img/social/windows.png"></a>
+                </div>
                 <div class="col-md-2 social-icons"></div>
 
               </div>
@@ -539,13 +558,18 @@
               <div class="col-md-12">
 
                 <div class="col-md-2 social-icons"><a href="   " target="_blank"> </a></div>
-                <div class="col-md-2 social-icons"><a href="https://chrome.google.com/webstore/detail/savemeie/hoaaiaphgdniecmcmncaigdemedecpdc" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/chrome.png"></a></div>
+                <div class="col-md-2 social-icons"><a
+                  href="https://chrome.google.com/webstore/detail/savemeie/hoaaiaphgdniecmcmncaigdemedecpdc"
+                  target="_blank"><img class="social-icon-images" src="modules/core/client/img/social/chrome.png"></a>
+                </div>
                 <div class="col-md-2 social-icons"><a href="   " target="_blank"> </a></div>
-                <div class="col-md-2 social-icons"><a href="http://www.saveme.ie\core\client\img\saveme-0.0.1-fx.xpi" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/firefox.png"></a></div>
+                <div class="col-md-2 social-icons"><a href="http://www.saveme.ie\core\client\img\saveme-0.0.1-fx.xpi"
+                                                      target="_blank"><img class="social-icon-images"
+                                                                           src="modules/core/client/img/social/firefox.png"></a>
+                </div>
                 <div class="col-md-2 social-icons"><a href="   " target="_blank"> </a></div>
 
               </div>
-
 
 
             </div>
@@ -557,14 +581,20 @@
 
               <div class="col-md-12">
 
-                <div class="col-md-2 social-icons"><a href="https://www.facebook.com/saveme.ie" target="_blank"><img class="social-icon-images" src="modules/core/client/img/social/facebook.png"></a></div>
-                <div class="col-md-2 social-icons"><a href="https://twitter.com/saveme_ie" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/twitter.png"></a></div>
-                <div class="col-md-2 social-icons"><a href="https://www.instagram.com/saveme.ie/" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/instagram.png"></a></div>
-                <div class="col-md-2 social-icons"><a href="https://www.youtube.com/channel/UCPX0G09HJqSmAS-A6pLjnfQ" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/youtube.png"></a></div>
-                <div class="col-md-2 social-icons"><a data-toggle="tooltip" title="Coming Soon!" target="_blank"><img class="social-icon-images"  src="modules/core/client/img/social/linkedin.png"></a></div>
+                <div class="col-md-2 social-icons"><a href="https://www.facebook.com/saveme.ie" target="_blank"><img
+                  class="social-icon-images" src="modules/core/client/img/social/facebook.png"></a></div>
+                <div class="col-md-2 social-icons"><a href="https://twitter.com/saveme_ie" target="_blank"><img
+                  class="social-icon-images" src="modules/core/client/img/social/twitter.png"></a></div>
+                <div class="col-md-2 social-icons"><a href="https://www.instagram.com/saveme.ie/" target="_blank"><img
+                  class="social-icon-images" src="modules/core/client/img/social/instagram.png"></a></div>
+                <div class="col-md-2 social-icons"><a href="https://www.youtube.com/channel/UCPX0G09HJqSmAS-A6pLjnfQ"
+                                                      target="_blank"><img class="social-icon-images"
+                                                                           src="modules/core/client/img/social/youtube.png"></a>
+                </div>
+                <div class="col-md-2 social-icons"><a data-toggle="tooltip" title="Coming Soon!" target="_blank"><img
+                  class="social-icon-images" src="modules/core/client/img/social/linkedin.png"></a></div>
 
               </div>
-
 
 
             </div>

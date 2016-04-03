@@ -570,8 +570,12 @@ body {
 .search-box-tab{
 
     margin-right: 5px;
+    background: #FFFFFF;
+
 
 }
+
+
 
 .right-column-inner-three {
 
@@ -2763,6 +2767,8 @@ a:hover, a:focus{
 
 }
 
+
+
 .comments-section {
 
     margin-right: 15px;
@@ -3155,6 +3161,13 @@ a:hover, a:focus{
 
 }
 
+#hottest-tabs > li.dropdown.brand-dropdown > a{
+
+    background-color: #FFFFFF !important;
+    color: #000000
+
+}
+
 .image-outer-box{
 
     width: 100%;
@@ -3176,7 +3189,10 @@ a:hover, a:focus{
     vertical-align: middle;
 
     max-height: 115px;
-    padding-top: 5px;
+    margin-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
 
 }
 
@@ -3185,6 +3201,13 @@ a:hover, a:focus{
     text-transform: none;
     color: #000000;
     padding: 2px;
+    margin-bottom: 15px;
+
+}
+
+.text-box{
+
+    margin-bottom: 15px;
 
 }
 
@@ -3205,6 +3228,8 @@ a:hover, a:focus{
     margin-top: 10px;
 
 }
+
+
 
 
 
