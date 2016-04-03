@@ -32,6 +32,34 @@ html {
     margin: 20px
 }
 
+.admin-item {
+
+    margin-bottom: 10px;
+
+}
+
+.small-profile-image-thumbnail-admin {
+
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    margin: 0px auto;
+    /*margin-left: 10px;*/
+
+}
+.main-body-admin-users {
+
+    /*min-height: 700px;*/
+    margin: 0px;
+    border: #dddddd 1px solid;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    padding: 15px;
+    height: 900px;
+
+}
+
+
 .header-profile-image {
     opacity: 1;
     height: 28px;
@@ -3164,6 +3192,12 @@ a:hover, a:focus{
     color: #333;
     padding-left: 15px;
     padding-right: 22px;
+}
+
+.members-navbar-link{
+
+    margin-right: -30px !important;
+
 }
 
 .forgot-password{
