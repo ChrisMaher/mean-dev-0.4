@@ -9,18 +9,18 @@
         </li>
       </ul>
 
-      <ul class="nav nav-tabs submit-tab-view">
+      <ul class="nav nav-tabs submit-tab-view" >
 
-        <li class="dropdown  brand-dropdown " dropdown>
+        <li class="dropdown  brand-dropdown " ng-if="authentication.user._id == coupon.user._id" dropdown>
           <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>
             <!--class="glyphicon glyphicon-search"--> </i>Options <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
 
-            <li ng-show="authentication.user._id == coupon.user._id" role="presentation"><a href="#"
+            <li ng-if="authentication.user._id == coupon.user._id" role="presentation"><a href="#"
                                                                                             ng-click="removeCoupon();">Delete</a>
             </li>
-            <li ng-show="authentication.user._id == coupon.user._id" role="presentation"><a href="#"
+            <li ng-if="authentication.user._id == coupon.user._id" role="presentation"><a href="#"
                                                                                             ui-sref="coupons.edit({couponId: coupon._id})">Edit</a>
 
 

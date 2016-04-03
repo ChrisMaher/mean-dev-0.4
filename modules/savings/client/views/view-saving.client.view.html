@@ -12,9 +12,9 @@
         </ul>
 
 
-        <ul class="nav nav-tabs submit-tab-view" ng-if="authentication.user">
+        <ul class="nav nav-tabs submit-tab-view" >
 
-          <li class="dropdown  brand-dropdown " dropdown>
+          <li class="dropdown  brand-dropdown " ng-if="authentication.user" dropdown>
             <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>
               <!--class="glyphicon glyphicon-search"--> </i>Options <span class="caret"></span>
             </a>
@@ -26,7 +26,10 @@
               <li data-ng-if="authentication.user._id === saving.user._id || authentication.user.roles[1] =='admin'"
                   role="presentation"><a href="#" ui-sref="savings.edit({savingId: saving._id})">Edit</a>
 
-              <li role="presentation"><a href="#" ng-show="authentication.user" ng-click="reportSaving(saving)"> Report </a>
+              <li role="presentation"><a href="#" ng-if="authentication.user" ng-click="reportSaving(saving)"> Report </a>
+              </li>
+
+              <li role="presentation"><a href="#" ng-if="authentication.user.roles[1] === 'admin'" ng-click="reportSaving(saving)"> Remove Report </a>
               </li>
 
             </ul>

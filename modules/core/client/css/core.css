@@ -820,6 +820,20 @@ body {
 
 }
 
+#below-navbar > ul.nav.nav-tabs.submit-tab > li > a{
+
+    color: #ffffff;
+    background-color: rgb(161, 28, 0);
+
+}
+
+#below-navbar > ul.nav.nav-tabs.submit-tab-view > li.dropdown.brand-dropdown.ng-scope.open > ul{
+
+    color: #ffffff;
+    background-color: rgb(161, 28, 0);
+
+}
+
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
 
     background-color: #464745;

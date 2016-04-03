@@ -146,6 +146,26 @@ exports.countSavings = function (req, res) {
         });
 };
 
+/**
+ * Count of Deals
+ */
+exports.numOfReportedPosts = function (req, res) {
+    Saving.count({reported:true},
+
+        function (err, savingsCount) {
+            if (err) {
+                return res.status(400).send({
+                    message: errorHandler.getErrorMessage(err)
+
+                });
+            } else {
+                var data = {};
+                data.count = savingsCount;
+                res.jsonp(data);
+            }
+        });
+};
+
 ///**
 // * Count of Deals by User
 // */

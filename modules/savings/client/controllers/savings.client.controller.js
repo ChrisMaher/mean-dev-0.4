@@ -588,12 +588,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         $scope.reportSaving = function(saving){
 
-            alert(saving.title);
 
             if (confirm("Would you like to report this Saving?")){
 
                 saving.reported = true;
                 $scope.updateSaving();
+                alert("Thank you. Saving has been reported.");
 
             }
 

@@ -44,6 +44,9 @@ module.exports = function (app) {
     app.route('/savings/savingCountToday').all()
         .get(savings.countSavingsToday);
 
+    app.route('/savings/numOfReportedPosts').all()
+        .get(savings.numOfReportedPosts);
+
     //app.route('/savings/usersSavingsPostedTotal').all()
     //    .get(savings.usersSavingsPostedTotal);
 

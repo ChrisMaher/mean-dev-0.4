@@ -14,6 +14,11 @@ angular.module('savings').factory('Savings', ['$resource',
         url: '/savings/savingCount',
         isArray: false
       },
+      numOfReportedPosts: {
+        method: 'GET',
+        url: '/savings/numOfReportedPosts',
+        isArray: false
+      },
       countSavingsToday: {
         method: 'GET',
         url: '/savings/savingCountToday',

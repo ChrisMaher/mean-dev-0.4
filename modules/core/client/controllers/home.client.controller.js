@@ -26,6 +26,8 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.numOfSavings = Savings.countSavings();
         $scope.numOfSavingsToday = Savings.countSavingsToday();
 
+        $scope.numOfReportedPosts = Savings.numOfReportedPosts();
+
         $scope.numOfUsers = Users.countUsers();
         $scope.numOfUsersToday = Users.countUsersToday();
 
@@ -34,6 +36,8 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
 
         $scope.numOfCoupons = Coupons.countCoupons();
         $scope.numOfCouponsToday = Coupons.countCouponsToday();
+
+
 
         $scope.selectedLogo = 'All';
         $scope.activeClass = 2;
