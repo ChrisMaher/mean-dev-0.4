@@ -749,6 +749,8 @@ body {
 
 }
 
+
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
@@ -759,9 +761,21 @@ body {
 
 }
 
-.nav-tabs > li > a:focus {
+.active{
+
+    font-weight: bolder !important;
+}
+
+#hottest-tabs > li > a{
+
+    background-color: white;
+
+}
+
+.nav-tabs > li > a {
 
     background-color: #888885;
+    color: #000000;
 
 }
 
@@ -769,6 +783,41 @@ body {
 
     /*background-color: transparent;*/
     width: 100%;
+}
+
+#below-navbar > ul.nav.nav-tabs.submit-tab > li.ng-scope > a{
+
+    color: #ffffff;
+    background-color: rgb(161, 28, 0);
+
+}
+
+#below-navbar > ul.nav.nav-tabs.submit-tab > li:nth-child(2) > a{
+
+    color: #ffffff;
+    background-color: rgb(161, 28, 0);
+
+}
+
+#below-navbar > ul.nav.nav-tabs.submit-tab-view.ng-scope > li.dropdown.brand-dropdown > a{
+
+    color: #ffffff;
+    background-color: rgb(161, 28, 0);
+
+}
+
+#below-navbar > ul.nav.nav-tabs.submit-tab-view.ng-scope > li:nth-child(2) > a{
+
+    color: #ffffff;
+    background-color: rgb(161, 28, 0);
+
+}
+
+#below-navbar > ul.nav.nav-tabs.submit-tab-view > li > a{
+
+    color: #ffffff;
+    background-color: rgb(161, 28, 0);
+
 }
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {

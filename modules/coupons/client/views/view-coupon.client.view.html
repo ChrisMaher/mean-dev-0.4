@@ -11,16 +11,35 @@
 
       <ul class="nav nav-tabs submit-tab-view">
 
-        <li ng-show="authentication.user._id == coupon.user._id" role="presentation"><a href="#"
-                                                                                        ng-click="removeCoupon();">Delete</a>
+        <li class="dropdown  brand-dropdown " dropdown>
+          <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>
+            <!--class="glyphicon glyphicon-search"--> </i>Options <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+
+            <li ng-show="authentication.user._id == coupon.user._id" role="presentation"><a href="#"
+                                                                                            ng-click="removeCoupon();">Delete</a>
+            </li>
+            <li ng-show="authentication.user._id == coupon.user._id" role="presentation"><a href="#"
+                                                                                            ui-sref="coupons.edit({couponId: coupon._id})">Edit</a>
+
+
+          </ul>
         </li>
-        <li ng-show="authentication.user._id == coupon.user._id" role="presentation"><a href="#"
-                                                                                        ui-sref="coupons.edit({couponId: coupon._id})">Edit</a>
+
+
+
+
+        </li>
+
+
         </li>
         <li role="presentation"><a href="/coupons/create" ng-click="setUserImage()"><i
           class="glyphicon glyphicon-plus-sign"></i> Submit </a></li>
 
       </ul>
+
+
     </div>
 
     <div class="row main-body-view">

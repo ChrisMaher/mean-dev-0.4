@@ -38,8 +38,8 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.selectedLogo = 'All';
         $scope.activeClass = 2;
 
-        $scope.hottestsorted = true;
-        $scope.newestsorted = false;
+        $scope.hottestsorted2 = true;
+        $scope.newestsorted2 = false;
 
         $scope.hottestsortedCoupon = true;
         $scope.newestsortedCoupon = false;
@@ -79,12 +79,12 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.toggleClass = function (classNum) {
 
             if(classNum === 1){
-                $scope.hottestsorted = true;
-                $scope.newestsorted = false;
+                $scope.hottestsorted2 = true;
+                $scope.newestsorted2 = false;
                 $scope.orderByField = 'votesreal';
             }else if(classNum === 2){
-                $scope.hottestsorted = false;
-                $scope.newestsorted = true;
+                $scope.hottestsorted2 = false;
+                $scope.newestsorted2 = true;
                 $scope.orderByField = 'created';
             }else if(classNum === 3){
                 $scope.reportedPosts = true;
