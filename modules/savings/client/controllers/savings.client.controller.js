@@ -1,6 +1,6 @@
 'use strict';
 
-// Deals controller
+// Savings controller
 angular.module('savings').controller('SavingsController', ['$scope', '$http', '$timeout', '$stateParams', '$location', '$window', '$state', 'Authentication', 'Savings', 'FileUploader', 'Posts', 'Users',
     function ($scope, $http, $timeout, $stateParams, $location, $window, $state, Authentication, Savings, FileUploader, Posts, Users) {
 

@@ -30,7 +30,7 @@
                 <label for="title">Title</label>
                 <input name="title" type="text" ng-model="title" id="title" class="form-control"
                        required>
-                <div class="sub-label">Enter a Title for the Deal.</div>
+                <div class="sub-label">Enter a Title for the Saving.</div>
                 <div ng-messages="savingForm.savingsCTRL.title.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Saving title is required.</p>
                 </div>
@@ -45,7 +45,7 @@
                 <label for="link">Link</label>
                 <input name="link" type="url" ng-model="link" id="link" class="form-control"
                        required>
-                <div class="sub-label">Enter a Link to the Deal.</div>
+                <div class="sub-label">Enter a Link to the Saving.</div>
                 <div ng-messages="savingForm.savingsCTRL.link.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Saving link is required.</p>
                 </div>
@@ -81,7 +81,7 @@
                    ng-class="{ 'has-error' : createSavingForm.retailer.$invalid && submitted}" show-errors>
                 <label for="retailer">Retailer</label>
                 <input name="retailer" type="text" ng-autocomplete="result3" details="details3" ng-model="retailer" id="retailer" class="form-control" required>
-                <div class="sub-label">Enter the Retailer of the Deal.</div>
+                <div class="sub-label">Enter the Retailer of the Saving.</div>
                 <div ng-messages="savingForm.savingsCTRL.retailer.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Retailer is required.</p>
                 </div>
@@ -214,7 +214,7 @@
                   <option>Kids</option>
                   <option>Travel</option>
                 </select>
-                <div class="sub-label">Select Category of Deal</div>
+                <div class="sub-label">Select Category of Saving</div>
                 <div ng-messages="savingForm.category.$error" role="alert">
                   <p class="help-block error-text" ng-message="required">Category is required.</p>
                 </div>

@@ -19,7 +19,7 @@ var SavingSchema = new Schema({
   },
   link: {
     type: String,
-    required: 'We need a Link to the deal.',
+    required: 'We need a Link to the Saving.',
     trim: true
   },
   details: {
@@ -29,7 +29,7 @@ var SavingSchema = new Schema({
   },
   retailer: {
     type: String,
-    required: 'We need a Retailer for the Deal.',
+    required: 'We need a Retailer for the Saving.',
     maxlength: 25,
     trim: true
   },
@@ -39,14 +39,14 @@ var SavingSchema = new Schema({
   },
   price: {
     type: Number,
-    required: 'We need a Price for the Deal.',
+    required: 'We need a Price for the Saving.',
     trim: true,
     min: 0,
     max: 1000000
   },
   currency: {
     type: String,
-    required: 'We need a Currency for the Deal.',
+    required: 'We need a Currency for the Saving.',
     trim: true
   },
   urlimage: {
@@ -61,7 +61,7 @@ var SavingSchema = new Schema({
   category: {
     type: String,
     default: 'All',
-    required: 'We need a category for the Deal.',
+    required: 'We need a category for the Saving.',
     trim: true
   },
   startdate: {
