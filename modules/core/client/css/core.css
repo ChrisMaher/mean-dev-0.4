@@ -4,8 +4,9 @@
 }
 
 html {
-    height: 100%;
-    background: #eeeeee;
+    /*height: 100%;*/
+    background-image: url(bg.jpg);
+    background-repeat: repeat !important;
 
 }
 
@@ -125,12 +126,9 @@ a:hover .small-profile-image-thumbnail {
 }
 
 body {
-    background-color: #eeeeee;
-    height: 100%;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background: #eeeeee;
+    /*height: 100%;*/
+    background-image: url(bg.jpg);
+    background-repeat: repeat !important;
 
 }
 
@@ -730,6 +728,10 @@ body {
     font-size: 14px;
     margin-right: 5px;
     border: none;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom-color: transparent;
 
 }
 
@@ -1425,10 +1427,6 @@ a:hover, a:focus{
     margin-right: 10px;
 }
 
-.slick-slider {
-    height: 200px;
-    margin: 0px;
-}
 
 .spotlight-text {
 
@@ -1484,7 +1482,7 @@ a:hover, a:focus{
 
 .body-content {
 
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
 
 }
 
@@ -3107,7 +3105,7 @@ a:hover, a:focus{
     /*border: #000000 1px solid;*/
     padding-left: 15px;
     padding-top: 4px;
-    background-color: #EEEEEE;
+    /*background-color: #EEEEEE;*/
     width: 1140px;
     margin: 0px auto;
 
@@ -3227,7 +3225,11 @@ a:hover, a:focus{
 #hottest-tabs > li.dropdown.brand-dropdown > a{
 
     background-color: #FFFFFF !important;
-    color: #000000
+    color: #000000;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom-color: transparent;
 
 }
 
