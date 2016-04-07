@@ -34,7 +34,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
         }
         else if(isMobile.iOS())
         {
-            document.location.href = "http://www.saveme.ie/apple";
+            document.location.href = "https://itunes.apple.com/us/app/saveme.ie/id1100709881?ls=1&mt=8";
         }
         else if(isMobile.BlackBerry())
         {
