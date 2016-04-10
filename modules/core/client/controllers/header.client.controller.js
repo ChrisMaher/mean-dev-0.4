@@ -26,8 +26,6 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
 
         };
 
-        $scope.isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-
 
         if ( isMobile.Android() ) {
             document.location.href = "https://play.google.com/store/apps/details?id=com.saveme.chris";
@@ -38,7 +36,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
         }
         else if(isMobile.BlackBerry())
         {
-            document.location.href = "http://www.saveme.ie/android";
+            document.location.href = "https://play.google.com/store/apps/details?id=com.saveme.chris";
         }else if(isMobile.Windows())
         {
             document.location.href = "https://www.microsoft.com/store/apps/9NBLGGH4RFMC";
