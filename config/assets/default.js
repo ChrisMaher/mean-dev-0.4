@@ -4,11 +4,10 @@ module.exports = {
     client: {
         lib: {
             css: [
-                'public/lib/bootstrap/dist/css/bootstrap.css',
-                'public/lib/bootstrap/dist/css/bootstrap-theme.css',
-                'public/lib/angular-material/angular-material.css',
-                'https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
-                // 'public/lib/allmighty-autocomplete/style/autocomplete.css'
+                'public/lib/bootstrap/dist/css/bootstrap.min.css',
+                'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+                'public/lib/angular-material/angular-material.min.css',
+                'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
             ],
             js: [
                 'public/lib/angular/angular.min.js',
