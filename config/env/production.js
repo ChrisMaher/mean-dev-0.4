@@ -1,12 +1,8 @@
 'use strict';
 
+var defaultEnvConfig = require('./default');
+
 module.exports = {
-  secure: {
-    ssl: true,
-    privateKey: './config/sslcerts/key.pem',
-    certificate: './config/sslcerts/cert.pem'
-  },
-  port: process.env.PORT || 8443,
   db: {
     uri: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://ds031339.mongolab.com:31339/deals',
     options: {
@@ -18,26 +14,29 @@ module.exports = {
   },
   log: {
     // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
-    format: 'combined',
+    format: 'dev',
     // Stream defaults to process.stdout
     // Uncomment to enable logging to a log on the file system
     options: {
-      stream: 'access.log'
+      //stream: 'access.log'
     }
   },
+  app: {
+    title: defaultEnvConfig.app.title + ' - The Irish Savings Site.'
+  },
   facebook: {
-    clientID: process.env.FACEBOOK_ID || 'APP_ID',
-    clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+    clientID: process.env.FACEBOOK_ID || '1685832878317344',
+    clientSecret: process.env.FACEBOOK_SECRET || 'bbaa360a1160fc66bb8314e3b91bedf9',
     callbackURL: '/api/auth/facebook/callback'
   },
   twitter: {
     clientID: process.env.TWITTER_KEY || 'CONSUMER_KEY',
-    clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET',
+    clientSecret: process.env.TWITTER_SECRET || 'CONSUMER_SECRET' ,
     callbackURL: '/api/auth/twitter/callback'
   },
   google: {
-    clientID: process.env.GOOGLE_ID || 'APP_ID',
-    clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+    clientID: process.env.GOOGLE_ID || '291598201748-l0gl3nnqv0meloe3rko0lhbf81a7410m.apps.googleusercontent.com',
+    clientSecret: process.env.GOOGLE_SECRET || 'nyPwNoqPHQnZmXRGyix5wBAd',
     callbackURL: '/api/auth/google/callback'
   },
   linkedin: {
@@ -54,17 +53,18 @@ module.exports = {
     clientID: process.env.PAYPAL_ID || 'CLIENT_ID',
     clientSecret: process.env.PAYPAL_SECRET || 'CLIENT_SECRET',
     callbackURL: '/api/auth/paypal/callback',
-    sandbox: false
+    sandbox: true
   },
   mailer: {
-    from: process.env.MAILER_FROM || 'MAILER_FROM',
+    from: process.env.MAILER_FROM || '',
     options: {
-      service: process.env.MAILER_SERVICE_PROVIDER || 'MAILER_SERVICE_PROVIDER',
+      service: process.env.MAILER_SERVICE_PROVIDER || '',
       auth: {
-        user: process.env.MAILER_EMAIL_ID || 'MAILER_EMAIL_ID',
-        pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
+        user: process.env.MAILER_EMAIL_ID || '',
+        pass: process.env.MAILER_PASSWORD || ''
       }
     }
   },
+  livereload: true,
   seedDB: process.env.MONGO_SEED || false
 };
