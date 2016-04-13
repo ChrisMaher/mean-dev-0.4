@@ -4,7 +4,7 @@ module.exports = {
   app: {
     title: 'SaveMe.ie',
     description: 'The Irish Savings Site.',
-    keywords: 'ireland, money, codes, coupons, deals, irish',
+    keywords: 'ireland, money, codes, coupons, deals, irish, savings',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'UA-73380688-1'
   },
   port: process.env.PORT || 3000,
@@ -12,7 +12,7 @@ module.exports = {
   // Session Cookie settings
   sessionCookie: {
     // session expiration is set by default to 24 hours
-    maxAge: 24 * (60 * 60 * 1000),
+    maxAge: 10024 * (60 * 60 * 1000),
     // httpOnly flag makes sure the cookie is only accessed
     // through the HTTP protocol and not JS/browser 
     httpOnly: true,
