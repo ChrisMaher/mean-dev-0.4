@@ -40,18 +40,8 @@ module.exports = {
 
             ]
         },
-        css: [
-            'modules/*/client/css/*.css'
-
-        ],
-        js: [
-            'modules/core/client/app/config.js',
-            'modules/core/client/app/init.js',
-            'modules/*/client/*.js',
-            'modules/*/client/**/*.js'
-        ],
-        views: ['modules/*/client/views/**/*.html'],
-        templates: ['build/templates.js']
+        css: 'public/dist/application.min.css',
+        js: 'public/dist/application.min.js'
     }
 };
 
