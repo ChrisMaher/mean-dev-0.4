@@ -1,11 +1,13 @@
 .body a {
 
     transition: color 0.3s ease-in-out;
+    background-image: url(http://i.imgur.com/SWiLcyr.jpg) !important;
+    background-repeat: repeat !important;
 }
 
 html {
     /*height: 100%;*/
-    background-image: url(http://i.imgur.com/SWiLcyr.jpg);
+    background-image: url(http://i.imgur.com/SWiLcyr.jpg) !important;
     background-repeat: repeat !important;
 
 }
