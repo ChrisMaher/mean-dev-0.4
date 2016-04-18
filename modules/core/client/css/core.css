@@ -1,8 +1,7 @@
 .body a {
 
     transition: color 0.3s ease-in-out;
-    background-image: url(http://i.imgur.com/SWiLcyr.jpg) !important;
-    background-repeat: repeat !important;
+
 }
 
 html {
@@ -129,7 +128,7 @@ a:hover .small-profile-image-thumbnail {
 
 body {
     /*height: 100%;*/
-    background-image: url(bg.jpg);
+    background-image: url(http://i.imgur.com/SWiLcyr.jpg) !important;
     background-repeat: repeat !important;
 
 }
