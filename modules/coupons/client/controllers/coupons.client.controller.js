@@ -63,6 +63,12 @@ angular.module('coupons').controller('CouponsController', ['$scope', '$timeout',
 
         };
 
+        $scope.disabledAlert = function () {
+
+            alert("Submitting disabled for non-admin until 31st May.");
+
+        };
+
         $scope.setSort = function (sort) {
 
             $scope.orderByField = sort;

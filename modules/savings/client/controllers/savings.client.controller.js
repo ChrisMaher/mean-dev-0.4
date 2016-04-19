@@ -87,6 +87,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         };
 
+        $scope.disabledAlert = function () {
+
+            alert("Submitting disabled for non-admin until 31st May.");
+
+        };
+
         $scope.timeFrame = function (classNum) {
 
             if (classNum === 1) {
