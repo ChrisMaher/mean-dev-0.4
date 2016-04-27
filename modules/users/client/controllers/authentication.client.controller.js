@@ -24,13 +24,13 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
 
-        $state.go('settings.picture');
+        $state.go('home');
 
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
 
-        
+
       }).error(function (response) {
         $scope.error = response.message;
       });
