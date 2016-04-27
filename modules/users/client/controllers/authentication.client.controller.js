@@ -26,15 +26,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         $scope.authentication.user = response;
 
-        // And redirect to the previous or home page
+        // And redirect to the previous or home pag
 
-        window.location = '/settings/picture';
+        $state.go('settings.picture');
 
-
-
-
-
-
+        
       }).error(function (response) {
         $scope.error = response.message;
       });
