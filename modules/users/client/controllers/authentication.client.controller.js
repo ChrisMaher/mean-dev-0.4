@@ -23,12 +23,15 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
+
         $scope.authentication.user = response;
         $scope.authentication.user.passwordChanged = 'true';
 
         // And redirect to the previous or home page
 
-        $state.go('home', $state.previous.params);
+        // $state.go('home', $state.previous.params);
+        // $location('http://www.saveme.ie');
+        window.location = "http://www.saveme.ie";
 
 
       }).error(function (response) {
