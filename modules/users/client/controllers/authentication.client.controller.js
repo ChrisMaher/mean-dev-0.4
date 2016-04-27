@@ -29,9 +29,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
 
-        // $state.go('home', $state.previous.params);
-        // $location('http://www.saveme.ie');
-        window.location = "http://www.saveme.ie";
+        // $state.go($state.previous.state.name || 'home');
+        // // $location('http://www.saveme.ie');
+        // window.location = "http://www.saveme.ie";
+
+        document.location.href = "http://www.saveme.ie";
 
 
       }).error(function (response) {
