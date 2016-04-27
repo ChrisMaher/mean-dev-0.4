@@ -33,7 +33,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // // $location('http://www.saveme.ie');
         // window.location = "http://www.saveme.ie";
 
-        document.location.href = "http://www.saveme.ie";
+        // document.location.href = "http://www.saveme.ie";
+
+        $state.go('home');
 
 
       }).error(function (response) {
