@@ -28,9 +28,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
 
-         $scope.changeLocation('/', true);
-
-
+        window.location = '/settings/picture';
 
 
 
