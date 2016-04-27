@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication',
-  function ($scope, $state, $http, $location, $window, Authentication) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', '$timeout', 'Authentication',
+  function ($scope, $state, $http, $location, $window, $timeout, Authentication) {
     $scope.authentication = Authentication;
 
     // Get an eventual error defined in the URL query string:
@@ -24,23 +24,44 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
 
-        $scope.authentication.user = response;
         $scope.authentication.user.passwordChanged = 'true';
+        $scope.authentication.user = response;
 
         // And redirect to the previous or home page
 
-        // $state.go($state.previous.state.name || 'home');
-        // // $location('http://www.saveme.ie');
-        // window.location = "http://www.saveme.ie";
+        $scope.authentication.user.passwordChanged = 'true';
 
-        // document.location.href = "http://www.saveme.ie";
+        $timeout(function () {
 
-        $state.go('home');
+          $scope.changeLocation('/', true);
+
+        }, 2000);
+
+
+
+
+
 
 
       }).error(function (response) {
         $scope.error = response.message;
       });
+    };
+
+    //be sure to inject $scope and $location
+    $scope.changeLocation = function (url, forceReload) {
+      $scope = $scope || angular.element(document).scope();
+      if (forceReload || $scope.$$phase) {
+        window.location = url;
+      }
+      else {
+        //only use this if you want to replace the history stack
+        //$location.path(url).replace();
+
+        //this this if you want to change the URL and add it to the history stack
+        $location.path(url);
+        $scope.$apply();
+      }
     };
 
     $scope.signin = function (isValid) {
