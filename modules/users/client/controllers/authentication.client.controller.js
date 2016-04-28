@@ -28,10 +28,8 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
 
-        // $state.go('home');
-        $location.path('/');
-        $scope.$apply();
-        // $scope.changeLocation('/settings/picture');
+        document.location.href = "/";
+
 
       }).error(function (response) {
         $scope.error = response.message;
