@@ -15,6 +15,12 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
         $scope.numOfCommentsSaving = Posts.countCustomersSaving();
         $scope.numOfCommentsCoupon = Posts.countCustomersCoupon();
 
+        $scope.disabledAlert = function () {
+
+            alert("Comments disabled for non-admin until 31st May.");
+
+        };
+
 
             // Create new Comment
         $scope.create = function () {
