@@ -27,7 +27,9 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $window.location.href = '/settings/picture';
+        $location.path('/settings/picture');
+        // $window.location.href = '/settings/picture';
+
 
 
       }).error(function (response) {
