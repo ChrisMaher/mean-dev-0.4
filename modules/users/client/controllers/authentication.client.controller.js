@@ -28,11 +28,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
 
-        document.location.href = "http://www.saveme.ie/settings/picture";
+        $state.go('settings.picture');
 
 
       }).error(function (response) {
-        $scope.error = response.message; 
+        $scope.error = response.message;
       });
     };
 
