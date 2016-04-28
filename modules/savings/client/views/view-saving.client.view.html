@@ -495,10 +495,20 @@
                   </div>
 
 
-                  <div class="col-lg-7" ng-show="authentication.user">
+                  <div class="col-lg-7" ng-show="authentication.user" ng-if="authentication.user.roles[1] =='admin'">
+                  <div class="form-group">
+                    <button class="btn btn-default" type="submit" value="Submit Comment"
+                            ng-click="create(); reload()">
+                      Submit Comment
+                    </button>
+                  </div>
+
+                </div>
+
+                  <div class="col-lg-7" ng-show="authentication.user" ng-if="authentication.user.roles[1] !='admin'">
                     <div class="form-group">
-                      <button class="btn btn-default" type="submit" value="Submit Comment"
-                              ng-click="create(); reload()">
+                      <button class="btn btn-default" type="submit" value="Comments Disabled"
+                              ng-click="disabledAlert();">
                         Submit Comment
                       </button>
                     </div>
