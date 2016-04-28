@@ -28,7 +28,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
 
-        document.location.href = "/";
+        document.location.href = "http://www.saveme.ie";
 
 
       }).error(function (response) {
