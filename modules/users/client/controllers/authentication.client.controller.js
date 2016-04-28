@@ -30,7 +30,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         $location.path('/settings/picture');
         // $window.location.href = '/settings/picture';
 
-
+        $state.go('home' || 'home', 'home');
 
       }).error(function (response) {
         $scope.error = response.message;
@@ -68,7 +68,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
 
-          $scope.authentication.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
+        $scope.authentication.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
 
         // And redirect to the previous or home page
         $state.go($state.previous.state.name || 'home', $state.previous.params);
