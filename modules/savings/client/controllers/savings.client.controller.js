@@ -406,14 +406,14 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             if(!wasRemoved){
 
-                if(saving.votesreal > 100){
+                if(saving.votesreal > 50){
 
                     saving.votesreal = saving.votesreal - (saving.votesreal / 10);
                     saving.votesTrim.push($scope.yesterdaysDate);
                     // console.log("removed votes");
 
                 }else{
-                    saving.votesreal = 100;
+                    saving.votesreal = 50;
                     saving.votesTrim.push($scope.yesterdaysDate);
                     // console.log("changed to 100");
                 }
@@ -481,14 +481,14 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             if(!wasRemoved){
 
-                if(saving.votesreal > 100){
+                if(saving.votesreal > 50){
 
                     saving.votesreal = saving.votesreal - (saving.votesreal / 10);
                     saving.votesTrim.push($scope.yesterdaysDate);
                     // console.log("removed votes");
 
                 }else{
-                    saving.votesreal = 100;
+                    saving.votesreal = 50;
                     saving.votesTrim.push($scope.yesterdaysDate);
                     // console.log("changed to 100");
                 }
