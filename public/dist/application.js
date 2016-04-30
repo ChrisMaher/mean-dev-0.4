@@ -105,11 +105,6 @@ ApplicationConfiguration.registerModule('core.admin.routes', ['ui.router']);
 'use strict';
 
 // Use Applicaion configuration module to register a new module
-ApplicationConfiguration.registerModule('coupons');
-
-'use strict';
-
-// Use Applicaion configuration module to register a new module
 ApplicationConfiguration.registerModule('posts');
 
 'use strict';
@@ -292,8 +287,8 @@ angular.module('core').controller('HeaderController', ['$scope', '$location', '$
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$state','$scope', '$location', 'Authentication', 'Savings', 'Users', 'Posts', 'Coupons',
-    function ($state, $scope, $location, Authentication, Savings, Users, Posts, Coupons) {
+angular.module('core').controller('HomeController', ['$state','$scope', '$location', 'Authentication', 'Savings', 'Users', 'Posts',
+    function ($state, $scope, $location, Authentication, Savings, Users, Posts) {
 
         
 
@@ -325,11 +320,9 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.numOfPosts = Posts.countPosts();
         $scope.numOfPostsToday = Posts.countPostsToday();
 
-        $scope.numOfCoupons = Coupons.countCoupons();
-        $scope.numOfCouponsToday = Coupons.countCouponsToday();
-
-
-
+        $scope.numOfCoupons = 0;
+        $scope.numOfCouponsToday = 0;
+        
         $scope.selectedLogo = 'All';
         $scope.activeClass = 2;
 
@@ -485,6 +478,13 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
 
     }
 ]);
+
+
+/**
+ * Created by Chris on 10/04/2016.
+ */
+
+'use strict';
 
 
 /**
@@ -847,595 +847,6 @@ angular.module('core').service('Socket', ['Authentication', '$state', '$timeout'
 
 'use strict';
 
-// Configuring the Coupons module
-angular.module('coupons').run(['Menus',
-  function (Menus) {
-    // Add the coupons dropdown item
-    Menus.addMenuItem('topbar', {
-      title: 'Coupons',
-      state: 'coupons',
-      type: 'dropdown',
-      roles: ['*']
-    });
-
-    // Add the dropdown list item
-    Menus.addSubMenuItem('topbar', 'coupons', {
-      title: 'List Coupons',
-      state: 'coupons.list'
-    });
-
-    // Add the dropdown create item
-    Menus.addSubMenuItem('topbar', 'coupons', {
-      title: 'Create Coupons',
-      state: 'coupons.create',
-      roles: ['user']
-    });
-  }
-]);
-
-'use strict';
-
-// Setting up route
-angular.module('coupons').config(['$stateProvider',
-  function ($stateProvider) {
-    // Coupons state routing
-    $stateProvider
-      .state('coupons', {
-        abstract: true,
-        url: '/coupons',
-        template: '<ui-view/>'
-      })
-      .state('coupons.list', {
-        url: '',
-        templateUrl: 'modules/coupons/client/views/list-coupons.client.view.html'
-      })
-      .state('coupons.create', {
-        url: '/create',
-        templateUrl: 'modules/coupons/client/views/create-coupon.client.view.html',
-        data: {
-          roles: ['user', 'admin']
-        }
-      })
-      .state('coupons.view', {
-        url: '/:couponId',
-        templateUrl: 'modules/coupons/client/views/view-coupon.client.view.html'
-      })
-      .state('coupons.edit', {
-        url: '/:couponId/edit',
-        templateUrl: 'modules/coupons/client/views/edit-coupon.client.view.html',
-        data: {
-          roles: ['user', 'admin']
-        }
-      });
-  }
-]);
-
-'use strict';
-
-// Deals controller
-angular.module('coupons').controller('CouponsController', ['$scope', '$timeout', '$state', '$stateParams', '$location', '$window', 'Authentication', 'Coupons', 'FileUploader', 'Posts',
-    function ($scope, $timeout, $state, $stateParams, $location, $window, Authentication, Coupons, FileUploader, Posts) {
-
-        $scope.authentication = Authentication;
-        $scope.user = Authentication.user;
-
-        if ($scope.authentication.user.passwordChanged === 'false') {
-
-            if ($state !== 'settings.password') {
-
-                $state.go('settings.password');
-
-            }
-
-        }
-
-        //$scope.orderByField = 'votesreal';
-        $scope.couponImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
-        // $scope.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
-        $scope.imageURL1 = '';
-
-
-        $scope.hottestsorted = true;
-        $scope.newestsorted = true;
-
-        $scope.hottestsortedCoupon = true;
-        $scope.newestsortedCoupon = false;
-
-        $scope.weekly = true;
-        $scope.monthly = false;
-        $scope.disablelist = true;
-        $scope.currency = "Euro (€)";
-        $scope.brandLogo = '/modules/users/client/img/profile/argos-logo.png';
-        $scope.couponUrl = function(coupon){
-
-            $scope.couponLink =  'http://saveme.ie/coupons/'+ coupon;
-            console.log($scope.couponLink);
-            return $scope.couponLink;
-
-        };
-        Coupons.query({}, function (resp) {
-            $scope.coupons = resp;
-        });
-
-        //$scope.user.imageURL = '';
-        $scope.submitFormCoupon = function (isValid) {
-            $scope.submitted = true;
-        };
-
-
-        $scope.hottest = function () {
-
-
-
-            if ($scope.hottestsorted === false) {
-                $scope.hottestsorted = true;
-            } else {
-                $scope.hottestsorted = false;
-            }
-
-        };
-
-        $scope.setSort = function (sort) {
-
-            $scope.orderByField = sort;
-
-        };
-
-        $scope.timeFrame = function (classNum) {
-
-            if (classNum === 1) {
-                $scope.weekly = true;
-                $scope.monthly = false;
-            } else if (classNum === 2) {
-                $scope.weekly = false;
-                $scope.monthly = true;
-            }
-
-        };
-
-        $scope.toggleTop = function () {
-
-            alert("Top");
-
-            if ($scope.top6 === false) {
-                $scope.top6 = true;
-            } else {
-                $scope.top6 = false;
-            }
-
-        };
-
-        $scope.setUserImage = function () {
-
-            $scope.user.imageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
-
-
-        };
-
-        // Create file uploader instance
-        $scope.uploaderProductCoupon = new FileUploader({
-            url: 'api/coupons/picture'
-        });
-
-        // Set file uploader image filter
-        $scope.uploaderProductCoupon.filters.push({
-            name: 'imageFilter',
-            fn: function (item, options) {
-                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
-                return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
-            }
-        });
-
-        // Change product profile picture
-        $scope.uploadProductPictureCoupon = function () {
-
-            // Clear messages
-            $scope.success = $scope.error = null;
-
-            // Start upload
-            $scope.uploaderProductCoupon.uploadAll();
-
-
-        };
-
-        $scope.toggleClassCoupon = function (classNum) {
-
-
-            if(classNum === 1){
-                $scope.hottestsortedCoupon = true;
-                $scope.newestsortedCoupon = false;
-                $scope.orderByFieldCoupon = 'votes';
-
-            }else if(classNum === 2){
-                $scope.hottestsortedCoupon = false;
-                $scope.newestsortedCoupon = true;
-                $scope.orderByFieldCoupon = 'created';
-
-            }
-
-        };
-
-        $scope.$watch('urlimage', function (newVal, oldVal) {
-
-            if (newVal !== undefined) {
-                $scope.couponImageURL = newVal;
-
-            } else {
-                $scope.couponImageURL = '/modules/users/client/img/profile/saveme-placeholder.png';
-            }
-
-        });
-
-        $scope.$watch('pricesterling', function (newVal, oldVal) {
-
-            if (newVal !== undefined) {
-                $scope.price = (newVal / 70) * 100;
-
-            }
-
-        });
-
-
-        // Called after the user selected a new picture file
-        $scope.uploaderProductCoupon.onAfterAddingFile = function (fileItem) {
-
-            if ($window.FileReader) {
-
-                var fileReader = new FileReader();
-                fileReader.readAsDataURL(fileItem._file);
-                fileReader.onload = function (fileReaderEvent) {
-                    $timeout(function () {
-
-                        $scope.couponImageURL = fileReaderEvent.target.result;
-
-                    }, 0);
-                };
-            }
-
-        };
-
-        // Called after the user has successfully uploaded a new picture
-        $scope.uploaderProductCoupon.onSuccessItem = function (fileItem, response, status, headers) {
-
-            // Show success message
-            $scope.success = true;
-
-            // Populate user object
-            $scope.user = Authentication.user = response;
-
-            //// Clear upload buttons
-            $scope.cancelProductUploadCoupon();
-
-        };
-
-        // Called after the user has failed to uploaded a new picture
-        $scope.uploaderProductCoupon.onErrorItem = function (fileItem, response, status, headers) {
-
-            alert("Failed." + $scope.user.imageURL);
-
-            // Clear upload buttons
-            $scope.cancelProductUploadCoupon();
-
-            // Show error message
-            $scope.error = response.message;
-        };
-
-        // Cancel the upload process
-        $scope.cancelProductUploadCoupon = function () {
-
-            $scope.uploaderProductCoupon.clearQueue();
-            $scope.couponImageURL = $scope.user.imageURL;
-
-        };
-
-        // Create new Coupon
-        $scope.create = function () {
-            $scope.error = null;
-
-            var priceRounded = Math.round(this.discount * 100) / 100;
-            var priceRoundedPercentage = Math.round(this.discountpercent * 100) / 100;
-            var priceRoundedMinimum = Math.round(this.minimumspend * 100) / 100;
-
-
-            // Create new Coupon object
-            var coupon = new Coupons({
-
-                title: this.title,
-                link: this.link,
-                retailer: this.retailer,
-                code: this.code,
-                currency: this.currency,
-                userIdStringCoupon: $scope.authentication.user._id,
-                minimumspend: priceRoundedMinimum,
-                discount: priceRounded,
-                discountpercent: priceRoundedPercentage,
-                category: this.category,
-                instructions: this.instructions,
-                validfrom: this.validfrom,
-                validto: this.validto,
-                upVoters: $scope.user
-
-            });
-
-            // Redirect after save
-            coupon.$save(function (response) {
-
-                $location.path('coupons');
-
-                $scope.title = '';
-                $scope.link = '';
-                $scope.retailer = '';
-                $scope.currency = '';
-                $scope.minimumspend = '';
-                $scope.discount = '';
-                $scope.category = '';
-                $scope.instructions = '';
-                $scope.validfrom = '';
-                $scope.validto = '';
-
-
-            }, function (errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-        };
-
-        // Remove existing Coupon
-        $scope.removeCoupon = function (coupon) {
-
-            var result = confirm("Are you sure you want to delete?");
-            if (result) {
-
-                // Delete the item
-
-                if (coupon) {
-                    coupon.$remove();
-
-                    for (var i in $scope.coupons) {
-                        if ($scope.coupons[i] === coupon) {
-                            $scope.coupons.splice(i, 1);
-                        }
-                    }
-                } else {
-                    $scope.coupon.$remove(function () {
-                        $location.path('coupons');
-                    });
-                }
-            }
-
-        };
-
-        // Update existing Coupon
-        $scope.updateCoupon = function () {
-
-            var coupon = $scope.coupon;
-
-            //alert($scope.coupon.currency);
-
-            if ($scope.coupon.currency === 'Sterling (£)') {
-
-                $scope.coupon.discount = Math.round((($scope.coupon.discount / 70) * 100) * 100) / 100;
-                $scope.coupon.currency = 'Euro (€)';
-
-            }
-
-            $scope.coupon.discount = Math.round($scope.coupon.discount * 100) / 100;
-            $scope.coupon.discountpercent = Math.round($scope.coupon.discountpercent * 100) / 100;
-            $scope.coupon.minimumspend = Math.round($scope.coupon.minimumspend * 100) / 100;
-
-            //alert($scope.coupon);
-
-            coupon.$update(function () {
-                $location.path('coupons/' + coupon._id);
-            }, function (errorResponse) {
-                $scope.error = errorResponse.data.message;
-            });
-
-        };
-
-        // Find a list of Coupons
-        $scope.find = function () {
-            $scope.coupons = Coupons.query();
-        };
-
-        // Find existing Coupon
-        $scope.findOne = function () {
-            $scope.coupon = Coupons.get({
-                couponId: $stateParams.couponId
-            });
-        };
-
-        // Upvote if user hasnt upvoted already
-
-        $scope.upVoteHome = function (coupon) {
-
-
-            var hasVoted = coupon.upVoters.filter(function (voter) {
-
-                    return voter === $scope.user._id;
-
-                }).length > 0;
-
-            // If a downvote exists remove it , else do nothing
-
-            if (!hasVoted) {
-
-                coupon.votes++;
-                coupon.votesreal++;
-                //alert(coupon.votes);
-                coupon.upVoters.push($scope.user);
-
-            }
-
-            // Check if there is a downVote to remove
-
-
-            var hasVoted3 = coupon.downVoters.filter(function (voter) {
-
-                    return voter === $scope.user._id;
-
-                }).length > 0;
-
-            if (hasVoted3) {
-
-                for (var i = coupon.downVoters.length - 1; i >= 0; i--) {
-
-                    if (coupon.downVoters[i] === $scope.user._id) {
-                        coupon.downVoters.splice(i, 1);
-                    }
-                }
-            }
-
-            coupon.$update(function () {
-                //$location.path('coupons/' + coupon._id);
-            }, function (errorResponse) {
-                // rollback votes on fail also
-                $scope.error = errorResponse.data.message;
-            });
-
-        };
-
-        $scope.downVoteHome = function (coupon) {
-
-            var hasVoted = coupon.downVoters.filter(function (voter) {
-
-                    return voter === $scope.user._id;
-
-                }).length > 0;
-
-            // If a upvote exists remove it , else do nothing
-
-            if (!hasVoted) {
-
-                coupon.votes--;
-                coupon.votesreal--;
-                coupon.downVoters.push($scope.user);
-
-
-            }
-
-            // Check if there is a upVote to remove
-
-
-            var hasVoted2 = coupon.upVoters.filter(function (voter) {
-
-                    return voter === $scope.user._id;
-
-                }).length > 0;
-
-            if (hasVoted2) {
-
-                for (var i = coupon.upVoters.length - 1; i >= 0; i--) {
-
-                    if (coupon.upVoters[i] === $scope.user._id) {
-                        coupon.upVoters.splice(i, 1);
-                    }
-                }
-            }
-
-            coupon.$update(function () {
-                //$location.path('coupons/' + coupon._id);
-            }, function (errorResponse) {
-                // rollback votes on fail also
-                $scope.error = errorResponse.data.message;
-            });
-
-        };
-
-        $scope.disableButtonUp = function(coupon) {
-
-            var hasVotedUp = coupon.upVoters.filter(function (voter) {
-
-                    return voter === $scope.user._id;
-
-                }).length > 0;
-
-            if(hasVotedUp){
-                return true;
-
-            }else{
-                return false;
-            }
-
-        };
-
-        $scope.disableButtonDown = function(coupon) {
-
-            var hasVotedUp = coupon.downVoters.filter(function (voter) {
-
-                    return voter === $scope.user._id;
-
-                }).length > 0;
-
-            if(hasVotedUp){
-                return true;
-
-            }else{
-                return false;
-            }
-
-        };
-
-
-    }
-]);
-
-angular.module('coupons').filter('lessThan', function () {
-    return function (items, requirement) {
-        var filterKey = Object.keys(requirement)[0];
-        var filterVal = requirement[filterKey];
-
-        var filtered = [];
-
-        if (filterVal !== undefined && filterVal !== '') {
-            angular.forEach(items, function (item) {
-                var today = new Date();
-                var date = new Date(item.created);
-                var diff = today - date;
-                diff = diff / (1000 * 60 * 60);
-
-                if (diff < filterVal) {
-                    filtered.push(item);
-                }
-            });
-            return filtered;
-        }
-
-        return items;
-    };
-});
-
-'use strict';
-
-//Coupons service used for communicating with the coupons REST endpoints
-angular.module('coupons').factory('Coupons', ['$resource',
-  function ($resource) {
-    return $resource('api/coupons/:couponId', {
-      couponId: '@_id'
-    }, {
-      update: {
-        method: 'PUT'
-      },
-      countCoupons: {
-        method: 'GET',
-        url: '/coupons/couponCount',
-        isArray: false
-      },
-      countCouponsToday: {
-        method: 'GET',
-        url: '/coupons/couponCountToday',
-        isArray: false
-      },
-      usersCouponsPostedTotal: {
-        method: 'GET',
-        url: '/coupons/usersCouponsPostedTotal/:userIdStringCoupon',
-        isArray: true
-      }
-    });
-  }
-]);
-
-'use strict';
-
 // Configuring the Posts module
 angular.module('posts').run(['Menus',
   function (Menus) {
@@ -1514,7 +925,14 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
         $scope.comments = false;
 
         $scope.numOfCommentsSaving = Posts.countCustomersSaving();
-        $scope.numOfCommentsCoupon = Posts.countCustomersCoupon();
+        // $scope.numOfCommentsCoupon = Posts.countCustomersCoupon();
+        $scope.numOfCommentsCoupon = 0;
+
+        $scope.disabledAlert = function () {
+
+            alert("Comments disabled for non-admin until 31st May.");
+
+        };
 
 
             // Create new Comment
@@ -1854,6 +1272,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         };
 
+        $scope.disabledAlert = function () {
+
+            alert("Submitting disabled for non-admin until 31st May.");
+
+        };
+
         $scope.timeFrame = function (classNum) {
 
             if (classNum === 1) {
@@ -2167,14 +1591,14 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             if(!wasRemoved){
 
-                if(saving.votesreal > 100){
+                if(saving.votesreal > 50){
 
                     saving.votesreal = saving.votesreal - (saving.votesreal / 10);
                     saving.votesTrim.push($scope.yesterdaysDate);
                     // console.log("removed votes");
 
                 }else{
-                    saving.votesreal = 100;
+                    saving.votesreal = 50;
                     saving.votesTrim.push($scope.yesterdaysDate);
                     // console.log("changed to 100");
                 }
@@ -2242,14 +1666,14 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
             if(!wasRemoved){
 
-                if(saving.votesreal > 100){
+                if(saving.votesreal > 50){
 
                     saving.votesreal = saving.votesreal - (saving.votesreal / 10);
                     saving.votesTrim.push($scope.yesterdaysDate);
                     // console.log("removed votes");
 
                 }else{
-                    saving.votesreal = 100;
+                    saving.votesreal = 50;
                     saving.votesTrim.push($scope.yesterdaysDate);
                     // console.log("changed to 100");
                 }
@@ -2707,8 +2131,8 @@ angular.module('users.admin').controller('UserController', ['$scope', '$state', 
 
 'use strict';
 
-angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', 'Authentication',
-  function ($scope, $state, $http, $location, $window, Authentication) {
+angular.module('users').controller('AuthenticationController', ['$scope', '$state', '$http', '$location', '$window', '$timeout', 'Authentication',
+  function ($scope, $state, $http, $location, $window, $timeout, Authentication) {
     $scope.authentication = Authentication;
 
     // Get an eventual error defined in the URL query string:
@@ -2730,13 +2154,33 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
       $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
         // If successful we assign the response to the global user model
+
         $scope.authentication.user = response;
 
         // And redirect to the previous or home page
-        $state.go($state.previous.state.name || 'home', $state.previous.params);
+
+        $state.go('settings.picture');
+
+
       }).error(function (response) {
         $scope.error = response.message;
       });
+    };
+
+    //be sure to inject $scope and $location
+    $scope.changeLocation = function (url, forceReload) {
+      $scope = $scope || angular.element(document).scope();
+      if (forceReload || $scope.$$phase) {
+        window.location = url;
+      }
+      else {
+        //only use this if you want to replace the history stack
+        //$location.path(url).replace();
+
+        //this this if you want to change the URL and add it to the history stack
+        $location.path(url);
+        $scope.$apply();
+      }
     };
 
     $scope.signin = function (isValid) {
@@ -2754,7 +2198,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
 
-          $scope.authentication.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
+        $scope.authentication.user.imageURL  = '/modules/users/client/img/profile/saveme-placeholder.png';
 
         // And redirect to the previous or home page
         $state.go($state.previous.state.name || 'home', $state.previous.params);
@@ -2830,8 +2274,8 @@ angular.module('users').controller('PasswordController', ['$scope', '$stateParam
 
 'use strict';
 
-angular.module('users').controller('ViewProfileController', ['$state','$scope', '$http', '$resource', '$location', 'Users', 'Authentication', '$stateParams', 'Savings', 'Coupons', 'Posts',
-    function ($state, $scope, $http, $resource, $location, Users, Authentication, $stateParams, Savings, Coupons, Posts) {
+angular.module('users').controller('ViewProfileController', ['$state','$scope', '$http', '$resource', '$location', 'Users', 'Authentication', '$stateParams', 'Savings', 'Posts',
+    function ($state, $scope, $http, $resource, $location, Users, Authentication, $stateParams) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
@@ -2872,9 +2316,9 @@ angular.module('users').controller('ViewProfileController', ['$state','$scope', 
             $scope.upvotesToUser = data4;
         });
 
-        $http.get('coupons/usersCouponsPostedTotal/' + $stateParams.userId).success(function (data2) {
-            $scope.couponsByUser = data2;
-        });
+        // $http.get('coupons/usersCouponsPostedTotal/' + $stateParams.userId).success(function (data2) {
+        //     $scope.couponsByUser = data2;
+        // });
 
         $http.get('posts/usersCommentsPostedTotal/' + $stateParams.userId).success(function (data3) {
             $scope.commentsByUser = data3;

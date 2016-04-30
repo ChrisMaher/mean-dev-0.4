@@ -174,23 +174,23 @@ exports.custCountSaving = function(req, res) {
 };
 
 
-/**
- * Count of Customers
- */
-exports.custCountCoupon = function(req, res) {
-    Post.count({},
-        function(err, customerCount) {
-            if (err) {
-                return res.status(400).send({
-                    message: errorHandler.getErrorMessage(err)
-                });
-            } else {
-                var data = {};
-                data.count = customerCount;
-                res.json(data);
-            }
-        });
-};
+// /**
+//  * Count of Customers
+//  */
+// exports.custCountCoupon = function(req, res) {
+//     Post.count({},
+//         function(err, customerCount) {
+//             if (err) {
+//                 return res.status(400).send({
+//                     message: errorHandler.getErrorMessage(err)
+//                 });
+//             } else {
+//                 var data = {};
+//                 data.count = customerCount;
+//                 res.json(data);
+//             }
+//         });
+// };
 
 exports.listOf = function(req, res) { Post.find( { user: req.params.userid }).sort('-created').exec(function(err, posts) {
     if (err) {

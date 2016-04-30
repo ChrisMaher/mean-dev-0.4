@@ -22,8 +22,8 @@ module.exports = function (app) {
   app.route('/posts/custCountSaving')
       .get(posts.custCountSaving);
 
-  app.route('/posts/custCountCoupon')
-      .get(posts.custCountCoupon);
+  // app.route('/posts/custCountCoupon')
+  //     .get(posts.custCountCoupon);
 
   app.route('/api/posts/of/:userid').get(posts.listOf);
 

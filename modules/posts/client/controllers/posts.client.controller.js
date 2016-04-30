@@ -13,7 +13,8 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
         $scope.comments = false;
 
         $scope.numOfCommentsSaving = Posts.countCustomersSaving();
-        $scope.numOfCommentsCoupon = Posts.countCustomersCoupon();
+        // $scope.numOfCommentsCoupon = Posts.countCustomersCoupon();
+        $scope.numOfCommentsCoupon = 0;
 
         $scope.disabledAlert = function () {
 

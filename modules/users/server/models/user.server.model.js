@@ -72,7 +72,7 @@ var UserSchema = new Schema({
     county: {
         type: String,
         required: 'Please select a County.',
-        default: ' '
+        default: 'Not Selected'
     },
     aboutme: {
         type: String,

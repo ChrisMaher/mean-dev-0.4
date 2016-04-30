@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('users').controller('ViewProfileController', ['$state','$scope', '$http', '$resource', '$location', 'Users', 'Authentication', '$stateParams', 'Savings', 'Coupons', 'Posts',
-    function ($state, $scope, $http, $resource, $location, Users, Authentication, $stateParams, Savings, Coupons, Posts) {
+angular.module('users').controller('ViewProfileController', ['$state','$scope', '$http', '$resource', '$location', 'Users', 'Authentication', '$stateParams', 'Savings', 'Posts',
+    function ($state, $scope, $http, $resource, $location, Users, Authentication, $stateParams) {
 
         $scope.authentication = Authentication;
         $scope.user = Authentication.user;
@@ -42,9 +42,9 @@ angular.module('users').controller('ViewProfileController', ['$state','$scope', 
             $scope.upvotesToUser = data4;
         });
 
-        $http.get('coupons/usersCouponsPostedTotal/' + $stateParams.userId).success(function (data2) {
-            $scope.couponsByUser = data2;
-        });
+        // $http.get('coupons/usersCouponsPostedTotal/' + $stateParams.userId).success(function (data2) {
+        //     $scope.couponsByUser = data2;
+        // });
 
         $http.get('posts/usersCommentsPostedTotal/' + $stateParams.userId).success(function (data3) {
             $scope.commentsByUser = data3;

@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('core').controller('HomeController', ['$state','$scope', '$location', 'Authentication', 'Savings', 'Users', 'Posts', 'Coupons',
-    function ($state, $scope, $location, Authentication, Savings, Users, Posts, Coupons) {
+angular.module('core').controller('HomeController', ['$state','$scope', '$location', 'Authentication', 'Savings', 'Users', 'Posts',
+    function ($state, $scope, $location, Authentication, Savings, Users, Posts) {
 
         
 
@@ -34,11 +34,9 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.numOfPosts = Posts.countPosts();
         $scope.numOfPostsToday = Posts.countPostsToday();
 
-        $scope.numOfCoupons = Coupons.countCoupons();
-        $scope.numOfCouponsToday = Coupons.countCouponsToday();
-
-
-
+        $scope.numOfCoupons = 0;
+        $scope.numOfCouponsToday = 0;
+        
         $scope.selectedLogo = 'All';
         $scope.activeClass = 2;
 
