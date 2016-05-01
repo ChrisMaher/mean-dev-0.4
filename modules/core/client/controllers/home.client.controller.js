@@ -20,7 +20,7 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
 
         }
 
-        $scope.orderByField = 'votesreal';
+        $scope.orderByField = 'created';
         $scope.orderByFieldCoupon = 'votes';
 
         $scope.numOfSavings = Savings.countSavings();
@@ -40,8 +40,8 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.selectedLogo = 'All';
         $scope.activeClass = 2;
 
-        $scope.hottestsorted2 = true;
-        $scope.newestsorted2 = false;
+        $scope.hottestsorted2 = false;
+        $scope.newestsorted2 = true;
 
         $scope.hottestsortedCoupon = true;
         $scope.newestsortedCoupon = false;

@@ -391,8 +391,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         // Upvote if user hasnt upvoted already
 
-        $scope.upVoteHome = function (saving) {
+        $scope.upVoteHome = function (saving, redirect) {
 
+            if(redirect){
+                $location.path( '/savings/' + saving._id );
+            }
+            
             // check if yesterdays votes have been removed, if not remove 10% of votes
             // Filter out votesTrim for yesterdays date
 

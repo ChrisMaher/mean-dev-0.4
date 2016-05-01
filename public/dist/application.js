@@ -306,7 +306,7 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
 
         }
 
-        $scope.orderByField = 'votesreal';
+        $scope.orderByField = 'created';
         $scope.orderByFieldCoupon = 'votes';
 
         $scope.numOfSavings = Savings.countSavings();
@@ -326,8 +326,8 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.selectedLogo = 'All';
         $scope.activeClass = 2;
 
-        $scope.hottestsorted2 = true;
-        $scope.newestsorted2 = false;
+        $scope.hottestsorted2 = false;
+        $scope.newestsorted2 = true;
 
         $scope.hottestsortedCoupon = true;
         $scope.newestsortedCoupon = false;
@@ -1576,8 +1576,12 @@ angular.module('savings').controller('SavingsController', ['$scope', '$http', '$
 
         // Upvote if user hasnt upvoted already
 
-        $scope.upVoteHome = function (saving) {
+        $scope.upVoteHome = function (saving, redirect) {
 
+            if(redirect){
+                $location.path( '/savings/' + saving._id );
+            }
+            
             // check if yesterdays votes have been removed, if not remove 10% of votes
             // Filter out votesTrim for yesterdays date
 
