@@ -27,32 +27,70 @@
         </li>
 
 
+        <!--<li class="dropdown  brand-dropdown " dropdown>-->
+          <!--<a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>-->
+           <!--</i> {{selectedLogo}} <span class="caret"></span>-->
+          <!--</a>-->
+          <!--<ul class="dropdown-menu">-->
+
+            <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy=''; setFilterText('Retailer') ; setLogo('Retailer')">Retailer</a></li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy=''; setFilterText('All') ; setLogo('All')">All</a></li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Littlewoods'; setFilterText('Littlewoods') ; setLogo('Littlewoods')">LittleWoods</a>-->
+            <!--</li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+                                       <!--ng-click="filterBy='Argos'; setFilterText('Argos') ; setLogo('Argos')">Argos</a>-->
+            <!--</li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+                                       <!--ng-click="filterBy='ScrewFix'; setFilterText('Screwfix')">ScrewFix</a></li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+                                       <!--ng-click="filterBy='Amazon'; setFilterText('Amazon')">Amazon</a></li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+                                       <!--ng-click="filterBy='Penneys'; setFilterText('Penneys')">Penneys</a></li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+                                       <!--ng-click="filterBy='Tesco'; setFilterText('Tesco')">Tesco</a></li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+                                       <!--ng-click="filterBy='Lidl'; setFilterText('Lidl')">Lidl</a>-->
+            <!--</li>-->
+            <!--<li role="presentation"><a href="#" ng-selected="selected"-->
+                                       <!--ng-click="filterBy='Aldi'; setFilterText('Aldi')">Aldi</a>-->
+            <!--</li>-->
+
+          <!--</ul>-->
+        <!--</li>-->
+
         <li class="dropdown  brand-dropdown " dropdown>
           <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button"> <i>
-           </i> {{selectedLogo}} <span class="caret"></span>
+          </i> {{selectedCategory}} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
 
-            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy=''; setFilterText('All') ; setLogo('All')">All</a></li>
-            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Littlewoods'; setFilterText('Littlewoods') ; setLogo('Littlewoods')">LittleWoods</a>
-            </li>
-            <li role="presentation"><a href="#" ng-selected="selected"
-                                       ng-click="filterBy='Argos'; setFilterText('Argos') ; setLogo('Argos')">Argos</a>
-            </li>
-            <li role="presentation"><a href="#" ng-selected="selected"
-                                       ng-click="filterBy='ScrewFix'; setFilterText('Screwfix')">ScrewFix</a></li>
-            <li role="presentation"><a href="#" ng-selected="selected"
-                                       ng-click="filterBy='Amazon'; setFilterText('Amazon')">Amazon</a></li>
-            <li role="presentation"><a href="#" ng-selected="selected"
-                                       ng-click="filterBy='Penneys'; setFilterText('Penneys')">Penneys</a></li>
-            <li role="presentation"><a href="#" ng-selected="selected"
-                                       ng-click="filterBy='Tesco'; setFilterText('Tesco')">Tesco</a></li>
-            <li role="presentation"><a href="#" ng-selected="selected"
-                                       ng-click="filterBy='Lidl'; setFilterText('Lidl')">Lidl</a>
-            </li>
-            <li role="presentation"><a href="#" ng-selected="selected"
-                                       ng-click="filterBy='Aldi'; setFilterText('Aldi')">Aldi</a>
-            </li>
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy=''; setFilterTextCategory('Category') ; setLogo('Category')">All</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Utilities'; setFilterTextCategory('Utilities') ; setLogo('Utilities')">Utilities</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Clothes'; setFilterTextCategory('Clothes & Lifestyle') ; setLogo('Clothes & Lifestyle')">Clothes & Lifestyle</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Baby'; setFilterTextCategory('Baby & Kids') ; setLogo('Baby & Kids')">Baby & Kids</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='House'; setFilterTextCategory('House & DIY') ; setLogo('House & DIY')">House & DIY</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Sports'; setFilterTextCategory('Sports & Hobbies') ; setLogo('Sports & Hobbies')">Sports & Hobbies</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Electronics'; setFilterTextCategory('Electronics & Gaming') ; setLogo('Electronics & Gaming')">Electronics & Gaming</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Music'; setFilterTextCategory('Music & Education') ; setLogo('Music & Education')">Music & Education</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Pets'; setFilterTextCategory('Pets') ; setLogo('Pets')">Pets</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Motoring'; setFilterTextCategory('Motoring') ; setLogo('Motoring')">Motoring</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Holidays'; setFilterTextCategory('Holidays & Tickets') ; setLogo('Holidays & Tickets')">Holidays & Tickets</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Business'; setFilterTextCategory('Business') ; setLogo('Business')">Business</a></li>
+
+            <li role="presentation"><a href="#" ng-selected="selected" ng-click="filterBy='Other'; setFilterTextCategory('Other') ; setLogo('Other')">Other</a></li>
+
+
 
           </ul>
         </li>
@@ -254,7 +292,7 @@
         </div>
         <!--<div ng-show="reportedPosts" dir-paginate="saving in savings|orderBy:orderByField:!reverseSort|filter:{retailer:filterBy}|itemsPerPage:10" class="list-group-item">-->
         <div ng-hide="reportedPosts"
-             dir-paginate="saving in savings| filter:searchValue | orderBy:orderByField:!reverseSort| filter:{retailer:filterBy}|itemsPerPage:10"
+             dir-paginate="saving in savings| filter:searchValue | orderBy:orderByField:!reverseSort| filter:{category:filterBy}|itemsPerPage:10"
              class="list-group-item">
 
 
