@@ -2151,10 +2151,10 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
     // Get an eventual error defined in the URL query string:
     $scope.error = $location.search().err;
 
-    //// If user is signed in then redirect back home
-    //if ($scope.authentication.user) {
+    // // If user is signed in then redirect back home
+    // if ($scope.authentication.user) {
     //  $location.path('/');
-    //}
+    // }
 
     $scope.signup = function (isValid) {
       $scope.error = null;
@@ -2234,6 +2234,22 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
       // Effectively call OAuth authentication route:
       $window.location.href = url;
     };
+  }
+]);
+
+'use strict';
+
+angular.module('users').controller('AuthenticationRedirectController', ['$scope', '$state', '$http', '$location', '$window', '$timeout', 'Authentication',
+  function ($scope, $state, $http, $location, $window, $timeout, Authentication) {
+
+    $scope.userPerson = Authentication;
+
+
+    // If user is signed in then redirect back home
+    if ($scope.userPerson.user) {
+      $location.path('/');
+    }
+
   }
 ]);
 
