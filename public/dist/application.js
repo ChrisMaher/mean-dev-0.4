@@ -324,6 +324,7 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
         $scope.numOfCouponsToday = 0;
         
         $scope.selectedLogo = 'All';
+        $scope.selectedCategory = 'All';
         $scope.activeClass = 2;
 
         $scope.hottestsorted2 = false;
@@ -441,9 +442,17 @@ angular.module('core').controller('HomeController', ['$state','$scope', '$locati
 
         };
 
+        $scope.setFilterTextCategory = function (name) {
+
+            $scope.selectedCategory = name;
+
+        };
+
         $scope.setLogo = function (name) {
 
             if(name === 'All'){
+                $scope.brandLogo = name;
+            }else if(name === 'category'){
                 $scope.brandLogo = name;
             }else if(name === 'Littlewoods'){
                 $scope.brandLogo = '/modules/users/client/img/profile/littlewoods-logo.png';
