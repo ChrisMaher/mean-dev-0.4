@@ -9,7 +9,7 @@ var postsPolicy = require('../policies/posts.server.policy'),
 module.exports = function (app) {
 
   // Posts collection routes
-  app.route('/posts').all(postsPolicy.isAllowed)
+  app.route('/posts').all()
       .get(posts.list)
       .post(posts.create);
 
