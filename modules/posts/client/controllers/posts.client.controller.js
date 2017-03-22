@@ -53,7 +53,8 @@ angular.module('posts').controller('PostsController', ['$scope', '$stateParams',
             var post = new Posts({
 
                 details: this.details,
-                userIdStringComment: $scope.authentication.user._id,
+            //    userIdStringComment: $scope.authentication.user._id,
+                userIdStringComment:"56e35e39106a750e008c33b5",
                 couponId: $scope.coupon._id
 
             });
